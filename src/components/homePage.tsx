@@ -1,4 +1,4 @@
-import { ContactForm, NewsletterForm } from '@/components/forms';
+import { ContactForm, FloatingNewsletter } from '@/components/forms';
 import { LinkedFooter, MainHeader } from '@/components/common';
 import type { SiteContent, Testimonial } from '@/types/site';
 
@@ -188,20 +188,7 @@ export const HomePage = ({ content }: { content: SiteContent }) => (
 			</div>
 		</section>
 		<LinkedFooter contact={content.contact} />
-		<div aria-live="polite" className="nectar-floating-newsletter is-visible" id="floating-newsletter">
-			<div className="nectar-floating-newsletter__inner">
-				<button aria-label="Fermer la newsletter" className="nectar-floating-newsletter__close" type="button">
-					×
-				</button>
-				<span className="nectar-floating-newsletter__eyebrow">NEWSLETTER PRIVÉE</span>
-				<h3 className="nectar-floating-newsletter__title">Recevez nos nouveautés</h3>
-				<p className="nectar-floating-newsletter__text">Biens d’exception, séjours courte durée et opportunités sélectionnées à Tanger, en avant-première.</p>
-				<NewsletterForm />
-				<p className="nectar-floating-newsletter__privacy">
-					<span>Vos informations sont confidentielles et ne seront jamais partagées.</span>
-				</p>
-			</div>
-		</div>
+		<FloatingNewsletter />
 	</>
 );
 

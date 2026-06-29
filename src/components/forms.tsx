@@ -1,6 +1,6 @@
 'use client';
 
-import { type FormEvent, useState } from 'react';
+import { type FormEvent, useState, useSyncExternalStore } from 'react';
 import { postWebsiteForm } from '@/utils/api';
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
@@ -13,6 +13,26 @@ const statusText = {
 };
 
 const formValue = (form: HTMLFormElement, name: string) => String(new FormData(form).get(name) || '');
+
+const newsletterDismissedCookie = 'nectar_newsletter_dismissed';
+const newsletterDismissedMaxAge = 60 * 60 * 24 * 30;
+const newsletterDismissedEvent = 'nectar-newsletter-dismissed';
+
+const hasDismissedNewsletter = () => document.cookie.split('; ').some((cookie) => cookie.startsWith(`${newsletterDismissedCookie}=`));
+
+const rememberNewsletterDismissal = () => {
+	document.cookie = `${newsletterDismissedCookie}=1; Max-Age=${newsletterDismissedMaxAge}; Path=/; SameSite=Lax`;
+	window.dispatchEvent(new Event(newsletterDismissedEvent));
+};
+
+const subscribeToNewsletterDismissal = (onStoreChange: () => void) => {
+	window.addEventListener(newsletterDismissedEvent, onStoreChange);
+	return () => window.removeEventListener(newsletterDismissedEvent, onStoreChange);
+};
+
+const getNewsletterVisibilitySnapshot = () => !hasDismissedNewsletter();
+
+const getServerNewsletterVisibilitySnapshot = () => false;
 
 export const ContactForm = () => {
 	const [status, setStatus] = useState<Status>('idle');
@@ -144,6 +164,31 @@ export const NewsletterForm = () => {
 			</button>
 			{status !== 'idle' ? <p className={status === 'error' ? 'form-status is-error' : 'form-status'}>{statusText[status]}</p> : null}
 		</form>
+	);
+};
+
+export const FloatingNewsletter = () => {
+	const isVisible = useSyncExternalStore(subscribeToNewsletterDismissal, getNewsletterVisibilitySnapshot, getServerNewsletterVisibilitySnapshot);
+
+	if (!isVisible) {
+		return null;
+	}
+
+	return (
+		<div aria-live="polite" className="nectar-floating-newsletter is-visible" id="floating-newsletter">
+			<div className="nectar-floating-newsletter__inner">
+				<button aria-label="Fermer la newsletter" className="nectar-floating-newsletter__close" type="button" onClick={rememberNewsletterDismissal}>
+					×
+				</button>
+				<span className="nectar-floating-newsletter__eyebrow">NEWSLETTER PRIVÉE</span>
+				<h3 className="nectar-floating-newsletter__title">Recevez nos nouveautés</h3>
+				<p className="nectar-floating-newsletter__text">Biens d’exception, séjours courte durée et opportunités sélectionnées à Tanger, en avant-première.</p>
+				<NewsletterForm />
+				<p className="nectar-floating-newsletter__privacy">
+					<span>Vos informations sont confidentielles et ne seront jamais partagées.</span>
+				</p>
+			</div>
+		</div>
 	);
 };
 
