@@ -1,1 +1,34 @@
 /* Page-level design CSS is loaded from the converted Nectar HTML style blocks. */
+
+.nectar-dropdown,
+.drop {
+	isolation: isolate;
+}
+
+.nectar-dropdown::after,
+.drop::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: -14px;
+	right: -14px;
+	height: 22px;
+	z-index: 9999;
+}
+
+.nectar-dropdown-menu,
+.drop-panel {
+	top: calc(100% - 1px) !important;
+	transform: translateX(-50%) !important;
+	transition: opacity 0.18s ease, visibility 0.18s ease !important;
+}
+
+.nectar-dropdown:hover .nectar-dropdown-menu,
+.nectar-dropdown:focus-within .nectar-dropdown-menu,
+.drop:hover .drop-panel,
+.drop:focus-within .drop-panel {
+	opacity: 1 !important;
+	pointer-events: auto !important;
+	transform: translateX(-50%) !important;
+	visibility: visible !important;
+}
