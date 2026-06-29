@@ -1,0 +1,235 @@
+import { ContactForm, NewsletterForm } from '@/components/forms';
+import { LinkedFooter, MainHeader } from '@/components/common';
+import type { SiteContent, Testimonial } from '@/types/site';
+
+export const HomePage = ({ content }: { content: SiteContent }) => (
+	<>
+		<MainHeader />
+		<section className="sunset-hero" id="agence">
+			<div className="sunset-content">
+				<p className="sunset-kicker">Agence immobilière à Tanger</p>
+				<h1>L’immobilier d’exception à Tanger</h1>
+				<div className="sunset-line" />
+				<p className="sunset-subtitle">Acheter, vendre ou louer un bien sélectionné avec élégance, accompagnement et expertise locale à Tanger.</p>
+				<a className="sunset-main-btn" href="#contact">
+					Prendre rendez-vous <span>→</span>
+				</a>
+			</div>
+			<form className="sunset-search">
+				<div className="sunset-field">
+					<label>Type de bien</label>
+					<select>
+						<option>Tous</option>
+						<option>Appartement</option>
+						<option>Villa</option>
+						<option>Magasin</option>
+						<option>Bureaux</option>
+					</select>
+				</div>
+				<div className="sunset-field">
+					<label>Transaction</label>
+					<select>
+						<option>Tous</option>
+						<option>Achat</option>
+						<option>Vente</option>
+						<option>Location</option>
+					</select>
+				</div>
+				<div className="sunset-field">
+					<label>Quartier</label>
+					<select>
+						<option>Tanger</option>
+						<option>Malabata</option>
+						<option>Marina</option>
+						<option>Cap Spartel</option>
+						<option>Centre-ville</option>
+						<option>Iberia</option>
+						<option>Achakar</option>
+					</select>
+				</div>
+				<div className="sunset-field">
+					<label>Budget</label>
+					<input inputMode="numeric" placeholder="Écrire votre budget" type="text" />
+				</div>
+				<a className="sunset-search-btn" href="/vente-appartement.html">
+					<span>⌕</span>Rechercher
+				</a>
+			</form>
+		</section>
+		<section className="intro about-premium" id="apropos">
+			<div className="about-premium__inner">
+				<div className="about-premium__content">
+					<span className="section-kicker">À propos</span>
+					<h2>Une agence locale, une approche plus humaine et plus sélective.</h2>
+					<p>Nectar immobilier accompagne les propriétaires, acquéreurs et locataires avec une méthode claire : estimation réaliste, présentation premium du bien, sélection ciblée des profils et suivi personnalisé jusqu’à la finalisation.</p>
+					<p>Notre différence se voit dans le détail : des annonces soignées, des visites mieux préparées, une communication rapide et une vraie connaissance des quartiers de Tanger. Nous privilégions la qualité des biens et la confiance, plutôt que le volume.</p>
+					<div aria-label="Chiffres clés Nectar immobilier" className="about-stats">
+						<div className="about-stat">
+							<strong>120+</strong>
+							<span>biens vendus ou loués</span>
+						</div>
+						<div className="about-stat">
+							<strong>22 ans</strong>
+							<span>d’expérience terrain</span>
+						</div>
+						<div className="about-stat">
+							<strong>98%</strong>
+							<span>de satisfaction client</span>
+						</div>
+					</div>
+				</div>
+				<div aria-label="Bureau de l'agence Nectar immobilier" className="about-premium__visual">
+					<img alt="Bureau de l'agence Nectar immobilier à Tanger" className="nectar-about-office-image" src="/assets/nectar-bureau.png" />
+				</div>
+			</div>
+		</section>
+		<section className="process-section process-animated process-filtered" id="processus">
+			<div className="nectar-section-inner">
+				<div className="nectar-section-head">
+					<span className="nectar-section-kicker">Notre processus</span>
+					<div className="nectar-section-title">
+						<h2>Un accompagnement clair selon votre projet immobilier.</h2>
+						<p>Sélectionnez votre besoin pour découvrir la procédure dédiée : vente ou location, avec un suivi simple, sécurisé et transparent.</p>
+					</div>
+				</div>
+				<div className="process-panel is-active">
+					<div className="process-panel-head">
+						<span>Vente & location</span>
+						<p>Une méthode pensée pour valoriser le bien, attirer les bons profils et sécuriser chaque étape jusqu’à la signature.</p>
+					</div>
+					<div aria-label="Procédure avec Nectar immobilier" className="process-steps">
+						<ProcessStep number="01" title="Estimation & stratégie" copy="Nous analysons le bien, son emplacement, sa surface et le marché de Tanger pour définir un prix cohérent et une stratégie claire." />
+						<ProcessStep number="02" title="Mise en valeur" copy="Nous préparons une présentation premium : photos, description, points forts, diffusion ciblée et argumentaire adapté." />
+						<ProcessStep number="03" title="Visites qualifiées" copy="Nous sélectionnons les profils sérieux, organisons les visites et répondons aux questions essentielles pour accélérer la décision." />
+						<ProcessStep number="04" title="Négociation & signature" copy="Nous accompagnons l’offre, la négociation, les documents et le suivi jusqu’à la finalisation en toute transparence." />
+					</div>
+				</div>
+			</div>
+		</section>
+		<section className="purple-pearl-section" id="purple-pearl">
+			<div className="purple-pearl-inner">
+				<span className="purple-pearl-kicker">Promotion immobilière</span>
+				<div className="purple-pearl-content">
+					<h2>Purple Pearl</h2>
+					<p>Découvrez notre projet Purple Pearl : une promotion immobilière premium à Tanger, pensée pour l’investissement, la résidence principale et les clients qui recherchent un cadre élégant avec un accompagnement clair.</p>
+					<a className="purple-pearl-btn" href="/purple-pearl.html">
+						Demander les détails <span>→</span>
+					</a>
+				</div>
+			</div>
+		</section>
+		<section className="guide-section" id="guide">
+			<div className="guide-section__inner">
+				<div className="guide-section__head">
+					<span className="guide-section__kicker">Guide touristique</span>
+					<div className="guide-section__title">
+						<h2>À la découverte du patrimoine historique et culturel de Tanger</h2>
+						<p>Cliquez sur le guide pour découvrir les monuments historiques et les musées de Tanger avec photos et descriptions courtes.</p>
+						<a className="guide-cta" href="/guide-tanger.html">
+							Voir le guide complet <span>→</span>
+						</a>
+					</div>
+				</div>
+				<div className="guide-cards">
+					<GuideCard href="/guide-tanger.html#monuments" className="guide-card guide-card--cap" label="01 · Monuments" title="Cap Spartel, Kasbah & Médina" copy="Un parcours essentiel pour découvrir les lieux emblématiques de Tanger : vues, ruelles historiques, fortifications et patrimoine maritime." />
+					<GuideCard href="/guide-tanger.html#musees" className="guide-card guide-card--medina" label="02 · Musées" title="Kasbah, Dar Niaba & Légation américaine" copy="Une sélection de musées pour comprendre l’histoire méditerranéenne, artistique et diplomatique de Tanger." />
+					<GuideCard href="/guide-tanger.html#itineraires" className="guide-card guide-card--cafe" label="03 · Itinéraire" title="Balade culturelle à Tanger" copy="Une idée de parcours simple : médina, Kasbah, musée, Grand Socco puis coucher de soleil à Cap Spartel." />
+				</div>
+			</div>
+		</section>
+		<section className="contact-photo-exact" id="contact">
+			<div className="contact-photo-wrap">
+				<div className="contact-photo-top">
+					<span className="contact-photo-kicker">Contact</span>
+					<div className="contact-photo-title">
+						<h2>Contactez-nous</h2>
+						<p>Vous souhaitez vendre, louer ou trouver un bien à Tanger ? Envoyez-nous votre demande, notre équipe vous répond rapidement avec un accompagnement clair et personnalisé.</p>
+					</div>
+				</div>
+				<div className="contact-photo-body">
+					<ContactForm />
+					<aside className="contact-photo-rdv">
+						<span>Coordonnées directes</span>
+						<h3>Nous contacter</h3>
+						<p>Appelez-nous, écrivez-nous ou prenez rendez-vous directement avec l’agence Nectar immobilier à Tanger.</p>
+						<div className="contact-direct-card">
+							<h4>Nectar immobilier</h4>
+							<div className="contact-direct-item">
+								<span>Adresse</span>
+								<strong>{content.contact.address}</strong>
+							</div>
+							<div className="contact-direct-item">
+								<span>Téléphone</span>
+								<a href={`tel:+${content.contact.whatsapp_number}`}>{content.contact.phone_display}</a>
+							</div>
+							<div className="contact-direct-item">
+								<span>Email</span>
+								<a href={`mailto:${content.contact.email_display.split('/')[0].trim()}`}>{content.contact.email_display}</a>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</section>
+		<section className="testimonials-section" id="temoignages">
+			<div className="nectar-section-inner">
+				<div className="nectar-section-head">
+					<span className="nectar-section-kicker">Recommandations clients</span>
+					<div className="nectar-section-title">
+						<h2>Ils nous ont fait confiance</h2>
+						<p>Ces recommandations concernent les appartements Hilton et l’Apartment in City Center Tangier : séjours courts, couples, familles et groupes.</p>
+					</div>
+				</div>
+				<div className="testimonials-grid hilton-reviews-grid">
+					{[...content.testimonials, ...content.testimonials].map((testimonial, index) => (
+						<TestimonialCard key={`${testimonial.id}-${index}`} testimonial={testimonial} />
+					))}
+				</div>
+			</div>
+		</section>
+		<LinkedFooter contact={content.contact} />
+		<div aria-live="polite" className="nectar-floating-newsletter is-visible" id="floating-newsletter">
+			<div className="nectar-floating-newsletter__inner">
+				<button aria-label="Fermer la newsletter" className="nectar-floating-newsletter__close" type="button">
+					×
+				</button>
+				<span className="nectar-floating-newsletter__eyebrow">NEWSLETTER PRIVÉE</span>
+				<h3 className="nectar-floating-newsletter__title">Recevez nos nouveautés</h3>
+				<p className="nectar-floating-newsletter__text">Biens d’exception, séjours courte durée et opportunités sélectionnées à Tanger, en avant-première.</p>
+				<NewsletterForm />
+				<p className="nectar-floating-newsletter__privacy">
+					<span>Vos informations sont confidentielles et ne seront jamais partagées.</span>
+				</p>
+			</div>
+		</div>
+	</>
+);
+
+const ProcessStep = ({ number, title, copy }: { number: string; title: string; copy: string }) => (
+	<article className="process-step">
+		<span className="process-step__number">{number}</span>
+		<h3>{title}</h3>
+		<p>{copy}</p>
+	</article>
+);
+
+const GuideCard = ({ href, className, label, title, copy }: { href: string; className: string; label: string; title: string; copy: string }) => (
+	<a aria-label={title} className={className} href={href}>
+		<div className="guide-card__content">
+			<span>{label}</span>
+			<h3>{title}</h3>
+			<p>{copy}</p>
+		</div>
+	</a>
+);
+
+const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
+	<article className={`testimonial-card hilton-review-card${testimonial.highlight_city_center ? ' city-center-review-card' : ''}`}>
+		<div className="testimonial-stars">{testimonial.rating}</div>
+		<blockquote>« {testimonial.quote} »</blockquote>
+		<footer>
+			<strong>{testimonial.client_name}</strong>
+			<span>{testimonial.details}</span>
+		</footer>
+	</article>
+);
