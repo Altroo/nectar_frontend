@@ -11,8 +11,8 @@ services:
       - NODE_ENV=production
     extra_hosts:
       - "nectar-api.elbouazzatiholding.ma:host-gateway"
-    ports:
-      - "3008:3008"
+    expose:
+      - "3008"
     networks:
       - webnet
     healthcheck:
