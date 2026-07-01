@@ -74,7 +74,7 @@ export const HomePage = ({ content }: { content: SiteContent }) => (
 							<span>d’expérience terrain</span>
 						</div>
 						<div className="about-stat">
-							<strong>98%</strong>
+							<strong>100%</strong>
 							<span>de satisfaction client</span>
 						</div>
 					</div>
