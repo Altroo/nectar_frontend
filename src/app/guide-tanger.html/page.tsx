@@ -3,6 +3,10 @@ import { StyleBlock } from '@/components/common';
 import { guideStyles } from '@/styles/pageStyles';
 import { fetchSiteContent } from '@/utils/api';
 
+export const metadata = {
+	title: 'Guide de Tanger - Nectar immobilier',
+};
+
 const Page = async () => {
 	const content = await fetchSiteContent();
 	return (

@@ -3,6 +3,10 @@ import { StyleBlock } from '@/components/common';
 import { listingStyles } from '@/styles/pageStyles';
 import { fetchSiteContent } from '@/utils/api';
 
+export const metadata = {
+	title: 'Appartements à vendre à Tanger - Nectar Real Estate',
+};
+
 const Page = async () => {
 	const content = await fetchSiteContent();
 	return (
