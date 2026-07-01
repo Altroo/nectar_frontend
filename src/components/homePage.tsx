@@ -1,5 +1,6 @@
 import { ContactForm, FloatingNewsletter } from '@/components/forms';
 import { LinkedFooter, MainHeader } from '@/components/common';
+import { HomeProcessSection } from '@/components/homeProcess';
 import type { SiteContent, Testimonial } from '@/types/site';
 
 export const HomePage = ({ content }: { content: SiteContent }) => (
@@ -83,29 +84,7 @@ export const HomePage = ({ content }: { content: SiteContent }) => (
 				</div>
 			</div>
 		</section>
-		<section className="process-section process-animated process-filtered" id="processus">
-			<div className="nectar-section-inner">
-				<div className="nectar-section-head">
-					<span className="nectar-section-kicker">Notre processus</span>
-					<div className="nectar-section-title">
-						<h2>Un accompagnement clair selon votre projet immobilier.</h2>
-						<p>Sélectionnez votre besoin pour découvrir la procédure dédiée : vente ou location, avec un suivi simple, sécurisé et transparent.</p>
-					</div>
-				</div>
-				<div className="process-panel is-active">
-					<div className="process-panel-head">
-						<span>Vente & location</span>
-						<p>Une méthode pensée pour valoriser le bien, attirer les bons profils et sécuriser chaque étape jusqu’à la signature.</p>
-					</div>
-					<div aria-label="Procédure avec Nectar immobilier" className="process-steps">
-						<ProcessStep number="01" title="Estimation & stratégie" copy="Nous analysons le bien, son emplacement, sa surface et le marché de Tanger pour définir un prix cohérent et une stratégie claire." />
-						<ProcessStep number="02" title="Mise en valeur" copy="Nous préparons une présentation premium : photos, description, points forts, diffusion ciblée et argumentaire adapté." />
-						<ProcessStep number="03" title="Visites qualifiées" copy="Nous sélectionnons les profils sérieux, organisons les visites et répondons aux questions essentielles pour accélérer la décision." />
-						<ProcessStep number="04" title="Négociation & signature" copy="Nous accompagnons l’offre, la négociation, les documents et le suivi jusqu’à la finalisation en toute transparence." />
-					</div>
-				</div>
-			</div>
-		</section>
+		<HomeProcessSection />
 		<section className="purple-pearl-section" id="purple-pearl">
 			<div className="purple-pearl-inner">
 				<span className="purple-pearl-kicker">Promotion immobilière</span>
@@ -134,6 +113,11 @@ export const HomePage = ({ content }: { content: SiteContent }) => (
 					<GuideCard href="/guide-tanger.html#monuments" className="guide-card guide-card--cap" label="01 · Monuments" title="Cap Spartel, Kasbah & Médina" copy="Un parcours essentiel pour découvrir les lieux emblématiques de Tanger : vues, ruelles historiques, fortifications et patrimoine maritime." />
 					<GuideCard href="/guide-tanger.html#musees" className="guide-card guide-card--medina" label="02 · Musées" title="Kasbah, Dar Niaba & Légation américaine" copy="Une sélection de musées pour comprendre l’histoire méditerranéenne, artistique et diplomatique de Tanger." />
 					<GuideCard href="/guide-tanger.html#itineraires" className="guide-card guide-card--cafe" label="03 · Itinéraire" title="Balade culturelle à Tanger" copy="Une idée de parcours simple : médina, Kasbah, musée, Grand Socco puis coucher de soleil à Cap Spartel." />
+				</div>
+				<div className="guide-recommendations">
+					<GuideRecommendation label="Monuments" title="Patrimoine historique" copy="Kasbah, Médina, Grand Socco, Petit Socco, Cap Spartel, Grottes d’Hercule et anciennes fortifications." />
+					<GuideRecommendation label="Musées" title="Culture & mémoire" copy="Musée de la Kasbah, Dar Niaba, Légation américaine et centre d’interprétation des fortifications." />
+					<GuideRecommendation label="Service Nectar" title="Guide personnalisé" copy="Pour nos clients, nous pouvons recommander des lieux selon le quartier, la durée du séjour et l’expérience recherchée." />
 				</div>
 			</div>
 		</section>
@@ -192,14 +176,6 @@ export const HomePage = ({ content }: { content: SiteContent }) => (
 	</>
 );
 
-const ProcessStep = ({ number, title, copy }: { number: string; title: string; copy: string }) => (
-	<article className="process-step">
-		<span className="process-step__number">{number}</span>
-		<h3>{title}</h3>
-		<p>{copy}</p>
-	</article>
-);
-
 const GuideCard = ({ href, className, label, title, copy }: { href: string; className: string; label: string; title: string; copy: string }) => (
 	<a aria-label={title} className={className} href={href}>
 		<div className="guide-card__content">
@@ -208,6 +184,14 @@ const GuideCard = ({ href, className, label, title, copy }: { href: string; clas
 			<p>{copy}</p>
 		</div>
 	</a>
+);
+
+const GuideRecommendation = ({ label, title, copy }: { label: string; title: string; copy: string }) => (
+	<div className="guide-rec">
+		<span>{label}</span>
+		<h3>{title}</h3>
+		<p>{copy}</p>
+	</div>
 );
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (

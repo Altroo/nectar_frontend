@@ -114,6 +114,33 @@ export const PurplePearlPage = ({ plans }: { plans: PurplePearlPlan[] }) => (
 					</a>
 				</div>
 			</section>
+			<section className="page-section" id="proximite" style={{ paddingTop: 0 }}>
+				<div className="container">
+					<div className="section-header">
+						<div className="section-number">05</div>
+						<h2>À proximité du projet</h2>
+						<p>Une lecture rapide des commodités et accès autour du projet.</p>
+					</div>
+					<div className="info-card near-grid">
+						<NearColumn
+							title="À pied"
+							items={[
+								['Cafés & restaurants', 'Quelques minutes'],
+								['Commerces de proximité', 'Quelques minutes'],
+								['Pharmacie', 'À proximité'],
+							]}
+						/>
+						<NearColumn
+							title="En voiture"
+							items={[
+								['Centre-ville de Tanger', 'Accès rapide'],
+								['Corniche', 'Accès facile'],
+								['Gare TGV / grands axes', 'Selon circulation'],
+							]}
+						/>
+					</div>
+				</div>
+			</section>
 			<section className="page-section" id="plans" style={{ paddingTop: 0 }}>
 				<div className="container">
 					<div className="section-header">
@@ -153,5 +180,17 @@ const Detail = ({ label, value, className = 'detail-item' }: { label: string; va
 	<div className={className}>
 		<strong>{label}</strong>
 		<span>{value}</span>
+	</div>
+);
+
+const NearColumn = ({ title, items }: { title: string; items: [string, string][] }) => (
+	<div className="near-col">
+		<h3>{title}</h3>
+		{items.map(([label, value]) => (
+			<div className="near-row" key={label}>
+				<strong>{label}</strong>
+				<span>{value}</span>
+			</div>
+		))}
 	</div>
 );

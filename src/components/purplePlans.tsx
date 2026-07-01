@@ -18,15 +18,15 @@ export const PurplePlans = ({ plans }: { plans: PurplePearlPlan[] }) => {
 				))}
 			</div>
 			<div className="floor-plan-viewer">
-				{activePlan ? (
-					<figure className="floor-plan-panel active">
-						<img src={activePlan.image} alt={activePlan.alt_text || activePlan.title} loading="lazy" />
+				{ordered.map((plan) => (
+					<figure className={`floor-plan-panel${plan.key === activePlan?.key ? ' active' : ''}`} data-plan-panel={plan.key} key={plan.key}>
+						<img src={plan.image} alt={plan.alt_text || plan.title} loading="lazy" />
 						<figcaption>
-							<strong>{activePlan.title}</strong>
-							<span>{activePlan.description}</span>
+							<strong>{plan.title}</strong>
+							<span>{plan.description}</span>
 						</figcaption>
 					</figure>
-				) : null}
+				))}
 			</div>
 		</>
 	);
