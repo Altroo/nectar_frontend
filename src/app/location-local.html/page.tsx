@@ -4,7 +4,7 @@ import { listingStyles } from '@/styles/pageStyles';
 import { fetchSiteContent } from '@/utils/api';
 
 export const metadata = {
-	title: 'Locaux à louer à Tanger - Nectar Real Estate',
+	title: 'Location de locaux commerciaux - Nectar Real Estate',
 };
 
 const Page = async () => {
@@ -15,9 +15,9 @@ const Page = async () => {
 			<ListingPage
 				transaction="rent"
 				propertyType="commercial"
-				title="Locaux à louer à Tanger"
+				title="Location de locaux commerciaux"
 				kicker="Location · Local"
-				description="Page dédiée aux locaux à louer. Contactez Nectar pour recevoir une sélection adaptée au projet."
+				description="Découvrez les locaux commerciaux disponibles à la location avec surfaces RDC, mezzanine et superficies totales."
 				sectionTitle="Biens disponibles"
 				sectionDescription="Utilisez les filtres pour trouver rapidement le bien qui correspond au quartier, à la surface et au projet du client."
 				properties={content.properties}

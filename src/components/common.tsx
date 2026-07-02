@@ -33,7 +33,6 @@ export const MainHeader = () => (
 				</button>
 				<div className="nectar-dropdown-menu">
 					<a href="/vente-appartement.html">Appartement</a>
-					<a href="/vente-local.html">Local</a>
 				</div>
 			</div>
 			<div className="nectar-dropdown">
@@ -80,7 +79,6 @@ export const SimpleHeader = () => (
 				</button>
 				<div className="drop-panel">
 					<a href="/vente-appartement.html">Appartement</a>
-					<a href="/vente-local.html">Local</a>
 				</div>
 			</div>
 			<div className="drop">
@@ -93,7 +91,7 @@ export const SimpleHeader = () => (
 					<a href="/evenement.html">Événement</a>
 				</div>
 			</div>
-			<a href="/#guide">Guide</a>
+			<a href="/guide-tanger.html">Guide</a>
 			<a href="/#contact">Contact</a>
 			<LanguageSwitcher />
 		</nav>
@@ -156,7 +154,6 @@ export const LinkedFooter = ({ contact }: { contact: SiteContact }) => (
 				<div className="nectar-linked-footer__col">
 					<h4>Vente &amp; location</h4>
 					<a href="/vente-appartement.html">Vente appartements</a>
-					<a href="/vente-local.html">Vente locaux</a>
 					<a href="/location-appartement.html">Location appartements</a>
 					<a href="/location-local.html">Location locaux</a>
 				</div>

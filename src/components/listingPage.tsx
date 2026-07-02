@@ -63,6 +63,8 @@ export const ListingPage = ({
 	const residences = Array.from(new Set(rows.map((property) => property.residence).filter(Boolean)));
 	const roomChoices = Array.from(new Set(rows.map((property) => property.bedrooms).filter((value): value is number => Boolean(value)))).sort((a, b) => a - b);
 	const commercialTypes = Array.from(new Set(rows.map((property) => property.price_note).filter(Boolean)));
+	const usesBudgetFilter = transaction === 'rent' && propertyType === 'apartment';
+	const usesCommercialTypeFilter = propertyType === 'commercial';
 
 	const visibleRows = rows.filter((property) => {
 		const searchable = [property.title, property.tag, property.residence, property.district, property.address, property.description, property.unit_number]
@@ -72,7 +74,7 @@ export const ListingPage = ({
 		const matchesResidence = !residence || property.residence.toLowerCase() === residence.toLowerCase();
 		const matchesRooms = !rooms || String(property.bedrooms ?? property.price_note) === rooms;
 		const matchesSurface = !minSurface || (property.surface_total ?? 0) >= Number(minSurface);
-		const matchesBudget = !maxBudget || !property.price || priceNumber(property.price) <= Number(maxBudget);
+		const matchesBudget = !usesBudgetFilter || !maxBudget || !property.price || priceNumber(property.price) <= Number(maxBudget);
 		return matchesQuery && matchesResidence && matchesRooms && matchesSurface && matchesBudget;
 	});
 
@@ -95,10 +97,10 @@ export const ListingPage = ({
 						<input placeholder={propertyType === 'apartment' ? 'Résidence, adresse...' : 'Type, résidence...'} type="text" value={query} onChange={(event) => setQuery(event.target.value)} />
 					</label>
 					<label>
-						{propertyType === 'commercial' && transaction === 'sale' ? 'Type' : 'Résidence'}
-						<select value={propertyType === 'commercial' && transaction === 'sale' ? rooms : residence} onChange={(event) => (propertyType === 'commercial' && transaction === 'sale' ? setRooms(event.target.value) : setResidence(event.target.value))}>
-							<option value="">{propertyType === 'commercial' && transaction === 'sale' ? 'Tous' : 'Toutes'}</option>
-							{propertyType === 'commercial' && transaction === 'sale'
+						{usesCommercialTypeFilter ? 'Type' : 'Résidence'}
+						<select value={usesCommercialTypeFilter ? rooms : residence} onChange={(event) => (usesCommercialTypeFilter ? setRooms(event.target.value) : setResidence(event.target.value))}>
+							<option value="">{usesCommercialTypeFilter ? 'Tous' : 'Toutes'}</option>
+							{usesCommercialTypeFilter
 								? commercialTypes.map((type) => (
 										<option key={type} value={type}>
 											Type {type}
@@ -112,7 +114,7 @@ export const ListingPage = ({
 						</select>
 					</label>
 					<label>
-						{propertyType === 'apartment' ? 'Chambres' : transaction === 'sale' ? 'Résidence' : 'Surface'}
+						{propertyType === 'apartment' ? 'Chambres' : 'Résidence'}
 						{propertyType === 'apartment' ? (
 							<select value={rooms} onChange={(event) => setRooms(event.target.value)}>
 								<option value="">Toutes</option>
@@ -122,26 +124,22 @@ export const ListingPage = ({
 									</option>
 								))}
 							</select>
-						) : transaction === 'sale' ? (
+						) : (
 							<select value={residence} onChange={(event) => setResidence(event.target.value)}>
 								<option value="">Toutes</option>
 								{residences.map((item) => (
 									<option key={item}>{item}</option>
 								))}
 							</select>
-						) : (
-							<select>
-								<option value="">Toutes</option>
-							</select>
 						)}
 					</label>
 					<label>
-						{transaction === 'rent' && propertyType === 'apartment' ? 'Budget max' : propertyType === 'commercial' && transaction === 'rent' ? 'Budget' : 'Surface minimum'}
+						{usesBudgetFilter ? 'Budget max' : 'Surface minimum'}
 						<input
-							placeholder={transaction === 'rent' ? 'MAD' : 'm²'}
+							placeholder={usesBudgetFilter ? 'MAD' : 'm²'}
 							type="number"
-							value={transaction === 'rent' ? maxBudget : minSurface}
-							onChange={(event) => (transaction === 'rent' ? setMaxBudget(event.target.value) : setMinSurface(event.target.value))}
+							value={usesBudgetFilter ? maxBudget : minSurface}
+							onChange={(event) => (usesBudgetFilter ? setMaxBudget(event.target.value) : setMinSurface(event.target.value))}
 						/>
 					</label>
 					<button type="button">Filtrer</button>
@@ -204,17 +202,12 @@ const PropertyCard = ({ property }: { property: Property }) => {
 							<Meta label="Résidence" value={property.residence} />
 							<Meta label="N° Appt" value={property.unit_number} />
 						</>
-					) : isCommercial && property.transaction === 'sale' ? (
+					) : isCommercial ? (
 						<>
 							<Meta label="Surface globale" value={surfaceLabel(property.surface_total)} />
 							<Meta label="RDC" value={property.project_label.replace(/^RDC /, '')} />
 							<Meta label="Mezzanine" value={property.mezzanine} />
-							<Meta label="Total vendu" value={property.surface_sold} />
-						</>
-					) : isCommercial ? (
-						<>
-							<Meta label="Quartiers" value={property.district} />
-							<Meta label="Projet" value={property.project_label} />
+							<Meta label="Surface totale" value={property.surface_sold} />
 						</>
 					) : (
 						<>

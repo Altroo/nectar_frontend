@@ -172,7 +172,7 @@ const rentApartments: Property[] = [
 	} satisfies Property;
 });
 
-const commercialSales: Property[] = [
+const rentCommercialUnits: Property[] = [
 	['Local A1 · ERASMUS TOWER', 'A', 235, 'RDC 141 m²', '94 m²', '188 m²'],
 	['Local A2 · ERASMUS TOWER', 'A', 239, 'RDC 81 m²', '158 m²', '160 m²'],
 	['Local A3 · ERASMUS TOWER', 'A', 314, 'RDC 148 m²', '166 m²', '231 m²'],
@@ -188,10 +188,10 @@ const commercialSales: Property[] = [
 	['Local B7 · ERASMUS TOWER', 'B', 401, 'RDC 168 m²', '233 m²', '285 m²'],
 ].map(([title, type, surface, rdc, mezzanine, sold], index) => ({
 	id: 200 + index,
-	transaction: 'sale',
+	transaction: 'rent',
 	property_type: 'commercial',
 	title: String(title),
-	tag: 'Malabata · Local commercial',
+	tag: 'Malabata · Local commercial à louer',
 	residence: 'Erasmus Tower',
 	district: 'Malabata',
 	address: 'RTE MALABATA RESD ERASMUS',
@@ -205,36 +205,11 @@ const commercialSales: Property[] = [
 	project_label: String(rdc),
 	price: '',
 	price_note: String(type),
-	cta_label: 'Demander le prix →',
+	cta_label: 'Demander la disponibilité →',
 	image: '',
 	photos: [],
 	sort_order: 200 + index,
 }));
-
-const rentCommercial: Property = {
-	id: 301,
-	transaction: 'rent',
-	property_type: 'commercial',
-	title: 'Locaux à louer à Tanger',
-	tag: 'Location · Local',
-	residence: '',
-	district: 'Malabata, Centre-ville',
-	address: '',
-	description: 'Une page dédiée aux demandes de locaux à louer : boutiques, bureaux, showrooms ou espaces commerciaux.',
-	floor: '',
-	unit_number: '',
-	bedrooms: null,
-	surface_total: null,
-	surface_sold: '',
-	mezzanine: '',
-	project_label: 'Commerce / bureau',
-	price: '',
-	price_note: '',
-	cta_label: 'Faire une demande →',
-	image: '',
-	photos: [],
-	sort_order: 301,
-};
 
 export const fallbackGuidePlaces: GuidePlace[] = [
 	['monuments', 'La Kasbah de Tanger', 'Ancien quartier fortifié en hauteur, connu pour ses ruelles, ses portes anciennes et ses vues sur la médina et le détroit.', '/guide-photos/kasbah-fortifications.png'],
@@ -290,7 +265,7 @@ export const fallbackContent: SiteContent = {
 		whatsapp_number: '212675599256',
 		email_display: 'info@nectar.ma / contact@nectar.ma',
 	},
-	properties: [...saleApartments, ...rentApartments, ...commercialSales, rentCommercial],
+	properties: [...saleApartments, ...rentApartments, ...rentCommercialUnits],
 	guidePlaces: fallbackGuidePlaces,
 	eventIdeas: fallbackEventIdeas,
 	purplePearlPlans: fallbackPurplePearlPlans,
