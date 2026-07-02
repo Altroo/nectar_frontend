@@ -18,6 +18,20 @@ const cityCenterPhotos: PropertyPhoto[] = [
 	sort_order: index + 1,
 }));
 
+const hiltonN05Photos: PropertyPhoto[] = [
+	['Salon', '/assets/hilton-n05/hilton-n05-salon.png', "Salon de l'appartement Hilton N°05"],
+	['Chambre 1', '/assets/hilton-n05/hilton-n05-chambre-1.png', "Chambre 1 de l'appartement Hilton N°05"],
+	['Chambre 2', '/assets/hilton-n05/hilton-n05-chambre-2.png', "Chambre 2 de l'appartement Hilton N°05"],
+	['Cuisine', '/assets/hilton-n05/hilton-n05-cuisine.png', "Cuisine de l'appartement Hilton N°05"],
+	['Toilette', '/assets/hilton-n05/hilton-n05-toilette.png', "Toilette de l'appartement Hilton N°05"],
+].map(([title, image, altText], index) => ({
+	id: 1100 + index,
+	title,
+	alt_text: altText,
+	image,
+	sort_order: index + 1,
+}));
+
 const saleApartments: Property[] = [
 	['HILTON · N°03', 'HILTON', 'Centre-ville', 'ETAGE 10', 'N°03', 1, 53, '53 m²'],
 	['HILTON · N°11', 'HILTON', 'Centre-ville', 'ETAGE 10', 'N°11', 1, 55, '55 m²'],
@@ -67,7 +81,7 @@ const rentApartments: Property[] = [
 	['Appartement City Center Ra1 N°B', 'City Center Ra1', 'Etage 05', 'N°B', 4, '1,500 MAD'],
 ].map(([title, residence, floor, unitNumber, bedrooms, price], index) => {
 	const address = residence === 'Hilton' ? 'Place du Maghreb Arabe, Tanger' : 'City Center Ra1, Tanger';
-	const photos = residence === 'City Center Ra1' ? cityCenterPhotos : [];
+	const photos = title === 'Appartement Hilton N°05' ? hiltonN05Photos : residence === 'City Center Ra1' ? cityCenterPhotos : [];
 	return {
 		id: 100 + index,
 		transaction: 'rent',
