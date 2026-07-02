@@ -82,6 +82,24 @@ const hiltonN13Photos: PropertyPhoto[] = [
 	sort_order: index + 1,
 }));
 
+const mandelsonN47Photos: PropertyPhoto[] = [
+	['Salon', '/assets/mandelson-n47/mandelson-n47-salon-large.jpg', "Salon de l'appartement Mandelson N°47"],
+	['Salle à manger', '/assets/mandelson-n47/mandelson-n47-salle-a-manger-large.jpg', "Salle à manger de l'appartement Mandelson N°47"],
+	['Chambre 1', '/assets/mandelson-n47/mandelson-n47-chambre-1-large.jpg', "Chambre 1 de l'appartement Mandelson N°47"],
+	['Chambre 2', '/assets/mandelson-n47/mandelson-n47-chambre-2-large.jpg', "Chambre 2 de l'appartement Mandelson N°47"],
+	['Balcon chambre 2', '/assets/mandelson-n47/mandelson-n47-balcon-chambre-2-large.jpg', "Balcon de la chambre 2 de l'appartement Mandelson N°47"],
+	['Cuisine', '/assets/mandelson-n47/mandelson-n47-cuisine-large.jpg', "Cuisine de l'appartement Mandelson N°47"],
+	['Balcon cuisine', '/assets/mandelson-n47/mandelson-n47-balcon-cuisine-large.jpg', "Balcon de la cuisine de l'appartement Mandelson N°47"],
+	['Toilette 1', '/assets/mandelson-n47/mandelson-n47-toilette-1-large.jpg', "Toilette 1 de l'appartement Mandelson N°47"],
+	['Toilette 2', '/assets/mandelson-n47/mandelson-n47-toilette-2-large.jpg', "Toilette 2 de l'appartement Mandelson N°47"],
+].map(([title, image, altText], index) => ({
+	id: 1500 + index,
+	title,
+	alt_text: altText,
+	image,
+	sort_order: index + 1,
+}));
+
 const rentalPhotoAlbums: Record<string, PropertyPhoto[]> = {
 	'Appartement Hilton N°05': hiltonN05Photos,
 	'Appartement Hilton N°11': hiltonN11Photos,
@@ -93,6 +111,7 @@ const rentalPhotoAlbums: Record<string, PropertyPhoto[]> = {
 const salePhotoAlbums: Record<string, PropertyPhoto[]> = {
 	'HILTON · N°11': hiltonN11Photos,
 	'HILTON · N°13': hiltonN13Photos,
+	'MANDELSON BLOC A · N°47': mandelsonN47Photos,
 };
 
 const saleApartments: Property[] = [

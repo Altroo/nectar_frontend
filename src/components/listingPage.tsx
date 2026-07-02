@@ -21,7 +21,7 @@ const priceNumber = (price: string) => Number(price.replace(/[^\d]/g, '') || 0);
 
 type GalleryImageVariant = 'large' | 'card' | 'thumb';
 
-const albumAssetPattern = /^\/assets\/(?:city-center|hilton-n05|hilton-n11|hilton-n11-12th|hilton-n13)\//;
+const albumAssetPattern = /^\/assets\/(?:city-center|hilton-n05|hilton-n11|hilton-n11-12th|hilton-n13|mandelson-n47)\//;
 
 const galleryImageVariant = (image: string, variant: GalleryImageVariant) => {
 	if (!albumAssetPattern.test(image)) {
