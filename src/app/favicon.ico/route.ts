@@ -1,7 +1,7 @@
 export const GET = () =>
 	new Response(null, {
-		status: 308,
+		status: 307,
 		headers: {
-			Location: '/assets/nectar-logo-navbar.png',
+			Location: '/favicon.svg?v=nectar',
 		},
 	});

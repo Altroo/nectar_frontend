@@ -5,6 +5,10 @@ import './globals.css';
 export const metadata: Metadata = {
 	title: 'Nectar immobilier',
 	description: 'Agence immobiliere a Tanger specialisee dans la vente, la location et la promotion immobiliere.',
+	icons: {
+		icon: [{ url: '/favicon.svg?v=nectar', type: 'image/svg+xml' }],
+		shortcut: ['/favicon.svg?v=nectar'],
+	},
 };
 
 const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => (
