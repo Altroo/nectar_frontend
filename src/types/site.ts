@@ -29,6 +29,15 @@ export type Property = {
 	price_note: string;
 	cta_label: string;
 	image: string;
+	photos: PropertyPhoto[];
+	sort_order: number;
+};
+
+export type PropertyPhoto = {
+	id: number;
+	title: string;
+	alt_text: string;
+	image: string;
 	sort_order: number;
 };
 

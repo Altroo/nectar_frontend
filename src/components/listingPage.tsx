@@ -150,10 +150,28 @@ export const ListingPage = ({
 const PropertyCard = ({ property }: { property: Property }) => {
 	const isCommercial = property.property_type === 'commercial';
 	const isRentalApartment = property.transaction === 'rent' && property.property_type === 'apartment';
+	const albumPhotos = [...(property.photos ?? [])].filter((photo) => photo.image).sort((a, b) => a.sort_order - b.sort_order);
+	const primaryImage = property.image || albumPhotos[0]?.image || '';
+	const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
+	const activePhoto = activePhotoIndex === null ? null : albumPhotos[activePhotoIndex];
+	const activePhotoCount = albumPhotos.length;
+	const showPhoto = (index: number) => setActivePhotoIndex(index);
+	const showPreviousPhoto = () => {
+		if (!activePhotoCount || activePhotoIndex === null) {
+			return;
+		}
+		setActivePhotoIndex((activePhotoIndex - 1 + activePhotoCount) % activePhotoCount);
+	};
+	const showNextPhoto = () => {
+		if (!activePhotoCount || activePhotoIndex === null) {
+			return;
+		}
+		setActivePhotoIndex((activePhotoIndex + 1) % activePhotoCount);
+	};
 
 	return (
 		<article className={`card${isCommercial ? ' local' : ''}`}>
-			<div className="card-img" style={property.image ? { backgroundImage: `linear-gradient(135deg,rgba(73,52,37,.24),rgba(73,52,37,.04)),url('${property.image}')` } : undefined} />
+			<div className="card-img" style={primaryImage ? { backgroundImage: `linear-gradient(135deg,rgba(73,52,37,.24),rgba(73,52,37,.04)),url('${primaryImage}')` } : undefined} />
 			<div className="card-body">
 				<span className="tag">{property.tag}</span>
 				<h3>{property.title}</h3>
@@ -189,10 +207,54 @@ const PropertyCard = ({ property }: { property: Property }) => {
 						</>
 					)}
 				</div>
+				{activePhotoCount ? (
+					<div className="property-album" aria-label={`Album photo ${property.title}`}>
+						<button className="property-album__open" type="button" onClick={() => showPhoto(0)} aria-label={`Ouvrir l'album photo de ${property.title}`}>
+							Album photo{' '}
+							<span>
+								{activePhotoCount} photo{activePhotoCount > 1 ? 's' : ''}
+							</span>
+						</button>
+						<div className="property-album__thumbs">
+							{albumPhotos.slice(0, 4).map((photo, index) => (
+								<button className="property-album__thumb" type="button" key={photo.id} onClick={() => showPhoto(index)} aria-label={`Voir ${photo.title}`}>
+									<img src={photo.image} alt={photo.alt_text || photo.title} loading="lazy" />
+								</button>
+							))}
+						</div>
+					</div>
+				) : null}
 				<a className="cta" href="/#contact">
 					{property.cta_label || 'Faire une demande →'}
 				</a>
 			</div>
+			{activePhoto ? (
+				<div className="property-album-modal" role="dialog" aria-modal="true" aria-label={`Album photo ${property.title}`}>
+					<button className="property-album-modal__backdrop" type="button" aria-label="Fermer l'album" onClick={() => setActivePhotoIndex(null)} />
+					<div className="property-album-modal__window">
+						<button className="property-album-modal__close" type="button" aria-label="Fermer l'album" onClick={() => setActivePhotoIndex(null)}>
+							×
+						</button>
+						<img src={activePhoto.image} alt={activePhoto.alt_text || activePhoto.title} />
+						<footer className="property-album-modal__footer">
+							<div>
+								<strong>{activePhoto.title}</strong>
+								<span>
+									{(activePhotoIndex ?? 0) + 1} / {activePhotoCount}
+								</span>
+							</div>
+							<div className="property-album-modal__controls">
+								<button type="button" onClick={showPreviousPhoto}>
+									Précédente
+								</button>
+								<button type="button" onClick={showNextPhoto}>
+									Suivante
+								</button>
+							</div>
+						</footer>
+					</div>
+				</div>
+			) : null}
 		</article>
 	);
 };

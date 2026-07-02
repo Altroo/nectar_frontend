@@ -1,4 +1,22 @@
-import type { EventIdea, GuidePlace, Property, PurplePearlPlan, SiteContent, Testimonial } from '@/types/site';
+import type { EventIdea, GuidePlace, Property, PropertyPhoto, PurplePearlPlan, SiteContent, Testimonial } from '@/types/site';
+
+const cityCenterPhotos: PropertyPhoto[] = [
+	['Salon', '/assets/city-center/city-center-salon.png', "Salon de l'appartement City Center"],
+	['Séjour', '/assets/city-center/city-center-sejour.png', "Séjour de l'appartement City Center"],
+	['Chambre 1', '/assets/city-center/city-center-chambre-1.png', "Chambre 1 de l'appartement City Center"],
+	['Chambre 2', '/assets/city-center/city-center-chambre-2.png', "Chambre 2 de l'appartement City Center"],
+	['Chambre 3', '/assets/city-center/city-center-chambre-3.png', "Chambre 3 de l'appartement City Center"],
+	['Chambre 4', '/assets/city-center/city-center-chambre-4.png', "Chambre 4 de l'appartement City Center"],
+	['Cuisine', '/assets/city-center/city-center-cuisine.png', "Cuisine de l'appartement City Center"],
+	['Toilette 1', '/assets/city-center/city-center-toilette-1.png', "Toilette de l'appartement City Center"],
+	['Toilette 2', '/assets/city-center/city-center-toilette-2.png', "Deuxième toilette de l'appartement City Center"],
+].map(([title, image, altText], index) => ({
+	id: 1000 + index,
+	title,
+	alt_text: altText,
+	image,
+	sort_order: index + 1,
+}));
 
 const saleApartments: Property[] = [
 	['HILTON · N°03', 'HILTON', 'Centre-ville', 'ETAGE 10', 'N°03', 1, 53, '53 m²'],
@@ -36,6 +54,7 @@ const saleApartments: Property[] = [
 		price_note: '',
 		cta_label: 'Demander le prix →',
 		image: '',
+		photos: [],
 		sort_order: index + 1,
 	} satisfies Property;
 });
@@ -48,6 +67,7 @@ const rentApartments: Property[] = [
 	['Appartement City Center Ra1 N°B', 'City Center Ra1', 'Etage 05', 'N°B', 4, '1,500 MAD'],
 ].map(([title, residence, floor, unitNumber, bedrooms, price], index) => {
 	const address = residence === 'Hilton' ? 'Place du Maghreb Arabe, Tanger' : 'City Center Ra1, Tanger';
+	const photos = residence === 'City Center Ra1' ? cityCenterPhotos : [];
 	return {
 		id: 100 + index,
 		transaction: 'rent',
@@ -68,7 +88,8 @@ const rentApartments: Property[] = [
 		price: String(price),
 		price_note: 'Prix indiqué pour juin.',
 		cta_label: 'Demander la disponibilité →',
-		image: '',
+		image: photos[0]?.image ?? '',
+		photos,
 		sort_order: 100 + index,
 	} satisfies Property;
 });
@@ -108,6 +129,7 @@ const commercialSales: Property[] = [
 	price_note: String(type),
 	cta_label: 'Demander le prix →',
 	image: '',
+	photos: [],
 	sort_order: 200 + index,
 }));
 
@@ -132,6 +154,7 @@ const rentCommercial: Property = {
 	price_note: '',
 	cta_label: 'Faire une demande →',
 	image: '',
+	photos: [],
 	sort_order: 301,
 };
 
