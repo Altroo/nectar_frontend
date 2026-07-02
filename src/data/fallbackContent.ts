@@ -32,6 +32,45 @@ const hiltonN05Photos: PropertyPhoto[] = [
 	sort_order: index + 1,
 }));
 
+const hiltonN11Photos: PropertyPhoto[] = [
+	['Salon', '/assets/hilton-n11/hilton-n11-salon.png', "Salon de l'appartement Hilton N°11"],
+	['Salon 2', '/assets/hilton-n11/hilton-n11-salon-2.png', "Deuxième vue du salon de l'appartement Hilton N°11"],
+	['Meuble TV', '/assets/hilton-n11/hilton-n11-meuble-tv.png', "Meuble TV de l'appartement Hilton N°11"],
+	['Chambre', '/assets/hilton-n11/hilton-n11-chambre.png', "Chambre de l'appartement Hilton N°11"],
+	['Placard', '/assets/hilton-n11/hilton-n11-placard.png', "Placard de l'appartement Hilton N°11"],
+	['Coffre-fort', '/assets/hilton-n11/hilton-n11-coffre-fort.png', "Coffre-fort de l'appartement Hilton N°11"],
+	['Cuisine', '/assets/hilton-n11/hilton-n11-cuisine.png', "Cuisine de l'appartement Hilton N°11"],
+	['Toilette', '/assets/hilton-n11/hilton-n11-toilette.png', "Toilette de l'appartement Hilton N°11"],
+].map(([title, image, altText], index) => ({
+	id: 1200 + index,
+	title,
+	alt_text: altText,
+	image,
+	sort_order: index + 1,
+}));
+
+const hiltonN11Etage12Photos: PropertyPhoto[] = [
+	['Salon', '/assets/hilton-n11-12th/hilton-n11-12th-salon.png', "Salon de l'appartement Hilton N°11 étage 12"],
+	['Salle à manger', '/assets/hilton-n11-12th/hilton-n11-12th-salle-a-manger.png', "Salle à manger de l'appartement Hilton N°11 étage 12"],
+	['Chambre', '/assets/hilton-n11-12th/hilton-n11-12th-chambre.png', "Chambre de l'appartement Hilton N°11 étage 12"],
+	['Placard', '/assets/hilton-n11-12th/hilton-n11-12th-placard.png', "Placard de l'appartement Hilton N°11 étage 12"],
+	['Cuisine', '/assets/hilton-n11-12th/hilton-n11-12th-cuisine.png', "Cuisine de l'appartement Hilton N°11 étage 12"],
+	['Toilette', '/assets/hilton-n11-12th/hilton-n11-12th-toilette.png', "Toilette de l'appartement Hilton N°11 étage 12"],
+].map(([title, image, altText], index) => ({
+	id: 1300 + index,
+	title,
+	alt_text: altText,
+	image,
+	sort_order: index + 1,
+}));
+
+const rentalPhotoAlbums: Record<string, PropertyPhoto[]> = {
+	'Appartement Hilton N°05': hiltonN05Photos,
+	'Appartement Hilton N°11': hiltonN11Photos,
+	'Appartement Hilton N°11 - Etage 12': hiltonN11Etage12Photos,
+	'Appartement City Center Ra1 N°B': cityCenterPhotos,
+};
+
 const saleApartments: Property[] = [
 	['HILTON · N°03', 'HILTON', 'Centre-ville', 'ETAGE 10', 'N°03', 1, 53, '53 m²'],
 	['HILTON · N°11', 'HILTON', 'Centre-ville', 'ETAGE 10', 'N°11', 1, 55, '55 m²'],
@@ -81,7 +120,7 @@ const rentApartments: Property[] = [
 	['Appartement City Center Ra1 N°B', 'City Center Ra1', 'Etage 05', 'N°B', 4, '1,500 MAD'],
 ].map(([title, residence, floor, unitNumber, bedrooms, price], index) => {
 	const address = residence === 'Hilton' ? 'Place du Maghreb Arabe, Tanger' : 'City Center Ra1, Tanger';
-	const photos = title === 'Appartement Hilton N°05' ? hiltonN05Photos : residence === 'City Center Ra1' ? cityCenterPhotos : [];
+	const photos = rentalPhotoAlbums[String(title)] ?? [];
 	return {
 		id: 100 + index,
 		transaction: 'rent',
