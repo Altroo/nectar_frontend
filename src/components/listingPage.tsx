@@ -19,6 +19,22 @@ type ListingPageProps = {
 const surfaceLabel = (surface: number | null) => (surface ? `${surface.toLocaleString('fr-FR')} m²` : '');
 const priceNumber = (price: string) => Number(price.replace(/[^\d]/g, '') || 0);
 
+type GalleryImageVariant = 'large' | 'card' | 'thumb';
+
+const albumAssetPattern = /^\/assets\/(?:city-center|hilton-n05|hilton-n11|hilton-n11-12th|hilton-n13)\//;
+
+const galleryImageVariant = (image: string, variant: GalleryImageVariant) => {
+	if (!albumAssetPattern.test(image)) {
+		return image;
+	}
+
+	if (image.endsWith('.png')) {
+		return image.replace(/\.png$/, `-${variant}.jpg`);
+	}
+
+	return image.replace(/-(large|card|thumb)\.jpg$/, `-${variant}.jpg`);
+};
+
 export const ListingPage = ({
 	transaction,
 	propertyType,
@@ -152,8 +168,10 @@ const PropertyCard = ({ property }: { property: Property }) => {
 	const isRentalApartment = property.transaction === 'rent' && property.property_type === 'apartment';
 	const albumPhotos = [...(property.photos ?? [])].filter((photo) => photo.image).sort((a, b) => a.sort_order - b.sort_order);
 	const primaryImage = property.image || albumPhotos[0]?.image || '';
+	const cardImage = primaryImage ? galleryImageVariant(primaryImage, 'card') : '';
 	const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
 	const activePhoto = activePhotoIndex === null ? null : albumPhotos[activePhotoIndex];
+	const activePhotoImage = activePhoto ? galleryImageVariant(activePhoto.image, 'large') : '';
 	const activePhotoCount = albumPhotos.length;
 	const showPhoto = (index: number) => setActivePhotoIndex(index);
 	const showPreviousPhoto = () => {
@@ -171,7 +189,7 @@ const PropertyCard = ({ property }: { property: Property }) => {
 
 	return (
 		<article className={`card${isCommercial ? ' local' : ''}`}>
-			<div className="card-img" style={primaryImage ? { backgroundImage: `linear-gradient(135deg,rgba(73,52,37,.24),rgba(73,52,37,.04)),url('${primaryImage}')` } : undefined} />
+			<div className="card-img" style={cardImage ? { backgroundImage: `linear-gradient(135deg,rgba(73,52,37,.24),rgba(73,52,37,.04)),url('${cardImage}')` } : undefined} />
 			<div className="card-body">
 				<span className="tag">{property.tag}</span>
 				<h3>{property.title}</h3>
@@ -218,7 +236,7 @@ const PropertyCard = ({ property }: { property: Property }) => {
 						<div className="property-album__thumbs">
 							{albumPhotos.slice(0, 4).map((photo, index) => (
 								<button className="property-album__thumb" type="button" key={photo.id} onClick={() => showPhoto(index)} aria-label={`Voir ${photo.title}`}>
-									<img src={photo.image} alt={photo.alt_text || photo.title} loading="lazy" />
+									<img src={galleryImageVariant(photo.image, 'thumb')} alt={photo.alt_text || photo.title} loading="lazy" decoding="async" width="180" height="180" />
 								</button>
 							))}
 						</div>
@@ -235,7 +253,7 @@ const PropertyCard = ({ property }: { property: Property }) => {
 						<button className="property-album-modal__close" type="button" aria-label="Fermer l'album" onClick={() => setActivePhotoIndex(null)}>
 							×
 						</button>
-						<img src={activePhoto.image} alt={activePhoto.alt_text || activePhoto.title} />
+						<img src={activePhotoImage} alt={activePhoto.alt_text || activePhoto.title} decoding="async" />
 						<footer className="property-album-modal__footer">
 							<div>
 								<strong>{activePhoto.title}</strong>

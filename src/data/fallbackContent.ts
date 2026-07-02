@@ -1,15 +1,15 @@
 import type { EventIdea, GuidePlace, Property, PropertyPhoto, PurplePearlPlan, SiteContent, Testimonial } from '@/types/site';
 
 const cityCenterPhotos: PropertyPhoto[] = [
-	['Salon', '/assets/city-center/city-center-salon.png', "Salon de l'appartement City Center"],
-	['Séjour', '/assets/city-center/city-center-sejour.png', "Séjour de l'appartement City Center"],
-	['Chambre 1', '/assets/city-center/city-center-chambre-1.png', "Chambre 1 de l'appartement City Center"],
-	['Chambre 2', '/assets/city-center/city-center-chambre-2.png', "Chambre 2 de l'appartement City Center"],
-	['Chambre 3', '/assets/city-center/city-center-chambre-3.png', "Chambre 3 de l'appartement City Center"],
-	['Chambre 4', '/assets/city-center/city-center-chambre-4.png', "Chambre 4 de l'appartement City Center"],
-	['Cuisine', '/assets/city-center/city-center-cuisine.png', "Cuisine de l'appartement City Center"],
-	['Toilette 1', '/assets/city-center/city-center-toilette-1.png', "Toilette de l'appartement City Center"],
-	['Toilette 2', '/assets/city-center/city-center-toilette-2.png', "Deuxième toilette de l'appartement City Center"],
+	['Salon', '/assets/city-center/city-center-salon-large.jpg', "Salon de l'appartement City Center"],
+	['Séjour', '/assets/city-center/city-center-sejour-large.jpg', "Séjour de l'appartement City Center"],
+	['Chambre 1', '/assets/city-center/city-center-chambre-1-large.jpg', "Chambre 1 de l'appartement City Center"],
+	['Chambre 2', '/assets/city-center/city-center-chambre-2-large.jpg', "Chambre 2 de l'appartement City Center"],
+	['Chambre 3', '/assets/city-center/city-center-chambre-3-large.jpg', "Chambre 3 de l'appartement City Center"],
+	['Chambre 4', '/assets/city-center/city-center-chambre-4-large.jpg', "Chambre 4 de l'appartement City Center"],
+	['Cuisine', '/assets/city-center/city-center-cuisine-large.jpg', "Cuisine de l'appartement City Center"],
+	['Toilette 1', '/assets/city-center/city-center-toilette-1-large.jpg', "Toilette de l'appartement City Center"],
+	['Toilette 2', '/assets/city-center/city-center-toilette-2-large.jpg', "Deuxième toilette de l'appartement City Center"],
 ].map(([title, image, altText], index) => ({
 	id: 1000 + index,
 	title,
@@ -19,13 +19,13 @@ const cityCenterPhotos: PropertyPhoto[] = [
 }));
 
 const hiltonN05Photos: PropertyPhoto[] = [
-	['Salon', '/assets/hilton-n05/hilton-n05-salon.png', "Salon de l'appartement Hilton N°05"],
-	['Chambre 1', '/assets/hilton-n05/hilton-n05-chambre-1.png', "Chambre 1 de l'appartement Hilton N°05"],
-	['Chambre 2', '/assets/hilton-n05/hilton-n05-chambre-2.png', "Chambre 2 de l'appartement Hilton N°05"],
-	['Coffre-fort', '/assets/hilton-n05/hilton-n05-coffre-fort.png', "Coffre-fort de l'appartement Hilton N°05"],
-	['Cuisine', '/assets/hilton-n05/hilton-n05-cuisine.png', "Cuisine de l'appartement Hilton N°05"],
-	['Toilette 1', '/assets/hilton-n05/hilton-n05-toilette-1.png', "Toilette 1 de l'appartement Hilton N°05"],
-	['Toilette 2', '/assets/hilton-n05/hilton-n05-toilette-2.png', "Toilette 2 de l'appartement Hilton N°05"],
+	['Salon', '/assets/hilton-n05/hilton-n05-salon-large.jpg', "Salon de l'appartement Hilton N°05"],
+	['Chambre 1', '/assets/hilton-n05/hilton-n05-chambre-1-large.jpg', "Chambre 1 de l'appartement Hilton N°05"],
+	['Chambre 2', '/assets/hilton-n05/hilton-n05-chambre-2-large.jpg', "Chambre 2 de l'appartement Hilton N°05"],
+	['Coffre-fort', '/assets/hilton-n05/hilton-n05-coffre-fort-large.jpg', "Coffre-fort de l'appartement Hilton N°05"],
+	['Cuisine', '/assets/hilton-n05/hilton-n05-cuisine-large.jpg', "Cuisine de l'appartement Hilton N°05"],
+	['Toilette 1', '/assets/hilton-n05/hilton-n05-toilette-1-large.jpg', "Toilette 1 de l'appartement Hilton N°05"],
+	['Toilette 2', '/assets/hilton-n05/hilton-n05-toilette-2-large.jpg', "Toilette 2 de l'appartement Hilton N°05"],
 ].map(([title, image, altText], index) => ({
 	id: 1100 + index,
 	title,
@@ -35,14 +35,14 @@ const hiltonN05Photos: PropertyPhoto[] = [
 }));
 
 const hiltonN11Photos: PropertyPhoto[] = [
-	['Salon', '/assets/hilton-n11/hilton-n11-salon.png', "Salon de l'appartement Hilton N°11"],
-	['Salon 2', '/assets/hilton-n11/hilton-n11-salon-2.png', "Deuxième vue du salon de l'appartement Hilton N°11"],
-	['Meuble TV', '/assets/hilton-n11/hilton-n11-meuble-tv.png', "Meuble TV de l'appartement Hilton N°11"],
-	['Chambre', '/assets/hilton-n11/hilton-n11-chambre.png', "Chambre de l'appartement Hilton N°11"],
-	['Placard', '/assets/hilton-n11/hilton-n11-placard.png', "Placard de l'appartement Hilton N°11"],
-	['Coffre-fort', '/assets/hilton-n11/hilton-n11-coffre-fort.png', "Coffre-fort de l'appartement Hilton N°11"],
-	['Cuisine', '/assets/hilton-n11/hilton-n11-cuisine.png', "Cuisine de l'appartement Hilton N°11"],
-	['Toilette', '/assets/hilton-n11/hilton-n11-toilette.png', "Toilette de l'appartement Hilton N°11"],
+	['Salon', '/assets/hilton-n11/hilton-n11-salon-large.jpg', "Salon de l'appartement Hilton N°11"],
+	['Salon 2', '/assets/hilton-n11/hilton-n11-salon-2-large.jpg', "Deuxième vue du salon de l'appartement Hilton N°11"],
+	['Meuble TV', '/assets/hilton-n11/hilton-n11-meuble-tv-large.jpg', "Meuble TV de l'appartement Hilton N°11"],
+	['Chambre', '/assets/hilton-n11/hilton-n11-chambre-large.jpg', "Chambre de l'appartement Hilton N°11"],
+	['Placard', '/assets/hilton-n11/hilton-n11-placard-large.jpg', "Placard de l'appartement Hilton N°11"],
+	['Coffre-fort', '/assets/hilton-n11/hilton-n11-coffre-fort-large.jpg', "Coffre-fort de l'appartement Hilton N°11"],
+	['Cuisine', '/assets/hilton-n11/hilton-n11-cuisine-large.jpg', "Cuisine de l'appartement Hilton N°11"],
+	['Toilette', '/assets/hilton-n11/hilton-n11-toilette-large.jpg', "Toilette de l'appartement Hilton N°11"],
 ].map(([title, image, altText], index) => ({
 	id: 1200 + index,
 	title,
@@ -52,12 +52,12 @@ const hiltonN11Photos: PropertyPhoto[] = [
 }));
 
 const hiltonN11Etage12Photos: PropertyPhoto[] = [
-	['Salon', '/assets/hilton-n11-12th/hilton-n11-12th-salon.png', "Salon de l'appartement Hilton N°11 étage 12"],
-	['Salle à manger', '/assets/hilton-n11-12th/hilton-n11-12th-salle-a-manger.png', "Salle à manger de l'appartement Hilton N°11 étage 12"],
-	['Chambre', '/assets/hilton-n11-12th/hilton-n11-12th-chambre.png', "Chambre de l'appartement Hilton N°11 étage 12"],
-	['Placard', '/assets/hilton-n11-12th/hilton-n11-12th-placard.png', "Placard de l'appartement Hilton N°11 étage 12"],
-	['Cuisine', '/assets/hilton-n11-12th/hilton-n11-12th-cuisine.png', "Cuisine de l'appartement Hilton N°11 étage 12"],
-	['Toilette', '/assets/hilton-n11-12th/hilton-n11-12th-toilette.png', "Toilette de l'appartement Hilton N°11 étage 12"],
+	['Salon', '/assets/hilton-n11-12th/hilton-n11-12th-salon-large.jpg', "Salon de l'appartement Hilton N°11 étage 12"],
+	['Salle à manger', '/assets/hilton-n11-12th/hilton-n11-12th-salle-a-manger-large.jpg', "Salle à manger de l'appartement Hilton N°11 étage 12"],
+	['Chambre', '/assets/hilton-n11-12th/hilton-n11-12th-chambre-large.jpg', "Chambre de l'appartement Hilton N°11 étage 12"],
+	['Placard', '/assets/hilton-n11-12th/hilton-n11-12th-placard-large.jpg', "Placard de l'appartement Hilton N°11 étage 12"],
+	['Cuisine', '/assets/hilton-n11-12th/hilton-n11-12th-cuisine-large.jpg', "Cuisine de l'appartement Hilton N°11 étage 12"],
+	['Toilette', '/assets/hilton-n11-12th/hilton-n11-12th-toilette-large.jpg', "Toilette de l'appartement Hilton N°11 étage 12"],
 ].map(([title, image, altText], index) => ({
 	id: 1300 + index,
 	title,
@@ -67,13 +67,13 @@ const hiltonN11Etage12Photos: PropertyPhoto[] = [
 }));
 
 const hiltonN13Photos: PropertyPhoto[] = [
-	['Salon', '/assets/hilton-n13/hilton-n13-salon.png', "Salon de l'appartement Hilton N°13"],
-	['Chambre 1', '/assets/hilton-n13/hilton-n13-chambre-1.png', "Chambre 1 de l'appartement Hilton N°13"],
-	['Chambre 2', '/assets/hilton-n13/hilton-n13-chambre-2.png', "Chambre 2 de l'appartement Hilton N°13"],
-	['Coffre-fort', '/assets/hilton-n13/hilton-n13-coffre-fort.png', "Coffre-fort de l'appartement Hilton N°13"],
-	['Cuisine', '/assets/hilton-n13/hilton-n13-cuisine.png', "Cuisine de l'appartement Hilton N°13"],
-	['Toilette 1', '/assets/hilton-n13/hilton-n13-toilette-1.png', "Toilette 1 de l'appartement Hilton N°13"],
-	['Toilette 2', '/assets/hilton-n13/hilton-n13-toilette-2.png', "Toilette 2 de l'appartement Hilton N°13"],
+	['Salon', '/assets/hilton-n13/hilton-n13-salon-large.jpg', "Salon de l'appartement Hilton N°13"],
+	['Chambre 1', '/assets/hilton-n13/hilton-n13-chambre-1-large.jpg', "Chambre 1 de l'appartement Hilton N°13"],
+	['Chambre 2', '/assets/hilton-n13/hilton-n13-chambre-2-large.jpg', "Chambre 2 de l'appartement Hilton N°13"],
+	['Coffre-fort', '/assets/hilton-n13/hilton-n13-coffre-fort-large.jpg', "Coffre-fort de l'appartement Hilton N°13"],
+	['Cuisine', '/assets/hilton-n13/hilton-n13-cuisine-large.jpg', "Cuisine de l'appartement Hilton N°13"],
+	['Toilette 1', '/assets/hilton-n13/hilton-n13-toilette-1-large.jpg', "Toilette 1 de l'appartement Hilton N°13"],
+	['Toilette 2', '/assets/hilton-n13/hilton-n13-toilette-2-large.jpg', "Toilette 2 de l'appartement Hilton N°13"],
 ].map(([title, image, altText], index) => ({
 	id: 1400 + index,
 	title,
@@ -88,6 +88,11 @@ const rentalPhotoAlbums: Record<string, PropertyPhoto[]> = {
 	'Appartement Hilton N°13': hiltonN13Photos,
 	'Appartement Hilton N°11 - Etage 12': hiltonN11Etage12Photos,
 	'Appartement City Center Ra1 N°B': cityCenterPhotos,
+};
+
+const salePhotoAlbums: Record<string, PropertyPhoto[]> = {
+	'HILTON · N°11': hiltonN11Photos,
+	'HILTON · N°13': hiltonN13Photos,
 };
 
 const saleApartments: Property[] = [
@@ -105,6 +110,7 @@ const saleApartments: Property[] = [
 			: String(residence).startsWith('MARINA')
 				? 'Blvd. Mohamed VI, Tanger'
 				: 'Place Mozart, Tanger';
+	const photos = salePhotoAlbums[String(title)] ?? [];
 	return {
 		id: index + 1,
 		transaction: 'sale',
@@ -125,8 +131,8 @@ const saleApartments: Property[] = [
 		price: '',
 		price_note: '',
 		cta_label: 'Demander le prix →',
-		image: '',
-		photos: [],
+		image: photos[0]?.image ?? '',
+		photos,
 		sort_order: index + 1,
 	} satisfies Property;
 });
