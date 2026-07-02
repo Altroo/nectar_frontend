@@ -11,6 +11,7 @@ services:
       - NODE_ENV=production
     extra_hosts:
       - "nectar-api.elbouazzatiholding.ma:host-gateway"
+      - "api.nectar.ma:host-gateway"
     expose:
       - "3008"
     networks:
