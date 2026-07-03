@@ -66,7 +66,6 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 					<div className="section-header">
 						<div className="section-number">01</div>
 						<h2>Description</h2>
-						<p>Une présentation complète de Purple Pearl, avec un design amélioré et une palette violette inspirée du logo du projet.</p>
 					</div>
 					<div className="intro-card">
 						<p style={{ margin: 0, fontSize: 18, lineHeight: 1.9, color: 'var(--pp-muted)' }}>Purple Pearl allie architecture contemporaine, appartements bien agencés et espaces pensés pour le confort du quotidien. Le projet propose plusieurs typologies de logements, adaptées à différents besoins, avec des espaces extérieurs ou fonctionnels tels que cour, terrasse, balcon ou buanderie. Il comprend également des magasins à vendre, pensés pour accueillir des activités commerciales dans un cadre pratique et accessible.</p>
@@ -88,7 +87,6 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 					<div className="section-header">
 						<div className="section-number">02</div>
 						<h2>Adresse</h2>
-						<p>La partie adresse du projet, gardée dans l’univers violet Purple Pearl.</p>
 					</div>
 					<div className="address-grid">
 						<div className="address-item">
@@ -110,7 +108,6 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 					<div className="section-header">
 						<div className="section-number">03</div>
 						<h2>À proximité du projet</h2>
-						<p>Une lecture rapide des commodités et accès autour du projet.</p>
 					</div>
 					<div className="near-card-grid">
 						<div className="info-card near-card">
@@ -150,7 +147,6 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 					<div className="section-header">
 						<div className="section-number">04</div>
 						<h2>Plans</h2>
-						<p>Cliquez sur une rubrique pour afficher les plans architecturaux et les plans 3D correspondants.</p>
 					</div>
 					<PurplePlans plans={plans} />
 				</div>
@@ -160,7 +156,6 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 					<div className="section-header">
 						<div className="section-number">05</div>
 						<h2>Planifier une visite</h2>
-						<p>Formulaire de contact simple et harmonisé avec les couleurs Purple Pearl.</p>
 					</div>
 					<div className="visit-card">
 						<PurplePearlVisitForm />
