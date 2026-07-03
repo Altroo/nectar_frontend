@@ -253,15 +253,29 @@ export const fallbackEventIdeas: EventIdea[] = [
 ].map(([category, title, description, bullet_points, image], index) => ({ id: index + 1, category, title, description, bullet_points, image, sort_order: index + 1 } as EventIdea));
 
 export const fallbackPurplePearlPlans: PurplePearlPlan[] = [
-	['general', '1. Plan sous-sol', '1. Plan sous-sol', 'Plan du sous-sol / parking du projet Purple Pearl.', '/assets/purple-pearl-plan-general.jpg'],
-	['etage1', '2. Plan RDC - Locaux commerciaux', '2. Plan RDC - Locaux commerciaux', 'Plan du rez-de-chaussée dédié aux locaux commerciaux.', '/assets/purple-pearl-plan-etage-courant.jpg'],
-	['etage2', '3. Plan RDC haut - Locaux commerciaux', '3. Plan RDC haut - Locaux commerciaux', 'Plan RDC haut avec les locaux commerciaux.', '/assets/purple-pearl-plan-etage-courant.jpg'],
-	['etage3', '3.1. Plan RDC haut - Appartements avec cour', '3.1. Plan RDC haut - Appartements avec cour', 'Appartements avec cour au RDC haut.', '/assets/purple-pearl-plan-etage-courant.jpg'],
-	['etage4', 'Plans des 1er, 2e, 3e et 4e étages (Appartement type 1 - 2 - 3 - 4 - 5)', 'Plans des 1er, 2e, 3e et 4e étages', 'Appartement type 1 - 2 - 3 - 4 - 5.', '/assets/purple-pearl-plan-etage-courant.jpg'],
-	['etage5', '5. Plan 1er retrait (Appartement 1 - 2 - 3 - 4)', '5. Plan 1er retrait', 'Appartement 1 - 2 - 3 - 4.', '/assets/purple-pearl-plan-1er-retrait.jpg'],
-	['etage6', '6. Plan 2e retrait (Appartement type 1 - 2 - 3 - 4)', '6. Plan 2e retrait', 'Appartement type 1 - 2 - 3 - 4.', '/assets/purple-pearl-plan-2eme-retrait.jpg'],
-	['facades', 'Façades & situation', 'Façades & situation', 'Façades, situation du projet et images de synthèse du bâtiment.', '/assets/purple-pearl-plan-facades-situation.jpg'],
-].map(([key, button_label, title, description, image], index) => ({ id: index + 1, key, button_label, title, description, alt_text: title, image, sort_order: index + 1 } as PurplePearlPlan));
+	['facade', 'Façade', 'Façade', 'Plan de façade en attente.', '', ''],
+	['plan-coupe', 'Plan Coupe', 'Plan Coupe', 'Coupe architecturale du projet Purple Pearl.', '/assets/purple-pearl/plans/plan-coupe-architectural.jpg', ''],
+	['plan-sous-sol', 'Plan Sous Sol', 'Plan Sous Sol', 'Plan du sous-sol du projet Purple Pearl.', '/assets/purple-pearl/plans/plan-sous-sol-architectural.jpg', '/assets/purple-pearl/plans/plan-sous-sol-3d.jpg'],
+	['plan-rdc-bas-magasins', 'Plan RDC BAS - MAGASINS', 'Plan RDC BAS - MAGASINS', 'Plan du RDC bas avec les magasins.', '/assets/purple-pearl/plans/plan-rdc-bas-magasins-architectural.jpg', '/assets/purple-pearl/plans/plan-rdc-bas-magasins-3d.jpg'],
+	['plan-rdc-haut-app-mezzanine', 'Plan RDC HAUT - APP + mezzanine', 'Plan RDC HAUT - APP + mezzanine', 'Plan du RDC haut avec appartements et mezzanines.', '/assets/purple-pearl/plans/plan-rdc-haut-app-mezzanine-architectural.jpg', '/assets/purple-pearl/plans/plan-rdc-haut-app-mezzanine-3d.jpg'],
+	['plans-etages-1-2-3-4', 'Plans étages 1, 2, 3 et 4', 'Plans étages 1, 2, 3 et 4', 'Plans des étages 1, 2, 3 et 4.', '/assets/purple-pearl/plans/plans-etages-1-4-architectural.jpg', '/assets/purple-pearl/plans/plans-etages-1-4-3d.jpg'],
+	['plan-1er-retrait', 'Plan 1er retrait', 'Plan 1er retrait', 'Plan du premier retrait.', '/assets/purple-pearl/plans/plan-1er-retrait-architectural.jpg', '/assets/purple-pearl/plans/plan-1er-retrait-3d.jpg'],
+	['plan-2eme-retrait', 'Plan 2eme retrait', 'Plan 2eme retrait', 'Plan du deuxième retrait.', '/assets/purple-pearl/plans/plan-2eme-retrait-architectural.jpg', '/assets/purple-pearl/plans/plan-2eme-retrait-3d.jpg'],
+].map(
+	([key, button_label, title, description, image, image_3d], index) =>
+		({
+			id: index + 1,
+			key,
+			button_label,
+			title,
+			description,
+			alt_text: title,
+			image,
+			image_3d,
+			image_3d_alt_text: `${title} - Plan 3D`,
+			sort_order: index + 1,
+		}) as PurplePearlPlan,
+);
 
 export const fallbackTestimonials: Testimonial[] = [
 	['Korkanc', 'Turquie — Appartement Hilton 1 Chambre — 2 nuits, juillet 2025 — Couple', 'Ceux qui souhaitent faire une réservation doivent le faire immédiatement s’ils trouvent une place.', false],

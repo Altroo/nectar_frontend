@@ -20,7 +20,10 @@ export const PurplePlans = ({ plans }: { plans: PurplePearlPlan[] }) => {
 			<div className="floor-plan-viewer">
 				{ordered.map((plan) => (
 					<figure className={`floor-plan-panel${plan.key === activePlan?.key ? ' active' : ''}`} data-plan-panel={plan.key} key={plan.key}>
-						<img src={plan.image} alt={plan.alt_text || plan.title} loading="lazy" />
+						<div className="plan-version-grid">
+							<PlanVersion title="Plan architectural" image={plan.image} alt={plan.alt_text || `${plan.title} - Plan architectural`} />
+							<PlanVersion title="Plan 3D" image={plan.image_3d} alt={plan.image_3d_alt_text || `${plan.title} - Plan 3D`} />
+						</div>
 						<figcaption>
 							<strong>{plan.title}</strong>
 							<span>{plan.description}</span>
@@ -31,3 +34,10 @@ export const PurplePlans = ({ plans }: { plans: PurplePearlPlan[] }) => {
 		</>
 	);
 };
+
+const PlanVersion = ({ title, image, alt }: { title: string; image: string; alt: string }) => (
+	<div className={`plan-version${image ? '' : ' plan-version--empty'}`}>
+		<span>{title}</span>
+		{image ? <img src={image} alt={alt} loading="lazy" decoding="async" /> : <p>En attente</p>}
+	</div>
+);

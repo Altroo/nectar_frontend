@@ -68,6 +68,8 @@ export type PurplePearlPlan = {
 	description: string;
 	alt_text: string;
 	image: string;
+	image_3d: string;
+	image_3d_alt_text: string;
 	sort_order: number;
 };
 

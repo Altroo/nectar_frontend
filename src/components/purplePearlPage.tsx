@@ -146,7 +146,7 @@ export const PurplePearlPage = ({ plans }: { plans: PurplePearlPlan[] }) => (
 					<div className="section-header">
 						<div className="section-number">06</div>
 						<h2>Plans</h2>
-						<p>Cliquez sur un titre pour afficher directement le plan correspondant : sous-sol, RDC, RDC haut, étages 1 à 4, 1er retrait ou 2e retrait.</p>
+						<p>Cliquez sur une rubrique pour afficher les plans architecturaux et les plans 3D correspondants.</p>
 					</div>
 					<PurplePlans plans={plans} />
 				</div>
