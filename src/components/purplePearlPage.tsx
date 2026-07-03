@@ -1,10 +1,22 @@
 import { PurplePearlVisitForm } from '@/components/forms';
-import { PurpleHeader, PurplePearlFooter } from '@/components/common';
+import { PurpleHeader, PurplePearlFooter, StyleBlock } from '@/components/common';
 import { PurplePlans } from '@/components/purplePlans';
 import type { PurplePearlPlan, SiteContact } from '@/types/site';
 
+const proximityHoverResetStyles = `
+#proximite .near-col,
+#proximite .near-col:hover{
+	transform:none!important;
+	box-shadow:none!important;
+}
+#proximite .near-col{
+	transition:none!important;
+}
+`;
+
 export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; contact: SiteContact }) => (
 	<>
+		<StyleBlock css={proximityHoverResetStyles} />
 		<PurpleHeader />
 		<main>
 			<section className="hero" aria-label="Hero Purple Pearl">
