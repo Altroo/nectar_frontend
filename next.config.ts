@@ -7,15 +7,6 @@ const nextConfig: NextConfig = {
 	images: {
 		unoptimized: true,
 	},
-	async redirects() {
-		return [
-			{
-				source: '/index.html',
-				destination: '/',
-				permanent: false,
-			},
-		];
-	},
 	async headers() {
 		return [
 			{

@@ -9,13 +9,13 @@ const toUrl = (path: string) => `${siteUrl}${path}`;
 
 const baseRoutes = [
 	{ path: '/', changeFrequency: 'weekly' as const, priority: 1 },
-	{ path: '/vente-appartement.html', changeFrequency: 'weekly' as const, priority: 0.9 },
-	{ path: '/vente-local.html', changeFrequency: 'weekly' as const, priority: 0.85 },
-	{ path: '/location-appartement.html', changeFrequency: 'weekly' as const, priority: 0.85 },
-	{ path: '/location-local.html', changeFrequency: 'weekly' as const, priority: 0.8 },
-	{ path: '/purple-pearl.html', changeFrequency: 'weekly' as const, priority: 0.8 },
-	{ path: '/guide-tanger.html', changeFrequency: 'monthly' as const, priority: 0.7 },
-	{ path: '/evenement.html', changeFrequency: 'monthly' as const, priority: 0.65 },
+	{ path: '/vente-appartement', changeFrequency: 'weekly' as const, priority: 0.9 },
+	{ path: '/vente-local', changeFrequency: 'weekly' as const, priority: 0.85 },
+	{ path: '/location-appartement', changeFrequency: 'weekly' as const, priority: 0.85 },
+	{ path: '/location-local', changeFrequency: 'weekly' as const, priority: 0.8 },
+	{ path: '/purple-pearl', changeFrequency: 'weekly' as const, priority: 0.8 },
+	{ path: '/guide-tanger', changeFrequency: 'monthly' as const, priority: 0.7 },
+	{ path: '/evenement', changeFrequency: 'monthly' as const, priority: 0.65 },
 ];
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
@@ -27,9 +27,9 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
 
 	return baseRoutes
 		.filter((route) => {
-			if (route.path === '/guide-tanger.html') return hasGuide;
-			if (route.path === '/evenement.html') return hasEvents;
-			if (route.path === '/purple-pearl.html') return hasPurplePearl;
+			if (route.path === '/guide-tanger') return hasGuide;
+			if (route.path === '/evenement') return hasEvents;
+			if (route.path === '/purple-pearl') return hasPurplePearl;
 			return true;
 		})
 		.map((route) => ({

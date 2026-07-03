@@ -52,7 +52,7 @@ export const HomePage = ({ content }: { content: SiteContent }) => (
 					<label>Budget</label>
 					<input inputMode="numeric" placeholder="Écrire votre budget" type="text" />
 				</div>
-				<a className="sunset-search-btn" href="/vente-appartement.html">
+				<a className="sunset-search-btn" href="/vente-appartement">
 					<span>⌕</span>Rechercher
 				</a>
 			</form>
@@ -91,7 +91,7 @@ export const HomePage = ({ content }: { content: SiteContent }) => (
 				<div className="purple-pearl-content">
 					<h2>Purple Pearl</h2>
 					<p>Découvrez notre projet Purple Pearl : une promotion immobilière premium à Tanger, pensée pour l’investissement, la résidence principale et les clients qui recherchent un cadre élégant avec un accompagnement clair.</p>
-					<a className="purple-pearl-btn" href="/purple-pearl.html">
+					<a className="purple-pearl-btn" href="/purple-pearl">
 						Demander les détails <span>→</span>
 					</a>
 				</div>
@@ -104,15 +104,15 @@ export const HomePage = ({ content }: { content: SiteContent }) => (
 					<div className="guide-section__title">
 						<h2>À la découverte du patrimoine historique et culturel de Tanger</h2>
 						<p>Cliquez sur le guide pour découvrir les monuments historiques et les musées de Tanger avec photos et descriptions courtes.</p>
-						<a className="guide-cta" href="/guide-tanger.html">
+						<a className="guide-cta" href="/guide-tanger">
 							Voir le guide complet <span>→</span>
 						</a>
 					</div>
 				</div>
 				<div className="guide-cards">
-					<GuideCard href="/guide-tanger.html#monuments" className="guide-card guide-card--cap" label="01 · Monuments" title="Cap Spartel, Kasbah & Médina" copy="Un parcours essentiel pour découvrir les lieux emblématiques de Tanger : vues, ruelles historiques, fortifications et patrimoine maritime." />
-					<GuideCard href="/guide-tanger.html#musees" className="guide-card guide-card--medina" label="02 · Musées" title="Kasbah, Dar Niaba & Légation américaine" copy="Une sélection de musées pour comprendre l’histoire méditerranéenne, artistique et diplomatique de Tanger." />
-					<GuideCard href="/guide-tanger.html#itineraires" className="guide-card guide-card--cafe" label="03 · Itinéraire" title="Balade culturelle à Tanger" copy="Une idée de parcours simple : médina, Kasbah, musée, Grand Socco puis coucher de soleil à Cap Spartel." />
+					<GuideCard href="/guide-tanger#monuments" className="guide-card guide-card--cap" label="01 · Monuments" title="Cap Spartel, Kasbah & Médina" copy="Un parcours essentiel pour découvrir les lieux emblématiques de Tanger : vues, ruelles historiques, fortifications et patrimoine maritime." />
+					<GuideCard href="/guide-tanger#musees" className="guide-card guide-card--medina" label="02 · Musées" title="Kasbah, Dar Niaba & Légation américaine" copy="Une sélection de musées pour comprendre l’histoire méditerranéenne, artistique et diplomatique de Tanger." />
+					<GuideCard href="/guide-tanger#itineraires" className="guide-card guide-card--cafe" label="03 · Itinéraire" title="Balade culturelle à Tanger" copy="Une idée de parcours simple : médina, Kasbah, musée, Grand Socco puis coucher de soleil à Cap Spartel." />
 				</div>
 				<div className="guide-recommendations">
 					<GuideRecommendation label="Monuments" title="Patrimoine historique" copy="Kasbah, Médina, Grand Socco, Petit Socco, Cap Spartel, Grottes d’Hercule et anciennes fortifications." />

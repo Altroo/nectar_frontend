@@ -32,7 +32,7 @@ export const MainHeader = () => (
 					Vente <span>⌄</span>
 				</button>
 				<div className="nectar-dropdown-menu">
-					<a href="/vente-appartement.html">Appartement</a>
+					<a href="/vente-appartement">Appartement</a>
 				</div>
 			</div>
 			<div className="nectar-dropdown">
@@ -40,9 +40,9 @@ export const MainHeader = () => (
 					Location <span>⌄</span>
 				</button>
 				<div className="nectar-dropdown-menu">
-					<a href="/location-appartement.html">Appartement</a>
-					<a href="/location-local.html">Local</a>
-					<a href="/evenement.html">Événement</a>
+					<a href="/location-appartement">Appartement</a>
+					<a href="/location-local">Local</a>
+					<a href="/evenement">Événement</a>
 				</div>
 			</div>
 			<div className="nectar-dropdown nectar-promo-dropdown">
@@ -50,10 +50,10 @@ export const MainHeader = () => (
 					Promotion immobilière <span>⌄</span>
 				</button>
 				<div className="nectar-dropdown-menu">
-					<a href="/purple-pearl.html">Purple Pearl</a>
+					<a href="/purple-pearl">Purple Pearl</a>
 				</div>
 			</div>
-			<a href="/guide-tanger.html">Guide</a>
+			<a href="/guide-tanger">Guide</a>
 			<a href="/#contact">Contact</a>
 			<LanguageSwitcher />
 		</nav>
@@ -78,7 +78,7 @@ export const SimpleHeader = () => (
 					Vente⌄
 				</button>
 				<div className="drop-panel">
-					<a href="/vente-appartement.html">Appartement</a>
+					<a href="/vente-appartement">Appartement</a>
 				</div>
 			</div>
 			<div className="drop">
@@ -86,12 +86,12 @@ export const SimpleHeader = () => (
 					Location⌄
 				</button>
 				<div className="drop-panel">
-					<a href="/location-appartement.html">Appartement</a>
-					<a href="/location-local.html">Local</a>
-					<a href="/evenement.html">Événement</a>
+					<a href="/location-appartement">Appartement</a>
+					<a href="/location-local">Local</a>
+					<a href="/evenement">Événement</a>
 				</div>
 			</div>
-			<a href="/guide-tanger.html">Guide</a>
+			<a href="/guide-tanger">Guide</a>
 			<a href="/#contact">Contact</a>
 			<LanguageSwitcher />
 		</nav>
@@ -107,10 +107,10 @@ export const PurpleHeader = () => (
 			<nav className="main-nav" aria-label="Navigation principale">
 				<a href="/">Accueil</a>
 				<a href="/#apropos">À propos</a>
-				<a href="/vente-appartement.html">Vente</a>
-				<a href="/location-appartement.html">Location</a>
-				<a href="/purple-pearl.html">Promotion immobilière</a>
-				<a href="/guide-tanger.html">Guide</a>
+				<a href="/vente-appartement">Vente</a>
+				<a href="/location-appartement">Location</a>
+				<a href="/purple-pearl">Promotion immobilière</a>
+				<a href="/guide-tanger">Guide</a>
 				<a href="/#contact">Contact</a>
 			</nav>
 			<div className="lang-switch" aria-label="Sélecteur de langue">
@@ -148,18 +148,18 @@ export const LinkedFooter = ({ contact }: { contact: SiteContact }) => (
 					<a href="/#agence">Accueil</a>
 					<a href="/#apropos">À propos</a>
 					<a href="/#processus">Notre processus</a>
-					<a href="/guide-tanger.html">Guide</a>
+					<a href="/guide-tanger">Guide</a>
 					<a href="/#contact">Contact</a>
 				</div>
 				<div className="nectar-linked-footer__col">
 					<h4>Vente &amp; location</h4>
-					<a href="/vente-appartement.html">Vente appartements</a>
-					<a href="/location-appartement.html">Location appartements</a>
-					<a href="/location-local.html">Location locaux</a>
+					<a href="/vente-appartement">Vente appartements</a>
+					<a href="/location-appartement">Location appartements</a>
+					<a href="/location-local">Location locaux</a>
 				</div>
 				<div className="nectar-linked-footer__col">
 					<h4>Promotion immobilière</h4>
-					<a href="/purple-pearl.html">Purple Pearl</a>
+					<a href="/purple-pearl">Purple Pearl</a>
 					<a href="/#contact">Demander les informations</a>
 				</div>
 				<div className="nectar-linked-footer__col">
@@ -179,7 +179,7 @@ export const LinkedFooter = ({ contact }: { contact: SiteContact }) => (
 			<div className="nectar-linked-footer__bottom">
 				<span>© 2026 Nectar immobilier. Tous droits réservés.</span>
 				<span>
-						<a href="/purple-pearl.html">Promotion immobilière</a> · <a href="/#contact">Contactez-nous</a>
+						<a href="/purple-pearl">Promotion immobilière</a> · <a href="/#contact">Contactez-nous</a>
 				</span>
 			</div>
 		</div>
