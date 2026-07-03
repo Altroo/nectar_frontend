@@ -254,13 +254,13 @@ export const fallbackEventIdeas: EventIdea[] = [
 
 export const fallbackPurplePearlPlans: PurplePearlPlan[] = [
 	['facade', 'Façade', 'Façade', 'Plan de façade en attente.', '', ''],
-	['plan-coupe', 'Plan Coupe', 'Plan Coupe', 'Coupe architecturale du projet Purple Pearl.', '/assets/purple-pearl/plans/plan-coupe-architectural.jpg', ''],
-	['plan-sous-sol', 'Plan Sous Sol', 'Plan Sous Sol', 'Plan du sous-sol du projet Purple Pearl.', '/assets/purple-pearl/plans/plan-sous-sol-architectural.jpg', '/assets/purple-pearl/plans/plan-sous-sol-3d.jpg'],
-	['plan-rdc-bas-magasins', 'Plan RDC BAS - MAGASINS', 'Plan RDC BAS - MAGASINS', 'Plan du RDC bas avec les magasins.', '/assets/purple-pearl/plans/plan-rdc-bas-magasins-architectural.jpg', '/assets/purple-pearl/plans/plan-rdc-bas-magasins-3d.jpg'],
-	['plan-rdc-haut-app-mezzanine', 'Plan RDC HAUT - APP + mezzanine', 'Plan RDC HAUT - APP + mezzanine', 'Plan du RDC haut avec appartements et mezzanines.', '/assets/purple-pearl/plans/plan-rdc-haut-app-mezzanine-architectural.jpg', '/assets/purple-pearl/plans/plan-rdc-haut-app-mezzanine-3d.jpg'],
-	['plans-etages-1-2-3-4', 'Plans étages 1, 2, 3 et 4', 'Plans étages 1, 2, 3 et 4', 'Plans des étages 1, 2, 3 et 4.', '/assets/purple-pearl/plans/plans-etages-1-4-architectural.jpg', '/assets/purple-pearl/plans/plans-etages-1-4-3d.jpg'],
-	['plan-1er-retrait', 'Plan 1er retrait', 'Plan 1er retrait', 'Plan du premier retrait.', '/assets/purple-pearl/plans/plan-1er-retrait-architectural.jpg', '/assets/purple-pearl/plans/plan-1er-retrait-3d.jpg'],
-	['plan-2eme-retrait', 'Plan 2eme retrait', 'Plan 2eme retrait', 'Plan du deuxième retrait.', '/assets/purple-pearl/plans/plan-2eme-retrait-architectural.jpg', '/assets/purple-pearl/plans/plan-2eme-retrait-3d.jpg'],
+	['plan-coupe', 'Plan coupe', 'Plan coupe', 'Coupe architecturale du projet Purple Pearl.', '/assets/purple-pearl/plans/plan-coupe-architectural.jpg', ''],
+	['plan-sous-sol', 'Plan sous-sol', 'Plan sous-sol', 'Plan du sous-sol du projet Purple Pearl.', '/assets/purple-pearl/plans/plan-sous-sol-architectural.jpg', '/assets/purple-pearl/plans/plan-sous-sol-3d.jpg'],
+	['plan-rdc-bas-magasins', 'RDC bas + magasins', 'RDC bas + magasins', 'Plan du RDC bas avec magasins.', '/assets/purple-pearl/plans/plan-rdc-bas-magasins-architectural.jpg', '/assets/purple-pearl/plans/plan-rdc-bas-magasins-3d.jpg'],
+	['plan-rdc-haut-app-mezzanine', 'RDC haut : Appartement + mezzanine', 'RDC haut : Appartement + mezzanine', 'Plan du RDC haut : appartement + mezzanine.', '/assets/purple-pearl/plans/plan-rdc-haut-app-mezzanine-architectural.jpg', '/assets/purple-pearl/plans/plan-rdc-haut-app-mezzanine-3d.jpg'],
+	['plans-etages-1-2-3-4', 'Étages 1, 2, 3 et 4', 'Étages 1, 2, 3 et 4', 'Plans des étages 1, 2, 3 et 4.', '/assets/purple-pearl/plans/plans-etages-1-4-architectural.jpg', '/assets/purple-pearl/plans/plans-etages-1-4-3d.jpg'],
+	['plan-1er-retrait', '1er retrait', '1er retrait', 'Plan du 1er retrait.', '/assets/purple-pearl/plans/plan-1er-retrait-architectural.jpg', '/assets/purple-pearl/plans/plan-1er-retrait-3d.jpg'],
+	['plan-2eme-retrait', '2e retrait', '2e retrait', 'Plan du 2e retrait.', '/assets/purple-pearl/plans/plan-2eme-retrait-architectural.jpg', '/assets/purple-pearl/plans/plan-2eme-retrait-3d.jpg'],
 ].map(
 	([key, button_label, title, description, image, image_3d], index) =>
 		({
