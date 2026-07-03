@@ -250,7 +250,7 @@ export const fallbackEventIdeas: EventIdea[] = [
 ].map(([category, title, description, bullet_points, image], index) => ({ id: index + 1, category, title, description, bullet_points, image, sort_order: index + 1 } as EventIdea));
 
 export const fallbackPurplePearlPlans: PurplePearlPlan[] = [
-	['facade', 'Façade', 'Façade', 'Visuels 3D de la façade en effet jour et effet nuit.', '', 'Visuel 3D', '/assets/purple-pearl/plans/facade-3d-jour.jpg', 'Façade - effet jour', 'Visuel 3D', '/assets/purple-pearl/plans/facade-3d-nuit.jpg', 'Façade - effet nuit'],
+	['facade', 'Façade', '', '', '', 'Visuel 3D', '/assets/purple-pearl/plans/facade-3d-jour.jpg', 'Visuel 3D', 'Visuel 3D', '/assets/purple-pearl/plans/facade-3d-nuit.jpg', 'Visuel 3D'],
 	['plan-coupe', 'Plan coupe', 'Plan coupe', 'Coupe architecturale du projet Purple Pearl.', '/assets/purple-pearl/plans/plan-coupe-architectural.jpg', 'Plan 3D', '/assets/purple-pearl/plans/plan-coupe-3d.jpg', 'Plan coupe - Plan 3D', '', '', ''],
 	['plan-sous-sol', 'Plan sous-sol', 'Plan sous-sol', 'Plan du sous-sol du projet Purple Pearl.', '/assets/purple-pearl/plans/plan-sous-sol-architectural.jpg', 'Plan 3D', '/assets/purple-pearl/plans/plan-sous-sol-3d.jpg', 'Plan sous-sol - Plan 3D', '', '', ''],
 	['plan-rdc-bas-magasins', 'RDC bas : magasins', 'RDC bas : magasins', 'Plan du RDC bas avec magasins.', '/assets/purple-pearl/plans/plan-rdc-bas-magasins-architectural.jpg', 'Plan 3D', '/assets/purple-pearl/plans/plan-rdc-bas-magasins-3d.jpg', 'RDC bas + magasins - Plan 3D', '', '', ''],

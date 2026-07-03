@@ -30,6 +30,26 @@ const proximityHoverResetStyles = `
 #proximite .near-card{
 	height:100%;
 }
+#visite .check-wrap{
+	display:flex!important;
+	flex-direction:row!important;
+	align-items:center!important;
+	justify-content:flex-start!important;
+	gap:12px!important;
+	line-height:1.35!important;
+}
+#visite .check-wrap input[type="checkbox"]{
+	width:18px!important;
+	height:18px!important;
+	min-width:18px!important;
+	margin:0!important;
+	padding:0!important;
+	flex:0 0 18px!important;
+	accent-color:var(--pp-mid);
+}
+#visite .check-wrap span{
+	display:inline!important;
+}
 @media(max-width:760px){
 	#proximite .near-card-grid{
 		grid-template-columns:1fr;
