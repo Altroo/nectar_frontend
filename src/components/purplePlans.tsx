@@ -21,8 +21,10 @@ export const PurplePlans = ({ plans }: { plans: PurplePearlPlan[] }) => {
 				{ordered.map((plan) => (
 					<figure className={`floor-plan-panel${plan.key === activePlan?.key ? ' active' : ''}`} data-plan-panel={plan.key} key={plan.key}>
 						<div className="plan-version-grid">
-							<PlanVersion title="Plan architectural" image={plan.image} alt={plan.alt_text || `${plan.title} - Plan architectural`} />
-							<PlanVersion title="Plan 3D" image={plan.image_3d} alt={plan.image_3d_alt_text || `${plan.title} - Plan 3D`} />
+							{plan.image ? <PlanVersion title="Plan architectural" image={plan.image} alt={plan.alt_text || `${plan.title} - Plan architectural`} /> : null}
+							{plan.image_3d ? <PlanVersion title={plan.image_3d_title || 'Plan 3D'} image={plan.image_3d} alt={plan.image_3d_alt_text || `${plan.title} - Plan 3D`} /> : null}
+							{plan.image_3d_secondary ? <PlanVersion title={plan.image_3d_secondary_title || 'Deuxième visuel 3D'} image={plan.image_3d_secondary} alt={plan.image_3d_secondary_alt_text || `${plan.title} - Deuxième visuel 3D`} /> : null}
+							{!plan.image && !plan.image_3d && !plan.image_3d_secondary ? <PlanVersion title="En attente" image="" alt="" /> : null}
 						</div>
 						<figcaption>
 							<strong>{plan.title}</strong>
