@@ -2,6 +2,13 @@ import type { SiteContact } from '@/types/site';
 
 export const StyleBlock = ({ css }: { css: string }) => <style dangerouslySetInnerHTML={{ __html: css }} />;
 
+export const socialLinks = {
+	nectarInstagram: 'https://www.instagram.com/nectar.immobiliere/',
+	nectarTikTok: 'https://www.tiktok.com/@nectar.immobiliere?lang=fr',
+	purplePearlInstagram: 'https://www.instagram.com/purplepearl.tanger/',
+	purplePearlTikTok: 'https://www.tiktok.com/@purplepearl.tanger?lang=fr',
+};
+
 export const LanguageSwitcher = ({ className = 'nectar-lang-switcher' }: { className?: string }) => (
 	<div aria-label="Language selector" className={className}>
 		<button className="is-active" data-lang="fr" type="button">
@@ -461,8 +468,12 @@ export const LinkedFooter = ({ contact }: { contact: SiteContact }) => (
 						<p>{contact.phone_display}</p>
 						<p>{contact.email_display}</p>
 						<div className="nectar-linked-footer__socials">
-							<a href="#">Instagram</a>
-							<a href="#">TikTok</a>
+							<a aria-label="Instagram Nectar immobilier" href={socialLinks.nectarInstagram} rel="noopener" target="_blank">
+								Instagram
+							</a>
+							<a aria-label="TikTok Nectar immobilier" href={socialLinks.nectarTikTok} rel="noopener" target="_blank">
+								TikTok
+							</a>
 							<a href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
 								WhatsApp
 							</a>

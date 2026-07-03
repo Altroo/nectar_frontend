@@ -1,10 +1,39 @@
 import { PurplePearlVisitForm } from '@/components/forms';
-import { PurpleHeader } from '@/components/common';
+import { PurpleHeader, StyleBlock, socialLinks } from '@/components/common';
 import { PurplePlans } from '@/components/purplePlans';
 import type { PurplePearlPlan } from '@/types/site';
 
+const purpleFooterSocialStyles = `
+.footer-social-links{
+	display:flex;
+	flex-wrap:wrap;
+	gap:10px;
+	align-items:center;
+}
+.footer-social-links a{
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	min-height:38px;
+	padding:9px 13px;
+	border:1px solid rgba(255,255,255,.24);
+	border-radius:999px;
+	background:rgba(58,29,92,.22);
+	color:#fff;
+	font-size:11px;
+	font-weight:800;
+	letter-spacing:.12em;
+	text-transform:uppercase;
+}
+.footer-social-links a:hover{
+	background:#fff;
+	color:var(--pp-mid);
+}
+`;
+
 export const PurplePearlPage = ({ plans }: { plans: PurplePearlPlan[] }) => (
 	<>
+		<StyleBlock css={purpleFooterSocialStyles} />
 		<PurpleHeader />
 		<main>
 			<section className="hero" aria-label="Hero Purple Pearl">
@@ -169,6 +198,14 @@ export const PurplePearlPage = ({ plans }: { plans: PurplePearlPlan[] }) => (
 				<div>
 					<div className="footer-title">Nectar immobilier</div>
 					<p>Page Purple Pearl corrigée : hero section avec la photo de l’immeuble en fond violet, sans mélange avec un autre site.</p>
+				</div>
+				<div className="footer-social-links" aria-label="Réseaux sociaux Purple Pearl">
+					<a aria-label="Instagram Purple Pearl" href={socialLinks.purplePearlInstagram} rel="noopener" target="_blank">
+						Instagram
+					</a>
+					<a aria-label="TikTok Purple Pearl" href={socialLinks.purplePearlTikTok} rel="noopener" target="_blank">
+						TikTok
+					</a>
 				</div>
 				<p>© Nectar immobilier — Purple Pearl</p>
 			</div>
