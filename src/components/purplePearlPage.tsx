@@ -12,6 +12,30 @@ const proximityHoverResetStyles = `
 #proximite .near-col{
 	transition:none!important;
 }
+#voir-projet .overview-grid--two{
+	grid-template-columns:repeat(2,minmax(0,1fr))!important;
+	max-width:760px;
+}
+@media(max-width:760px){
+	#voir-projet .overview-grid--two{
+		grid-template-columns:1fr!important;
+	}
+}
+#proximite .near-card-grid{
+	display:grid;
+	grid-template-columns:repeat(2,minmax(0,1fr));
+	gap:28px;
+	align-items:stretch;
+}
+#proximite .near-card{
+	height:100%;
+}
+@media(max-width:760px){
+	#proximite .near-card-grid{
+		grid-template-columns:1fr;
+		gap:18px;
+	}
+}
 `;
 
 export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; contact: SiteContact }) => (
@@ -25,7 +49,7 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 						<img className="hero-logo" src="/assets/purple-pearl-logo.png" alt="Logo Purple Pearl" />
 						<p className="eyebrow">Promotion immobilière</p>
 						<h1>Purple Pearl</h1>
-						<p>Purple Pearl est une promotion immobilière d’appartements premium à Tanger, pensée pour offrir des espaces modernes, lumineux et élégants. La photo de l’immeuble est intégrée directement dans la hero section avec une nuance violette, pour un rendu premium et cohérent avec l’identité du projet.</p>
+						<p>Purple Pearl est une promotion immobilière d’appartements et de magasins à vendre à Tanger, pensée pour offrir des espaces modernes, lumineux et élégants. Le projet se distingue par une architecture soignée, des agencements fonctionnels et une identité visuelle harmonieuse, offrant un cadre de vie agréable pour les résidents ainsi que des espaces adaptés aux activités commerciales.</p>
 						<div className="hero-actions">
 							<a className="hero-btn" href="#voir-projet">
 								Voir notre projet
@@ -45,19 +69,15 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 						<p>Une présentation complète de Purple Pearl, avec un design amélioré et une palette violette inspirée du logo du projet.</p>
 					</div>
 					<div className="intro-card">
-						<p style={{ margin: 0, fontSize: 18, lineHeight: 1.9, color: 'var(--pp-muted)' }}>Purple Pearl réunit architecture contemporaine, appartements bien agencés et prestations recherchées. Le projet propose différentes typologies de logements avec des espaces extérieurs ou pratiques selon les besoins : cour, terrasse, balcon ou buanderie. Le tout est présenté dans un univers visuel violet cohérent avec la marque.</p>
-						<div className="overview-grid">
+						<p style={{ margin: 0, fontSize: 18, lineHeight: 1.9, color: 'var(--pp-muted)' }}>Purple Pearl allie architecture contemporaine, appartements bien agencés et espaces pensés pour le confort du quotidien. Le projet propose plusieurs typologies de logements, adaptées à différents besoins, avec des espaces extérieurs ou fonctionnels tels que cour, terrasse, balcon ou buanderie. Il comprend également des magasins à vendre, pensés pour accueillir des activités commerciales dans un cadre pratique et accessible.</p>
+						<div className="overview-grid overview-grid--two">
 							<div className="overview-item stat-card">
-								<strong>49,58 à 108,19 m²</strong>
+								<strong>59 à 125,96 m²</strong>
 								<span>Surfaces disponibles</span>
 							</div>
 							<div className="overview-item stat-card">
-								<strong>2025</strong>
+								<strong>2026</strong>
 								<span>Année de construction</span>
-							</div>
-							<div className="overview-item stat-card">
-								<strong>2027</strong>
-								<span>Année de livraison</span>
 							</div>
 						</div>
 					</div>
@@ -92,32 +112,36 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 						<h2>À proximité du projet</h2>
 						<p>Une lecture rapide des commodités et accès autour du projet.</p>
 					</div>
-					<div className="info-card near-grid">
-						<NearColumn
-							title="À pied"
-							items={[
-								['Commerces de proximité', '2–5 min'],
-								['Cafés & Restaurants', '3–5 min'],
-								['Pharmacie', '3 min'],
-								['Mosquée', '4–5 min'],
-								['École', '5–7 min'],
-								['Salle de sport', '6–8 min'],
-							]}
-						/>
-						<NearColumn
-							title="En voiture"
-							items={[
-								['Centre-ville de Tanger', '10–15 min'],
-								['Corniche', '12–15 min'],
-								['Gare TGV Tanger Ville', '10–15 min'],
-								['Grands axes routiers', '2 min'],
-								['Rond-point Andalus', '2 min'],
-								['Zone commerciale', '5–8 min'],
-								['Marina Tanger', '15 min'],
-								['Port Tanger Ville', '20 min'],
-								['Aéroport Ibn Battouta', '20–25 min'],
-							]}
-						/>
+					<div className="near-card-grid">
+						<div className="info-card near-card">
+							<NearColumn
+								title="À pied"
+								items={[
+									['Commerces de proximité', '2–5 min'],
+									['Cafés & Restaurants', '3–5 min'],
+									['Pharmacie', '3 min'],
+									['Mosquée', '4–5 min'],
+									['École', '5–7 min'],
+									['Salle de sport', '6–8 min'],
+								]}
+							/>
+						</div>
+						<div className="info-card near-card">
+							<NearColumn
+								title="En voiture"
+								items={[
+									['Centre-ville de Tanger', '10–15 min'],
+									['Corniche', '12–15 min'],
+									['Gare TGV Tanger Ville', '10–15 min'],
+									['Grands axes routiers', '2 min'],
+									['Rond-point Andalus', '2 min'],
+									['Zone commerciale', '5–8 min'],
+									['Marina Tanger', '15 min'],
+									['Port Tanger Ville', '20 min'],
+									['Aéroport Ibn Battouta', '20–25 min'],
+								]}
+							/>
+						</div>
 					</div>
 				</div>
 			</section>
