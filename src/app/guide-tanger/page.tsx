@@ -1,6 +1,5 @@
 import { GuidePage } from '@/components/guidePage';
 import { StyleBlock } from '@/components/common';
-import { guideNavbarStyles } from '@/styles/guideNavbarStyles';
 import { guideStyles } from '@/styles/pageStyles';
 import { fetchSiteContent } from '@/utils/api';
 
@@ -13,7 +12,6 @@ const Page = async () => {
 	return (
 		<>
 			<StyleBlock css={guideStyles} />
-			<StyleBlock css={guideNavbarStyles} />
 			<GuidePage places={content.guidePlaces} contact={content.contact} />
 		</>
 	);

@@ -1,4 +1,4 @@
-import { MainHeader, SimpleFooter } from '@/components/common';
+import { LinkedFooter, MainHeader } from '@/components/common';
 import type { EventIdea, SiteContact } from '@/types/site';
 
 export const EventPage = ({ ideas, contact }: { ideas: EventIdea[]; contact: SiteContact }) => (
@@ -65,6 +65,6 @@ export const EventPage = ({ ideas, contact }: { ideas: EventIdea[]; contact: Sit
 				</div>
 			</div>
 		</section>
-		<SimpleFooter contact={contact} />
+		<LinkedFooter contact={contact} />
 	</>
 );

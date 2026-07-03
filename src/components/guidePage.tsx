@@ -1,4 +1,4 @@
-import { SimpleFooter, SimpleHeader } from '@/components/common';
+import { LinkedFooter, MainHeader } from '@/components/common';
 import type { GuidePlace, SiteContact } from '@/types/site';
 
 export const GuidePage = ({ places, contact }: { places: GuidePlace[]; contact: SiteContact }) => {
@@ -6,7 +6,7 @@ export const GuidePage = ({ places, contact }: { places: GuidePlace[]; contact: 
 	const museums = places.filter((place) => place.section === 'musees').sort((a, b) => a.sort_order - b.sort_order);
 	return (
 		<>
-			<SimpleHeader />
+			<MainHeader />
 			<section className="hero">
 				<span>Guide touristique</span>
 				<h1>À la découverte du patrimoine historique et culturel de Tanger</h1>
@@ -27,7 +27,7 @@ export const GuidePage = ({ places, contact }: { places: GuidePlace[]; contact: 
 					</div>
 				</div>
 			</section>
-			<SimpleFooter contact={contact} />
+			<LinkedFooter contact={contact} />
 		</>
 	);
 };

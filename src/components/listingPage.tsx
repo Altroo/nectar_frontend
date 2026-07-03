@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import type { Property, PropertyType, SiteContact, Transaction } from '@/types/site';
-import { SimpleFooter, SimpleHeader } from './common';
+import { LinkedFooter, MainHeader } from './common';
 
 type ListingPageProps = {
 	transaction: Transaction;
@@ -80,7 +80,7 @@ export const ListingPage = ({
 
 	return (
 		<>
-			<SimpleHeader />
+			<MainHeader />
 			<section className="page-hero">
 				<span>{kicker}</span>
 				<h1>{title}</h1>
@@ -156,7 +156,7 @@ export const ListingPage = ({
 				</div>
 				{visibleRows.length === 0 ? <div className="no-results">Aucun bien ne correspond aux filtres sélectionnés.</div> : null}
 			</main>
-			<SimpleFooter contact={contact} />
+			<LinkedFooter contact={contact} />
 		</>
 	);
 };
