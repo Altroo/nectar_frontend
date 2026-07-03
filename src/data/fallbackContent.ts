@@ -36,7 +36,6 @@ const hiltonN05Photos: PropertyPhoto[] = [
 
 const hiltonN11Photos: PropertyPhoto[] = [
 	['Salon', '/assets/hilton-n11/hilton-n11-salon-large.jpg', "Salon de l'appartement Hilton N°11"],
-	['Salon 2', '/assets/hilton-n11/hilton-n11-salon-2-large.jpg', "Deuxième vue du salon de l'appartement Hilton N°11"],
 	['Meuble TV', '/assets/hilton-n11/hilton-n11-meuble-tv-large.jpg', "Meuble TV de l'appartement Hilton N°11"],
 	['Chambre', '/assets/hilton-n11/hilton-n11-chambre-large.jpg', "Chambre de l'appartement Hilton N°11"],
 	['Placard', '/assets/hilton-n11/hilton-n11-placard-large.jpg', "Placard de l'appartement Hilton N°11"],
