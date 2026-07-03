@@ -1,39 +1,10 @@
 import { PurplePearlVisitForm } from '@/components/forms';
-import { PurpleHeader, StyleBlock, socialLinks } from '@/components/common';
+import { PurpleHeader, PurplePearlFooter } from '@/components/common';
 import { PurplePlans } from '@/components/purplePlans';
-import type { PurplePearlPlan } from '@/types/site';
+import type { PurplePearlPlan, SiteContact } from '@/types/site';
 
-const purpleFooterSocialStyles = `
-.footer-social-links{
-	display:flex;
-	flex-wrap:wrap;
-	gap:10px;
-	align-items:center;
-}
-.footer-social-links a{
-	display:inline-flex;
-	align-items:center;
-	justify-content:center;
-	min-height:38px;
-	padding:9px 13px;
-	border:1px solid rgba(255,255,255,.24);
-	border-radius:999px;
-	background:rgba(58,29,92,.22);
-	color:#fff;
-	font-size:11px;
-	font-weight:800;
-	letter-spacing:.12em;
-	text-transform:uppercase;
-}
-.footer-social-links a:hover{
-	background:#fff;
-	color:var(--pp-mid);
-}
-`;
-
-export const PurplePearlPage = ({ plans }: { plans: PurplePearlPlan[] }) => (
+export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; contact: SiteContact }) => (
 	<>
-		<StyleBlock css={purpleFooterSocialStyles} />
 		<PurpleHeader />
 		<main>
 			<section className="hero" aria-label="Hero Purple Pearl">
@@ -42,7 +13,7 @@ export const PurplePearlPage = ({ plans }: { plans: PurplePearlPlan[] }) => (
 						<img className="hero-logo" src="/assets/purple-pearl-logo.png" alt="Logo Purple Pearl" />
 						<p className="eyebrow">Promotion immobilière</p>
 						<h1>Purple Pearl</h1>
-						<p>Purple Pearl est une promotion immobilière d’appartements de luxe à Tanger, pensée pour offrir des espaces modernes, lumineux et élégants. La photo de l’immeuble est intégrée directement dans la hero section avec une nuance violette, pour un rendu premium et cohérent avec l’identité du projet.</p>
+						<p>Purple Pearl est une promotion immobilière d’appartements premium à Tanger, pensée pour offrir des espaces modernes, lumineux et élégants. La photo de l’immeuble est intégrée directement dans la hero section avec une nuance violette, pour un rendu premium et cohérent avec l’identité du projet.</p>
 						<div className="hero-actions">
 							<a className="hero-btn" href="#voir-projet">
 								Voir notre projet
@@ -80,51 +51,10 @@ export const PurplePearlPage = ({ plans }: { plans: PurplePearlPlan[] }) => (
 					</div>
 				</div>
 			</section>
-			<section className="page-section" id="details" style={{ paddingTop: 0 }}>
-				<div className="container">
-					<div className="section-header">
-						<div className="section-number">02</div>
-						<h2>Détails</h2>
-						<p>Les informations clés du projet Purple Pearl, présentées dans une mise en page plus claire.</p>
-					</div>
-					<div className="detail-card">
-						<div className="detail-grid">
-							<Detail label="Prix" value="Sur demande" />
-							<Detail label="Salle de bain" value="1 - 2" />
-							<Detail label="Surfaces" value="De 49,58 à 108,19 m²" />
-							<Detail label="Année de construction" value="2025" />
-							<Detail label="Chambre" value="1 - 3" />
-							<Detail label="Année de livraison" value="2027" />
-						</div>
-						<div className="extra-grid">
-							<Detail label="Logements collectifs" value="Résidence Purple Pearl" className="extra-item" />
-							<Detail label="Appartements" value="Typologies variées" className="extra-item" />
-							<Detail label="Parking" value="Sous-sol, selon disponibilité" className="extra-item" />
-							<Detail label="Espaces" value="Cour, terrasse, balcon, buanderie" className="extra-item" />
-						</div>
-					</div>
-				</div>
-			</section>
-			<section className="page-section" id="caracteristiques" style={{ paddingTop: 0 }}>
-				<div className="container">
-					<div className="section-header">
-						<div className="section-number">03</div>
-						<h2>Caractéristiques</h2>
-						<p>Les points forts du projet, en cohérence avec le positionnement haut de gamme de Purple Pearl.</p>
-					</div>
-					<div className="feature-grid">
-						{['Résidence contemporaine', 'Appartements lumineux', 'Design élégant et moderne', 'Cour selon typologie', 'Terrasse selon typologie', 'Balcon selon typologie', 'Buanderie selon typologie', 'Commodités à proximité', 'Accompagnement Nectar'].map((item) => (
-							<div className="feature-pill" key={item}>
-								✓ {item}
-							</div>
-						))}
-					</div>
-				</div>
-			</section>
 			<section className="page-section" id="adresse" style={{ paddingTop: 0 }}>
 				<div className="container">
 					<div className="section-header">
-						<div className="section-number">04</div>
+						<div className="section-number">02</div>
 						<h2>Adresse</h2>
 						<p>La partie adresse du projet, gardée dans l’univers violet Purple Pearl.</p>
 					</div>
@@ -146,7 +76,7 @@ export const PurplePearlPage = ({ plans }: { plans: PurplePearlPlan[] }) => (
 			<section className="page-section" id="proximite" style={{ paddingTop: 0 }}>
 				<div className="container">
 					<div className="section-header">
-						<div className="section-number">05</div>
+						<div className="section-number">03</div>
 						<h2>À proximité du projet</h2>
 						<p>Une lecture rapide des commodités et accès autour du projet.</p>
 					</div>
@@ -154,17 +84,26 @@ export const PurplePearlPage = ({ plans }: { plans: PurplePearlPlan[] }) => (
 						<NearColumn
 							title="À pied"
 							items={[
-								['Cafés & restaurants', 'Quelques minutes'],
-								['Commerces de proximité', 'Quelques minutes'],
-								['Pharmacie', 'À proximité'],
+								['Commerces de proximité', '2–5 min'],
+								['Cafés & Restaurants', '3–5 min'],
+								['Pharmacie', '3 min'],
+								['Mosquée', '4–5 min'],
+								['École', '5–7 min'],
+								['Salle de sport', '6–8 min'],
 							]}
 						/>
 						<NearColumn
 							title="En voiture"
 							items={[
-								['Centre-ville de Tanger', 'Accès rapide'],
-								['Corniche', 'Accès facile'],
-								['Gare TGV / grands axes', 'Selon circulation'],
+								['Centre-ville de Tanger', '10–15 min'],
+								['Corniche', '12–15 min'],
+								['Gare TGV Tanger Ville', '10–15 min'],
+								['Grands axes routiers', '2 min'],
+								['Rond-point Andalus', '2 min'],
+								['Zone commerciale', '5–8 min'],
+								['Marina Tanger', '15 min'],
+								['Port Tanger Ville', '20 min'],
+								['Aéroport Ibn Battouta', '20–25 min'],
 							]}
 						/>
 					</div>
@@ -173,7 +112,7 @@ export const PurplePearlPage = ({ plans }: { plans: PurplePearlPlan[] }) => (
 			<section className="page-section" id="plans" style={{ paddingTop: 0 }}>
 				<div className="container">
 					<div className="section-header">
-						<div className="section-number">06</div>
+						<div className="section-number">04</div>
 						<h2>Plans</h2>
 						<p>Cliquez sur une rubrique pour afficher les plans architecturaux et les plans 3D correspondants.</p>
 					</div>
@@ -183,7 +122,7 @@ export const PurplePearlPage = ({ plans }: { plans: PurplePearlPlan[] }) => (
 			<section className="page-section" id="visite" style={{ paddingTop: 0 }}>
 				<div className="container">
 					<div className="section-header">
-						<div className="section-number">07</div>
+						<div className="section-number">05</div>
 						<h2>Planifier une visite</h2>
 						<p>Formulaire de contact simple et harmonisé avec les couleurs Purple Pearl.</p>
 					</div>
@@ -193,31 +132,8 @@ export const PurplePearlPage = ({ plans }: { plans: PurplePearlPlan[] }) => (
 				</div>
 			</section>
 		</main>
-		<footer className="site-footer">
-			<div className="container footer-wrap">
-				<div>
-					<div className="footer-title">Nectar immobilier</div>
-					<p>Page Purple Pearl corrigée : hero section avec la photo de l’immeuble en fond violet, sans mélange avec un autre site.</p>
-				</div>
-				<div className="footer-social-links" aria-label="Réseaux sociaux Purple Pearl">
-					<a aria-label="Instagram Purple Pearl" href={socialLinks.purplePearlInstagram} rel="noopener" target="_blank">
-						Instagram
-					</a>
-					<a aria-label="TikTok Purple Pearl" href={socialLinks.purplePearlTikTok} rel="noopener" target="_blank">
-						TikTok
-					</a>
-				</div>
-				<p>© Nectar immobilier — Purple Pearl</p>
-			</div>
-		</footer>
+		<PurplePearlFooter contact={contact} />
 	</>
-);
-
-const Detail = ({ label, value, className = 'detail-item' }: { label: string; value: string; className?: string }) => (
-	<div className={className}>
-		<strong>{label}</strong>
-		<span>{value}</span>
-	</div>
 );
 
 const NearColumn = ({ title, items }: { title: string; items: [string, string][] }) => (

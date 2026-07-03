@@ -14,7 +14,7 @@ const Page = async () => {
 		<>
 			<StyleBlock css={purpleStyles} />
 			<StyleBlock css={purplePlanStyles} />
-			<PurplePearlPage plans={content.purplePearlPlans} />
+			<PurplePearlPage contact={content.contact} plans={content.purplePearlPlans} />
 		</>
 	);
 };

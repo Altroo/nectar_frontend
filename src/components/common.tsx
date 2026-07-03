@@ -334,6 +334,22 @@ const linkedFooterStyles = `
   color:#BBA793!important;
   font-size:12px!important;
 }
+.nectar-linked-footer--purple{
+  background:linear-gradient(135deg,#2f1747 0%,#4f2e79 52%,#7f61b7 100%)!important;
+}
+.nectar-linked-footer--purple .nectar-linked-footer__brand span{
+  color:#efe5ff!important;
+}
+.nectar-linked-footer--purple .nectar-linked-footer__brand p,
+.nectar-linked-footer--purple .nectar-linked-footer__col a,
+.nectar-linked-footer--purple .nectar-linked-footer__col p,
+.nectar-linked-footer--purple .nectar-linked-footer__bottom{
+  color:#d8c9ee!important;
+}
+.nectar-linked-footer--purple .nectar-linked-footer__socials a:hover{
+  background:#fff!important;
+  color:#4f2e79!important;
+}
 @media(max-width:980px){
   .nectar-linked-footer__grid{
     grid-template-columns:1fr 1fr!important;
@@ -484,6 +500,68 @@ export const LinkedFooter = ({ contact }: { contact: SiteContact }) => (
 					<span>© 2026 Nectar immobilier. Tous droits réservés.</span>
 					<span>
 						<a href="/purple-pearl">Promotion immobilière</a> · <a href="/#contact">Contactez-nous</a>
+					</span>
+				</div>
+			</div>
+		</footer>
+	</>
+);
+
+export const PurplePearlFooter = ({ contact }: { contact: SiteContact }) => (
+	<>
+		<StyleBlock css={linkedFooterStyles} />
+		<footer className="nectar-linked-footer nectar-linked-footer--purple">
+			<div className="nectar-linked-footer__inner">
+				<div className="nectar-linked-footer__grid">
+					<div className="nectar-linked-footer__brand">
+						<a href="/purple-pearl">
+							<strong>Purple Pearl</strong>
+							<span>Tanger</span>
+						</a>
+						<p>Promotion immobilière à Tanger, pensée pour des appartements modernes, lumineux et élégants.</p>
+					</div>
+					<div className="nectar-linked-footer__col">
+						<h4>Navigation</h4>
+						<a href="/">Accueil</a>
+						<a href="/#apropos">À propos</a>
+						<a href="/guide-tanger">Guide</a>
+						<a href="/#contact">Contact</a>
+					</div>
+					<div className="nectar-linked-footer__col">
+						<h4>Purple Pearl</h4>
+						<a href="/purple-pearl#voir-projet">Description</a>
+						<a href="/purple-pearl#adresse">Adresse</a>
+						<a href="/purple-pearl#proximite">Proximités</a>
+						<a href="/purple-pearl#plans">Plans</a>
+					</div>
+					<div className="nectar-linked-footer__col">
+						<h4>Vente &amp; location</h4>
+						<a href="/vente-appartement">Vente appartements</a>
+						<a href="/location-appartement">Location appartements</a>
+						<a href="/location-local">Location locaux</a>
+					</div>
+					<div className="nectar-linked-footer__col">
+						<h4>Contact</h4>
+						<p>{contact.address}</p>
+						<p>{contact.phone_display}</p>
+						<p>{contact.email_display}</p>
+						<div className="nectar-linked-footer__socials">
+							<a aria-label="Instagram Purple Pearl" href={socialLinks.purplePearlInstagram} rel="noopener" target="_blank">
+								Instagram
+							</a>
+							<a aria-label="TikTok Purple Pearl" href={socialLinks.purplePearlTikTok} rel="noopener" target="_blank">
+								TikTok
+							</a>
+							<a href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
+								WhatsApp
+							</a>
+						</div>
+					</div>
+				</div>
+				<div className="nectar-linked-footer__bottom">
+					<span>© 2026 Purple Pearl. Tous droits réservés.</span>
+					<span>
+						<a href="/purple-pearl#visite">Planifier une visite</a> · <a href="/#contact">Contactez-nous</a>
 					</span>
 				</div>
 			</div>
