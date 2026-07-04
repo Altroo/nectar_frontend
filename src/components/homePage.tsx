@@ -1,10 +1,23 @@
+import type { CSSProperties } from 'react';
 import { ContactForm, FloatingNewsletter } from '@/components/forms';
-import { LinkedFooter, MainHeader } from '@/components/common';
+import { LinkedFooter, MainHeader, StyleBlock } from '@/components/common';
 import { HomeProcessSection } from '@/components/homeProcess';
-import type { SiteContent, Testimonial } from '@/types/site';
+import type { GuidePlace, SiteContent, Testimonial } from '@/types/site';
 
-export const HomePage = ({ content }: { content: SiteContent }) => (
+const homepageGuideCardStyles = `
+.guide-card--data::before{
+	background-image:var(--guide-card-image) !important;
+}
+`;
+
+export const HomePage = ({ content }: { content: SiteContent }) => {
+	const guidePlaces = [...content.guidePlaces].sort((a, b) => a.sort_order - b.sort_order);
+	const featuredMonument = guidePlaces.find((place) => place.section === 'monuments');
+	const featuredMuseum = guidePlaces.find((place) => place.section === 'musees');
+
+	return (
 	<>
+		<StyleBlock css={homepageGuideCardStyles} />
 		<MainHeader />
 		<section className="sunset-hero" id="agence">
 			<div className="sunset-content">
@@ -110,8 +123,8 @@ export const HomePage = ({ content }: { content: SiteContent }) => (
 					</div>
 				</div>
 				<div className="guide-cards">
-					<GuideCard href="/guide-tanger#monuments" className="guide-card guide-card--cap" label="01 · Monuments" title="Cap Spartel, Kasbah & Médina" copy="Un parcours essentiel pour découvrir les lieux emblématiques de Tanger : vues, ruelles historiques, fortifications et patrimoine maritime." />
-					<GuideCard href="/guide-tanger#musees" className="guide-card guide-card--medina" label="02 · Musées" title="Kasbah, Dar Niaba & Légation américaine" copy="Une sélection de musées pour comprendre l’histoire méditerranéenne, artistique et diplomatique de Tanger." />
+					<GuideCard href="/guide-tanger#monuments" className={getGuideCardClassName('guide-card guide-card--cap', featuredMonument)} label="01 · Monuments" title={featuredMonument?.title ?? 'Cap Spartel, Kasbah & Médina'} copy={featuredMonument?.description ?? 'Un parcours essentiel pour découvrir les lieux emblématiques de Tanger : vues, ruelles historiques, fortifications et patrimoine maritime.'} image={featuredMonument?.image} />
+					<GuideCard href="/guide-tanger#musees" className={getGuideCardClassName('guide-card guide-card--medina', featuredMuseum)} label="02 · Musées" title={featuredMuseum?.title ?? 'Kasbah, Dar Niaba & Légation américaine'} copy={featuredMuseum?.description ?? 'Une sélection de musées pour comprendre l’histoire méditerranéenne, artistique et diplomatique de Tanger.'} image={featuredMuseum?.image} />
 					<GuideCard href="/guide-tanger#itineraires" className="guide-card guide-card--cafe" label="03 · Itinéraire" title="Balade culturelle à Tanger" copy="Une idée de parcours simple : médina, Kasbah, musée, Grand Socco puis coucher de soleil à Cap Spartel." />
 				</div>
 				<div className="guide-recommendations">
@@ -174,10 +187,15 @@ export const HomePage = ({ content }: { content: SiteContent }) => (
 		<LinkedFooter contact={content.contact} />
 		<FloatingNewsletter />
 	</>
-);
+	);
+};
 
-const GuideCard = ({ href, className, label, title, copy }: { href: string; className: string; label: string; title: string; copy: string }) => (
-	<a aria-label={title} className={className} href={href}>
+const getGuideCardClassName = (baseClassName: string, place?: GuidePlace) => (place?.image ? `${baseClassName} guide-card--data` : baseClassName);
+
+const getGuideCardStyle = (image?: string): CSSProperties | undefined => (image ? ({ '--guide-card-image': `url(${JSON.stringify(image)})` } as CSSProperties) : undefined);
+
+const GuideCard = ({ href, className, label, title, copy, image }: { href: string; className: string; label: string; title: string; copy: string; image?: string }) => (
+	<a aria-label={title} className={className} href={href} style={getGuideCardStyle(image)}>
 		<div className="guide-card__content">
 			<span>{label}</span>
 			<h3>{title}</h3>
