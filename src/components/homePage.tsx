@@ -93,7 +93,7 @@ export const HomePage = ({ content }: { content: SiteContent }) => {
 					</div>
 				</div>
 				<div aria-label="Bureau de l'agence Nectar immobilier" className="about-premium__visual">
-					<img alt="Bureau de l'agence Nectar immobilier à Tanger" className="nectar-about-office-image" src="/assets/nectar-bureau.png" />
+					<img alt="Entrée de la Résidence Nectar à Tanger" className="nectar-about-office-image" src="/assets/nectar-residence.jpg" />
 				</div>
 			</div>
 		</section>
