@@ -1,4 +1,8 @@
+'use client';
+
 import type { SiteContact } from '@/types/site';
+import { useTranslation, setLanguage } from '@/i18n/client';
+import type { LanguageCode } from '@/i18n/translations';
 
 export const StyleBlock = ({ css }: { css: string }) => <style dangerouslySetInnerHTML={{ __html: css }} />;
 
@@ -9,22 +13,19 @@ export const socialLinks = {
 	purplePearlTikTok: 'https://www.tiktok.com/@purplepearl.tanger?lang=fr',
 };
 
-export const LanguageSwitcher = ({ className = 'nectar-lang-switcher' }: { className?: string }) => (
-	<div aria-label="Language selector" className={className}>
-		<button className="is-active" data-lang="fr" type="button">
-			FR
-		</button>
-		<button data-lang="ar" type="button">
-			AR
-		</button>
-		<button data-lang="en" type="button">
-			EN
-		</button>
-		<button data-lang="es" type="button">
-			ES
-		</button>
-	</div>
-);
+export const LanguageSwitcher = ({ className = 'nectar-lang-switcher' }: { className?: string }) => {
+	const { language, languages, t } = useTranslation();
+
+	return (
+		<div aria-label={t('nav.language')} className={className}>
+			{languages.map((item) => (
+				<button aria-pressed={item.code === language} className={item.code === language ? 'is-active active' : ''} data-lang={item.code} key={item.code} type="button" onClick={() => setLanguage(item.code as LanguageCode)}>
+					{item.short}
+				</button>
+			))}
+		</div>
+	);
+};
 
 const mainHeaderStyles = `
 header.nectar-fixed-navbar.sunset-nav{
@@ -196,6 +197,24 @@ header.nectar-fixed-navbar.sunset-nav .nectar-lang-switcher button{
 header.nectar-fixed-navbar.sunset-nav .nectar-lang-switcher button.is-active{
   background:#F5F0EA!important;
   color:#493425!important;
+}
+.lang-switch button{
+  width:38px!important;
+  height:38px!important;
+  border:0!important;
+  border-radius:50%!important;
+  display:grid!important;
+  place-items:center!important;
+  background:transparent!important;
+  color:#fff!important;
+  font-size:14px!important;
+  font-weight:700!important;
+  cursor:pointer!important;
+}
+.lang-switch button.is-active,
+.lang-switch button.active{
+  background:#fff!important;
+  color:var(--pp-mid)!important;
 }
 header.nectar-fixed-navbar.sunset-nav .nectar-mobile-toggle{
   display:none!important;
@@ -372,199 +391,213 @@ const linkedFooterStyles = `
 }
 `;
 
-export const MainHeader = () => (
-	<>
-		<StyleBlock css={mainHeaderStyles} />
-		<header className="sunset-nav nectar-fixed-navbar">
-			<a aria-label="Nectar immobilier" className="sunset-logo nectar-fixed-logo" href="/#agence">
-				<img alt="Logo Nectar immobilier" className="nectar-logo-image" src="/assets/nectar-logo-navbar.png" />
-			</a>
-			<nav aria-label="Navigation principale" className="sunset-menu nectar-fixed-menu">
-				<a href="/#agence">Accueil</a>
-				<a href="/#apropos">À propos</a>
-				<div className="nectar-dropdown">
-					<button aria-expanded="false" className="nectar-dropdown-btn" type="button">
-						Vente <span>⌄</span>
-					</button>
-					<div className="nectar-dropdown-menu">
-						<a href="/vente-appartement">Appartement</a>
-					</div>
-				</div>
-				<div className="nectar-dropdown">
-					<button aria-expanded="false" className="nectar-dropdown-btn" type="button">
-						Location <span>⌄</span>
-					</button>
-					<div className="nectar-dropdown-menu">
-						<a href="/location-appartement">Appartement</a>
-						<a href="/location-local">Local</a>
-						<a href="/evenement">Événement</a>
-					</div>
-				</div>
-				<div className="nectar-dropdown nectar-promo-dropdown">
-					<button aria-expanded="false" className="nectar-dropdown-btn" type="button">
-						Promotion immobilière <span>⌄</span>
-					</button>
-					<div className="nectar-dropdown-menu">
-						<a href="/purple-pearl">Purple Pearl</a>
-					</div>
-				</div>
-				<a href="/guide-tanger">Guide</a>
-				<a href="/#contact">Contact</a>
-				<LanguageSwitcher />
-			</nav>
-			<button aria-expanded="false" aria-label="Ouvrir le menu" className="nectar-mobile-toggle nectar-fixed-toggle" type="button">
-				<span />
-				<span />
-				<span />
-			</button>
-		</header>
-	</>
-);
+export const MainHeader = () => {
+	const { t } = useTranslation();
 
-export const PurpleHeader = () => (
-	<header className="site-header">
-		<div className="container nav-wrap">
-			<a className="brand" href="/">
-				<img src="/assets/nectar-logo-navbar.png" alt="Nectar immobilier" />
-			</a>
-			<nav className="main-nav" aria-label="Navigation principale">
-				<a href="/">Accueil</a>
-				<a href="/#apropos">À propos</a>
-				<a href="/vente-appartement">Vente</a>
-				<a href="/location-appartement">Location</a>
-				<a href="/purple-pearl">Promotion immobilière</a>
-				<a href="/guide-tanger">Guide</a>
-				<a href="/#contact">Contact</a>
-			</nav>
-			<div className="lang-switch" aria-label="Sélecteur de langue">
-				<span className="active">FR</span>
-				<span>AR</span>
-				<span>EN</span>
-				<span>ES</span>
-			</div>
-		</div>
-	</header>
-);
-
-export const LinkedFooter = ({ contact }: { contact: SiteContact }) => (
-	<>
-		<StyleBlock css={linkedFooterStyles} />
-		<footer className="nectar-linked-footer">
-			<div className="nectar-linked-footer__inner">
-				<div className="nectar-linked-footer__grid">
-					<div className="nectar-linked-footer__brand">
-						<a href="/#agence">
-							<strong>Nectar</strong>
-							<span>Immobilier</span>
-						</a>
-						<p>Agence immobilière à Tanger spécialisée dans la vente, la location et la promotion immobilière.</p>
-					</div>
-					<div className="nectar-linked-footer__col">
-						<h4>Navigation</h4>
-						<a href="/#agence">Accueil</a>
-						<a href="/#apropos">À propos</a>
-						<a href="/#processus">Notre processus</a>
-						<a href="/guide-tanger">Guide</a>
-						<a href="/#contact">Contact</a>
-					</div>
-					<div className="nectar-linked-footer__col">
-						<h4>Vente &amp; location</h4>
-						<a href="/vente-appartement">Vente appartements</a>
-						<a href="/location-appartement">Location appartements</a>
-						<a href="/location-local">Location locaux</a>
-					</div>
-					<div className="nectar-linked-footer__col">
-						<h4>Promotion immobilière</h4>
-						<a href="/purple-pearl">Purple Pearl</a>
-						<a href="/#contact">Demander les informations</a>
-					</div>
-					<div className="nectar-linked-footer__col">
-						<h4>Contact</h4>
-						<p>{contact.address}</p>
-						<p>{contact.phone_display}</p>
-						<p>{contact.email_display}</p>
-						<div className="nectar-linked-footer__socials">
-							<a aria-label="Instagram Nectar immobilier" href={socialLinks.nectarInstagram} rel="noopener" target="_blank">
-								Instagram
-							</a>
-							<a aria-label="TikTok Nectar immobilier" href={socialLinks.nectarTikTok} rel="noopener" target="_blank">
-								TikTok
-							</a>
-							<a href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
-								WhatsApp
-							</a>
+	return (
+		<>
+			<StyleBlock css={mainHeaderStyles} />
+			<header className="sunset-nav nectar-fixed-navbar">
+				<a aria-label="Nectar immobilier" className="sunset-logo nectar-fixed-logo" href="/#agence">
+					<img alt="Logo Nectar immobilier" className="nectar-logo-image" src="/assets/nectar-logo-navbar.png" />
+				</a>
+				<nav aria-label={t('nav.main')} className="sunset-menu nectar-fixed-menu">
+					<a href="/#agence">{t('nav.home')}</a>
+					<a href="/#apropos">{t('nav.about')}</a>
+					<div className="nectar-dropdown">
+						<button aria-expanded="false" className="nectar-dropdown-btn" type="button">
+							{t('nav.sale')} <span>⌄</span>
+						</button>
+						<div className="nectar-dropdown-menu">
+							<a href="/vente-appartement">{t('nav.apartment')}</a>
 						</div>
 					</div>
-				</div>
-				<div className="nectar-linked-footer__bottom">
-					<span>© 2026 Nectar immobilier. Tous droits réservés.</span>
-					<span>
-						<a href="/purple-pearl">Promotion immobilière</a> · <a href="/#contact">Contactez-nous</a>
-					</span>
-				</div>
-			</div>
-		</footer>
-	</>
-);
-
-export const PurplePearlFooter = ({ contact }: { contact: SiteContact }) => (
-	<>
-		<StyleBlock css={linkedFooterStyles} />
-		<footer className="nectar-linked-footer nectar-linked-footer--purple">
-			<div className="nectar-linked-footer__inner">
-				<div className="nectar-linked-footer__grid">
-					<div className="nectar-linked-footer__brand">
-						<a href="/purple-pearl">
-							<strong>Purple Pearl</strong>
-							<span>Tanger</span>
-						</a>
-						<p>Promotion immobilière à Tanger, pensée pour des appartements modernes, lumineux et élégants.</p>
-					</div>
-					<div className="nectar-linked-footer__col">
-						<h4>Navigation</h4>
-						<a href="/">Accueil</a>
-						<a href="/#apropos">À propos</a>
-						<a href="/guide-tanger">Guide</a>
-						<a href="/#contact">Contact</a>
-					</div>
-					<div className="nectar-linked-footer__col">
-						<h4>Purple Pearl</h4>
-						<a href="/purple-pearl#voir-projet">Description</a>
-						<a href="/purple-pearl#adresse">Adresse</a>
-						<a href="/purple-pearl#proximite">Proximités</a>
-						<a href="/purple-pearl#plans">Plans</a>
-					</div>
-					<div className="nectar-linked-footer__col">
-						<h4>Vente &amp; location</h4>
-						<a href="/vente-appartement">Vente appartements</a>
-						<a href="/location-appartement">Location appartements</a>
-						<a href="/location-local">Location locaux</a>
-					</div>
-					<div className="nectar-linked-footer__col">
-						<h4>Contact</h4>
-						<p>{contact.address}</p>
-						<p>{contact.phone_display}</p>
-						<p>{contact.email_display}</p>
-						<div className="nectar-linked-footer__socials">
-							<a aria-label="Instagram Purple Pearl" href={socialLinks.purplePearlInstagram} rel="noopener" target="_blank">
-								Instagram
-							</a>
-							<a aria-label="TikTok Purple Pearl" href={socialLinks.purplePearlTikTok} rel="noopener" target="_blank">
-								TikTok
-							</a>
-							<a href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
-								WhatsApp
-							</a>
+					<div className="nectar-dropdown">
+						<button aria-expanded="false" className="nectar-dropdown-btn" type="button">
+							{t('nav.rent')} <span>⌄</span>
+						</button>
+						<div className="nectar-dropdown-menu">
+							<a href="/location-appartement">{t('nav.apartment')}</a>
+							<a href="/location-local">{t('nav.commercial')}</a>
+							<a href="/evenement">{t('nav.event')}</a>
 						</div>
 					</div>
+					<div className="nectar-dropdown nectar-promo-dropdown">
+						<button aria-expanded="false" className="nectar-dropdown-btn" type="button">
+							{t('nav.promotion')} <span>⌄</span>
+						</button>
+						<div className="nectar-dropdown-menu">
+							<a href="/purple-pearl">Purple Pearl</a>
+						</div>
+					</div>
+					<a href="/guide-tanger">{t('nav.guide')}</a>
+					<a href="/#contact">{t('nav.contact')}</a>
+					<LanguageSwitcher />
+				</nav>
+				<button aria-expanded="false" aria-label={t('nav.openMenu')} className="nectar-mobile-toggle nectar-fixed-toggle" type="button">
+					<span />
+					<span />
+					<span />
+				</button>
+			</header>
+		</>
+	);
+};
+
+export const PurpleHeader = () => {
+	const { t } = useTranslation();
+
+	return (
+		<>
+			<StyleBlock css={mainHeaderStyles} />
+			<header className="site-header">
+				<div className="container nav-wrap">
+					<a className="brand" href="/">
+						<img src="/assets/nectar-logo-navbar.png" alt="Nectar immobilier" />
+					</a>
+					<nav className="main-nav" aria-label={t('nav.main')}>
+						<a href="/">{t('nav.home')}</a>
+						<a href="/#apropos">{t('nav.about')}</a>
+						<a href="/vente-appartement">{t('nav.sale')}</a>
+						<a href="/location-appartement">{t('nav.rent')}</a>
+						<a href="/purple-pearl">{t('nav.promotion')}</a>
+						<a href="/guide-tanger">{t('nav.guide')}</a>
+						<a href="/#contact">{t('nav.contact')}</a>
+					</nav>
+					<LanguageSwitcher className="lang-switch" />
 				</div>
-				<div className="nectar-linked-footer__bottom">
-					<span>© 2026 Purple Pearl. Tous droits réservés.</span>
-					<span>
-						<a href="/purple-pearl#visite">Planifier une visite</a> · <a href="/#contact">Contactez-nous</a>
-					</span>
+			</header>
+		</>
+	);
+};
+
+export const LinkedFooter = ({ contact }: { contact: SiteContact }) => {
+	const { t } = useTranslation();
+
+	return (
+		<>
+			<StyleBlock css={linkedFooterStyles} />
+			<footer className="nectar-linked-footer">
+				<div className="nectar-linked-footer__inner">
+					<div className="nectar-linked-footer__grid">
+						<div className="nectar-linked-footer__brand">
+							<a href="/#agence">
+								<strong>Nectar</strong>
+								<span>Immobilier</span>
+							</a>
+							<p>{t('footer.brandLine')}</p>
+						</div>
+						<div className="nectar-linked-footer__col">
+							<h4>{t('footer.navigation')}</h4>
+							<a href="/#agence">{t('nav.home')}</a>
+							<a href="/#apropos">{t('nav.about')}</a>
+							<a href="/#processus">{t('footer.process')}</a>
+							<a href="/guide-tanger">{t('nav.guide')}</a>
+							<a href="/#contact">{t('nav.contact')}</a>
+						</div>
+						<div className="nectar-linked-footer__col">
+							<h4>{t('footer.saleRent')}</h4>
+							<a href="/vente-appartement">{t('footer.saleApartments')}</a>
+							<a href="/location-appartement">{t('footer.rentApartments')}</a>
+							<a href="/location-local">{t('footer.rentCommercial')}</a>
+						</div>
+						<div className="nectar-linked-footer__col">
+							<h4>{t('footer.promotion')}</h4>
+							<a href="/purple-pearl">Purple Pearl</a>
+							<a href="/#contact">{t('footer.requestInfo')}</a>
+						</div>
+						<div className="nectar-linked-footer__col">
+							<h4>{t('footer.contact')}</h4>
+							<p>{contact.address}</p>
+							<p>{contact.phone_display}</p>
+							<p>{contact.email_display}</p>
+							<div className="nectar-linked-footer__socials">
+								<a aria-label="Instagram Nectar immobilier" href={socialLinks.nectarInstagram} rel="noopener" target="_blank">
+									Instagram
+								</a>
+								<a aria-label="TikTok Nectar immobilier" href={socialLinks.nectarTikTok} rel="noopener" target="_blank">
+									TikTok
+								</a>
+								<a href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
+									WhatsApp
+								</a>
+							</div>
+						</div>
+					</div>
+					<div className="nectar-linked-footer__bottom">
+						<span>{t('footer.rights')}</span>
+						<span>
+							<a href="/purple-pearl">{t('footer.promotionLink')}</a> · <a href="/#contact">{t('footer.contactUs')}</a>
+						</span>
+					</div>
 				</div>
-			</div>
-		</footer>
-	</>
-);
+			</footer>
+		</>
+	);
+};
+
+export const PurplePearlFooter = ({ contact }: { contact: SiteContact }) => {
+	const { t } = useTranslation();
+
+	return (
+		<>
+			<StyleBlock css={linkedFooterStyles} />
+			<footer className="nectar-linked-footer nectar-linked-footer--purple">
+				<div className="nectar-linked-footer__inner">
+					<div className="nectar-linked-footer__grid">
+						<div className="nectar-linked-footer__brand">
+							<a href="/purple-pearl">
+								<strong>Purple Pearl</strong>
+								<span>Tanger</span>
+							</a>
+							<p>{t('footer.purpleLine')}</p>
+						</div>
+						<div className="nectar-linked-footer__col">
+							<h4>{t('footer.navigation')}</h4>
+							<a href="/">{t('nav.home')}</a>
+							<a href="/#apropos">{t('nav.about')}</a>
+							<a href="/guide-tanger">{t('nav.guide')}</a>
+							<a href="/#contact">{t('nav.contact')}</a>
+						</div>
+						<div className="nectar-linked-footer__col">
+							<h4>Purple Pearl</h4>
+							<a href="/purple-pearl#voir-projet">{t('footer.description')}</a>
+							<a href="/purple-pearl#adresse">{t('footer.address')}</a>
+							<a href="/purple-pearl#proximite">{t('footer.proximities')}</a>
+							<a href="/purple-pearl#plans">{t('footer.plans')}</a>
+						</div>
+						<div className="nectar-linked-footer__col">
+							<h4>{t('footer.saleRent')}</h4>
+							<a href="/vente-appartement">{t('footer.saleApartments')}</a>
+							<a href="/location-appartement">{t('footer.rentApartments')}</a>
+							<a href="/location-local">{t('footer.rentCommercial')}</a>
+						</div>
+						<div className="nectar-linked-footer__col">
+							<h4>{t('footer.contact')}</h4>
+							<p>{contact.address}</p>
+							<p>{contact.phone_display}</p>
+							<p>{contact.email_display}</p>
+							<div className="nectar-linked-footer__socials">
+								<a aria-label="Instagram Purple Pearl" href={socialLinks.purplePearlInstagram} rel="noopener" target="_blank">
+									Instagram
+								</a>
+								<a aria-label="TikTok Purple Pearl" href={socialLinks.purplePearlTikTok} rel="noopener" target="_blank">
+									TikTok
+								</a>
+								<a href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
+									WhatsApp
+								</a>
+							</div>
+						</div>
+					</div>
+					<div className="nectar-linked-footer__bottom">
+						<span>{t('footer.purpleRights')}</span>
+						<span>
+							<a href="/purple-pearl#visite">{t('footer.visit')}</a> · <a href="/#contact">{t('footer.contactUs')}</a>
+						</span>
+					</div>
+				</div>
+			</footer>
+		</>
+	);
+};

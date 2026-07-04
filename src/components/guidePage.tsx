@@ -1,4 +1,8 @@
+'use client';
+
 import { LinkedFooter, MainHeader, StyleBlock } from '@/components/common';
+import { useTranslation } from '@/i18n/client';
+import { localizeGuidePlace } from '@/i18n/translations';
 import type { GuidePlace, SiteContact } from '@/types/site';
 
 const guideFeatureStyles = `
@@ -48,29 +52,36 @@ const guideFeatureStyles = `
 `;
 
 export const GuidePage = ({ places, contact }: { places: GuidePlace[]; contact: SiteContact }) => {
-	const monuments = places.filter((place) => place.section === 'monuments').sort((a, b) => a.sort_order - b.sort_order);
-	const museums = places.filter((place) => place.section === 'musees').sort((a, b) => a.sort_order - b.sort_order);
+	const { language, t } = useTranslation();
+	const monuments = places
+		.filter((place) => place.section === 'monuments')
+		.sort((a, b) => a.sort_order - b.sort_order)
+		.map((place) => localizeGuidePlace(language, place));
+	const museums = places
+		.filter((place) => place.section === 'musees')
+		.sort((a, b) => a.sort_order - b.sort_order)
+		.map((place) => localizeGuidePlace(language, place));
 	return (
 		<>
 			<StyleBlock css={guideFeatureStyles} />
 			<MainHeader />
 			<section className="hero">
-				<span>Guide touristique</span>
-				<h1>À la découverte du patrimoine historique et culturel de Tanger</h1>
-				<p>Une sélection simple des monuments historiques et des musées à citer dans le guide Nectar immobilier, avec photos et descriptions courtes.</p>
+				<span>{t('guide.heroKicker')}</span>
+				<h1>{t('guide.heroTitle')}</h1>
+				<p>{t('guide.heroCopy')}</p>
 				<div className="quick-nav">
-					<a href="#monuments">Monuments historiques</a>
-					<a href="#musees">Musées</a>
-					<a href="#itineraires">Idée de parcours</a>
+					<a href="#monuments">{t('guide.monumentsNav')}</a>
+					<a href="#musees">{t('guide.museumsNav')}</a>
+					<a href="#itineraires">{t('guide.itineraryNav')}</a>
 				</div>
 			</section>
-			<GuideSection id="monuments" kicker="Monuments historiques" title="Les lieux emblématiques de Tanger" places={monuments} />
-			<GuideSection id="musees" kicker="Musées" title="Culture, mémoire et art" copy="Des adresses culturelles pour comprendre l’histoire, l’identité méditerranéenne et le rôle international de Tanger." places={museums} alternate />
+			<GuideSection id="monuments" kicker={t('guide.monumentsKicker')} title={t('guide.monumentsTitle')} places={monuments} />
+			<GuideSection id="musees" kicker={t('guide.museumsKicker')} title={t('guide.museumsTitle')} copy={t('guide.museumsCopy')} places={museums} alternate />
 			<section className="section" id="itineraires">
 				<div className="inner">
 					<div className="itinerary">
-						<h3>Idée de parcours</h3>
-						<p>Commencez par le Grand Socco, entrez dans la Médina, montez vers la Kasbah et le Palais Dar El Makhzen, puis terminez la journée par Cap Spartel et les Grottes d’Hercule pour le coucher du soleil.</p>
+						<h3>{t('guide.itineraryTitle')}</h3>
+						<p>{t('guide.itineraryCopy')}</p>
 					</div>
 				</div>
 			</section>

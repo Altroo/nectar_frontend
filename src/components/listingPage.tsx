@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useTranslation } from '@/i18n/client';
 import type { Property, PropertyType, SiteContact, Transaction } from '@/types/site';
 import { LinkedFooter, MainHeader } from './common';
 
@@ -51,6 +52,8 @@ export const ListingPage = ({
 	const [rooms, setRooms] = useState('');
 	const [minSurface, setMinSurface] = useState('');
 	const [maxBudget, setMaxBudget] = useState('');
+	const { t } = useTranslation();
+	const pageKey = `listing.pages.${transaction}.${propertyType}`;
 
 	const rows = useMemo(
 		() =>
@@ -82,28 +85,28 @@ export const ListingPage = ({
 		<>
 			<MainHeader />
 			<section className="page-hero">
-				<span>{kicker}</span>
-				<h1>{title}</h1>
-				<p>{description}</p>
+				<span>{t(`${pageKey}.1`, kicker)}</span>
+				<h1>{t(`${pageKey}.0`, title)}</h1>
+				<p>{t(`${pageKey}.2`, description)}</p>
 			</section>
 			<main className={`list-section${propertyType === 'commercial' ? ' local' : ''}`}>
 				<div className="list-head">
-					<h2>{sectionTitle}</h2>
-					<p>{sectionDescription}</p>
+					<h2>{t(`${pageKey}.3`, sectionTitle)}</h2>
+					<p>{t(`${pageKey}.4`, sectionDescription)}</p>
 				</div>
 				<div className="filters">
 					<label>
-						Recherche
-						<input placeholder={propertyType === 'apartment' ? 'Résidence, adresse...' : 'Type, résidence...'} type="text" value={query} onChange={(event) => setQuery(event.target.value)} />
+						{t('listing.search')}
+						<input placeholder={propertyType === 'apartment' ? t('listing.searchApartmentPlaceholder') : t('listing.searchCommercialPlaceholder')} type="text" value={query} onChange={(event) => setQuery(event.target.value)} />
 					</label>
 					<label>
-						{usesCommercialTypeFilter ? 'Type' : 'Résidence'}
+						{usesCommercialTypeFilter ? t('listing.type') : t('listing.residence')}
 						<select value={usesCommercialTypeFilter ? rooms : residence} onChange={(event) => (usesCommercialTypeFilter ? setRooms(event.target.value) : setResidence(event.target.value))}>
-							<option value="">{usesCommercialTypeFilter ? 'Tous' : 'Toutes'}</option>
+							<option value="">{usesCommercialTypeFilter ? t('listing.all') : t('listing.allPlural')}</option>
 							{usesCommercialTypeFilter
 								? commercialTypes.map((type) => (
 										<option key={type} value={type}>
-											Type {type}
+											{t('listing.type')} {type}
 										</option>
 									))
 								: residences.map((item) => (
@@ -114,19 +117,19 @@ export const ListingPage = ({
 						</select>
 					</label>
 					<label>
-						{propertyType === 'apartment' ? 'Chambres' : 'Résidence'}
+						{propertyType === 'apartment' ? t('listing.bedrooms') : t('listing.residence')}
 						{propertyType === 'apartment' ? (
 							<select value={rooms} onChange={(event) => setRooms(event.target.value)}>
-								<option value="">Toutes</option>
+								<option value="">{t('listing.allPlural')}</option>
 								{roomChoices.map((room) => (
 									<option key={room} value={room}>
-										{room} chambre{room > 1 ? 's' : ''}
+										{room} {room > 1 ? t('listing.bedroomsUnit') : t('listing.bedroom')}
 									</option>
 								))}
 							</select>
 						) : (
 							<select value={residence} onChange={(event) => setResidence(event.target.value)}>
-								<option value="">Toutes</option>
+								<option value="">{t('listing.allPlural')}</option>
 								{residences.map((item) => (
 									<option key={item}>{item}</option>
 								))}
@@ -134,7 +137,7 @@ export const ListingPage = ({
 						)}
 					</label>
 					<label>
-						{usesBudgetFilter ? 'Budget max' : 'Surface minimum'}
+						{usesBudgetFilter ? t('listing.budgetMax') : t('listing.minSurface')}
 						<input
 							placeholder={usesBudgetFilter ? 'MAD' : 'm²'}
 							type="number"
@@ -142,11 +145,11 @@ export const ListingPage = ({
 							onChange={(event) => (usesBudgetFilter ? setMaxBudget(event.target.value) : setMinSurface(event.target.value))}
 						/>
 					</label>
-					<button type="button">Filtrer</button>
+					<button type="button">{t('listing.filter')}</button>
 				</div>
 				{transaction === 'rent' && propertyType === 'apartment' ? (
 					<p className="result-count">
-						<span>{visibleRows.length}</span> appartements affichés
+						<span>{visibleRows.length}</span> {t('listing.apartmentsShown')}
 					</p>
 				) : null}
 				<div className="grid" id="cards">
@@ -154,7 +157,7 @@ export const ListingPage = ({
 						<PropertyCard key={property.id} property={property} />
 					))}
 				</div>
-				{visibleRows.length === 0 ? <div className="no-results">Aucun bien ne correspond aux filtres sélectionnés.</div> : null}
+				{visibleRows.length === 0 ? <div className="no-results">{t('listing.noResults')}</div> : null}
 			</main>
 			<LinkedFooter contact={contact} />
 		</>
@@ -162,8 +165,10 @@ export const ListingPage = ({
 };
 
 const PropertyCard = ({ property }: { property: Property }) => {
+	const { t } = useTranslation();
 	const isCommercial = property.property_type === 'commercial';
 	const isRentalApartment = property.transaction === 'rent' && property.property_type === 'apartment';
+	const isSaleApartment = property.transaction === 'sale' && property.property_type === 'apartment';
 	const albumPhotos = [...(property.photos ?? [])].filter((photo) => photo.image).sort((a, b) => a.sort_order - b.sort_order);
 	const primaryImage = property.image || albumPhotos[0]?.image || '';
 	const cardImage = primaryImage ? galleryImageVariant(primaryImage, 'card') : '';
@@ -184,51 +189,53 @@ const PropertyCard = ({ property }: { property: Property }) => {
 		}
 		setActivePhotoIndex((activePhotoIndex + 1) % activePhotoCount);
 	};
+	const displayTag = isSaleApartment ? t('listing.tags.apartmentForSale') : isCommercial && property.transaction === 'rent' ? t('listing.tags.commercialForRent') : property.tag;
+	const ctaLabel = property.transaction === 'sale' ? t('listing.requestPrice') : property.transaction === 'rent' ? t('listing.requestAvailability') : t('listing.request');
 
 	return (
 		<article className={`card${isCommercial ? ' local' : ''}`}>
 			<div className="card-img" style={cardImage ? { backgroundImage: `linear-gradient(135deg,rgba(73,52,37,.24),rgba(73,52,37,.04)),url('${cardImage}')` } : undefined} />
 			<div className="card-body">
-				<span className="tag">{property.tag}</span>
+				<span className="tag">{displayTag}</span>
 				<h3>{property.title}</h3>
 				<p>{property.description}</p>
 				{property.price ? <span className="price">{property.price}</span> : null}
-				{property.price_note && isRentalApartment ? <p>{property.price_note}</p> : null}
+				{property.price_note && isRentalApartment ? <p>{t('listing.priceNoteJune')}</p> : null}
 				<div className="meta">
 					{isRentalApartment ? (
 						<>
-							<Meta label="Chambres" value={`${property.bedrooms ?? ''} chambre${property.bedrooms && property.bedrooms > 1 ? 's' : ''}`} />
-							<Meta label="Etage" value={property.floor} />
-							<Meta label="Résidence" value={property.residence} />
-							<Meta label="N° Appt" value={property.unit_number} />
+							<Meta label={t('listing.meta.bedrooms')} value={`${property.bedrooms ?? ''} ${property.bedrooms && property.bedrooms > 1 ? t('listing.bedroomsUnit') : t('listing.bedroom')}`} />
+							<Meta label={t('listing.meta.floor')} value={property.floor} />
+							<Meta label={t('listing.meta.residence')} value={property.residence} />
+							<Meta label={t('listing.meta.unit')} value={property.unit_number} />
 						</>
 					) : isCommercial ? (
 						<>
-							<Meta label="Surface globale" value={surfaceLabel(property.surface_total)} />
-							<Meta label="RDC" value={property.project_label.replace(/^RDC /, '')} />
-							<Meta label="Mezzanine" value={property.mezzanine} />
-							<Meta label="Surface totale" value={property.surface_sold} />
+							<Meta label={t('listing.meta.globalSurface')} value={surfaceLabel(property.surface_total)} />
+							<Meta label={t('listing.meta.rdc')} value={property.project_label.replace(/^RDC /, '')} />
+							<Meta label={t('listing.meta.mezzanine')} value={property.mezzanine} />
+							<Meta label={t('listing.meta.totalSurface')} value={property.surface_sold} />
 						</>
 					) : (
 						<>
-							<Meta label="Étage" value={property.floor} />
-							<Meta label="Chambres" value={String(property.bedrooms ?? '')} />
-							<Meta label="Superficie globale" value={surfaceLabel(property.surface_total)} />
-							<Meta label="Surface vendue" value={property.surface_sold} />
+							<Meta label={t('listing.meta.floor')} value={property.floor} />
+							<Meta label={t('listing.meta.bedrooms')} value={String(property.bedrooms ?? '')} />
+							<Meta label={t('listing.meta.globalSurface')} value={surfaceLabel(property.surface_total)} />
+							<Meta label={t('listing.meta.soldSurface')} value={property.surface_sold} />
 						</>
 					)}
 				</div>
 				{activePhotoCount ? (
-					<div className="property-album" aria-label={`Album photo ${property.title}`}>
-						<button className="property-album__open" type="button" onClick={() => showPhoto(0)} aria-label={`Ouvrir l'album photo de ${property.title}`}>
-							Album photo{' '}
+					<div className="property-album" aria-label={`${t('listing.album')} ${property.title}`}>
+						<button className="property-album__open" type="button" onClick={() => showPhoto(0)} aria-label={t('listing.openAlbum', '', { title: property.title })}>
+							{t('listing.album')}{' '}
 							<span>
-								{activePhotoCount} photo{activePhotoCount > 1 ? 's' : ''}
+								{activePhotoCount} {activePhotoCount > 1 ? t('listing.photos') : t('listing.photo')}
 							</span>
 						</button>
 						<div className="property-album__thumbs">
 							{albumPhotos.slice(0, 4).map((photo, index) => (
-								<button className="property-album__thumb" type="button" key={photo.id} onClick={() => showPhoto(index)} aria-label={`Voir ${photo.title}`}>
+								<button className="property-album__thumb" type="button" key={photo.id} onClick={() => showPhoto(index)} aria-label={t('listing.viewPhoto', '', { title: photo.title })}>
 									<img src={galleryImageVariant(photo.image, 'thumb')} alt={photo.alt_text || photo.title} loading="lazy" decoding="async" width="180" height="180" />
 								</button>
 							))}
@@ -236,14 +243,14 @@ const PropertyCard = ({ property }: { property: Property }) => {
 					</div>
 				) : null}
 				<a className="cta" href="/#contact">
-					{property.cta_label || 'Faire une demande →'}
+					{ctaLabel}
 				</a>
 			</div>
 			{activePhoto ? (
-				<div className="property-album-modal" role="dialog" aria-modal="true" aria-label={`Album photo ${property.title}`}>
-					<button className="property-album-modal__backdrop" type="button" aria-label="Fermer l'album" onClick={() => setActivePhotoIndex(null)} />
+				<div className="property-album-modal" role="dialog" aria-modal="true" aria-label={`${t('listing.album')} ${property.title}`}>
+					<button className="property-album-modal__backdrop" type="button" aria-label={t('listing.closeAlbum')} onClick={() => setActivePhotoIndex(null)} />
 					<div className="property-album-modal__window">
-						<button className="property-album-modal__close" type="button" aria-label="Fermer l'album" onClick={() => setActivePhotoIndex(null)}>
+						<button className="property-album-modal__close" type="button" aria-label={t('listing.closeAlbum')} onClick={() => setActivePhotoIndex(null)}>
 							×
 						</button>
 						<img src={activePhotoImage} alt={activePhoto.alt_text || activePhoto.title} decoding="async" />
@@ -256,10 +263,10 @@ const PropertyCard = ({ property }: { property: Property }) => {
 							</div>
 							<div className="property-album-modal__controls">
 								<button type="button" onClick={showPreviousPhoto}>
-									Précédente
+									{t('listing.previous')}
 								</button>
 								<button type="button" onClick={showNextPhoto}>
-									Suivante
+									{t('listing.next')}
 								</button>
 							</div>
 						</footer>

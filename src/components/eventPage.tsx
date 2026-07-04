@@ -1,29 +1,35 @@
+'use client';
+
 import { LinkedFooter, MainHeader } from '@/components/common';
+import { useTranslation } from '@/i18n/client';
+import { localizeEventIdea } from '@/i18n/translations';
 import type { EventIdea, SiteContact } from '@/types/site';
 
-export const EventPage = ({ ideas, contact }: { ideas: EventIdea[]; contact: SiteContact }) => (
-	<>
-		<MainHeader />
-		<section className="hero">
-			<div className="hero-inner">
-				<span className="kicker">Événements privés</span>
-				<h1>Décorations d’appartement à Tanger</h1>
-				<p>Des mises en scène élégantes pour transformer un appartement en moment inoubliable : anniversaire, surprise romantique, demande, bride to be ou dîner privé.</p>
-			</div>
-		</section>
-		<section className="section">
-			<div className="inner">
-				<div className="head">
-					<span className="kicker">Nos idées</span>
-					<div>
-						<h2>Des ambiances personnalisées, prêtes à vivre.</h2>
-						<p>Chaque décoration est pensée selon le profil du client, le type de séjour et l’effet recherché : émotion, surprise, photo souvenir et confort premium.</p>
-					</div>
+export const EventPage = ({ ideas, contact }: { ideas: EventIdea[]; contact: SiteContact }) => {
+	const { language, t } = useTranslation();
+	const localizedIdeas = [...ideas].sort((a, b) => a.sort_order - b.sort_order).map((idea) => localizeEventIdea(language, idea));
+
+	return (
+		<>
+			<MainHeader />
+			<section className="hero">
+				<div className="hero-inner">
+					<span className="kicker">{t('event.kicker')}</span>
+					<h1>{t('event.title')}</h1>
+					<p>{t('event.copy')}</p>
 				</div>
-				<div className="grid">
-					{ideas
-						.sort((a, b) => a.sort_order - b.sort_order)
-						.map((idea) => (
+			</section>
+			<section className="section">
+				<div className="inner">
+					<div className="head">
+						<span className="kicker">{t('event.ideasKicker')}</span>
+						<div>
+							<h2>{t('event.ideasTitle')}</h2>
+							<p>{t('event.ideasCopy')}</p>
+						</div>
+					</div>
+					<div className="grid">
+						{localizedIdeas.map((idea) => (
 							<article className="event-card" key={idea.id}>
 								<div className="event-photo" style={{ backgroundImage: `url('${idea.image}')` }} />
 								<div className="event-content">
@@ -38,33 +44,28 @@ export const EventPage = ({ ideas, contact }: { ideas: EventIdea[]; contact: Sit
 								</div>
 							</article>
 						))}
-				</div>
-				<div className="cta-band">
-					<div>
-						<span className="kicker">Sur mesure</span>
-						<h3>Une idée spéciale ? Nous créons l’ambiance.</h3>
 					</div>
-					<div>
-						<p>Pour un anniversaire, une surprise amoureuse, une demande, un séjour famille ou un week-end entre amies, Nectar immobilier peut préparer une décoration adaptée à l’appartement et au budget.</p>
-						<a href="/#contact">Demander une décoration</a>
+					<div className="cta-band">
+						<div>
+							<span className="kicker">{t('event.customKicker')}</span>
+							<h3>{t('event.customTitle')}</h3>
+						</div>
+						<div>
+							<p>{t('event.customCopy')}</p>
+							<a href="/#contact">{t('event.customCta')}</a>
+						</div>
 					</div>
-				</div>
-				<div className="process">
-					<div>
-						<strong>01</strong>
-						<p>Choix du thème, couleurs, message et date d’arrivée.</p>
-					</div>
-					<div>
-						<strong>02</strong>
-						<p>Préparation discrète de l’appartement avant l’arrivée du client.</p>
-					</div>
-					<div>
-						<strong>03</strong>
-						<p>Décoration prête, photos possibles et coordination jusqu’à la remise des clés.</p>
+					<div className="process">
+						{[0, 1, 2].map((index) => (
+							<div key={index}>
+								<strong>{String(index + 1).padStart(2, '0')}</strong>
+								<p>{t(`event.steps.${index}`)}</p>
+							</div>
+						))}
 					</div>
 				</div>
-			</div>
-		</section>
-		<LinkedFooter contact={contact} />
-	</>
-);
+			</section>
+			<LinkedFooter contact={contact} />
+		</>
+	);
+};

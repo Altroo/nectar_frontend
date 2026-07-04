@@ -1,6 +1,10 @@
+'use client';
+
 import { PurplePearlVisitForm } from '@/components/forms';
 import { PurpleHeader, PurplePearlFooter, StyleBlock } from '@/components/common';
 import { PurplePlans } from '@/components/purplePlans';
+import { useTranslation } from '@/i18n/client';
+import { translations } from '@/i18n/translations';
 import type { PurplePearlPlan, SiteContact } from '@/types/site';
 
 const proximityHoverResetStyles = `
@@ -58,134 +62,117 @@ const proximityHoverResetStyles = `
 }
 `;
 
-export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; contact: SiteContact }) => (
-	<>
-		<StyleBlock css={proximityHoverResetStyles} />
-		<PurpleHeader />
-		<main>
-			<section className="hero" aria-label="Hero Purple Pearl">
-				<div className="container">
-					<div className="hero-content">
-						<img className="hero-logo" src="/assets/purple-pearl-logo.png" alt="Logo Purple Pearl" />
-						<p className="eyebrow">Promotion immobilière</p>
-						<h1>Purple Pearl</h1>
-						<p>Purple Pearl est une promotion immobilière d’appartements et de magasins à vendre à Tanger, pensée pour offrir des espaces modernes, lumineux et élégants. Le projet se distingue par une architecture soignée, des agencements fonctionnels et une identité visuelle harmonieuse, offrant un cadre de vie agréable pour les résidents ainsi que des espaces adaptés aux activités commerciales.</p>
-						<div className="hero-actions">
-							<a className="hero-btn" href="#voir-projet">
-								Voir notre projet
-							</a>
-							<a className="hero-btn secondary" href="#plans">
-								Voir les plans
-							</a>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section className="page-section" id="voir-projet">
-				<div className="container">
-					<div className="section-header">
-						<div className="section-number">01</div>
-						<h2>Description</h2>
-					</div>
-					<div className="intro-card">
-						<p style={{ margin: 0, fontSize: 18, lineHeight: 1.9, color: 'var(--pp-muted)' }}>Purple Pearl allie architecture contemporaine, appartements bien agencés et espaces pensés pour le confort du quotidien. Le projet propose plusieurs typologies de logements, adaptées à différents besoins, avec des espaces extérieurs ou fonctionnels tels que cour, terrasse, balcon ou buanderie. Il comprend également des magasins à vendre, pensés pour accueillir des activités commerciales dans un cadre pratique et accessible.</p>
-						<div className="overview-grid overview-grid--two">
-							<div className="overview-item stat-card">
-								<strong>59 à 125,96 m²</strong>
-								<span>Surfaces disponibles</span>
-							</div>
-							<div className="overview-item stat-card">
-								<strong>2026</strong>
-								<span>Année de construction</span>
+export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; contact: SiteContact }) => {
+	const { language, t } = useTranslation();
+	const proximityWalk = translations[language].purple.proximityWalk.map(([label, value]) => [String(label), String(value)] as [string, string]);
+	const proximityDrive = translations[language].purple.proximityDrive.map(([label, value]) => [String(label), String(value)] as [string, string]);
+
+	return (
+		<>
+			<StyleBlock css={proximityHoverResetStyles} />
+			<PurpleHeader />
+			<main>
+				<section className="hero" aria-label="Hero Purple Pearl">
+					<div className="container">
+						<div className="hero-content">
+							<img className="hero-logo" src="/assets/purple-pearl-logo.png" alt="Logo Purple Pearl" />
+							<p className="eyebrow">{t('purple.heroLabel')}</p>
+							<h1>Purple Pearl</h1>
+							<p>{t('purple.heroCopy')}</p>
+							<div className="hero-actions">
+								<a className="hero-btn" href="#voir-projet">
+									{t('purple.viewProject')}
+								</a>
+								<a className="hero-btn secondary" href="#plans">
+									{t('purple.viewPlans')}
+								</a>
 							</div>
 						</div>
 					</div>
-				</div>
-			</section>
-			<section className="page-section" id="adresse" style={{ paddingTop: 0 }}>
-				<div className="container">
-					<div className="section-header">
-						<div className="section-number">02</div>
-						<h2>Adresse</h2>
-					</div>
-					<div className="address-grid">
-						<div className="address-item">
-							<strong>Adresse</strong>
-							<p>Tanger, Maroc — l’adresse détaillée peut être précisée lors de la demande de visite.</p>
+				</section>
+				<section className="page-section" id="voir-projet">
+					<div className="container">
+						<div className="section-header">
+							<div className="section-number">01</div>
+							<h2>{t('purple.description')}</h2>
 						</div>
-						<div className="address-item">
-							<strong>Ville</strong>
-							<p>Tanger</p>
-						</div>
-					</div>
-					<a className="map-btn" href="https://www.google.com/maps/search/Tanger+Maroc" target="_blank" rel="noopener">
-						Ouvrir sur Google Maps
-					</a>
-				</div>
-			</section>
-			<section className="page-section" id="proximite" style={{ paddingTop: 0 }}>
-				<div className="container">
-					<div className="section-header">
-						<div className="section-number">03</div>
-						<h2>À proximité du projet</h2>
-					</div>
-					<div className="near-card-grid">
-						<div className="info-card near-card">
-							<NearColumn
-								title="À pied"
-								items={[
-									['Commerces de proximité', '2–5 min'],
-									['Cafés & Restaurants', '3–5 min'],
-									['Pharmacie', '3 min'],
-									['Mosquée', '4–5 min'],
-									['École', '5–7 min'],
-									['Salle de sport', '6–8 min'],
-								]}
-							/>
-						</div>
-						<div className="info-card near-card">
-							<NearColumn
-								title="En voiture"
-								items={[
-									['Centre-ville de Tanger', '10–15 min'],
-									['Corniche', '12–15 min'],
-									['Gare TGV Tanger Ville', '10–15 min'],
-									['Grands axes routiers', '2 min'],
-									['Rond-point Andalus', '2 min'],
-									['Zone commerciale', '5–8 min'],
-									['Marina Tanger', '15 min'],
-									['Port Tanger Ville', '20 min'],
-									['Aéroport Ibn Battouta', '20–25 min'],
-								]}
-							/>
+						<div className="intro-card">
+							<p style={{ margin: 0, fontSize: 18, lineHeight: 1.9, color: 'var(--pp-muted)' }}>{t('purple.descriptionCopy')}</p>
+							<div className="overview-grid overview-grid--two">
+								<div className="overview-item stat-card">
+									<strong>59 à 125,96 m²</strong>
+									<span>{t('purple.surfaceLabel')}</span>
+								</div>
+								<div className="overview-item stat-card">
+									<strong>2026</strong>
+									<span>{t('purple.yearLabel')}</span>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
-			<section className="page-section" id="plans" style={{ paddingTop: 0 }}>
-				<div className="container">
-					<div className="section-header">
-						<div className="section-number">04</div>
-						<h2>Plans</h2>
+				</section>
+				<section className="page-section" id="adresse" style={{ paddingTop: 0 }}>
+					<div className="container">
+						<div className="section-header">
+							<div className="section-number">02</div>
+							<h2>{t('purple.address')}</h2>
+						</div>
+						<div className="address-grid">
+							<div className="address-item">
+								<strong>{t('purple.address')}</strong>
+								<p>{t('purple.addressCopy')}</p>
+							</div>
+							<div className="address-item">
+								<strong>{t('purple.city')}</strong>
+								<p>Tanger</p>
+							</div>
+						</div>
+						<a className="map-btn" href="https://www.google.com/maps/search/Tanger+Maroc" target="_blank" rel="noopener">
+							{t('purple.map')}
+						</a>
 					</div>
-					<PurplePlans plans={plans} />
-				</div>
-			</section>
-			<section className="page-section" id="visite" style={{ paddingTop: 0 }}>
-				<div className="container">
-					<div className="section-header">
-						<div className="section-number">05</div>
-						<h2>Planifier une visite</h2>
+				</section>
+				<section className="page-section" id="proximite" style={{ paddingTop: 0 }}>
+					<div className="container">
+						<div className="section-header">
+							<div className="section-number">03</div>
+							<h2>{t('purple.proximity')}</h2>
+						</div>
+						<div className="near-card-grid">
+							<div className="info-card near-card">
+								<NearColumn title={t('purple.walk')} items={proximityWalk} />
+							</div>
+							<div className="info-card near-card">
+								<NearColumn title={t('purple.drive')} items={proximityDrive} />
+							</div>
+						</div>
 					</div>
-					<div className="visit-card">
-						<PurplePearlVisitForm />
+				</section>
+				<section className="page-section" id="plans" style={{ paddingTop: 0 }}>
+					<div className="container">
+						<div className="section-header">
+							<div className="section-number">04</div>
+							<h2>{t('purple.plans')}</h2>
+						</div>
+						<PurplePlans plans={plans} />
 					</div>
-				</div>
-			</section>
-		</main>
-		<PurplePearlFooter contact={contact} />
-	</>
-);
+				</section>
+				<section className="page-section" id="visite" style={{ paddingTop: 0 }}>
+					<div className="container">
+						<div className="section-header">
+							<div className="section-number">05</div>
+							<h2>{t('purple.visit')}</h2>
+						</div>
+						<div className="visit-card">
+							<PurplePearlVisitForm />
+						</div>
+					</div>
+				</section>
+			</main>
+			<PurplePearlFooter contact={contact} />
+		</>
+	);
+};
 
 const NearColumn = ({ title, items }: { title: string; items: [string, string][] }) => (
 	<div className="near-col">

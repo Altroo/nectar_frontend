@@ -1,16 +1,10 @@
 'use client';
 
 import { type FormEvent, useState, useSyncExternalStore } from 'react';
+import { useTranslation } from '@/i18n/client';
 import { postWebsiteForm } from '@/utils/api';
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
-
-const statusText = {
-	idle: '',
-	sending: 'Envoi en cours...',
-	success: 'Votre demande a bien été envoyée.',
-	error: 'La demande n’a pas pu être envoyée. Veuillez réessayer.',
-};
 
 const formValue = (form: HTMLFormElement, name: string) => String(new FormData(form).get(name) || '');
 
@@ -36,6 +30,7 @@ const getServerNewsletterVisibilitySnapshot = () => false;
 
 export const ContactForm = () => {
 	const [status, setStatus] = useState<Status>('idle');
+	const { t } = useTranslation();
 
 	const submit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -64,50 +59,47 @@ export const ContactForm = () => {
 	return (
 		<form className="contact-photo-form" onSubmit={submit}>
 			<div className="field">
-				<label>Nom complet</label>
-				<input name="full_name" placeholder="Votre nom" type="text" required />
+				<label>{t('forms.contact.fullName')}</label>
+				<input name="full_name" placeholder={t('forms.contact.namePlaceholder')} type="text" required />
 			</div>
 			<div className="field">
-				<label>Téléphone</label>
+				<label>{t('forms.contact.phone')}</label>
 				<input name="phone" placeholder="06 75 59 92 56 / 07 73 86 35 85" type="tel" required />
 			</div>
 			<div className="field">
-				<label>Email</label>
-				<input name="email" placeholder="nom@email.com" type="email" />
+				<label>{t('forms.contact.email')}</label>
+				<input name="email" placeholder={t('forms.contact.emailPlaceholder')} type="email" />
 			</div>
 			<div className="field">
-				<label>Projet</label>
+				<label>{t('forms.contact.project')}</label>
 				<select name="project">
-					<option>Achat</option>
-					<option>Vente</option>
-					<option>Location</option>
-					<option>Finalisation &amp; suivi</option>
+					{[0, 1, 2, 3].map((index) => (
+						<option key={index}>{t(`forms.contact.projects.${index}`)}</option>
+					))}
 				</select>
 			</div>
 			<div className="field">
-				<label>Type de bien</label>
+				<label>{t('forms.contact.propertyType')}</label>
 				<select name="property_type">
-					<option>Appartement</option>
-					<option>Villa</option>
-					<option>Bureau de luxe</option>
-					<option>Magasin de luxe</option>
-					<option>Local commercial</option>
+					{[0, 1, 2, 3, 4].map((index) => (
+						<option key={index}>{t(`forms.contact.propertyTypes.${index}`)}</option>
+					))}
 				</select>
 			</div>
 			<div className="field">
-				<label>Budget</label>
-				<input name="budget" placeholder="Ex. 3 000 000 MAD" type="text" />
+				<label>{t('forms.contact.budget')}</label>
+				<input name="budget" placeholder={t('forms.contact.budgetPlaceholder')} type="text" />
 			</div>
 			<div className="form-rdv-title">
-				<span>Rendez-vous</span>
-				<strong>Réserver un créneau</strong>
+				<span>{t('forms.contact.appointment')}</span>
+				<strong>{t('forms.contact.bookSlot')}</strong>
 			</div>
 			<div className="field">
-				<label>Date souhaitée</label>
+				<label>{t('forms.contact.date')}</label>
 				<input name="preferred_date" type="date" />
 			</div>
 			<div className="field">
-				<label>Heure souhaitée</label>
+				<label>{t('forms.contact.time')}</label>
 				<select name="preferred_time">
 					<option>10:00</option>
 					<option>11:30</option>
@@ -117,28 +109,28 @@ export const ContactForm = () => {
 				</select>
 			</div>
 			<div className="field field-full">
-				<label>Mode de rendez-vous</label>
+				<label>{t('forms.contact.mode')}</label>
 				<select name="appointment_mode">
-					<option>Appel téléphonique</option>
-					<option>Visioconférence</option>
-					<option>Rendez-vous à l’agence</option>
-					<option>Visite du bien</option>
+					{[0, 1, 2, 3].map((index) => (
+						<option key={index}>{t(`forms.contact.modes.${index}`)}</option>
+					))}
 				</select>
 			</div>
 			<div className="field field-full message-field">
-				<label>Message</label>
-				<textarea name="message" placeholder="Décrivez votre besoin, le quartier souhaité ou votre bien à vendre/louer." rows={5} />
+				<label>{t('forms.contact.message')}</label>
+				<textarea name="message" placeholder={t('forms.contact.messagePlaceholder')} rows={5} />
 			</div>
 			<button className="contact-photo-btn" disabled={status === 'sending'} type="submit">
-				Envoyer ma demande <span>→</span>
+				{t('forms.contact.submit')} <span>→</span>
 			</button>
-			{status !== 'idle' ? <p className={status === 'error' ? 'form-status is-error' : 'form-status'}>{statusText[status]}</p> : null}
+			{status !== 'idle' ? <p className={status === 'error' ? 'form-status is-error' : 'form-status'}>{t(`forms.status.${status}`)}</p> : null}
 		</form>
 	);
 };
 
 export const NewsletterForm = () => {
 	const [status, setStatus] = useState<Status>('idle');
+	const { t } = useTranslation();
 
 	const submit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -158,17 +150,18 @@ export const NewsletterForm = () => {
 
 	return (
 		<form className="nectar-floating-newsletter__form" onSubmit={submit}>
-			<input className="nectar-floating-newsletter__input" name="email" placeholder="VOTRE EMAIL" type="email" required />
+			<input className="nectar-floating-newsletter__input" name="email" placeholder={t('forms.newsletter.placeholder')} type="email" required />
 			<button className="nectar-floating-newsletter__submit" disabled={status === 'sending'} type="submit">
-				S’inscrire
+				{t('forms.newsletter.submit')}
 			</button>
-			{status !== 'idle' ? <p className={status === 'error' ? 'form-status is-error' : 'form-status'}>{statusText[status]}</p> : null}
+			{status !== 'idle' ? <p className={status === 'error' ? 'form-status is-error' : 'form-status'}>{t(`forms.status.${status}`)}</p> : null}
 		</form>
 	);
 };
 
 export const FloatingNewsletter = () => {
 	const isVisible = useSyncExternalStore(subscribeToNewsletterDismissal, getNewsletterVisibilitySnapshot, getServerNewsletterVisibilitySnapshot);
+	const { t } = useTranslation();
 
 	if (!isVisible) {
 		return null;
@@ -177,15 +170,15 @@ export const FloatingNewsletter = () => {
 	return (
 		<div aria-live="polite" className="nectar-floating-newsletter is-visible" id="floating-newsletter">
 			<div className="nectar-floating-newsletter__inner">
-				<button aria-label="Fermer la newsletter" className="nectar-floating-newsletter__close" type="button" onClick={rememberNewsletterDismissal}>
+				<button aria-label={t('forms.newsletter.close')} className="nectar-floating-newsletter__close" type="button" onClick={rememberNewsletterDismissal}>
 					×
 				</button>
-				<span className="nectar-floating-newsletter__eyebrow">NEWSLETTER PRIVÉE</span>
-				<h3 className="nectar-floating-newsletter__title">Recevez nos nouveautés</h3>
-				<p className="nectar-floating-newsletter__text">Biens d’exception, séjours courte durée et opportunités sélectionnées à Tanger, en avant-première.</p>
+				<span className="nectar-floating-newsletter__eyebrow">{t('forms.newsletter.eyebrow')}</span>
+				<h3 className="nectar-floating-newsletter__title">{t('forms.newsletter.title')}</h3>
+				<p className="nectar-floating-newsletter__text">{t('forms.newsletter.copy')}</p>
 				<NewsletterForm />
 				<p className="nectar-floating-newsletter__privacy">
-					<span>Vos informations sont confidentielles et ne seront jamais partagées.</span>
+					<span>{t('forms.newsletter.privacy')}</span>
 				</p>
 			</div>
 		</div>
@@ -194,6 +187,7 @@ export const FloatingNewsletter = () => {
 
 export const PurplePearlVisitForm = () => {
 	const [status, setStatus] = useState<Status>('idle');
+	const { t } = useTranslation();
 
 	const submit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -221,20 +215,20 @@ export const PurplePearlVisitForm = () => {
 		<form onSubmit={submit}>
 			<div className="visit-grid">
 				<div className="field">
-					<label htmlFor="visit_type">Type de visite</label>
+					<label htmlFor="visit_type">{t('forms.visit.type')}</label>
 					<select id="visit_type" name="visit_type">
-						<option>Sélectionner</option>
-						<option>Visite du projet</option>
-						<option>Rendez-vous conseil</option>
-						<option>Demande d’informations</option>
+						<option>{t('forms.visit.select')}</option>
+						<option>{t('forms.visit.projectVisit')}</option>
+						<option>{t('forms.visit.consultation')}</option>
+						<option>{t('forms.visit.infoRequest')}</option>
 					</select>
 				</div>
 				<div className="field">
-					<label htmlFor="preferred_date">Date</label>
+					<label htmlFor="preferred_date">{t('forms.visit.date')}</label>
 					<input id="preferred_date" name="preferred_date" type="date" />
 				</div>
 				<div className="field">
-					<label htmlFor="preferred_time">Heure</label>
+					<label htmlFor="preferred_time">{t('forms.visit.time')}</label>
 					<select id="preferred_time" name="preferred_time">
 						<option>10:00</option>
 						<option>12:00</option>
@@ -243,31 +237,31 @@ export const PurplePearlVisitForm = () => {
 					</select>
 				</div>
 				<div className="field">
-					<label htmlFor="full_name">Nom complet</label>
-					<input id="full_name" name="full_name" placeholder="Entrez votre nom complet" type="text" required />
+					<label htmlFor="full_name">{t('forms.visit.fullName')}</label>
+					<input id="full_name" name="full_name" placeholder={t('forms.visit.namePlaceholder')} type="text" required />
 				</div>
 				<div className="field">
-					<label htmlFor="phone">Numéro de téléphone</label>
-					<input id="phone" name="phone" placeholder="Entrez votre numéro de téléphone" type="tel" required />
+					<label htmlFor="phone">{t('forms.visit.phone')}</label>
+					<input id="phone" name="phone" placeholder={t('forms.visit.phonePlaceholder')} type="tel" required />
 				</div>
 				<div className="field">
-					<label htmlFor="email">E-mail</label>
-					<input id="email" name="email" placeholder="Entrez votre adresse e-mail" type="email" />
+					<label htmlFor="email">{t('forms.visit.email')}</label>
+					<input id="email" name="email" placeholder={t('forms.visit.emailPlaceholder')} type="email" />
 				</div>
 				<div className="field full">
-					<label htmlFor="message">Message</label>
-					<textarea id="message" name="message" placeholder="Précisez le type d’appartement souhaité, votre budget ou votre disponibilité." />
+					<label htmlFor="message">{t('forms.visit.message')}</label>
+					<textarea id="message" name="message" placeholder={t('forms.visit.messagePlaceholder')} />
 				</div>
 				<div className="field full">
 					<label className="check-wrap">
-						<input name="consent" type="checkbox" /> <span>En soumettant ce formulaire, j’accepte d’être contacté par Nectar immobilier.</span>
+						<input name="consent" type="checkbox" /> <span>{t('forms.visit.consent')}</span>
 					</label>
 				</div>
 				<div className="field full">
 					<button className="submit-btn" disabled={status === 'sending'} type="submit">
-						Soumettre une demande de visite
+						{t('forms.visit.submit')}
 					</button>
-					{status !== 'idle' ? <p className={status === 'error' ? 'form-status is-error' : 'form-status'}>{statusText[status]}</p> : null}
+					{status !== 'idle' ? <p className={status === 'error' ? 'form-status is-error' : 'form-status'}>{t(`forms.status.${status}`)}</p> : null}
 				</div>
 			</div>
 		</form>

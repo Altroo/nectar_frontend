@@ -208,3 +208,20 @@
 		padding-inline: 12px;
 	}
 }
+
+html[dir="rtl"] body {
+	direction: rtl;
+}
+
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select {
+	direction: rtl;
+	text-align: right;
+}
+
+html[dir="rtl"] .sunset-menu,
+html[dir="rtl"] .main-nav,
+html[dir="rtl"] .nectar-linked-footer {
+	direction: rtl;
+}
