@@ -18,7 +18,7 @@ export const PurplePlans = ({ plans }: { plans: PurplePearlPlan[] }) => {
 
 	return (
 		<>
-			<div className="floor-filter" role="tablist" aria-label="Filtre des plans par niveau">
+			<div className="floor-filter" role="tablist" aria-label={t('purple.planFilterAria')}>
 				{ordered.map((plan) => (
 					<button className={`floor-btn${plan.key === activePlan?.key ? ' active' : ''}`} type="button" key={plan.key} onClick={() => setActive(plan.key)}>
 						{plan.button_label}

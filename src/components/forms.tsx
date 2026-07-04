@@ -64,11 +64,11 @@ export const ContactForm = () => {
 			</div>
 			<div className="field">
 				<label>{t('forms.contact.phone')}</label>
-				<input name="phone" placeholder="06 75 59 92 56 / 07 73 86 35 85" type="tel" required />
+				<input dir="ltr" inputMode="tel" name="phone" placeholder="06 75 59 92 56 / 07 73 86 35 85" type="tel" required />
 			</div>
 			<div className="field">
 				<label>{t('forms.contact.email')}</label>
-				<input name="email" placeholder={t('forms.contact.emailPlaceholder')} type="email" />
+				<input dir="ltr" name="email" placeholder={t('forms.contact.emailPlaceholder')} type="email" />
 			</div>
 			<div className="field">
 				<label>{t('forms.contact.project')}</label>
@@ -88,7 +88,7 @@ export const ContactForm = () => {
 			</div>
 			<div className="field">
 				<label>{t('forms.contact.budget')}</label>
-				<input name="budget" placeholder={t('forms.contact.budgetPlaceholder')} type="text" />
+				<input dir="ltr" inputMode="numeric" name="budget" placeholder={t('forms.contact.budgetPlaceholder')} type="text" />
 			</div>
 			<div className="form-rdv-title">
 				<span>{t('forms.contact.appointment')}</span>
@@ -96,11 +96,11 @@ export const ContactForm = () => {
 			</div>
 			<div className="field">
 				<label>{t('forms.contact.date')}</label>
-				<input name="preferred_date" type="date" />
+				<input dir="ltr" name="preferred_date" type="date" />
 			</div>
 			<div className="field">
 				<label>{t('forms.contact.time')}</label>
-				<select name="preferred_time">
+				<select dir="ltr" name="preferred_time">
 					<option>10:00</option>
 					<option>11:30</option>
 					<option>14:00</option>
@@ -225,11 +225,11 @@ export const PurplePearlVisitForm = () => {
 				</div>
 				<div className="field">
 					<label htmlFor="preferred_date">{t('forms.visit.date')}</label>
-					<input id="preferred_date" name="preferred_date" type="date" />
+					<input dir="ltr" id="preferred_date" name="preferred_date" type="date" />
 				</div>
 				<div className="field">
 					<label htmlFor="preferred_time">{t('forms.visit.time')}</label>
-					<select id="preferred_time" name="preferred_time">
+					<select dir="ltr" id="preferred_time" name="preferred_time">
 						<option>10:00</option>
 						<option>12:00</option>
 						<option>15:00</option>
@@ -242,11 +242,11 @@ export const PurplePearlVisitForm = () => {
 				</div>
 				<div className="field">
 					<label htmlFor="phone">{t('forms.visit.phone')}</label>
-					<input id="phone" name="phone" placeholder={t('forms.visit.phonePlaceholder')} type="tel" required />
+					<input dir="ltr" id="phone" inputMode="tel" name="phone" placeholder={t('forms.visit.phonePlaceholder')} type="tel" required />
 				</div>
 				<div className="field">
 					<label htmlFor="email">{t('forms.visit.email')}</label>
-					<input id="email" name="email" placeholder={t('forms.visit.emailPlaceholder')} type="email" />
+					<input dir="ltr" id="email" name="email" placeholder={t('forms.visit.emailPlaceholder')} type="email" />
 				</div>
 				<div className="field full">
 					<label htmlFor="message">{t('forms.visit.message')}</label>

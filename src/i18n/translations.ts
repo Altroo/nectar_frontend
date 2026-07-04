@@ -1,4 +1,4 @@
-import type { EventIdea, GuidePlace, PurplePearlPlan } from '@/types/site';
+import type { EventIdea, GuidePlace, Property, PropertyPhoto, PurplePearlPlan, SiteContact, Testimonial } from '@/types/site';
 
 export type LanguageCode = 'fr' | 'ar' | 'en' | 'es';
 
@@ -92,6 +92,18 @@ const eventIdeas = {
 
 export const translations = {
 	fr: {
+		meta: {
+			titles: {
+				home: 'Nectar immobilier',
+				saleApartment: 'Appartements à vendre à Tanger - Nectar immobilier',
+				saleCommercial: 'Locaux à vendre à Tanger - Nectar immobilier',
+				rentApartment: 'Appartements à louer à Tanger - Nectar immobilier',
+				rentCommercial: 'Location de locaux commerciaux - Nectar immobilier',
+				guide: 'Guide de Tanger - Nectar immobilier',
+				event: 'Événements privés à Tanger - Nectar immobilier',
+				purple: 'Purple Pearl - Nectar immobilier',
+			},
+		},
 		nav: {
 			main: 'Navigation principale',
 			language: 'Sélecteur de langue',
@@ -153,7 +165,7 @@ export const translations = {
 			aboutCopy2: 'Notre différence se voit dans le détail : des annonces soignées, des visites mieux préparées, une communication rapide et une vraie connaissance des quartiers de Tanger. Nous privilégions la qualité des biens et la confiance, plutôt que le volume.',
 			statsAria: 'Chiffres clés Nectar immobilier',
 			statSold: 'biens vendus ou loués',
-			statExperience: 'd’expérience terrain',
+			statExperience: 'ans d’expérience terrain',
 			statSatisfaction: 'de satisfaction client',
 			aboutImageAria: "Bureau de l'agence Nectar immobilier",
 			aboutImageAlt: 'Entrée de la Résidence Nectar à Tanger',
@@ -315,6 +327,7 @@ export const translations = {
 			},
 			tags: {
 				apartmentForSale: 'Appartement à vendre',
+				commercialForSale: 'Local commercial à vendre',
 				commercialForRent: 'Local commercial à louer',
 			},
 			descriptions: {
@@ -406,9 +419,22 @@ export const translations = {
 				secondary3d: 'Deuxième visuel 3D',
 				pending: 'En attente',
 			},
+			planFilterAria: 'Filtre des plans par niveau',
 		},
 	},
 	ar: {
+		meta: {
+			titles: {
+				home: 'نكتار للعقار',
+				saleApartment: 'شقق للبيع في طنجة - نكتار للعقار',
+				saleCommercial: 'محلات للبيع في طنجة - نكتار للعقار',
+				rentApartment: 'شقق للكراء في طنجة - نكتار للعقار',
+				rentCommercial: 'محلات تجارية للكراء - نكتار للعقار',
+				guide: 'دليل طنجة - نكتار للعقار',
+				event: 'مناسبات خاصة في طنجة - نكتار للعقار',
+				purple: 'Purple Pearl - نكتار للعقار',
+			},
+		},
 		nav: {
 			main: 'التنقل الرئيسي',
 			language: 'اختيار اللغة',
@@ -455,7 +481,7 @@ export const translations = {
 			searchTransaction: 'المعاملة',
 			searchDistrict: 'الحي',
 			searchBudget: 'الميزانية',
-			searchPlaceholder: 'اكتب ميزانيتك',
+			searchPlaceholder: '3 000 000 MAD',
 			searchButton: 'بحث',
 			all: 'الكل',
 			buy: 'شراء',
@@ -470,7 +496,7 @@ export const translations = {
 			aboutCopy2: 'قوتنا في التفاصيل: إعلانات مرتبة، زيارات محضرة، تواصل سريع ومعرفة فعلية بأحياء طنجة. نفضل جودة العقارات والثقة على عدد الملفات.',
 			statsAria: 'أرقام نكتار للعقار',
 			statSold: 'عقار تم بيعه أو كراؤه',
-			statExperience: 'من الخبرة الميدانية',
+			statExperience: 'سنة من الخبرة الميدانية',
 			statSatisfaction: 'رضا العملاء',
 			aboutImageAria: 'مكتب وكالة نكتار للعقار',
 			aboutImageAlt: 'مدخل إقامة Nectar في طنجة',
@@ -550,7 +576,7 @@ export const translations = {
 				project: 'المشروع',
 				propertyType: 'نوع العقار',
 				budget: 'الميزانية',
-				budgetPlaceholder: 'مثال 3 000 000 MAD',
+				budgetPlaceholder: '3 000 000 MAD',
 				appointment: 'موعد',
 				bookSlot: 'حجز موعد',
 				date: 'التاريخ المطلوب',
@@ -583,7 +609,7 @@ export const translations = {
 				fullName: 'الاسم الكامل',
 				namePlaceholder: 'أدخل اسمك الكامل',
 				phone: 'رقم الهاتف',
-				phonePlaceholder: 'أدخل رقم هاتفك',
+				phonePlaceholder: '06 75 59 92 56',
 				email: 'البريد الإلكتروني',
 				emailPlaceholder: 'أدخل بريدك الإلكتروني',
 				message: 'رسالة',
@@ -632,6 +658,7 @@ export const translations = {
 			},
 			tags: {
 				apartmentForSale: 'شقة للبيع',
+				commercialForSale: 'محل تجاري للبيع',
 				commercialForRent: 'محل تجاري للكراء',
 			},
 			descriptions: {
@@ -723,9 +750,22 @@ export const translations = {
 				secondary3d: 'مشهد ثلاثي الأبعاد ثان',
 				pending: 'في الانتظار',
 			},
+			planFilterAria: 'تصفية التصاميم حسب المستوى',
 		},
 	},
 	en: {
+		meta: {
+			titles: {
+				home: 'Nectar immobilier',
+				saleApartment: 'Apartments for sale in Tangier - Nectar immobilier',
+				saleCommercial: 'Retail units for sale in Tangier - Nectar immobilier',
+				rentApartment: 'Apartments for rent in Tangier - Nectar immobilier',
+				rentCommercial: 'Retail units for rent - Nectar immobilier',
+				guide: 'Tangier Guide - Nectar immobilier',
+				event: 'Private events in Tangier - Nectar immobilier',
+				purple: 'Purple Pearl - Nectar immobilier',
+			},
+		},
 		nav: {
 			main: 'Main navigation',
 			language: 'Language selector',
@@ -949,6 +989,7 @@ export const translations = {
 			},
 			tags: {
 				apartmentForSale: 'Apartment for sale',
+				commercialForSale: 'Retail unit for sale',
 				commercialForRent: 'Retail unit for rent',
 			},
 			descriptions: {
@@ -1040,9 +1081,22 @@ export const translations = {
 				secondary3d: 'Second 3D view',
 				pending: 'Pending',
 			},
+			planFilterAria: 'Filter plans by level',
 		},
 	},
 	es: {
+		meta: {
+			titles: {
+				home: 'Nectar immobilier',
+				saleApartment: 'Apartamentos en venta en Tánger - Nectar immobilier',
+				saleCommercial: 'Locales en venta en Tánger - Nectar immobilier',
+				rentApartment: 'Apartamentos en alquiler en Tánger - Nectar immobilier',
+				rentCommercial: 'Locales comerciales en alquiler - Nectar immobilier',
+				guide: 'Guía de Tánger - Nectar immobilier',
+				event: 'Eventos privados en Tánger - Nectar immobilier',
+				purple: 'Purple Pearl - Nectar immobilier',
+			},
+		},
 		nav: {
 			main: 'Navegación principal',
 			language: 'Selector de idioma',
@@ -1104,7 +1158,7 @@ export const translations = {
 			aboutCopy2: 'Nuestro valor está en los detalles: anuncios bien preparados, visitas mejor organizadas, comunicación rápida y conocimiento real de los barrios de Tánger. Priorizamos calidad y confianza antes que volumen.',
 			statsAria: 'Cifras clave de Nectar immobilier',
 			statSold: 'bienes vendidos o alquilados',
-			statExperience: 'de experiencia sobre el terreno',
+			statExperience: 'años de experiencia sobre el terreno',
 			statSatisfaction: 'de satisfacción del cliente',
 			aboutImageAria: 'Oficina de Nectar immobilier',
 			aboutImageAlt: 'Entrada de Résidence Nectar en Tánger',
@@ -1257,7 +1311,7 @@ export const translations = {
 				floor: 'Planta',
 				floorPrefix: 'Planta',
 				residence: 'Residencia',
-				unit: 'N° apto.',
+				unit: 'N.º apto.',
 				globalSurface: 'Superficie global',
 				rdc: 'Planta baja',
 				mezzanine: 'Entrepiso',
@@ -1266,6 +1320,7 @@ export const translations = {
 			},
 			tags: {
 				apartmentForSale: 'Apartamento en venta',
+				commercialForSale: 'Local comercial en venta',
 				commercialForRent: 'Local comercial en alquiler',
 			},
 			descriptions: {
@@ -1357,6 +1412,7 @@ export const translations = {
 				secondary3d: 'Segundo visual 3D',
 				pending: 'Pendiente',
 			},
+			planFilterAria: 'Filtrar planos por nivel',
 		},
 	},
 } as const;
@@ -1402,6 +1458,231 @@ export const localizeEventIdea = (language: LanguageCode, idea: EventIdea): Even
 		description: String(localized[2]),
 		bullet_points: Array.isArray(localized[3]) ? localized[3].map(String) : idea.bullet_points,
 	};
+};
+
+const textMap = (language: LanguageCode, values: Partial<Record<LanguageCode, string>>, fallback: string) => values[language] ?? values[defaultLanguage] ?? fallback;
+
+const localizeAddressText = (language: LanguageCode, value: string) =>
+	value
+		.replaceAll('Tanger, Maroc', textMap(language, { ar: 'طنجة، المغرب', en: 'Tangier, Morocco', es: 'Tánger, Marruecos' }, 'Tanger, Maroc'))
+		.replaceAll('90000 Tanger, Maroc', textMap(language, { ar: '90000 طنجة، المغرب', en: '90000 Tangier, Morocco', es: '90000 Tánger, Marruecos' }, '90000 Tanger, Maroc'))
+		.replaceAll('Place du Maghreb Arabe', textMap(language, { ar: 'ساحة المغرب العربي', en: 'Place du Maghreb Arabe', es: 'Place du Maghreb Arabe' }, 'Place du Maghreb Arabe'))
+		.replaceAll('Blvd. Mohamed VI', textMap(language, { ar: 'شارع محمد السادس', en: 'Mohammed VI Boulevard', es: 'Bulevar Mohammed VI' }, 'Blvd. Mohamed VI'))
+		.replaceAll('Place Mozart', textMap(language, { ar: 'ساحة موزار', en: 'Place Mozart', es: 'Plaza Mozart' }, 'Place Mozart'))
+		.replaceAll('Tanger', textMap(language, { ar: 'طنجة', en: 'Tangier', es: 'Tánger' }, 'Tanger'));
+
+export const localizeContact = (language: LanguageCode, contact: SiteContact): SiteContact => ({
+	...contact,
+	address: localizeAddressText(language, contact.address),
+});
+
+const localizeFloorValue = (language: LanguageCode, value: string) => {
+	const floorNumber = value.match(/(?:ETAGE|Etage)\s*(\d+)/i)?.[1];
+	if (floorNumber) {
+		return textMap(language, { ar: `الطابق ${floorNumber}`, en: `Floor ${floorNumber}`, es: `Planta ${floorNumber}` }, value);
+	}
+	return value
+		.replace(/^RDC\s*/i, textMap(language, { ar: 'الطابق الأرضي ', en: 'Ground floor ', es: 'Planta baja ' }, 'RDC '))
+		.replace(/\svendu$/i, textMap(language, { ar: ' مباع', en: ' sold', es: ' vendido' }, ' vendu'));
+};
+
+const localizeNumberMarker = (language: LanguageCode, value: string) => value.replace(/N°\s*/g, textMap(language, { ar: 'رقم ', en: 'No. ', es: 'N.º ' }, 'N°'));
+
+const localizePhotoText = (language: LanguageCode, value: string) => {
+	const replacements: Array<[RegExp, string]> = [
+		[/Salle à manger/g, textMap(language, { ar: 'غرفة الطعام', en: 'Dining area', es: 'Comedor' }, 'Salle à manger')],
+		[/Meuble TV/g, textMap(language, { ar: 'خزانة التلفاز', en: 'TV unit', es: 'Mueble TV' }, 'Meuble TV')],
+		[/Coffre-fort/g, textMap(language, { ar: 'خزنة', en: 'Safe', es: 'Caja fuerte' }, 'Coffre-fort')],
+		[/Balcon chambre/g, textMap(language, { ar: 'شرفة الغرفة', en: 'Bedroom balcony', es: 'Balcón del dormitorio' }, 'Balcon chambre')],
+		[/Balcon cuisine/g, textMap(language, { ar: 'شرفة المطبخ', en: 'Kitchen balcony', es: 'Balcón de la cocina' }, 'Balcon cuisine')],
+		[/Séjour/g, textMap(language, { ar: 'فضاء الجلوس', en: 'Living area', es: 'Sala de estar' }, 'Séjour')],
+		[/Salon/g, textMap(language, { ar: 'الصالون', en: 'Living room', es: 'Salón' }, 'Salon')],
+		[/Chambre/g, textMap(language, { ar: 'غرفة', en: 'Bedroom', es: 'Dormitorio' }, 'Chambre')],
+		[/Cuisine/g, textMap(language, { ar: 'المطبخ', en: 'Kitchen', es: 'Cocina' }, 'Cuisine')],
+		[/Toilette/g, textMap(language, { ar: 'حمام', en: 'Bathroom', es: 'Baño' }, 'Toilette')],
+		[/Placard/g, textMap(language, { ar: 'خزانة', en: 'Wardrobe', es: 'Armario' }, 'Placard')],
+		[/Deuxième/g, textMap(language, { ar: 'الثاني', en: 'Second', es: 'Segundo' }, 'Deuxième')],
+		[/de l'appartement/g, textMap(language, { ar: 'لشقة', en: 'of the apartment', es: 'del apartamento' }, "de l'appartement")],
+		[/étage/g, textMap(language, { ar: 'الطابق', en: 'floor', es: 'planta' }, 'étage')],
+	];
+	return localizeNumberMarker(language, replacements.reduce((result, [pattern, replacement]) => result.replace(pattern, replacement), value));
+};
+
+export const localizePhoto = (language: LanguageCode, photo: PropertyPhoto): PropertyPhoto => ({
+	...photo,
+	title: localizePhotoText(language, photo.title),
+	alt_text: localizePhotoText(language, photo.alt_text),
+});
+
+const localizePropertyTitle = (language: LanguageCode, property: Property) => {
+	const value = property.title;
+	if (property.property_type === 'commercial') {
+		return value.replace(/^Local /, textMap(language, { ar: 'محل ', en: 'Retail unit ', es: 'Local ' }, 'Local '));
+	}
+
+	const apartmentNumber = value.match(/^Appartement Hilton N°(\d+)$/)?.[1];
+	if (apartmentNumber) {
+		return textMap(language, { ar: `شقة Hilton رقم ${apartmentNumber}`, en: `Hilton Apartment No. ${apartmentNumber}`, es: `Apartamento Hilton N.º ${apartmentNumber}` }, value);
+	}
+
+	const apartmentFloor = value.match(/^Appartement Hilton N°(\d+) - Etage (\d+)$/);
+	if (apartmentFloor) {
+		return textMap(
+			language,
+			{
+				ar: `شقة Hilton رقم ${apartmentFloor[1]} - الطابق ${apartmentFloor[2]}`,
+				en: `Hilton Apartment No. ${apartmentFloor[1]} - Floor ${apartmentFloor[2]}`,
+				es: `Apartamento Hilton N.º ${apartmentFloor[1]} - Planta ${apartmentFloor[2]}`,
+			},
+			value,
+		);
+	}
+
+	if (value === 'Appartement City Center Ra1 N°B') {
+		return textMap(language, { ar: 'شقة City Center Ra1 رقم B', en: 'City Center Ra1 Apartment No. B', es: 'Apartamento City Center Ra1 N.º B' }, value);
+	}
+
+	return localizeNumberMarker(language, value);
+};
+
+const localizePropertyTag = (language: LanguageCode, property: Property) => {
+	if (property.property_type === 'commercial') {
+		return property.transaction === 'rent' ? translate(language, 'listing.tags.commercialForRent') : translate(language, 'listing.tags.commercialForSale');
+	}
+	if (property.transaction === 'sale') {
+		return `${property.district} · ${translate(language, 'listing.tags.apartmentForSale')}`;
+	}
+	return property.tag
+		.replace(/Etage\s*(\d+)/i, textMap(language, { ar: 'الطابق $1', en: 'Floor $1', es: 'Planta $1' }, 'Etage $1'))
+		.replace(/N°\s*/g, textMap(language, { ar: 'رقم ', en: 'No. ', es: 'N.º ' }, 'N°'));
+};
+
+export const localizeProperty = (language: LanguageCode, property: Property): Property => {
+	const address = localizeAddressText(language, property.address);
+	const descriptionKey =
+		property.property_type === 'commercial'
+			? 'listing.descriptions.commercial'
+			: property.transaction === 'sale'
+				? 'listing.descriptions.saleApartment'
+				: 'listing.descriptions.rentApartment';
+
+	return {
+		...property,
+		title: localizePropertyTitle(language, property),
+		tag: localizePropertyTag(language, property),
+		address,
+		description: translate(language, descriptionKey, property.description, { address }),
+		floor: localizeFloorValue(language, property.floor),
+		unit_number: localizeNumberMarker(language, property.unit_number),
+		project_label: localizeFloorValue(language, property.project_label),
+		surface_sold: localizeFloorValue(language, property.surface_sold),
+		price_note: property.price_note === 'Prix indiqué pour juin.' ? translate(language, 'listing.priceNoteJune') : property.price_note,
+		cta_label: property.transaction === 'sale' ? translate(language, 'listing.requestPrice') : translate(language, 'listing.requestAvailability'),
+		photos: property.photos.map((photo) => localizePhoto(language, photo)),
+	};
+};
+
+const testimonialQuotes: Record<string, Partial<Record<LanguageCode, string>>> = {
+	'Ceux qui souhaitent faire une réservation doivent le faire immédiatement s’ils trouvent une place.': {
+		ar: 'من يرغب في الحجز عليه القيام بذلك فورا إذا وجد توفرا.',
+		en: 'If you find availability, book it right away.',
+		es: 'Si encuentra disponibilidad, conviene reservar de inmediato.',
+	},
+	'Emplacement de premier choix. La vue était magnifique.': {
+		ar: 'موقع ممتاز، والإطلالة كانت رائعة.',
+		en: 'Prime location. The view was beautiful.',
+		es: 'Ubicación excelente. La vista era magnífica.',
+	},
+	'Très bel appartement décoré avec soin, la vue est exceptionnelle et la localisation idéale.': {
+		ar: 'شقة جميلة جدا ومؤثثة بعناية، بإطلالة استثنائية وموقع مثالي.',
+		en: 'A beautiful, carefully decorated apartment with an exceptional view and ideal location.',
+		es: 'Apartamento muy bonito, decorado con cuidado, con una vista excepcional y ubicación ideal.',
+	},
+	'Un appartement magnifique, propre et bien équipé, avec une vue superbe et un emplacement magnifique avec facilité d’accès.': {
+		ar: 'شقة رائعة ونظيفة ومجهزة جيدا، بإطلالة جميلة وموقع سهل الوصول.',
+		en: 'A beautiful, clean and well-equipped apartment with a great view and easy access.',
+		es: 'Apartamento magnífico, limpio y bien equipado, con una vista preciosa y fácil acceso.',
+	},
+	'Très bon séjour, je recommande à 100% l’appartement. Tout était bien : propreté, accueil, je le conseille.': {
+		ar: 'إقامة ممتازة، أوصي بالشقة تماما. كل شيء كان جيدا: النظافة والاستقبال.',
+		en: 'A very good stay. I fully recommend the apartment. Everything was good: cleanliness and welcome.',
+		es: 'Muy buena estancia. Recomiendo totalmente el apartamento. Todo estuvo bien: limpieza y acogida.',
+	},
+	'Exceptionnel.': {
+		ar: 'استثنائي.',
+		en: 'Exceptional.',
+		es: 'Excepcional.',
+	},
+	'L’appartement est absolument magnifique, l’emplacement est superbe et proche de tous les services, et le service de Mme Hajar était extrêmement poli et courtois.': {
+		ar: 'الشقة رائعة جدا، والموقع ممتاز وقريب من كل الخدمات، وخدمة السيدة هاجر كانت راقية ومحترمة للغاية.',
+		en: 'The apartment is absolutely beautiful, the location is excellent and close to all services, and Ms. Hajar’s service was extremely polite and courteous.',
+		es: 'El apartamento es precioso, la ubicación es excelente y cercana a todos los servicios, y la atención de la Sra. Hajar fue muy amable y cortés.',
+	},
+};
+
+const localizeTestimonialDetails = (language: LanguageCode, value: string) => {
+	const countryMap: Record<string, Partial<Record<LanguageCode, string>>> = {
+		Turquie: { ar: 'تركيا', en: 'Turkey', es: 'Turquía' },
+		'Pays-Bas': { ar: 'هولندا', en: 'Netherlands', es: 'Países Bajos' },
+		France: { ar: 'فرنسا', en: 'France', es: 'Francia' },
+		Maroc: { ar: 'المغرب', en: 'Morocco', es: 'Marruecos' },
+		'Royaume-Uni': { ar: 'المملكة المتحدة', en: 'United Kingdom', es: 'Reino Unido' },
+		'États-Unis': { ar: 'الولايات المتحدة', en: 'United States', es: 'Estados Unidos' },
+		'Arabie Saoudite': { ar: 'السعودية', en: 'Saudi Arabia', es: 'Arabia Saudí' },
+	};
+	const monthMap: Record<string, Partial<Record<LanguageCode, string>>> = {
+		janvier: { ar: 'يناير', en: 'January', es: 'enero' },
+		février: { ar: 'فبراير', en: 'February', es: 'febrero' },
+		juillet: { ar: 'يوليوز', en: 'July', es: 'julio' },
+		août: { ar: 'غشت', en: 'August', es: 'agosto' },
+		novembre: { ar: 'نوفمبر', en: 'November', es: 'noviembre' },
+		décembre: { ar: 'ديسمبر', en: 'December', es: 'diciembre' },
+	};
+	const guestMap: Record<string, Partial<Record<LanguageCode, string>>> = {
+		Couple: { ar: 'زوجان', en: 'Couple', es: 'Pareja' },
+		Famille: { ar: 'عائلة', en: 'Family', es: 'Familia' },
+		Groupe: { ar: 'مجموعة', en: 'Group', es: 'Grupo' },
+	};
+
+	let result = value
+		.replace(/Appartement Hilton (\d+) Chambre(s?)/g, (_, count) =>
+			textMap(language, { ar: `شقة Hilton - ${count} غرفة`, en: `Hilton Apartment - ${count} bedroom${Number(count) > 1 ? 's' : ''}`, es: `Apartamento Hilton - ${count} dormitorio${Number(count) > 1 ? 's' : ''}` }, `Appartement Hilton ${count} Chambre`),
+		)
+		.replace(/Apartment in City Center Tangier/g, textMap(language, { ar: 'شقة في City Center Tanger', en: 'Apartment in City Center Tangier', es: 'Apartamento en City Center Tangier' }, 'Apartment in City Center Tangier'))
+		.replace(/(\d+) nuits/g, (_, count) => textMap(language, { ar: `${count} ليال`, en: `${count} nights`, es: `${count} noches` }, `${count} nuits`));
+
+	Object.entries(countryMap).forEach(([source, values]) => {
+		result = result.replaceAll(source, textMap(language, values, source));
+	});
+	Object.entries(monthMap).forEach(([source, values]) => {
+		result = result.replaceAll(source, textMap(language, values, source));
+	});
+	Object.entries(guestMap).forEach(([source, values]) => {
+		result = result.replaceAll(source, textMap(language, values, source));
+	});
+	return result;
+};
+
+export const localizeTestimonial = (language: LanguageCode, testimonial: Testimonial): Testimonial => ({
+	...testimonial,
+	quote: textMap(language, testimonialQuotes[testimonial.quote] ?? {}, testimonial.quote),
+	details: localizeTestimonialDetails(language, testimonial.details),
+});
+
+const pageTitleKeys: Record<string, string> = {
+	'/': 'home',
+	'/vente-appartement': 'saleApartment',
+	'/vente-local': 'saleCommercial',
+	'/location-appartement': 'rentApartment',
+	'/location-local': 'rentCommercial',
+	'/guide-tanger': 'guide',
+	'/evenement': 'event',
+	'/purple-pearl': 'purple',
+};
+
+export const localizedPageTitle = (language: LanguageCode, pathname: string) => {
+	const key = pageTitleKeys[pathname.replace(/\/$/, '') || '/'] ?? 'home';
+	return translate(language, `meta.titles.${key}`, 'Nectar immobilier');
 };
 
 const purplePlanTitles: Record<LanguageCode, Record<string, { button: string; title: string; description: string; image3dTitle?: string; image3dSecondaryTitle?: string }>> = {

@@ -1,12 +1,11 @@
 import { PurplePearlPage } from '@/components/purplePearlPage';
 import { StyleBlock } from '@/components/common';
+import { generateLocalizedMetadata } from '@/i18n/metadata';
 import { purpleStyles } from '@/styles/pageStyles';
 import { purplePlanStyles } from '@/styles/purplePlanStyles';
 import { fetchSiteContent } from '@/utils/api';
 
-export const metadata = {
-	title: 'Purple Pearl - Nectar immobilier',
-};
+export const generateMetadata = () => generateLocalizedMetadata('/purple-pearl');
 
 const Page = async () => {
 	const content = await fetchSiteContent();

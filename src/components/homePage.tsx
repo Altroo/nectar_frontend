@@ -5,7 +5,7 @@ import { ContactForm, FloatingNewsletter } from '@/components/forms';
 import { LinkedFooter, MainHeader, StyleBlock } from '@/components/common';
 import { HomeProcessSection } from '@/components/homeProcess';
 import { useTranslation } from '@/i18n/client';
-import { localizeGuidePlace } from '@/i18n/translations';
+import { localizeContact, localizeGuidePlace, localizeTestimonial } from '@/i18n/translations';
 import type { GuidePlace, SiteContent, Testimonial } from '@/types/site';
 
 const homepageGuideCardStyles = `
@@ -22,6 +22,8 @@ export const HomePage = ({ content }: { content: SiteContent }) => {
 	const featuredMuseum = guidePlaces.find((place) => place.section === 'musees');
 	const localizedFeaturedMonument = featuredMonument ? localizeGuidePlace(language, featuredMonument) : undefined;
 	const localizedFeaturedMuseum = featuredMuseum ? localizeGuidePlace(language, featuredMuseum) : undefined;
+	const contact = localizeContact(language, content.contact);
+	const testimonials = content.testimonials.map((testimonial) => localizeTestimonial(language, testimonial));
 
 	return (
 	<>
@@ -71,7 +73,7 @@ export const HomePage = ({ content }: { content: SiteContent }) => {
 				</div>
 				<div className="sunset-field">
 					<label>{t('home.searchBudget')}</label>
-					<input inputMode="numeric" placeholder={t('home.searchPlaceholder')} type="text" />
+					<input dir="ltr" inputMode="numeric" placeholder={t('home.searchPlaceholder')} type="text" />
 				</div>
 				<a className="sunset-search-btn" href="/vente-appartement">
 					<span>⌕</span>{t('home.searchButton')}
@@ -87,15 +89,15 @@ export const HomePage = ({ content }: { content: SiteContent }) => {
 					<p>{t('home.aboutCopy2')}</p>
 					<div aria-label={t('home.statsAria')} className="about-stats">
 						<div className="about-stat">
-							<strong>120+</strong>
+							<strong dir="ltr">120+</strong>
 							<span>{t('home.statSold')}</span>
 						</div>
 						<div className="about-stat">
-							<strong>22 ans</strong>
+							<strong dir="ltr">22</strong>
 							<span>{t('home.statExperience')}</span>
 						</div>
 						<div className="about-stat">
-							<strong>100%</strong>
+							<strong dir="ltr">100%</strong>
 							<span>{t('home.statSatisfaction')}</span>
 						</div>
 					</div>
@@ -161,15 +163,15 @@ export const HomePage = ({ content }: { content: SiteContent }) => {
 							<h4>Nectar immobilier</h4>
 							<div className="contact-direct-item">
 								<span>{t('home.address')}</span>
-								<strong>{content.contact.address}</strong>
+								<strong>{contact.address}</strong>
 							</div>
 							<div className="contact-direct-item">
 								<span>{t('home.phone')}</span>
-								<a href={`tel:+${content.contact.whatsapp_number}`}>{content.contact.phone_display}</a>
+								<a dir="ltr" href={`tel:+${contact.whatsapp_number}`}>{contact.phone_display}</a>
 							</div>
 							<div className="contact-direct-item">
 								<span>{t('home.email')}</span>
-								<a href={`mailto:${content.contact.email_display.split('/')[0].trim()}`}>{content.contact.email_display}</a>
+								<a href={`mailto:${contact.email_display.split('/')[0].trim()}`}>{contact.email_display}</a>
 							</div>
 						</div>
 					</aside>
@@ -186,7 +188,7 @@ export const HomePage = ({ content }: { content: SiteContent }) => {
 					</div>
 				</div>
 				<div className="testimonials-grid hilton-reviews-grid">
-					{[...content.testimonials, ...content.testimonials].map((testimonial, index) => (
+					{[...testimonials, ...testimonials].map((testimonial, index) => (
 						<TestimonialCard key={`${testimonial.id}-${index}`} testimonial={testimonial} />
 					))}
 				</div>

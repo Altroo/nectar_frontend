@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { useTranslation } from '@/i18n/client';
+import { localizeProperty } from '@/i18n/translations';
 import type { Property, PropertyType, SiteContact, Transaction } from '@/types/site';
 import { LinkedFooter, MainHeader } from './common';
 
@@ -52,15 +53,16 @@ export const ListingPage = ({
 	const [rooms, setRooms] = useState('');
 	const [minSurface, setMinSurface] = useState('');
 	const [maxBudget, setMaxBudget] = useState('');
-	const { t } = useTranslation();
+	const { language, t } = useTranslation();
 	const pageKey = `listing.pages.${transaction}.${propertyType}`;
 
 	const rows = useMemo(
 		() =>
 			properties
 				.filter((property) => property.transaction === transaction && property.property_type === propertyType)
-				.sort((a, b) => a.sort_order - b.sort_order),
-		[properties, propertyType, transaction],
+				.sort((a, b) => a.sort_order - b.sort_order)
+				.map((property) => localizeProperty(language, property)),
+		[language, properties, propertyType, transaction],
 	);
 
 	const residences = Array.from(new Set(rows.map((property) => property.residence).filter(Boolean)));
@@ -139,6 +141,7 @@ export const ListingPage = ({
 					<label>
 						{usesBudgetFilter ? t('listing.budgetMax') : t('listing.minSurface')}
 						<input
+							dir="ltr"
 							placeholder={usesBudgetFilter ? 'MAD' : 'm²'}
 							type="number"
 							value={usesBudgetFilter ? maxBudget : minSurface}
@@ -189,7 +192,7 @@ const PropertyCard = ({ property }: { property: Property }) => {
 		}
 		setActivePhotoIndex((activePhotoIndex + 1) % activePhotoCount);
 	};
-	const displayTag = isSaleApartment ? t('listing.tags.apartmentForSale') : isCommercial && property.transaction === 'rent' ? t('listing.tags.commercialForRent') : property.tag;
+	const displayTag = isSaleApartment ? t('listing.tags.apartmentForSale') : isCommercial && property.transaction === 'rent' ? t('listing.tags.commercialForRent') : isCommercial && property.transaction === 'sale' ? t('listing.tags.commercialForSale') : property.tag;
 	const ctaLabel = property.transaction === 'sale' ? t('listing.requestPrice') : property.transaction === 'rent' ? t('listing.requestAvailability') : t('listing.request');
 
 	return (

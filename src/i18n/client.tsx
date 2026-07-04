@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, type ReactNode, useContext, useEffect, useSyncExternalStore } from 'react';
-import { defaultLanguage, isLanguageCode, languageCookieName, languageDirection, languages, type LanguageCode, translate } from './translations';
+import { defaultLanguage, isLanguageCode, languageCookieName, languageDirection, languages, localizedPageTitle, type LanguageCode, translate } from './translations';
 
 const languageStorageKey = languageCookieName;
 const languageChangeEvent = 'nectar-language-change';
@@ -56,6 +56,7 @@ export const I18nProvider = ({ children, initialLanguage = defaultLanguage }: { 
 		document.documentElement.dir = languageDirection(language);
 		document.body.dir = languageDirection(language);
 		document.body.classList.toggle('is-rtl', languageDirection(language) === 'rtl');
+		document.title = localizedPageTitle(language, window.location.pathname);
 	}, [language]);
 
 	return <LanguageContext.Provider value={language}>{children}</LanguageContext.Provider>;

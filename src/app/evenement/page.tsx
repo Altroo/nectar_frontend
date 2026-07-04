@@ -1,11 +1,10 @@
 import { EventPage } from '@/components/eventPage';
 import { StyleBlock } from '@/components/common';
+import { generateLocalizedMetadata } from '@/i18n/metadata';
 import { eventStyles } from '@/styles/pageStyles';
 import { fetchSiteContent } from '@/utils/api';
 
-export const metadata = {
-	title: 'Événements privés à Tanger - Nectar immobilier',
-};
+export const generateMetadata = () => generateLocalizedMetadata('/evenement');
 
 const Page = async () => {
 	const content = await fetchSiteContent();

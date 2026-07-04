@@ -1,11 +1,10 @@
 import { ListingPage } from '@/components/listingPage';
 import { StyleBlock } from '@/components/common';
+import { generateLocalizedMetadata } from '@/i18n/metadata';
 import { listingStyles } from '@/styles/pageStyles';
 import { fetchSiteContent } from '@/utils/api';
 
-export const metadata = {
-	title: 'Appartements à louer à Tanger - Nectar Real Estate',
-};
+export const generateMetadata = () => generateLocalizedMetadata('/location-appartement');
 
 const Page = async () => {
 	const content = await fetchSiteContent();

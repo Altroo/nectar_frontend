@@ -213,11 +213,17 @@ html[dir="rtl"] body {
 	direction: rtl;
 }
 
-html[dir="rtl"] input,
-html[dir="rtl"] textarea,
-html[dir="rtl"] select {
+html[dir="rtl"] input:not([dir="ltr"]),
+html[dir="rtl"] textarea:not([dir="ltr"]),
+html[dir="rtl"] select:not([dir="ltr"]) {
 	direction: rtl;
 	text-align: right;
+}
+
+html[dir="rtl"] [dir="ltr"] {
+	direction: ltr;
+	text-align: left;
+	unicode-bidi: isolate;
 }
 
 html[dir="rtl"] .sunset-menu,

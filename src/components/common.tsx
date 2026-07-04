@@ -2,7 +2,7 @@
 
 import type { SiteContact } from '@/types/site';
 import { useTranslation, setLanguage } from '@/i18n/client';
-import type { LanguageCode } from '@/i18n/translations';
+import { localizeContact, type LanguageCode } from '@/i18n/translations';
 
 export const StyleBlock = ({ css }: { css: string }) => <style dangerouslySetInnerHTML={{ __html: css }} />;
 
@@ -472,7 +472,8 @@ export const PurpleHeader = () => {
 };
 
 export const LinkedFooter = ({ contact }: { contact: SiteContact }) => {
-	const { t } = useTranslation();
+	const { language, t } = useTranslation();
+	const localizedContact = localizeContact(language, contact);
 
 	return (
 		<>
@@ -508,9 +509,9 @@ export const LinkedFooter = ({ contact }: { contact: SiteContact }) => {
 						</div>
 						<div className="nectar-linked-footer__col">
 							<h4>{t('footer.contact')}</h4>
-							<p>{contact.address}</p>
-							<p>{contact.phone_display}</p>
-							<p>{contact.email_display}</p>
+							<p>{localizedContact.address}</p>
+							<p dir="ltr">{localizedContact.phone_display}</p>
+							<p dir="ltr">{localizedContact.email_display}</p>
 							<div className="nectar-linked-footer__socials">
 								<a aria-label="Instagram Nectar immobilier" href={socialLinks.nectarInstagram} rel="noopener" target="_blank">
 									Instagram
@@ -537,7 +538,8 @@ export const LinkedFooter = ({ contact }: { contact: SiteContact }) => {
 };
 
 export const PurplePearlFooter = ({ contact }: { contact: SiteContact }) => {
-	const { t } = useTranslation();
+	const { language, t } = useTranslation();
+	const localizedContact = localizeContact(language, contact);
 
 	return (
 		<>
@@ -574,9 +576,9 @@ export const PurplePearlFooter = ({ contact }: { contact: SiteContact }) => {
 						</div>
 						<div className="nectar-linked-footer__col">
 							<h4>{t('footer.contact')}</h4>
-							<p>{contact.address}</p>
-							<p>{contact.phone_display}</p>
-							<p>{contact.email_display}</p>
+							<p>{localizedContact.address}</p>
+							<p dir="ltr">{localizedContact.phone_display}</p>
+							<p dir="ltr">{localizedContact.email_display}</p>
 							<div className="nectar-linked-footer__socials">
 								<a aria-label="Instagram Purple Pearl" href={socialLinks.purplePearlInstagram} rel="noopener" target="_blank">
 									Instagram
