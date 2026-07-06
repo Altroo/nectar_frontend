@@ -49,7 +49,7 @@ const getServerNewsletterVisibilitySnapshot = () => false;
 
 export const ContactForm = () => {
 	const [status, setStatus] = useState<Status>('idle');
-	const { t } = useTranslation();
+	const { language, t } = useTranslation();
 
 	const submit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -140,7 +140,7 @@ export const ContactForm = () => {
 				<textarea name="message" placeholder={t('forms.contact.messagePlaceholder')} rows={5} />
 			</div>
 			<button className="contact-photo-btn" disabled={status === 'sending'} type="submit">
-				{t('forms.contact.submit')} <span>→</span>
+				{t('forms.contact.submit')} <span>{language === 'ar' ? '←' : '→'}</span>
 			</button>
 			{status !== 'idle' ? <p className={status === 'error' ? 'form-status is-error' : 'form-status'}>{t(`forms.status.${status}`)}</p> : null}
 		</form>
