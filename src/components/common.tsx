@@ -14,6 +14,8 @@ export const socialLinks = {
 	purplePearlTikTok: 'https://www.tiktok.com/@purplepearl.tanger?lang=fr',
 };
 
+const contactEmail = 'contact@nectar.ma';
+
 export const LanguageSwitcher = ({ className = 'nectar-lang-switcher' }: { className?: string }) => {
 	const { language, languages, t } = useTranslation();
 
@@ -824,7 +826,9 @@ export const LinkedFooter = ({ contact }: { contact: SiteContact }) => {
 							<h4>{t('footer.contact')}</h4>
 							<p>{localizedContact.address}</p>
 							<p dir="ltr">{localizedContact.phone_display}</p>
-							<p dir="ltr">{localizedContact.email_display}</p>
+							<a dir="ltr" href={`mailto:${contactEmail}`}>
+								{contactEmail}
+							</a>
 							<div className="nectar-linked-footer__socials">
 								<a aria-label="Instagram Nectar immobilière" href={socialLinks.nectarInstagram} rel="noopener" target="_blank">
 									Instagram
@@ -892,7 +896,9 @@ export const PurplePearlFooter = ({ contact }: { contact: SiteContact }) => {
 							<h4>{t('footer.contact')}</h4>
 							<p>{localizedContact.address}</p>
 							<p dir="ltr">{localizedContact.phone_display}</p>
-							<p dir="ltr">{localizedContact.email_display}</p>
+							<a dir="ltr" href={`mailto:${contactEmail}`}>
+								{contactEmail}
+							</a>
 							<div className="nectar-linked-footer__socials">
 								<a aria-label="Instagram Purple Pearl" href={socialLinks.purplePearlInstagram} rel="noopener" target="_blank">
 									Instagram

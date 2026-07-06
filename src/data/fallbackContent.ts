@@ -116,11 +116,30 @@ const salePhotoAlbums: Record<string, PropertyPhoto[]> = {
 const hiltonN05Description =
 	"Profitez d’un séjour élégant dans cet appartement situé au sein de l’hôtel Hilton à Tanger. Avec sa vue imprenable sur la Méditerranée, son cadre sécurisé et son ambiance calme et luxueuse, il offre l’endroit idéal pour se détendre et vivre pleinement vos vacances.";
 
+const hiltonN11RentDescription =
+	"Profitez d’un séjour raffiné dans cet appartement situé au sein de l’hôtel Hilton à Tanger. Offrant une vue exceptionnelle sur la Méditerranée, un cadre sécurisé et une atmosphère calme et élégante, il réunit toutes les conditions pour des vacances reposantes et mémorables.";
+
+const hiltonN13RentDescription =
+	"Séjournez dans un appartement élégant au cœur de l’hôtel Hilton à Tanger, où confort, sécurité et tranquillité se rencontrent. Sa vue imprenable sur la Méditerranée et son ambiance luxueuse en font l’adresse idéale pour profiter pleinement de votre séjour.";
+
+const hiltonN11Etage12RentDescription =
+	"Vivez une expérience unique dans cet appartement situé au sein de l’hôtel Hilton à Tanger. Entre vue panoramique sur la Méditerranée, environnement sécurisé et ambiance paisible, ce lieu vous invite à la détente dans un cadre chic et confortable.";
+
 const cityCenterRa1Description = 'Situé en plein centre-ville de Tanger, à proximité de la gare TGV, cet appartement offre une vue sur la ville et un cadre confortable, idéal pour un séjour pratique et agréable.';
 
 const rentalDescriptions: Record<string, string> = {
 	'Appartement Hilton N°05': hiltonN05Description,
+	'Appartement Hilton N°11': hiltonN11RentDescription,
+	'Appartement Hilton N°13': hiltonN13RentDescription,
+	'Appartement Hilton N°11 - Etage 12': hiltonN11Etage12RentDescription,
 	'Appartement City Center Ra1 N°B': cityCenterRa1Description,
+};
+
+const saleDescriptions: Record<string, string> = {
+	'HILTON · N°11':
+		"Découvrez cet appartement d’exception situé au sein de l’hôtel Hilton à Tanger. Offrant une vue imprenable sur la Méditerranée, un cadre sécurisé et une ambiance calme et luxueuse, ce bien représente une opportunité idéale pour un investissement de qualité ou une résidence élégante au cœur de la ville.",
+	'HILTON · N°13':
+		"À vendre, superbe appartement situé dans l’une des adresses les plus prestigieuses de Tanger, au sein de l’hôtel Hilton. Avec sa vue panoramique sur la Méditerranée, son environnement sécurisé et son cadre raffiné, ce bien allie confort, élégance et fort potentiel d’investissement.",
 };
 
 const saleApartments: Property[] = [
@@ -147,7 +166,7 @@ const saleApartments: Property[] = [
 		residence: String(residence),
 		district: String(district),
 		address,
-		description: `${address}. Un appartement clair et bien situé pour résidence principale, investissement ou pied-à-terre à Tanger.`,
+		description: saleDescriptions[String(title)] ?? `${address}. Un appartement clair et bien situé pour résidence principale, investissement ou pied-à-terre à Tanger.`,
 		floor: String(floor),
 		unit_number: String(unitNumber),
 		bedrooms: Number(bedrooms),
@@ -307,7 +326,7 @@ export const fallbackContent: SiteContent = {
 		address: 'Tanger, Maroc',
 		phone_display: '06 75 59 92 56 / 07 73 86 35 85',
 		whatsapp_number: '212675599256',
-		email_display: 'info@nectar.ma / contact@nectar.ma',
+		email_display: 'contact@nectar.ma',
 	},
 	properties: [...saleApartments, ...rentApartments, ...rentCommercialUnits],
 	guidePlaces: fallbackGuidePlaces,

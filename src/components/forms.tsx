@@ -6,6 +6,8 @@ import { postWebsiteForm } from '@/utils/api';
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
+const contactEmail = 'contact@nectar.ma';
+const newsletterEmail = 'info@nectar.ma';
 const formValue = (form: HTMLFormElement, name: string) => String(new FormData(form).get(name) || '');
 const dateInputPattern = '[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}';
 
@@ -74,7 +76,7 @@ export const ContactForm = () => {
 	};
 
 	return (
-		<form className="contact-photo-form" onSubmit={submit}>
+		<form action={`mailto:${contactEmail}`} className="contact-photo-form" data-recipient-email={contactEmail} onSubmit={submit}>
 			<div className="field">
 				<label>{t('forms.contact.fullName')}</label>
 				<input name="full_name" placeholder={t('forms.contact.namePlaceholder')} type="text" required />
@@ -166,7 +168,7 @@ export const NewsletterForm = () => {
 	};
 
 	return (
-		<form className="nectar-floating-newsletter__form" onSubmit={submit}>
+		<form action={`mailto:${newsletterEmail}`} className="nectar-floating-newsletter__form" data-recipient-email={newsletterEmail} onSubmit={submit}>
 			<input className="nectar-floating-newsletter__input" name="email" placeholder={t('forms.newsletter.placeholder')} type="email" required />
 			<button className="nectar-floating-newsletter__submit" disabled={status === 'sending'} type="submit">
 				{t('forms.newsletter.submit')}

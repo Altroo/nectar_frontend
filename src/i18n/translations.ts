@@ -1572,11 +1572,41 @@ const propertyDescriptionOverrides: Record<string, Partial<Record<LanguageCode, 
 		en: 'Enjoy an elegant stay in this apartment within the Hilton hotel in Tangier. With its beautiful Mediterranean view, secure setting and calm refined atmosphere, it is an ideal place to relax and enjoy your holiday.',
 		es: 'Disfrute de una estancia elegante en este apartamento situado dentro del hotel Hilton en Tánger. Con su hermosa vista al Mediterráneo, su entorno seguro y su ambiente tranquilo y cuidado, ofrece el lugar ideal para relajarse y disfrutar de sus vacaciones.',
 	},
+	'Appartement Hilton N°11': {
+		fr: "Profitez d’un séjour raffiné dans cet appartement situé au sein de l’hôtel Hilton à Tanger. Offrant une vue exceptionnelle sur la Méditerranée, un cadre sécurisé et une atmosphère calme et élégante, il réunit toutes les conditions pour des vacances reposantes et mémorables.",
+		ar: 'استمتع بإقامة راقية في هذه الشقة الواقعة داخل فندق Hilton في طنجة. بفضل إطلالتها الاستثنائية على البحر الأبيض المتوسط، وإطارها الآمن وأجوائها الهادئة والأنيقة، توفر كل ما يلزم لعطلة مريحة ولا تنسى.',
+		en: 'Enjoy a refined stay in this apartment within the Hilton hotel in Tangier. With an exceptional Mediterranean view, a secure setting and a calm elegant atmosphere, it has everything needed for a relaxing and memorable holiday.',
+		es: 'Disfrute de una estancia refinada en este apartamento situado dentro del hotel Hilton en Tánger. Con una vista excepcional al Mediterráneo, un entorno seguro y un ambiente tranquilo y elegante, reúne todo lo necesario para unas vacaciones relajantes y memorables.',
+	},
+	'Appartement Hilton N°13': {
+		fr: "Séjournez dans un appartement élégant au cœur de l’hôtel Hilton à Tanger, où confort, sécurité et tranquillité se rencontrent. Sa vue imprenable sur la Méditerranée et son ambiance luxueuse en font l’adresse idéale pour profiter pleinement de votre séjour.",
+		ar: 'أقم في شقة أنيقة داخل فندق Hilton في طنجة، حيث يجتمع الراحة والأمان والهدوء. بإطلالتها الرائعة على البحر الأبيض المتوسط وأجوائها الراقية، تعد عنوانا مثاليا للاستمتاع الكامل بإقامتك.',
+		en: 'Stay in an elegant apartment at the heart of the Hilton hotel in Tangier, where comfort, security and tranquillity come together. Its stunning Mediterranean view and refined atmosphere make it an ideal address for enjoying your stay.',
+		es: 'Alójese en un apartamento elegante en el corazón del hotel Hilton en Tánger, donde se combinan comodidad, seguridad y tranquilidad. Su vista impresionante al Mediterráneo y su ambiente cuidado lo convierten en una dirección ideal para disfrutar plenamente de su estancia.',
+	},
+	'Appartement Hilton N°11 - Etage 12': {
+		fr: "Vivez une expérience unique dans cet appartement situé au sein de l’hôtel Hilton à Tanger. Entre vue panoramique sur la Méditerranée, environnement sécurisé et ambiance paisible, ce lieu vous invite à la détente dans un cadre chic et confortable.",
+		ar: 'عش تجربة مميزة في هذه الشقة الواقعة داخل فندق Hilton في طنجة. بين الإطلالة البانورامية على البحر الأبيض المتوسط، والبيئة الآمنة والأجواء الهادئة، يدعوك هذا المكان إلى الاسترخاء في إطار أنيق ومريح.',
+		en: 'Experience a unique stay in this apartment within the Hilton hotel in Tangier. With panoramic Mediterranean views, a secure environment and a peaceful atmosphere, it invites you to unwind in a chic and comfortable setting.',
+		es: 'Viva una experiencia única en este apartamento situado dentro del hotel Hilton en Tánger. Entre la vista panorámica al Mediterráneo, el entorno seguro y el ambiente tranquilo, este lugar invita a relajarse en un marco elegante y cómodo.',
+	},
 	'Appartement City Center Ra1 N°B': {
 		fr: 'Situé en plein centre-ville de Tanger, à proximité de la gare TGV, cet appartement offre une vue sur la ville et un cadre confortable, idéal pour un séjour pratique et agréable.',
 		ar: 'تقع هذه الشقة في قلب وسط مدينة طنجة، بالقرب من محطة القطار فائق السرعة. توفر إطلالة على المدينة وإطارا مريحا، مثاليا لإقامة عملية وممتعة.',
 		en: 'Located in the heart of Tangier city center near the high-speed train station, this apartment offers city views and a comfortable setting, ideal for a practical and pleasant stay.',
 		es: 'Situado en pleno centro de Tánger, cerca de la estación de tren de alta velocidad, este apartamento ofrece vistas a la ciudad y un entorno cómodo, ideal para una estancia práctica y agradable.',
+	},
+	'HILTON · N°11': {
+		fr: "Découvrez cet appartement d’exception situé au sein de l’hôtel Hilton à Tanger. Offrant une vue imprenable sur la Méditerranée, un cadre sécurisé et une ambiance calme et luxueuse, ce bien représente une opportunité idéale pour un investissement de qualité ou une résidence élégante au cœur de la ville.",
+		ar: 'اكتشف هذه الشقة المميزة الواقعة داخل فندق Hilton في طنجة. بإطلالتها الرائعة على البحر الأبيض المتوسط، وإطارها الآمن وأجوائها الهادئة والراقية، تمثل فرصة مثالية لاستثمار نوعي أو إقامة أنيقة في قلب المدينة.',
+		en: 'Discover this exceptional apartment within the Hilton hotel in Tangier. With a stunning Mediterranean view, secure setting and calm refined atmosphere, it is an ideal opportunity for a quality investment or an elegant city residence.',
+		es: 'Descubra este apartamento excepcional situado dentro del hotel Hilton en Tánger. Con una vista impresionante al Mediterráneo, un entorno seguro y un ambiente tranquilo y cuidado, representa una oportunidad ideal para una inversión de calidad o una residencia elegante en el corazón de la ciudad.',
+	},
+	'HILTON · N°13': {
+		fr: "À vendre, superbe appartement situé dans l’une des adresses les plus prestigieuses de Tanger, au sein de l’hôtel Hilton. Avec sa vue panoramique sur la Méditerranée, son environnement sécurisé et son cadre raffiné, ce bien allie confort, élégance et fort potentiel d’investissement.",
+		ar: 'للبيع، شقة رائعة تقع في أحد أكثر العناوين تميزا في طنجة، داخل فندق Hilton. تجمع هذه الشقة بين الراحة والأناقة وقيمة استثمارية قوية، بفضل إطلالتها البانورامية على البحر الأبيض المتوسط وبيئتها الآمنة وإطارها الراقي.',
+		en: 'For sale, a superb apartment in one of Tangier’s most prestigious addresses, within the Hilton hotel. With panoramic Mediterranean views, a secure environment and refined setting, it combines comfort, elegance and strong investment potential.',
+		es: 'En venta, magnífico apartamento situado en una de las direcciones más prestigiosas de Tánger, dentro del hotel Hilton. Con su vista panorámica al Mediterráneo, entorno seguro y marco refinado, combina comodidad, elegancia y gran potencial de inversión.',
 	},
 };
 

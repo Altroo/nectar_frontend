@@ -9,11 +9,58 @@ import { localizeContact, localizeGuidePlace, localizeTestimonial } from '@/i18n
 import type { GuidePlace, SiteContent, Testimonial } from '@/types/site';
 
 const homepageGuideCardStyles = `
+.sunset-hero{
+	background:#171513 !important;
+	overflow:visible !important;
+}
+.sunset-hero-media{
+	position:absolute;
+	inset:0;
+	z-index:0;
+	pointer-events:none;
+	overflow:hidden;
+}
+.sunset-hero__slide{
+	position:absolute;
+	inset:0;
+	background-image:linear-gradient(90deg,rgba(22,22,22,.76) 0%,rgba(22,22,22,.34) 48%,rgba(22,22,22,.12) 100%),var(--hero-image);
+	background-position:center center;
+	background-size:cover;
+	background-repeat:no-repeat;
+	opacity:0;
+	transform:scale(1.025);
+	animation:nectarHeroSlideB 14s ease-in-out infinite;
+	will-change:opacity, transform;
+}
+.sunset-hero__slide:first-child{
+	animation-name:nectarHeroSlideA;
+}
+@keyframes nectarHeroSlideA{
+	0%,43%{opacity:1;transform:scale(1.025)}
+	50%,93%{opacity:0;transform:scale(1)}
+	100%{opacity:1;transform:scale(1.025)}
+}
+@keyframes nectarHeroSlideB{
+	0%,43%{opacity:0;transform:scale(1)}
+	50%,93%{opacity:1;transform:scale(1.025)}
+	100%{opacity:0;transform:scale(1)}
+}
+@media (prefers-reduced-motion: reduce){
+	.sunset-hero__slide{
+		animation:none !important;
+		transform:none !important;
+	}
+	.sunset-hero__slide:first-child{
+		opacity:1;
+	}
+}
 .guide-card--data::before{
 	background-image:var(--guide-card-image) !important;
 	background-position:var(--guide-card-position, center) !important;
 }
 `;
+
+const contactEmail = 'contact@nectar.ma';
 
 export const HomePage = ({ content }: { content: SiteContent }) => {
 	const { language, t } = useTranslation();
@@ -30,6 +77,10 @@ export const HomePage = ({ content }: { content: SiteContent }) => {
 		<StyleBlock css={homepageGuideCardStyles} />
 		<MainHeader />
 		<section className="sunset-hero" id="agence">
+			<div aria-hidden="true" className="sunset-hero-media">
+				<span className="sunset-hero__slide" style={{ '--hero-image': "url('/hero-tanger-sunset.png')" } as CSSProperties} />
+				<span className="sunset-hero__slide" style={{ '--hero-image': "url('/assets/hero-tanger-drone-02.jpg')" } as CSSProperties} />
+			</div>
 			<div className="sunset-content">
 				<p className="sunset-kicker">{t('home.heroKicker')}</p>
 				<h1>{t('home.heroTitle')}</h1>
@@ -171,7 +222,7 @@ export const HomePage = ({ content }: { content: SiteContent }) => {
 							</div>
 							<div className="contact-direct-item">
 								<span>{t('home.email')}</span>
-								<a href={`mailto:${contact.email_display.split('/')[0].trim()}`}>{contact.email_display}</a>
+								<a href={`mailto:${contactEmail}`}>{contactEmail}</a>
 							</div>
 						</div>
 					</aside>
