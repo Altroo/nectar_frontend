@@ -298,11 +298,11 @@ export const translations = {
 		listing: {
 			pages: {
 				sale: {
-					apartment: ['Appartements à vendre à Tanger', 'Vente · Appartement', 'Une page dédiée aux appartements disponibles à la vente, avec filtres par résidence, chambres et superficie.', 'Biens disponibles', 'Utilisez les filtres pour trouver rapidement le bien qui correspond au quartier, à la surface et au projet du client.'],
+					apartment: ['Appartements à vendre à Tanger', 'Vente · Appartement', 'Découvrez nos appartements à vendre à Tanger, situés dans des emplacements privilégiés et sécurisés, au cœur de quartiers agréables à vivre.', 'Biens disponibles', 'Utilisez les filtres pour trouver rapidement le bien qui correspond au quartier, à la surface et au projet du client.'],
 					commercial: ['Locaux à vendre à Tanger', 'Vente · Local commercial', 'Une page dédiée aux locaux commerciaux disponibles à la vente, avec filtres par type et superficie.', 'Biens disponibles', 'Utilisez les filtres pour trouver rapidement le bien qui correspond au quartier, à la surface et au projet du client.'],
 				},
 				rent: {
-						apartment: ['Appartements à louer à Tanger', 'Location · Appartement', 'Liste des appartements disponibles à la location pour juillet, avec résidence, étage, numéro d’appartement, chambres et budget.', 'Disponibilités location', 'Utilisez les filtres pour trouver rapidement un appartement par résidence, nombre de chambres ou budget maximum.'],
+					apartment: ['Appartements à louer à Tanger', 'Location · Appartement', 'Découvrez nos appartements à louer au centre-ville de Tanger, avec vue sur la Méditerranée. Profitez d’un séjour sécurisé, confortable et inoubliable, pensé pour vivre pleinement votre expérience à Tanger.', 'Disponibilités location', 'Utilisez les filtres pour trouver rapidement un appartement par résidence, nombre de chambres ou budget maximum.'],
 					commercial: ['Location de locaux commerciaux', 'Location · Local', 'Découvrez les locaux commerciaux disponibles à la location avec surfaces RDC, mezzanine et superficies totales.', 'Biens disponibles', 'Utilisez les filtres pour trouver rapidement le bien qui correspond au quartier, à la surface et au projet du client.'],
 				},
 			},
@@ -629,11 +629,11 @@ export const translations = {
 		listing: {
 			pages: {
 				sale: {
-					apartment: ['شقق للبيع في طنجة', 'بيع · شقة', 'تصفح الشقق المتوفرة للبيع، مع إمكانية البحث حسب الإقامة وعدد الغرف والمساحة.', 'العقارات المتوفرة', 'استعمل الفلاتر للوصول بسرعة إلى العقار الذي يناسب الموقع والمساحة والميزانية.'],
+					apartment: ['شقق للبيع في طنجة', 'بيع · شقة', 'اكتشف شققنا للبيع في طنجة، الواقعة في مواقع مميزة وآمنة داخل أحياء مريحة ومناسبة للعيش.', 'العقارات المتوفرة', 'استعمل الفلاتر للوصول بسرعة إلى العقار الذي يناسب الموقع والمساحة والميزانية.'],
 					commercial: ['محلات للبيع في طنجة', 'بيع · محل تجاري', 'تصفح المحلات التجارية المعروضة للبيع، مع بحث حسب النوع والمساحة.', 'العقارات المتوفرة', 'استعمل الفلاتر للوصول بسرعة إلى المحل المناسب حسب النشاط والمساحة والموقع.'],
 				},
 				rent: {
-					apartment: ['شقق للكراء في طنجة', 'كراء · شقة', 'شقق متوفرة للكراء مع تفاصيل الإقامة والطابق ورقم الشقة وعدد الغرف والميزانية.', 'الشقق المتوفرة للكراء', 'استعمل الفلاتر للوصول بسرعة إلى شقة حسب الإقامة أو عدد الغرف أو الميزانية القصوى.'],
+					apartment: ['شقق للكراء في طنجة', 'كراء · شقة', 'اكتشف شققنا للكراء في وسط مدينة طنجة، بإطلالة على البحر الأبيض المتوسط. استمتع بإقامة آمنة ومريحة ولا تنسى، مصممة لتعيش تجربتك في طنجة بالكامل.', 'الشقق المتوفرة للكراء', 'استعمل الفلاتر للوصول بسرعة إلى شقة حسب الإقامة أو عدد الغرف أو الميزانية القصوى.'],
 					commercial: ['محلات تجارية للكراء', 'كراء · محل', 'اكتشف المحلات التجارية المتوفرة للكراء مع تفاصيل المساحات في الطابق الأرضي والميزانين.', 'العقارات المتوفرة', 'استعمل الفلاتر للوصول بسرعة إلى المحل المناسب حسب النشاط والمساحة والموقع.'],
 				},
 			},
@@ -960,11 +960,11 @@ export const translations = {
 		listing: {
 			pages: {
 				sale: {
-					apartment: ['Apartments for sale in Tangier', 'Sale · Apartment', 'Browse apartments available for sale, with filters by residence, bedrooms and surface area.', 'Available properties', 'Use the filters to quickly find a property that matches the area, size and budget you need.'],
+					apartment: ['Apartments for sale in Tangier', 'Sale · Apartment', 'Discover our apartments for sale in Tangier, set in privileged, secure locations at the heart of pleasant residential districts.', 'Available properties', 'Use the filters to quickly find a property that matches the area, size and budget you need.'],
 					commercial: ['Retail units for sale in Tangier', 'Sale · Retail unit', 'Browse retail units available for sale, with filters by type and surface area.', 'Available properties', 'Use the filters to quickly find a unit that fits the activity, size and location you need.'],
 				},
 				rent: {
-					apartment: ['Apartments for rent in Tangier', 'Rental · Apartment', 'Available rental apartments with residence, floor, apartment number, bedrooms and budget details.', 'Rental availability', 'Use the filters to quickly find an apartment by residence, number of bedrooms or maximum budget.'],
+					apartment: ['Apartments for rent in Tangier', 'Rental · Apartment', 'Discover our apartments for rent in central Tangier, with Mediterranean views. Enjoy a secure, comfortable and unforgettable stay designed to help you fully experience Tangier.', 'Rental availability', 'Use the filters to quickly find an apartment by residence, number of bedrooms or maximum budget.'],
 					commercial: ['Retail units for rent', 'Rental · Retail unit', 'Discover retail units available for rent with ground-floor, mezzanine and total surface details.', 'Available properties', 'Use the filters to quickly find a unit that fits the activity, size and location you need.'],
 				},
 			},
@@ -1291,11 +1291,11 @@ export const translations = {
 		listing: {
 			pages: {
 				sale: {
-					apartment: ['Apartamentos en venta en Tánger', 'Venta · Apartamento', 'Explore los apartamentos disponibles en venta, con filtros por residencia, habitaciones y superficie.', 'Propiedades disponibles', 'Use los filtros para encontrar rápidamente una propiedad que encaje con la zona, superficie y presupuesto que necesita.'],
+					apartment: ['Apartamentos en venta en Tánger', 'Venta · Apartamento', 'Descubra nuestros apartamentos en venta en Tánger, situados en ubicaciones privilegiadas y seguras, en barrios agradables para vivir.', 'Propiedades disponibles', 'Use los filtros para encontrar rápidamente una propiedad que encaje con la zona, superficie y presupuesto que necesita.'],
 					commercial: ['Locales en venta en Tánger', 'Venta · Local comercial', 'Explore los locales disponibles en venta, con filtros por tipo y superficie.', 'Propiedades disponibles', 'Use los filtros para encontrar rápidamente un local que encaje con la actividad, superficie y ubicación que necesita.'],
 				},
 				rent: {
-					apartment: ['Apartamentos en alquiler en Tánger', 'Alquiler · Apartamento', 'Apartamentos disponibles en alquiler con detalles de residencia, planta, número, habitaciones y presupuesto.', 'Disponibilidad de alquiler', 'Use los filtros para encontrar rápidamente un apartamento por residencia, número de habitaciones o presupuesto máximo.'],
+					apartment: ['Apartamentos en alquiler en Tánger', 'Alquiler · Apartamento', 'Descubra nuestros apartamentos en alquiler en el centro de Tánger, con vistas al Mediterráneo. Disfrute de una estancia segura, cómoda e inolvidable, pensada para vivir plenamente su experiencia en Tánger.', 'Disponibilidad de alquiler', 'Use los filtros para encontrar rápidamente un apartamento por residencia, número de habitaciones o presupuesto máximo.'],
 					commercial: ['Locales comerciales en alquiler', 'Alquiler · Local', 'Descubra locales disponibles en alquiler con detalles de planta baja, entreplanta y superficie total.', 'Propiedades disponibles', 'Use los filtros para encontrar rápidamente un local que encaje con la actividad, superficie y ubicación que necesita.'],
 				},
 			},
