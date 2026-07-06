@@ -28,6 +28,14 @@ export const LanguageSwitcher = ({ className = 'nectar-lang-switcher' }: { class
 	);
 };
 
+const FloatingWhatsAppButton = ({ contact }: { contact: SiteContact }) => (
+	<a aria-label="WhatsApp" className="nectar-floating-whatsapp" href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
+		<svg aria-hidden="true" viewBox="0 0 32 32">
+			<path d="M16.02 4.8c-6.18 0-11.2 4.94-11.2 11.04 0 2.1.6 4.08 1.66 5.76L4.8 27.2l5.84-1.52a11.35 11.35 0 0 0 5.38 1.36c6.18 0 11.2-4.94 11.2-11.04S22.2 4.8 16.02 4.8Zm0 20.3c-1.8 0-3.5-.5-4.98-1.42l-.36-.22-3.46.9.94-3.3-.24-.38a9.03 9.03 0 0 1-1.48-4.96c0-5.02 4.28-9.1 9.58-9.1 5.28 0 9.58 4.08 9.58 9.1 0 5.02-4.3 9.08-9.58 9.08Zm5.48-6.82c-.3-.14-1.76-.86-2.04-.96-.28-.1-.48-.14-.68.14-.2.3-.78.96-.96 1.16-.18.2-.36.22-.66.08-.3-.14-1.26-.46-2.4-1.48-.88-.78-1.48-1.74-1.66-2.04-.18-.3-.02-.46.14-.6.14-.14.3-.36.46-.54.16-.18.2-.3.3-.5.1-.2.06-.38-.02-.54-.08-.14-.68-1.62-.94-2.22-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.52.08-.8.38-.28.3-1.04 1.02-1.04 2.48 0 1.46 1.08 2.88 1.24 3.08.14.2 2.12 3.2 5.14 4.48.72.3 1.28.48 1.72.62.72.22 1.38.18 1.9.12.58-.08 1.76-.72 2-1.42.26-.7.26-1.3.18-1.42-.08-.12-.28-.2-.58-.34Z" />
+		</svg>
+	</a>
+);
+
 const mainHeaderStyles = `
 header.nectar-fixed-navbar.sunset-nav{
   position:fixed!important;
@@ -565,19 +573,51 @@ const linkedFooterStyles = `
   text-transform:uppercase!important;
   color:#F5F1E8!important;
 }
-.nectar-linked-footer__bottom{
-  border-top:1px solid rgba(245,241,232,.14)!important;
-  margin-top:44px!important;
+	.nectar-linked-footer__bottom{
+	  border-top:1px solid rgba(245,241,232,.14)!important;
+	  margin-top:44px!important;
   padding-top:22px!important;
   display:flex!important;
   justify-content:space-between!important;
   gap:18px!important;
-  color:#BBA793!important;
-  font-size:12px!important;
-}
-.nectar-linked-footer--purple{
-  background:linear-gradient(135deg,#2f1747 0%,#4f2e79 52%,#7f61b7 100%)!important;
-}
+	  color:#BBA793!important;
+	  font-size:12px!important;
+	}
+	.nectar-floating-whatsapp{
+	  position:fixed!important;
+	  right:24px!important;
+	  bottom:24px!important;
+	  z-index:20020!important;
+	  width:58px!important;
+	  height:58px!important;
+	  display:flex!important;
+	  align-items:center!important;
+	  justify-content:center!important;
+	  border:1px solid rgba(73,52,37,.26)!important;
+	  border-radius:999px!important;
+	  background:#F5F1E8!important;
+	  color:#493425!important;
+	  box-shadow:0 18px 38px rgba(47,32,23,.22)!important;
+	  text-decoration:none!important;
+	  transition:transform .22s ease, box-shadow .22s ease!important;
+	}
+	.nectar-floating-whatsapp:hover{
+	  transform:translateY(-2px)!important;
+	  box-shadow:0 22px 46px rgba(47,32,23,.28)!important;
+	}
+	.nectar-floating-whatsapp svg{
+	  width:31px!important;
+	  height:31px!important;
+	  display:block!important;
+	  fill:currentColor!important;
+	}
+	html[dir="rtl"] .nectar-floating-whatsapp{
+	  right:auto!important;
+	  left:24px!important;
+	}
+	.nectar-linked-footer--purple{
+	  background:linear-gradient(135deg,#2f1747 0%,#4f2e79 52%,#7f61b7 100%)!important;
+	}
 .nectar-linked-footer--purple .nectar-linked-footer__brand span{
   color:#efe5ff!important;
 }
@@ -607,11 +647,21 @@ const linkedFooterStyles = `
   .nectar-linked-footer__bottom{
     flex-direction:column!important;
   }
-  .nectar-linked-footer{
-    padding:46px 22px 26px!important;
-  }
-}
-`;
+	  .nectar-linked-footer{
+	    padding:46px 22px 26px!important;
+	  }
+	  .nectar-floating-whatsapp{
+	    width:52px!important;
+	    height:52px!important;
+	    right:18px!important;
+	    bottom:18px!important;
+	  }
+	  html[dir="rtl"] .nectar-floating-whatsapp{
+	    right:auto!important;
+	    left:18px!important;
+	  }
+	}
+	`;
 
 export const MainHeader = () => {
 	const { t } = useTranslation();
@@ -622,8 +672,8 @@ export const MainHeader = () => {
 		<>
 			<StyleBlock css={mainHeaderStyles} />
 			<header className={`sunset-nav nectar-fixed-navbar${mobileOpen ? ' is-mobile-open' : ''}`}>
-				<a aria-label="Nectar immobilier" className="sunset-logo nectar-fixed-logo" href="/#agence" onClick={closeMobileMenu}>
-					<img alt="Logo Nectar immobilier" className="nectar-logo-image" src="/assets/nectar-logo-navbar.png" />
+				<a aria-label="Nectar immobilière" className="sunset-logo nectar-fixed-logo" href="/#agence" onClick={closeMobileMenu}>
+					<img alt="Logo Nectar immobilière" className="nectar-logo-image" src="/assets/nectar-logo-navbar.png" />
 				</a>
 				<nav id="nectar-main-menu" aria-label={t('nav.main')} className={`sunset-menu nectar-fixed-menu${mobileOpen ? ' is-open' : ''}`}>
 					<a href="/#agence" onClick={closeMobileMenu}>
@@ -697,7 +747,7 @@ export const PurpleHeader = () => {
 			<header className={`site-header${mobileOpen ? ' is-mobile-open' : ''}`}>
 				<div className="container nav-wrap">
 					<a className="brand" href="/" onClick={closeMobileMenu}>
-						<img src="/assets/nectar-logo-navbar.png" alt="Nectar immobilier" />
+						<img src="/assets/nectar-logo-navbar.png" alt="Nectar immobilière" />
 					</a>
 					<nav id="purple-main-menu" className={`main-nav${mobileOpen ? ' is-open' : ''}`} aria-label={t('nav.main')}>
 						<a href="/" onClick={closeMobileMenu}>
@@ -747,7 +797,7 @@ export const LinkedFooter = ({ contact }: { contact: SiteContact }) => {
 						<div className="nectar-linked-footer__brand">
 							<a href="/#agence">
 								<strong>Nectar</strong>
-								<span>Immobilier</span>
+								<span>Immobilière</span>
 							</a>
 							<p>{t('footer.brandLine')}</p>
 						</div>
@@ -776,10 +826,10 @@ export const LinkedFooter = ({ contact }: { contact: SiteContact }) => {
 							<p dir="ltr">{localizedContact.phone_display}</p>
 							<p dir="ltr">{localizedContact.email_display}</p>
 							<div className="nectar-linked-footer__socials">
-								<a aria-label="Instagram Nectar immobilier" href={socialLinks.nectarInstagram} rel="noopener" target="_blank">
+								<a aria-label="Instagram Nectar immobilière" href={socialLinks.nectarInstagram} rel="noopener" target="_blank">
 									Instagram
 								</a>
-								<a aria-label="TikTok Nectar immobilier" href={socialLinks.nectarTikTok} rel="noopener" target="_blank">
+								<a aria-label="TikTok Nectar immobilière" href={socialLinks.nectarTikTok} rel="noopener" target="_blank">
 									TikTok
 								</a>
 								<a href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
@@ -796,6 +846,7 @@ export const LinkedFooter = ({ contact }: { contact: SiteContact }) => {
 					</div>
 				</div>
 			</footer>
+			<FloatingWhatsAppButton contact={contact} />
 		</>
 	);
 };
@@ -863,6 +914,7 @@ export const PurplePearlFooter = ({ contact }: { contact: SiteContact }) => {
 					</div>
 				</div>
 			</footer>
+			<FloatingWhatsAppButton contact={contact} />
 		</>
 	);
 };

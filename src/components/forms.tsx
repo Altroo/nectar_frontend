@@ -7,6 +7,23 @@ import { postWebsiteForm } from '@/utils/api';
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
 const formValue = (form: HTMLFormElement, name: string) => String(new FormData(form).get(name) || '');
+const dateInputPattern = '[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}';
+
+const normalizeDateValue = (value: string) => {
+	const trimmed = value.trim();
+	const dateMatch = trimmed.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/);
+
+	if (!trimmed) {
+		return null;
+	}
+
+	if (dateMatch) {
+		const [, day, month, year] = dateMatch;
+		return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+	}
+
+	return trimmed;
+};
 
 const newsletterDismissedCookie = 'nectar_newsletter_dismissed';
 const newsletterDismissedMaxAge = 60 * 60 * 24 * 30;
@@ -44,7 +61,7 @@ export const ContactForm = () => {
 				project: formValue(form, 'project'),
 				property_type: formValue(form, 'property_type'),
 				budget: formValue(form, 'budget'),
-				preferred_date: formValue(form, 'preferred_date') || null,
+				preferred_date: normalizeDateValue(formValue(form, 'preferred_date')),
 				preferred_time: formValue(form, 'preferred_time'),
 				appointment_mode: formValue(form, 'appointment_mode'),
 				message: formValue(form, 'message'),
@@ -96,7 +113,7 @@ export const ContactForm = () => {
 			</div>
 			<div className="field">
 				<label>{t('forms.contact.date')}</label>
-				<input dir="ltr" name="preferred_date" type="date" />
+				<input dir="ltr" inputMode="numeric" name="preferred_date" pattern={dateInputPattern} placeholder="DD/MM/YYYY" type="text" />
 			</div>
 			<div className="field">
 				<label>{t('forms.contact.time')}</label>
@@ -196,7 +213,7 @@ export const PurplePearlVisitForm = () => {
 		try {
 			await postWebsiteForm('purple-pearl-visits', {
 				visit_type: formValue(form, 'visit_type'),
-				preferred_date: formValue(form, 'preferred_date') || null,
+				preferred_date: normalizeDateValue(formValue(form, 'preferred_date')),
 				preferred_time: formValue(form, 'preferred_time'),
 				full_name: formValue(form, 'full_name'),
 				phone: formValue(form, 'phone'),
@@ -225,7 +242,7 @@ export const PurplePearlVisitForm = () => {
 				</div>
 				<div className="field">
 					<label htmlFor="preferred_date">{t('forms.visit.date')}</label>
-					<input dir="ltr" id="preferred_date" name="preferred_date" type="date" />
+					<input dir="ltr" id="preferred_date" inputMode="numeric" name="preferred_date" pattern={dateInputPattern} placeholder="DD/MM/YYYY" type="text" />
 				</div>
 				<div className="field">
 					<label htmlFor="preferred_time">{t('forms.visit.time')}</label>

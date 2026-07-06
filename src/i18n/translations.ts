@@ -102,14 +102,14 @@ export const translations = {
 	fr: {
 		meta: {
 			titles: {
-				home: 'Nectar immobilier',
-				saleApartment: 'Appartements à vendre à Tanger - Nectar immobilier',
-				saleCommercial: 'Locaux à vendre à Tanger - Nectar immobilier',
-				rentApartment: 'Appartements à louer à Tanger - Nectar immobilier',
-				rentCommercial: 'Location de locaux commerciaux - Nectar immobilier',
-				guide: 'Guide de Tanger - Nectar immobilier',
-				event: 'Événements privés à Tanger - Nectar immobilier',
-				purple: 'Purple Pearl - Nectar immobilier',
+				home: 'Nectar immobilière',
+				saleApartment: 'Appartements à vendre à Tanger - Nectar immobilière',
+				saleCommercial: 'Locaux à vendre à Tanger - Nectar immobilière',
+				rentApartment: 'Appartements à louer à Tanger - Nectar immobilière',
+				rentCommercial: 'Location de locaux commerciaux - Nectar immobilière',
+				guide: 'Guide de Tanger - Nectar immobilière',
+				event: 'Événements privés à Tanger - Nectar immobilière',
+				purple: 'Purple Pearl - Nectar immobilière',
 			},
 		},
 		nav: {
@@ -138,7 +138,7 @@ export const translations = {
 			promotion: 'Promotion immobilière',
 			requestInfo: 'Demander les informations',
 			contact: 'Contact',
-			rights: '© 2026 Nectar immobilier. Tous droits réservés.',
+			rights: '© 2026 Nectar immobilière. Tous droits réservés.',
 			promotionLink: 'Promotion immobilière',
 			contactUs: 'Contactez-nous',
 			purpleLine: 'Promotion immobilière à Tanger, pensée pour des appartements modernes, lumineux et élégants.',
@@ -169,20 +169,20 @@ export const translations = {
 			offices: 'Bureaux',
 			aboutKicker: 'À propos',
 			aboutTitle: 'Une agence locale, une approche plus humaine et plus sélective.',
-			aboutCopy1: 'Nectar immobilier accompagne les propriétaires, acquéreurs et locataires avec une méthode claire : estimation réaliste, présentation premium du bien, sélection ciblée des profils et suivi personnalisé jusqu’à la finalisation.',
+			aboutCopy1: 'Nectar immobilière accompagne les propriétaires, acquéreurs et locataires avec une méthode claire : estimation réaliste, présentation premium du bien, sélection ciblée des profils et suivi personnalisé jusqu’à la finalisation.',
 			aboutCopy2: 'Notre différence se voit dans le détail : des annonces soignées, des visites mieux préparées, une communication rapide et une vraie connaissance des quartiers de Tanger. Nous privilégions la qualité des biens et la confiance, plutôt que le volume.',
-			statsAria: 'Chiffres clés Nectar immobilier',
+			statsAria: 'Chiffres clés Nectar immobilière',
 			statSold: 'biens vendus ou loués',
 			statExperience: 'ans d’expérience terrain',
 			statSatisfaction: 'de satisfaction client',
-			aboutImageAria: "Bureau de l'agence Nectar immobilier",
+			aboutImageAria: "Bureau de l'agence Nectar immobilière",
 			aboutImageAlt: 'Entrée de la Résidence Nectar à Tanger',
 			purpleKicker: 'Promotion immobilière',
 			purpleCopy: 'Découvrez Purple Pearl, une promotion immobilière à Tanger pensée pour offrir un cadre de vie moderne, pratique et confortable. Le projet propose des appartements de qualité ainsi que des magasins à vendre, dans un emplacement stratégique à proximité des principales commodités. De la première visite jusqu’à la signature, vous bénéficiez d’un accompagnement clair, professionnel et sécurisé.',
 			purpleCta: 'Demander les détails',
 			guideKicker: 'Guide touristique',
-			guideTitle: 'À la découverte du patrimoine historique et culturel de Tanger',
-			guideCopy: 'Cliquez sur le guide pour découvrir les monuments historiques et les musées de Tanger avec photos et descriptions courtes.',
+			guideTitle: 'Musées & monuments historiques de Tanger',
+			guideCopy: 'Découvrez les lieux emblématiques qui racontent l’histoire et l’identité culturelle de Tanger. Entre monuments historiques, musées, médina et patrimoine architectural, ce guide vous accompagne dans une découverte simple et inspirante de la ville.',
 			guideCta: 'Voir le guide complet',
 			guideItineraryTitle: 'Balade culturelle à Tanger',
 			guideItineraryCopy: 'Une idée de parcours simple : médina, Kasbah, musée, Grand Socco puis coucher de soleil à Cap Spartel.',
@@ -200,13 +200,13 @@ export const translations = {
 			contactCopy: 'Vous souhaitez vendre, louer ou trouver un bien à Tanger ? Envoyez-nous votre demande, notre équipe vous répond rapidement avec un accompagnement clair et personnalisé.',
 			directKicker: 'Coordonnées directes',
 			directTitle: 'Nous contacter',
-			directCopy: 'Appelez-nous, écrivez-nous ou prenez rendez-vous directement avec l’agence Nectar immobilier à Tanger.',
+			directCopy: 'Appelez-nous, écrivez-nous ou prenez rendez-vous directement avec l’agence Nectar immobilière à Tanger.',
 			address: 'Adresse',
 			phone: 'Téléphone',
 			email: 'Email',
 			testimonialsKicker: 'Recommandations clients',
-			testimonialsTitle: 'Ils nous ont fait confiance',
-			testimonialsCopy: 'Ces recommandations concernent les appartements Hilton et l’Apartment in City Center Tangier : séjours courts, couples, familles et groupes.',
+				testimonialsTitle: 'Des séjours appréciés par nos clients',
+				testimonialsCopy: 'Découvrez les avis de voyageurs ayant séjourné dans nos appartements Hilton et City Center Tangier, pour des moments de confort, de tranquillité et de découverte à Tanger.',
 		},
 		process: {
 			kicker: 'Notre processus',
@@ -217,7 +217,7 @@ export const translations = {
 				label: 'Vente',
 				tab: 'Procédure vente',
 				copy: 'Vendez votre bien en toute confiance grâce à un accompagnement clair, professionnel et sécurisé, de l’estimation jusqu’à la signature.',
-				aria: 'Procédure vente avec Nectar immobilier',
+				aria: 'Procédure vente avec Nectar immobilière',
 				steps: [
 					['Estimation & stratégie', 'Nous analysons le bien, son emplacement, sa surface et le marché de Tanger pour définir un prix cohérent et une stratégie de vente claire.'],
 					['Mise en valeur', 'Nous préparons une présentation premium : photos, description, points forts, diffusion ciblée et argumentaire adapté aux acheteurs.'],
@@ -229,7 +229,7 @@ export const translations = {
 				label: 'Location',
 				tab: 'Procédure location',
 				copy: 'Louez votre bien ou trouvez votre logement en toute confiance grâce à un accompagnement clair, professionnel et sécurisé, de la recherche jusqu’à la remise des clés.',
-				aria: 'Procédure location avec Nectar immobilier',
+				aria: 'Procédure location avec Nectar immobilière',
 				steps: [
 					['Besoin & critères', 'Nous définissons le type de bien, le quartier, le budget, la durée de location et les priorités pour cadrer précisément la recherche.'],
 					['Sélection & visites', 'Nous proposons des biens adaptés ou des candidats qualifiés, puis organisons les visites avec toutes les informations nécessaires.'],
@@ -291,7 +291,7 @@ export const translations = {
 				emailPlaceholder: 'Entrez votre adresse e-mail',
 				message: 'Message',
 				messagePlaceholder: 'Précisez le type d’appartement souhaité, votre budget ou votre disponibilité.',
-				consent: 'En soumettant ce formulaire, j’accepte d’être contacté par Nectar immobilier.',
+				consent: 'En soumettant ce formulaire, j’accepte d’être contacté par Nectar immobilière.',
 				submit: 'Soumettre une demande de visite',
 			},
 		},
@@ -302,7 +302,7 @@ export const translations = {
 					commercial: ['Locaux à vendre à Tanger', 'Vente · Local commercial', 'Une page dédiée aux locaux commerciaux disponibles à la vente, avec filtres par type et superficie.', 'Biens disponibles', 'Utilisez les filtres pour trouver rapidement le bien qui correspond au quartier, à la surface et au projet du client.'],
 				},
 				rent: {
-					apartment: ['Appartements à louer à Tanger', 'Location · Appartement', 'Liste des appartements disponibles à la location pour juin, avec résidence, étage, numéro d’appartement, chambres et budget.', 'Disponibilités location', 'Utilisez les filtres pour trouver rapidement un appartement par résidence, nombre de chambres ou budget maximum.'],
+						apartment: ['Appartements à louer à Tanger', 'Location · Appartement', 'Liste des appartements disponibles à la location pour juillet, avec résidence, étage, numéro d’appartement, chambres et budget.', 'Disponibilités location', 'Utilisez les filtres pour trouver rapidement un appartement par résidence, nombre de chambres ou budget maximum.'],
 					commercial: ['Location de locaux commerciaux', 'Location · Local', 'Découvrez les locaux commerciaux disponibles à la location avec surfaces RDC, mezzanine et superficies totales.', 'Biens disponibles', 'Utilisez les filtres pour trouver rapidement le bien qui correspond au quartier, à la surface et au projet du client.'],
 				},
 			},
@@ -343,7 +343,7 @@ export const translations = {
 				rentApartment: '{address}. Appartement disponible à la location, sélectionné pour un séjour confortable à Tanger.',
 				commercial: 'RTE MALABATA RESD ERASMUS. Local visible et modulable, adapté showroom, commerce premium, cabinet ou activité de service.',
 			},
-			priceNoteJune: 'Prix indiqué pour juin.',
+				priceNoteMonth: 'Prix indiqué pour juillet.',
 			requestPrice: 'Demander le prix →',
 			requestAvailability: 'Demander la disponibilité →',
 			request: 'Faire une demande →',
@@ -380,7 +380,7 @@ export const translations = {
 			ideasCopy: 'Chaque décoration est pensée selon le profil du client, le type de séjour et l’effet recherché : émotion, surprise, photo souvenir et confort premium.',
 			customKicker: 'Sur mesure',
 			customTitle: 'Une idée spéciale ? Nous créons l’ambiance.',
-			customCopy: 'Pour un anniversaire, une surprise amoureuse, une demande, un séjour famille ou un week-end entre amies, Nectar immobilier peut préparer une décoration adaptée à l’appartement et au budget.',
+			customCopy: 'Pour un anniversaire, une surprise amoureuse, une demande, un séjour famille ou un week-end entre amies, Nectar immobilière peut préparer une décoration adaptée à l’appartement et au budget.',
 			customCta: 'Demander une décoration',
 			steps: ['Choix du thème, couleurs, message et date d’arrivée.', 'Préparation discrète de l’appartement avant l’arrivée du client.', 'Décoration prête, photos possibles et coordination jusqu’à la remise des clés.'],
 		},
@@ -512,8 +512,8 @@ export const translations = {
 			purpleCopy: 'اكتشف Purple Pearl، مشروعا سكنيا وتجاريا في طنجة يوفر حياة عصرية ومريحة في موقع عملي قريب من أهم المرافق. يضم المشروع شققا بجودة عالية ومحلات للبيع، مع مواكبة واضحة ومهنية من أول زيارة إلى غاية التوقيع.',
 			purpleCta: 'طلب التفاصيل',
 			guideKicker: 'دليل سياحي',
-			guideTitle: 'اكتشاف التراث التاريخي والثقافي لطنجة',
-			guideCopy: 'اكتشف أهم المعالم التاريخية والمتاحف في طنجة من خلال صور وتعريفات مختصرة تساعدك على التعرف على المدينة.',
+			guideTitle: 'متاحف ومعالم تاريخية في طنجة',
+			guideCopy: 'اكتشف الأماكن البارزة التي تحكي تاريخ طنجة وهويتها الثقافية. بين المعالم التاريخية والمتاحف والمدينة العتيقة والتراث المعماري، يرافقك هذا الدليل في اكتشاف بسيط وملهم للمدينة.',
 			guideCta: 'مشاهدة الدليل كاملا',
 			guideItineraryTitle: 'جولة ثقافية في طنجة',
 			guideItineraryCopy: 'اقتراح مسار بسيط: المدينة العتيقة، القصبة، المتحف، السوق الكبير ثم غروب الشمس في رأس سبارطيل.',
@@ -536,8 +536,8 @@ export const translations = {
 			phone: 'الهاتف',
 			email: 'البريد الإلكتروني',
 			testimonialsKicker: 'آراء العملاء',
-			testimonialsTitle: 'وثقوا بنا',
-			testimonialsCopy: 'هذه التوصيات تخص شقق Hilton وApartment in City Center Tangier: إقامات قصيرة، أزواج، عائلات ومجموعات.',
+				testimonialsTitle: 'إقامات نالت إعجاب عملائنا',
+				testimonialsCopy: 'اكتشف آراء المسافرين الذين أقاموا في شقق Hilton وCity Center Tangier، واستمتعوا بلحظات من الراحة والهدوء واكتشاف طنجة.',
 		},
 		process: {
 			kicker: 'طريقتنا',
@@ -674,7 +674,7 @@ export const translations = {
 				rentApartment: '{address}. شقة مختارة بعناية لكراء مريح في طنجة.',
 				commercial: 'RTE MALABATA RESD ERASMUS. محل واضح وقابل للتكييف، مناسب لعرض المنتجات أو التجارة أو مكتب أو نشاط خدماتي.',
 			},
-			priceNoteJune: 'السعر المشار إليه خاص بشهر يونيو.',
+				priceNoteMonth: 'السعر المشار إليه خاص بشهر يوليوز.',
 			requestPrice: 'طلب السعر →',
 			requestAvailability: 'طلب التوفر →',
 			request: 'إرسال طلب →',
@@ -735,7 +735,7 @@ export const translations = {
 			visit: 'تحديد زيارة',
 			proximityWalk: [
 				['متاجر قريبة', '2–5 دقائق'],
-				['مقاه ومطاعم', '3–5 دقائق'],
+				['مقاهي ومطاعم', '3–5 دقائق'],
 				['صيدلية', '3 دقائق'],
 				['مسجد', '4–5 دقائق'],
 				['مدرسة', '5–7 دقائق'],
@@ -764,14 +764,14 @@ export const translations = {
 	en: {
 		meta: {
 			titles: {
-				home: 'Nectar immobilier',
-				saleApartment: 'Apartments for sale in Tangier - Nectar immobilier',
-				saleCommercial: 'Retail units for sale in Tangier - Nectar immobilier',
-				rentApartment: 'Apartments for rent in Tangier - Nectar immobilier',
-				rentCommercial: 'Retail units for rent - Nectar immobilier',
-				guide: 'Tangier Guide - Nectar immobilier',
-				event: 'Private events in Tangier - Nectar immobilier',
-				purple: 'Purple Pearl - Nectar immobilier',
+				home: 'Nectar immobilière',
+				saleApartment: 'Apartments for sale in Tangier - Nectar immobilière',
+				saleCommercial: 'Retail units for sale in Tangier - Nectar immobilière',
+				rentApartment: 'Apartments for rent in Tangier - Nectar immobilière',
+				rentCommercial: 'Retail units for rent - Nectar immobilière',
+				guide: 'Tangier Guide - Nectar immobilière',
+				event: 'Private events in Tangier - Nectar immobilière',
+				purple: 'Purple Pearl - Nectar immobilière',
 			},
 		},
 		nav: {
@@ -800,7 +800,7 @@ export const translations = {
 			promotion: 'Property development',
 			requestInfo: 'Request information',
 			contact: 'Contact',
-			rights: '© 2026 Nectar immobilier. All rights reserved.',
+			rights: '© 2026 Nectar immobilière. All rights reserved.',
 			promotionLink: 'Property development',
 			contactUs: 'Contact us',
 			purpleLine: 'A residential and retail development in Tangier designed for everyday comfort and practical access.',
@@ -831,20 +831,20 @@ export const translations = {
 			offices: 'Offices',
 			aboutKicker: 'About',
 			aboutTitle: 'A local agency with a personal, selective approach.',
-			aboutCopy1: 'Nectar immobilier works with owners, buyers and tenants through a practical process: realistic valuation, careful property presentation, serious profile screening and personal follow-up until completion.',
+			aboutCopy1: 'Nectar immobilière works with owners, buyers and tenants through a practical process: realistic valuation, careful property presentation, serious profile screening and personal follow-up until completion.',
 			aboutCopy2: 'Our value is in the details: well-prepared listings, better-organized visits, quick communication and real knowledge of Tangier’s neighborhoods. We choose quality and trust over volume.',
-			statsAria: 'Nectar immobilier key figures',
+			statsAria: 'Nectar immobilière key figures',
 			statSold: 'properties sold or rented',
 			statExperience: 'years of field experience',
 			statSatisfaction: 'customer satisfaction',
-			aboutImageAria: 'Nectar immobilier agency office',
+			aboutImageAria: 'Nectar immobilière agency office',
 			aboutImageAlt: 'Entrance of Residence Nectar in Tangier',
 			purpleKicker: 'Property development',
 			purpleCopy: 'Discover Purple Pearl, a residential and retail development in Tangier built around modern comfort, practical layouts and easy access to daily amenities. The project offers quality apartments and retail units for sale, with clear professional guidance from the first visit through to signing.',
 			purpleCta: 'Request details',
 			guideKicker: 'Tourist guide',
-			guideTitle: 'Discover Tangier’s historical and cultural heritage',
-			guideCopy: 'Explore Tangier’s key historic sites and museums through photos and short descriptions that make the city easier to discover.',
+			guideTitle: 'Museums & Historical Monuments in Tangier',
+			guideCopy: 'Discover the emblematic places that tell the story and cultural identity of Tangier. From historic monuments and museums to the medina and architectural heritage, this guide offers a simple, inspiring way to explore the city.',
 			guideCta: 'View full guide',
 			guideItineraryTitle: 'Cultural walk in Tangier',
 			guideItineraryCopy: 'A simple route idea: medina, Kasbah, museum, Grand Socco and sunset at Cape Spartel.',
@@ -862,13 +862,13 @@ export const translations = {
 			contactCopy: 'Looking to sell, rent out or find a property in Tangier? Send us your request and our team will get back to you quickly with clear, tailored guidance.',
 			directKicker: 'Direct contact',
 			directTitle: 'Reach us',
-			directCopy: 'Call us, write to us or book an appointment directly with Nectar immobilier in Tangier.',
+			directCopy: 'Call us, write to us or book an appointment directly with Nectar immobilière in Tangier.',
 			address: 'Address',
 			phone: 'Phone',
 			email: 'Email',
 			testimonialsKicker: 'Client recommendations',
-			testimonialsTitle: 'They trusted us',
-			testimonialsCopy: 'These recommendations concern the Hilton apartments and Apartment in City Center Tangier: short stays, couples, families and groups.',
+				testimonialsTitle: 'Stays appreciated by our guests',
+				testimonialsCopy: 'Read reviews from travelers who stayed in our Hilton and City Center Tangier apartments for moments of comfort, calm and discovery in Tangier.',
 		},
 		process: {
 			kicker: 'Our process',
@@ -879,7 +879,7 @@ export const translations = {
 				label: 'Sale',
 				tab: 'Sale process',
 				copy: 'Sell your property with confidence, from the first valuation through to contract signing, with clear and professional guidance.',
-				aria: 'Sale process with Nectar immobilier',
+				aria: 'Sale process with Nectar immobilière',
 				steps: [
 					['Valuation & strategy', 'We analyze the property, its location, surface area and Tangier market to define a coherent price and clear sale strategy.'],
 					['Presentation', 'We prepare a strong listing with photos, clear copy, key selling points and the right channels to reach serious buyers.'],
@@ -891,7 +891,7 @@ export const translations = {
 				label: 'Rental',
 				tab: 'Rental process',
 				copy: 'Rent out your property or find the right home with confidence, from the first search through to key handover.',
-				aria: 'Rental process with Nectar immobilier',
+				aria: 'Rental process with Nectar immobilière',
 				steps: [
 					['Needs & criteria', 'We define the property type, district, budget, rental duration and priorities so the search starts in the right direction.'],
 					['Selection & visits', 'We suggest suitable properties or serious tenant profiles, then organize visits with all the useful details.'],
@@ -953,7 +953,7 @@ export const translations = {
 				emailPlaceholder: 'Enter your email address',
 				message: 'Message',
 				messagePlaceholder: 'Tell us which apartment type you prefer, your budget or the times that work for you.',
-				consent: 'I agree to be contacted by Nectar immobilier about this request.',
+				consent: 'I agree to be contacted by Nectar immobilière about this request.',
 				submit: 'Submit a visit request',
 			},
 		},
@@ -1005,7 +1005,7 @@ export const translations = {
 				rentApartment: '{address}. A carefully selected apartment for a comfortable rental stay in Tangier.',
 				commercial: 'RTE MALABATA RESD ERASMUS. A visible, adaptable unit suitable for retail, showroom, office or service activity.',
 			},
-			priceNoteJune: 'Price indicated for June.',
+				priceNoteMonth: 'Price indicated for July.',
 			requestPrice: 'Request price →',
 			requestAvailability: 'Request availability →',
 			request: 'Send a request →',
@@ -1042,7 +1042,7 @@ export const translations = {
 			ideasCopy: 'Each setup is designed around the occasion, the stay and the feeling you want to create: emotion, surprise and memorable photos.',
 			customKicker: 'Custom',
 			customTitle: 'A special idea? We create the atmosphere.',
-			customCopy: 'Whether it is a birthday, romantic surprise, family stay or weekend with friends, Nectar immobilier can prepare a setup that fits the apartment and budget.',
+			customCopy: 'Whether it is a birthday, romantic surprise, family stay or weekend with friends, Nectar immobilière can prepare a setup that fits the apartment and budget.',
 			customCta: 'Request decoration',
 			steps: ['Theme, colors, message and arrival date selection.', 'Discreet apartment preparation before the client arrives.', 'Decoration ready, photos possible and coordination until key handover.'],
 		},
@@ -1095,14 +1095,14 @@ export const translations = {
 	es: {
 		meta: {
 			titles: {
-				home: 'Nectar immobilier',
-				saleApartment: 'Apartamentos en venta en Tánger - Nectar immobilier',
-				saleCommercial: 'Locales en venta en Tánger - Nectar immobilier',
-				rentApartment: 'Apartamentos en alquiler en Tánger - Nectar immobilier',
-				rentCommercial: 'Locales comerciales en alquiler - Nectar immobilier',
-				guide: 'Guía de Tánger - Nectar immobilier',
-				event: 'Eventos privados en Tánger - Nectar immobilier',
-				purple: 'Purple Pearl - Nectar immobilier',
+				home: 'Nectar immobilière',
+				saleApartment: 'Apartamentos en venta en Tánger - Nectar immobilière',
+				saleCommercial: 'Locales en venta en Tánger - Nectar immobilière',
+				rentApartment: 'Apartamentos en alquiler en Tánger - Nectar immobilière',
+				rentCommercial: 'Locales comerciales en alquiler - Nectar immobilière',
+				guide: 'Guía de Tánger - Nectar immobilière',
+				event: 'Eventos privados en Tánger - Nectar immobilière',
+				purple: 'Purple Pearl - Nectar immobilière',
 			},
 		},
 		nav: {
@@ -1131,7 +1131,7 @@ export const translations = {
 			promotion: 'Promoción inmobiliaria',
 			requestInfo: 'Solicitar información',
 			contact: 'Contacto',
-			rights: '© 2026 Nectar immobilier. Todos los derechos reservados.',
+			rights: '© 2026 Nectar immobilière. Todos los derechos reservados.',
 			promotionLink: 'Promoción inmobiliaria',
 			contactUs: 'Contáctenos',
 			purpleLine: 'Promoción residencial y comercial en Tánger, pensada para vivir mejor y estar bien conectado.',
@@ -1162,20 +1162,20 @@ export const translations = {
 			offices: 'Oficinas',
 			aboutKicker: 'Sobre nosotros',
 			aboutTitle: 'Una agencia local con trato cercano y criterios claros.',
-			aboutCopy1: 'Nectar immobilier acompaña a propietarios, compradores e inquilinos con un proceso práctico: valoración realista, presentación cuidada del inmueble, selección seria de perfiles y seguimiento personalizado hasta el cierre.',
+			aboutCopy1: 'Nectar immobilière acompaña a propietarios, compradores e inquilinos con un proceso práctico: valoración realista, presentación cuidada del inmueble, selección seria de perfiles y seguimiento personalizado hasta el cierre.',
 			aboutCopy2: 'Nuestro valor está en los detalles: anuncios bien preparados, visitas mejor organizadas, comunicación rápida y conocimiento real de los barrios de Tánger. Priorizamos calidad y confianza antes que volumen.',
-			statsAria: 'Cifras clave de Nectar immobilier',
+			statsAria: 'Cifras clave de Nectar immobilière',
 			statSold: 'bienes vendidos o alquilados',
 			statExperience: 'años de experiencia sobre el terreno',
 			statSatisfaction: 'de satisfacción del cliente',
-			aboutImageAria: 'Oficina de Nectar immobilier',
+			aboutImageAria: 'Oficina de Nectar immobilière',
 			aboutImageAlt: 'Entrada de Résidence Nectar en Tánger',
 			purpleKicker: 'Promoción inmobiliaria',
 			purpleCopy: 'Descubra Purple Pearl, una promoción residencial y comercial en Tánger pensada para una vida moderna, cómoda y práctica. El proyecto ofrece apartamentos de calidad y locales en venta, cerca de los servicios esenciales, con asesoramiento profesional desde la primera visita hasta la firma.',
 			purpleCta: 'Solicitar detalles',
 			guideKicker: 'Guía turística',
-			guideTitle: 'Descubrir el patrimonio histórico y cultural de Tánger',
-			guideCopy: 'Descubra los principales monumentos y museos de Tánger con fotos y descripciones breves para conocer mejor la ciudad.',
+			guideTitle: 'Museos y monumentos históricos de Tánger',
+			guideCopy: 'Descubra los lugares emblemáticos que cuentan la historia y la identidad cultural de Tánger. Entre monumentos históricos, museos, medina y patrimonio arquitectónico, esta guía le acompaña en un descubrimiento sencillo e inspirador de la ciudad.',
 			guideCta: 'Ver guía completa',
 			guideItineraryTitle: 'Paseo cultural por Tánger',
 			guideItineraryCopy: 'Una idea de recorrido simple: medina, Kasbah, museo, Grand Socco y puesta de sol en Cabo Espartel.',
@@ -1193,13 +1193,13 @@ export const translations = {
 			contactCopy: '¿Quiere vender, alquilar o encontrar una propiedad en Tánger? Envíenos su solicitud y nuestro equipo le responderá rápidamente con asesoramiento claro y personalizado.',
 			directKicker: 'Datos directos',
 			directTitle: 'Contactar',
-			directCopy: 'Llámenos, escríbanos o pida cita directamente con la agencia Nectar immobilier en Tánger.',
+			directCopy: 'Llámenos, escríbanos o pida cita directamente con la agencia Nectar immobilière en Tánger.',
 			address: 'Dirección',
 			phone: 'Teléfono',
 			email: 'Email',
 			testimonialsKicker: 'Recomendaciones de clientes',
-			testimonialsTitle: 'Confiaron en nosotros',
-			testimonialsCopy: 'Estas recomendaciones se refieren a los apartamentos Hilton y Apartment in City Center Tangier: estancias cortas, parejas, familias y grupos.',
+				testimonialsTitle: 'Estancias apreciadas por nuestros clientes',
+				testimonialsCopy: 'Descubra las opiniones de viajeros que se alojaron en nuestros apartamentos Hilton y City Center Tangier, para momentos de confort, tranquilidad y descubrimiento en Tánger.',
 		},
 		process: {
 			kicker: 'Nuestro proceso',
@@ -1210,7 +1210,7 @@ export const translations = {
 				label: 'Venta',
 				tab: 'Proceso de venta',
 				copy: 'Venda su propiedad con confianza, desde la primera valoración hasta la firma, con asesoramiento claro y profesional.',
-				aria: 'Procedimiento de venta con Nectar immobilier',
+				aria: 'Procedimiento de venta con Nectar immobilière',
 				steps: [
 					['Valoración y estrategia', 'Analizamos el bien, su ubicación, superficie y el mercado de Tánger para definir un precio coherente y una estrategia clara.'],
 					['Puesta en valor', 'Preparamos un anuncio sólido con fotos, descripción clara, puntos fuertes y canales adecuados para llegar a compradores serios.'],
@@ -1222,7 +1222,7 @@ export const translations = {
 				label: 'Alquiler',
 				tab: 'Proceso de alquiler',
 				copy: 'Alquile su propiedad o encuentre la vivienda adecuada con confianza, desde la primera búsqueda hasta la entrega de llaves.',
-				aria: 'Procedimiento de alquiler con Nectar immobilier',
+				aria: 'Procedimiento de alquiler con Nectar immobilière',
 				steps: [
 					['Necesidad y criterios', 'Definimos tipo de inmueble, zona, presupuesto, duración y prioridades para orientar bien la búsqueda desde el principio.'],
 					['Selección y visitas', 'Proponemos inmuebles adecuados o perfiles serios, y organizamos visitas con toda la información útil.'],
@@ -1284,7 +1284,7 @@ export const translations = {
 				emailPlaceholder: 'Introduzca su correo electrónico',
 				message: 'Mensaje',
 				messagePlaceholder: 'Indique el tipo de apartamento que prefiere, su presupuesto o los horarios disponibles.',
-				consent: 'Acepto que Nectar immobilier me contacte sobre esta solicitud.',
+				consent: 'Acepto que Nectar immobilière me contacte sobre esta solicitud.',
 				submit: 'Enviar solicitud de visita',
 			},
 		},
@@ -1336,7 +1336,7 @@ export const translations = {
 				rentApartment: '{address}. Apartamento seleccionado para una estancia cómoda en alquiler en Tánger.',
 				commercial: 'RTE MALABATA RESD ERASMUS. Local visible y adaptable, adecuado para tienda, showroom, oficina o actividad de servicios.',
 			},
-			priceNoteJune: 'Precio indicado para junio.',
+				priceNoteMonth: 'Precio indicado para julio.',
 			requestPrice: 'Solicitar precio →',
 			requestAvailability: 'Solicitar disponibilidad →',
 			request: 'Enviar solicitud →',
@@ -1373,7 +1373,7 @@ export const translations = {
 			ideasCopy: 'Cada montaje se diseña según la ocasión, la estancia y la emoción que se quiere crear: sorpresa, detalle y fotos memorables.',
 			customKicker: 'A medida',
 			customTitle: '¿Una idea especial? Creamos el ambiente.',
-			customCopy: 'Ya sea para un cumpleaños, una sorpresa romántica, una estancia familiar o un fin de semana entre amigas, Nectar immobilier puede preparar una decoración adaptada al apartamento y al presupuesto.',
+			customCopy: 'Ya sea para un cumpleaños, una sorpresa romántica, una estancia familiar o un fin de semana entre amigas, Nectar immobilière puede preparar una decoración adaptada al apartamento y al presupuesto.',
 			customCta: 'Solicitar decoración',
 			steps: ['Elección del tema, colores, mensaje y fecha de llegada.', 'Preparación discreta del apartamento antes de la llegada del cliente.', 'Decoración lista, fotos posibles y coordinación hasta la entrega de llaves.'],
 		},
@@ -1562,7 +1562,31 @@ const localizePropertyTag = (language: LanguageCode, property: Property) => {
 	}
 	return property.tag
 		.replace(/Etage\s*(\d+)/i, textMap(language, { ar: 'الطابق $1', en: 'Floor $1', es: 'Planta $1' }, 'Etage $1'))
-		.replace(/N°\s*/g, textMap(language, { ar: 'رقم ', en: 'No. ', es: 'N.º ' }, 'N°'));
+			.replace(/N°\s*/g, textMap(language, { ar: 'رقم ', en: 'No. ', es: 'N.º ' }, 'N°'));
+};
+
+const propertyDescriptionOverrides: Record<string, Partial<Record<LanguageCode, string>>> = {
+	'Appartement Hilton N°05': {
+		fr: "Profitez d’un séjour élégant dans cet appartement situé au sein de l’hôtel Hilton à Tanger. Avec sa vue imprenable sur la Méditerranée, son cadre sécurisé et son ambiance calme et luxueuse, il offre l’endroit idéal pour se détendre et vivre pleinement vos vacances.",
+		ar: 'استمتع بإقامة أنيقة في هذه الشقة الواقعة داخل فندق Hilton في طنجة. بإطلالتها الجميلة على البحر الأبيض المتوسط، وإطارها الآمن وأجوائها الهادئة والراقية، توفر مكانا مثاليا للاسترخاء والاستمتاع بعطلتك.',
+		en: 'Enjoy an elegant stay in this apartment within the Hilton hotel in Tangier. With its beautiful Mediterranean view, secure setting and calm refined atmosphere, it is an ideal place to relax and enjoy your holiday.',
+		es: 'Disfrute de una estancia elegante en este apartamento situado dentro del hotel Hilton en Tánger. Con su hermosa vista al Mediterráneo, su entorno seguro y su ambiente tranquilo y cuidado, ofrece el lugar ideal para relajarse y disfrutar de sus vacaciones.',
+	},
+	'Appartement City Center Ra1 N°B': {
+		fr: 'Situé en plein centre-ville de Tanger, à proximité de la gare TGV, cet appartement offre une vue sur la ville et un cadre confortable, idéal pour un séjour pratique et agréable.',
+		ar: 'تقع هذه الشقة في قلب وسط مدينة طنجة، بالقرب من محطة القطار فائق السرعة. توفر إطلالة على المدينة وإطارا مريحا، مثاليا لإقامة عملية وممتعة.',
+		en: 'Located in the heart of Tangier city center near the high-speed train station, this apartment offers city views and a comfortable setting, ideal for a practical and pleasant stay.',
+		es: 'Situado en pleno centro de Tánger, cerca de la estación de tren de alta velocidad, este apartamento ofrece vistas a la ciudad y un entorno cómodo, ideal para una estancia práctica y agradable.',
+	},
+};
+
+const localizePropertyDescription = (language: LanguageCode, property: Property, address: string, descriptionKey: string) => {
+	const override = propertyDescriptionOverrides[property.title];
+	if (override) {
+		return textMap(language, override, property.description);
+	}
+
+	return translate(language, descriptionKey, property.description, { address });
 };
 
 export const localizeProperty = (language: LanguageCode, property: Property): Property => {
@@ -1579,12 +1603,12 @@ export const localizeProperty = (language: LanguageCode, property: Property): Pr
 		title: localizePropertyTitle(language, property),
 		tag: localizePropertyTag(language, property),
 		address,
-		description: translate(language, descriptionKey, property.description, { address }),
+		description: localizePropertyDescription(language, property, address, descriptionKey),
 		floor: localizeFloorValue(language, property.floor),
 		unit_number: localizeNumberMarker(language, property.unit_number),
 		project_label: localizeFloorValue(language, property.project_label),
 		surface_sold: localizeFloorValue(language, property.surface_sold),
-		price_note: property.price_note === 'Prix indiqué pour juin.' ? translate(language, 'listing.priceNoteJune') : property.price_note,
+		price_note: property.price_note.startsWith('Prix indiqué pour ') ? translate(language, 'listing.priceNoteMonth') : property.price_note,
 		cta_label: property.transaction === 'sale' ? translate(language, 'listing.requestPrice') : translate(language, 'listing.requestAvailability'),
 		photos: property.photos.map((photo) => localizePhoto(language, photo)),
 	};
@@ -1621,12 +1645,22 @@ const testimonialQuotes: Record<string, Partial<Record<LanguageCode, string>>> =
 		en: 'Exceptional.',
 		es: 'Excepcional.',
 	},
-	'L’appartement est absolument magnifique, l’emplacement est superbe et proche de tous les services, et le service de Mme Hajar était extrêmement poli et courtois.': {
-		ar: 'الشقة رائعة جدا، والموقع ممتاز وقريب من كل الخدمات، وخدمة السيدة هاجر كانت راقية ومحترمة للغاية.',
-		en: 'The apartment is absolutely beautiful, the location is excellent and close to all services, and Ms. Hajar’s service was extremely polite and courteous.',
-		es: 'El apartamento es precioso, la ubicación es excelente y cercana a todos los servicios, y la atención de la Sra. Hajar fue muy amable y cortés.',
-	},
-};
+		'L’appartement est absolument magnifique, l’emplacement est superbe et proche de tous les services, et le service de Mme Hajar était extrêmement poli et courtois.': {
+			ar: 'الشقة رائعة جدا، والموقع ممتاز وقريب من كل الخدمات، وخدمة السيدة هاجر كانت راقية ومحترمة للغاية.',
+			en: 'The apartment is absolutely beautiful, the location is excellent and close to all services, and Ms. Hajar’s service was extremely polite and courteous.',
+			es: 'El apartamento es precioso, la ubicación es excelente y cercana a todos los servicios, y la atención de la Sra. Hajar fue muy amable y cortés.',
+		},
+		'Great place! Great location, very clean.': {
+			ar: 'مكان رائع! موقع ممتاز ونظيف جدا.',
+			en: 'Great place! Great location, very clean.',
+			es: 'Un lugar excelente. Muy buena ubicación y muy limpio.',
+		},
+		'Exceptionnel. I stayed for 7 days, it was worth the price, great place and stuff. Loved it and will return whenever I’m back in Tangier.': {
+			ar: 'استثنائي. أقمت لمدة 7 أيام وكان يستحق السعر، مكان رائع وخدمة جيدة. أحببته وسأعود إليه كلما رجعت إلى طنجة.',
+			en: 'Exceptional. I stayed for 7 days; it was worth the price, a great place and good service. I loved it and will return whenever I’m back in Tangier.',
+			es: 'Excepcional. Me alojé 7 días; valió la pena por el precio, un lugar excelente y buen servicio. Me encantó y volveré cuando regrese a Tánger.',
+		},
+	};
 
 const localizeTestimonialDetails = (language: LanguageCode, value: string) => {
 	const countryMap: Record<string, Partial<Record<LanguageCode, string>>> = {
@@ -1690,7 +1724,7 @@ const pageTitleKeys: Record<string, string> = {
 
 export const localizedPageTitle = (language: LanguageCode, pathname: string) => {
 	const key = pageTitleKeys[pathname.replace(/\/$/, '') || '/'] ?? 'home';
-	return translate(language, `meta.titles.${key}`, 'Nectar immobilier');
+	return translate(language, `meta.titles.${key}`, 'Nectar immobilière');
 };
 
 const purplePlanTitles: Record<LanguageCode, Record<string, { button: string; title: string; description: string; image3dTitle?: string; image3dSecondaryTitle?: string }>> = {

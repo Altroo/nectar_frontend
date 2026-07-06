@@ -9,8 +9,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nectar.ma';
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
-	title: 'Nectar immobilier',
-	description: 'Agence immobiliere a Tanger specialisee dans la vente, la location et la promotion immobiliere.',
+	title: 'Nectar immobilière',
+	description: 'Agence immobilière à Tanger spécialisée dans la vente, la location et la promotion immobilière.',
 	icons: {
 		icon: [{ url: '/favicon.svg?v=nectar', type: 'image/svg+xml' }],
 		shortcut: ['/favicon.svg?v=nectar'],

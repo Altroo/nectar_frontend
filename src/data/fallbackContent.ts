@@ -113,8 +113,17 @@ const salePhotoAlbums: Record<string, PropertyPhoto[]> = {
 	'MANDELSON BLOC A · N°47': mandelsonN47Photos,
 };
 
+const hiltonN05Description =
+	"Profitez d’un séjour élégant dans cet appartement situé au sein de l’hôtel Hilton à Tanger. Avec sa vue imprenable sur la Méditerranée, son cadre sécurisé et son ambiance calme et luxueuse, il offre l’endroit idéal pour se détendre et vivre pleinement vos vacances.";
+
+const cityCenterRa1Description = 'Situé en plein centre-ville de Tanger, à proximité de la gare TGV, cet appartement offre une vue sur la ville et un cadre confortable, idéal pour un séjour pratique et agréable.';
+
+const rentalDescriptions: Record<string, string> = {
+	'Appartement Hilton N°05': hiltonN05Description,
+	'Appartement City Center Ra1 N°B': cityCenterRa1Description,
+};
+
 const saleApartments: Property[] = [
-	['HILTON · N°03', 'HILTON', 'Centre-ville', 'ETAGE 10', 'N°03', 1, 53, '53 m²'],
 	['HILTON · N°11', 'HILTON', 'Centre-ville', 'ETAGE 10', 'N°11', 1, 55, '55 m²'],
 	['HILTON · N°13', 'HILTON', 'Centre-ville', 'ETAGE 10', 'N°13', 2, 74, '74 m²'],
 	['MARINA BLOC B · N°302', 'MARINA BLOC B', 'Marina', 'ETAGE 03', 'N°302', 1, 84, '84 m²'],
@@ -173,7 +182,7 @@ const rentApartments: Property[] = [
 		residence: String(residence),
 		district: 'Centre-ville',
 		address,
-		description: `${address}. Appartement disponible à la location, sélectionné pour un séjour confortable à Tanger.`,
+		description: rentalDescriptions[String(title)] ?? `${address}. Appartement disponible à la location, sélectionné pour un séjour confortable à Tanger.`,
 		floor: String(floor),
 		unit_number: String(unitNumber),
 		bedrooms: Number(bedrooms),
@@ -182,7 +191,7 @@ const rentApartments: Property[] = [
 		mezzanine: '',
 		project_label: '',
 		price: String(price),
-		price_note: 'Prix indiqué pour juin.',
+		price_note: 'Prix indiqué pour juillet.',
 		cta_label: 'Demander la disponibilité →',
 		image: photos[0]?.image ?? '',
 		photos,

@@ -160,7 +160,7 @@ export const HomePage = ({ content }: { content: SiteContent }) => {
 						<h3>{t('home.directTitle')}</h3>
 						<p>{t('home.directCopy')}</p>
 						<div className="contact-direct-card">
-							<h4>Nectar immobilier</h4>
+							<h4>Nectar immobilière</h4>
 							<div className="contact-direct-item">
 								<span>{t('home.address')}</span>
 								<strong>{contact.address}</strong>

@@ -16,15 +16,44 @@ const proximityHoverResetStyles = `
 #proximite .near-col{
 	transition:none!important;
 }
-#voir-projet .overview-grid--two{
-	grid-template-columns:repeat(2,minmax(0,1fr))!important;
-	max-width:760px;
-}
-@media(max-width:760px){
 	#voir-projet .overview-grid--two{
-		grid-template-columns:1fr!important;
+		grid-template-columns:repeat(2,minmax(0,1fr))!important;
+		max-width:none!important;
+		width:100%!important;
 	}
-}
+	#voir-projet .overview-grid--two .overview-item{
+		min-height:132px;
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+	}
+	#plans .floor-filter{
+		display:grid!important;
+		grid-template-columns:repeat(4,minmax(0,1fr))!important;
+		gap:14px!important;
+		align-items:stretch!important;
+	}
+	#plans .floor-btn{
+		width:100%!important;
+		min-height:58px!important;
+		display:flex!important;
+		align-items:center!important;
+		justify-content:center!important;
+		text-align:center!important;
+	}
+	@media(max-width:900px){
+		#plans .floor-filter{
+			grid-template-columns:repeat(2,minmax(0,1fr))!important;
+		}
+	}
+	@media(max-width:760px){
+		#voir-projet .overview-grid--two{
+			grid-template-columns:1fr!important;
+		}
+		#plans .floor-filter{
+			grid-template-columns:1fr!important;
+		}
+	}
 #proximite .near-card-grid{
 	display:grid;
 	grid-template-columns:repeat(2,minmax(0,1fr));

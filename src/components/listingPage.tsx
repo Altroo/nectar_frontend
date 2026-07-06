@@ -203,7 +203,7 @@ const PropertyCard = ({ property }: { property: Property }) => {
 				<h3>{property.title}</h3>
 				<p>{property.description}</p>
 				{property.price ? <span className="price">{property.price}</span> : null}
-				{property.price_note && isRentalApartment ? <p>{t('listing.priceNoteJune')}</p> : null}
+				{property.price_note && isRentalApartment ? <p>{t('listing.priceNoteMonth')}</p> : null}
 				<div className="meta">
 					{isRentalApartment ? (
 						<>
