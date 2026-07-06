@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import type { SiteContact } from '@/types/site';
 import { useTranslation, setLanguage } from '@/i18n/client';
 import { localizeContact, type LanguageCode } from '@/i18n/translations';
@@ -219,6 +220,26 @@ header.nectar-fixed-navbar.sunset-nav .nectar-lang-switcher button.is-active{
 header.nectar-fixed-navbar.sunset-nav .nectar-mobile-toggle{
   display:none!important;
 }
+header.nectar-fixed-navbar.sunset-nav .nectar-mobile-toggle span{
+  display:block!important;
+  width:18px!important;
+  height:2px!important;
+  background:#F5F5F3!important;
+  border-radius:999px!important;
+  transition:transform .22s ease, opacity .22s ease!important;
+}
+header.nectar-fixed-navbar.sunset-nav.is-mobile-open .nectar-mobile-toggle span:nth-child(1){
+  transform:translateY(6px) rotate(45deg)!important;
+}
+header.nectar-fixed-navbar.sunset-nav.is-mobile-open .nectar-mobile-toggle span:nth-child(2){
+  opacity:0!important;
+}
+header.nectar-fixed-navbar.sunset-nav.is-mobile-open .nectar-mobile-toggle span:nth-child(3){
+  transform:translateY(-6px) rotate(-45deg)!important;
+}
+.site-header .purple-mobile-toggle{
+  display:none!important;
+}
 @media(max-width:900px){
   header.nectar-fixed-navbar.sunset-nav{
     padding:0 22px!important;
@@ -232,27 +253,228 @@ header.nectar-fixed-navbar.sunset-nav .nectar-mobile-toggle{
     max-height:44px!important;
   }
 }
-@media(max-width:720px){
+@media(max-width:760px){
   header.nectar-fixed-navbar.sunset-nav{
-    height:auto!important;
-    padding:18px 22px!important;
-    flex-wrap:wrap!important;
+    height:74px!important;
+    min-height:74px!important;
+    padding:0 16px!important;
+    flex-wrap:nowrap!important;
+    gap:14px!important;
+  }
+  header.nectar-fixed-navbar.sunset-nav .nectar-fixed-logo{
+    min-width:112px!important;
+    width:112px!important;
+  }
+  header.nectar-fixed-navbar.sunset-nav .nectar-logo-image{
+    width:112px!important;
+    max-height:42px!important;
+  }
+  header.nectar-fixed-navbar.sunset-nav .nectar-mobile-toggle{
+    display:inline-flex!important;
+    width:44px!important;
+    height:44px!important;
+    flex:0 0 44px!important;
+    align-items:center!important;
+    justify-content:center!important;
+    flex-direction:column!important;
+    gap:4px!important;
+    border:1px solid rgba(245,245,243,.26)!important;
+    border-radius:999px!important;
+    background:rgba(245,245,243,.08)!important;
+    color:#F5F5F3!important;
+    padding:0!important;
+    margin:0!important;
+    cursor:pointer!important;
   }
   header.nectar-fixed-navbar.sunset-nav .nectar-fixed-menu{
-    position:static!important;
-    inset:auto!important;
-    order:3!important;
-    flex:0 0 100%!important;
+    position:absolute!important;
+    top:calc(100% + 10px)!important;
+    left:12px!important;
+    right:12px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
     justify-content:flex-start!important;
-    flex-direction:row!important;
-    flex-wrap:nowrap!important;
+    gap:0!important;
+    width:auto!important;
+    max-width:none!important;
+    height:auto!important;
+    max-height:calc(100vh - 100px)!important;
+    margin:0!important;
+    padding:14px!important;
     overflow:auto!important;
+    background:rgba(47,32,23,.98)!important;
+    border:1px solid rgba(245,245,243,.16)!important;
+    box-shadow:0 26px 70px rgba(0,0,0,.34)!important;
+    opacity:0!important;
+    pointer-events:none!important;
+    transform:translateY(-8px)!important;
+    visibility:hidden!important;
+    z-index:10001!important;
+    transition:opacity .22s ease, transform .22s ease, visibility .22s ease!important;
+  }
+  header.nectar-fixed-navbar.sunset-nav .nectar-fixed-menu.is-open{
+    opacity:1!important;
+    pointer-events:auto!important;
+    transform:translateY(0)!important;
+    visibility:visible!important;
+  }
+  header.nectar-fixed-navbar.sunset-nav .nectar-fixed-menu > a,
+  header.nectar-fixed-navbar.sunset-nav .nectar-fixed-menu > .nectar-dropdown,
+  header.nectar-fixed-navbar.sunset-nav .nectar-fixed-menu > .nectar-lang-switcher{
     width:100%!important;
     max-width:100%!important;
+  }
+  header.nectar-fixed-navbar.sunset-nav .nectar-fixed-menu a,
+  header.nectar-fixed-navbar.sunset-nav .nectar-dropdown-btn{
+    width:100%!important;
     height:auto!important;
-    margin:0!important;
-    padding:12px 0 0!important;
+    min-height:46px!important;
+    justify-content:flex-start!important;
+    padding:14px 4px!important;
+    border-bottom:1px solid rgba(245,245,243,.12)!important;
+    font-size:14px!important;
+    line-height:1.2!important;
+    text-align:left!important;
+  }
+  header.nectar-fixed-navbar.sunset-nav .nectar-dropdown{
+    display:block!important;
+    width:100%!important;
+  }
+  header.nectar-fixed-navbar.sunset-nav .nectar-dropdown-btn{
+    color:#C7A982!important;
+    cursor:default!important;
+  }
+  header.nectar-fixed-navbar.sunset-nav .nectar-dropdown-btn span{
+    display:none!important;
+  }
+  header.nectar-fixed-navbar.sunset-nav .nectar-dropdown-menu{
+    position:static!important;
+    display:grid!important;
+    gap:0!important;
+    min-width:0!important;
+    width:100%!important;
+    padding:0 0 0 14px!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+    opacity:1!important;
+    pointer-events:auto!important;
     transform:none!important;
+    visibility:visible!important;
+  }
+  header.nectar-fixed-navbar.sunset-nav .nectar-dropdown-menu a{
+    color:#F5F5F3!important;
+    border-bottom:1px solid rgba(245,245,243,.08)!important;
+    padding:12px 4px!important;
+    font-size:14px!important;
+  }
+  header.nectar-fixed-navbar.sunset-nav .nectar-lang-switcher{
+    justify-content:flex-start!important;
+    width:100%!important;
+    margin:12px 0 0!important;
+    background:rgba(245,245,243,.08)!important;
+  }
+  .site-header{
+    position:fixed!important;
+    top:0!important;
+    left:0!important;
+    right:0!important;
+    z-index:9999!important;
+  }
+  .site-header .nav-wrap{
+    width:100%!important;
+    min-height:74px!important;
+    padding:0 16px!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:12px!important;
+  }
+  .site-header .brand{
+    flex:0 0 auto!important;
+  }
+  .site-header .brand img{
+    width:112px!important;
+    height:auto!important;
+    max-height:42px!important;
+  }
+  .site-header .main-nav{
+    position:absolute!important;
+    top:calc(100% + 10px)!important;
+    left:12px!important;
+    right:12px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:0!important;
+    padding:14px!important;
+    max-height:calc(100vh - 100px)!important;
+    overflow:auto!important;
+    background:rgba(47,23,71,.98)!important;
+    border:1px solid rgba(255,255,255,.18)!important;
+    box-shadow:0 26px 70px rgba(28,10,46,.36)!important;
+    opacity:0!important;
+    pointer-events:none!important;
+    transform:translateY(-8px)!important;
+    visibility:hidden!important;
+    transition:opacity .22s ease, transform .22s ease, visibility .22s ease!important;
+  }
+  .site-header .main-nav.is-open{
+    opacity:1!important;
+    pointer-events:auto!important;
+    transform:translateY(0)!important;
+    visibility:visible!important;
+  }
+  .site-header .main-nav a{
+    width:100%!important;
+    min-height:46px!important;
+    display:flex!important;
+    align-items:center!important;
+    border-bottom:1px solid rgba(255,255,255,.12)!important;
+    font-size:14px!important;
+  }
+  .site-header .lang-switch{
+    margin-left:auto!important;
+    gap:3px!important;
+    padding:4px!important;
+  }
+  .site-header .lang-switch button{
+    width:30px!important;
+    height:30px!important;
+    font-size:11px!important;
+  }
+  .site-header .purple-mobile-toggle{
+    display:inline-flex!important;
+    width:42px!important;
+    height:42px!important;
+    flex:0 0 42px!important;
+    align-items:center!important;
+    justify-content:center!important;
+    flex-direction:column!important;
+    gap:4px!important;
+    border:1px solid rgba(255,255,255,.28)!important;
+    border-radius:999px!important;
+    background:rgba(255,255,255,.08)!important;
+    padding:0!important;
+    cursor:pointer!important;
+  }
+  .site-header .purple-mobile-toggle span{
+    display:block!important;
+    width:18px!important;
+    height:2px!important;
+    border-radius:999px!important;
+    background:#fff!important;
+    transition:transform .22s ease, opacity .22s ease!important;
+  }
+  .site-header.is-mobile-open .purple-mobile-toggle span:nth-child(1){
+    transform:translateY(6px) rotate(45deg)!important;
+  }
+  .site-header.is-mobile-open .purple-mobile-toggle span:nth-child(2){
+    opacity:0!important;
+  }
+  .site-header.is-mobile-open .purple-mobile-toggle span:nth-child(3){
+    transform:translateY(-6px) rotate(-45deg)!important;
   }
 }
 `;
@@ -393,23 +615,31 @@ const linkedFooterStyles = `
 
 export const MainHeader = () => {
 	const { t } = useTranslation();
+	const [mobileOpen, setMobileOpen] = useState(false);
+	const closeMobileMenu = () => setMobileOpen(false);
 
 	return (
 		<>
 			<StyleBlock css={mainHeaderStyles} />
-			<header className="sunset-nav nectar-fixed-navbar">
-				<a aria-label="Nectar immobilier" className="sunset-logo nectar-fixed-logo" href="/#agence">
+			<header className={`sunset-nav nectar-fixed-navbar${mobileOpen ? ' is-mobile-open' : ''}`}>
+				<a aria-label="Nectar immobilier" className="sunset-logo nectar-fixed-logo" href="/#agence" onClick={closeMobileMenu}>
 					<img alt="Logo Nectar immobilier" className="nectar-logo-image" src="/assets/nectar-logo-navbar.png" />
 				</a>
-				<nav aria-label={t('nav.main')} className="sunset-menu nectar-fixed-menu">
-					<a href="/#agence">{t('nav.home')}</a>
-					<a href="/#apropos">{t('nav.about')}</a>
+				<nav id="nectar-main-menu" aria-label={t('nav.main')} className={`sunset-menu nectar-fixed-menu${mobileOpen ? ' is-open' : ''}`}>
+					<a href="/#agence" onClick={closeMobileMenu}>
+						{t('nav.home')}
+					</a>
+					<a href="/#apropos" onClick={closeMobileMenu}>
+						{t('nav.about')}
+					</a>
 					<div className="nectar-dropdown">
 						<button aria-expanded="false" className="nectar-dropdown-btn" type="button">
 							{t('nav.sale')} <span>⌄</span>
 						</button>
 						<div className="nectar-dropdown-menu">
-							<a href="/vente-appartement">{t('nav.apartment')}</a>
+							<a href="/vente-appartement" onClick={closeMobileMenu}>
+								{t('nav.apartment')}
+							</a>
 						</div>
 					</div>
 					<div className="nectar-dropdown">
@@ -417,9 +647,15 @@ export const MainHeader = () => {
 							{t('nav.rent')} <span>⌄</span>
 						</button>
 						<div className="nectar-dropdown-menu">
-							<a href="/location-appartement">{t('nav.apartment')}</a>
-							<a href="/location-local">{t('nav.commercial')}</a>
-							<a href="/evenement">{t('nav.event')}</a>
+							<a href="/location-appartement" onClick={closeMobileMenu}>
+								{t('nav.apartment')}
+							</a>
+							<a href="/location-local" onClick={closeMobileMenu}>
+								{t('nav.commercial')}
+							</a>
+							<a href="/evenement" onClick={closeMobileMenu}>
+								{t('nav.event')}
+							</a>
 						</div>
 					</div>
 					<div className="nectar-dropdown nectar-promo-dropdown">
@@ -427,14 +663,20 @@ export const MainHeader = () => {
 							{t('nav.promotion')} <span>⌄</span>
 						</button>
 						<div className="nectar-dropdown-menu">
-							<a href="/purple-pearl">Purple Pearl</a>
+							<a href="/purple-pearl" onClick={closeMobileMenu}>
+								Purple Pearl
+							</a>
 						</div>
 					</div>
-					<a href="/guide-tanger">{t('nav.guide')}</a>
-					<a href="/#contact">{t('nav.contact')}</a>
+					<a href="/guide-tanger" onClick={closeMobileMenu}>
+						{t('nav.guide')}
+					</a>
+					<a href="/#contact" onClick={closeMobileMenu}>
+						{t('nav.contact')}
+					</a>
 					<LanguageSwitcher />
 				</nav>
-				<button aria-expanded="false" aria-label={t('nav.openMenu')} className="nectar-mobile-toggle nectar-fixed-toggle" type="button">
+				<button aria-controls="nectar-main-menu" aria-expanded={mobileOpen} aria-label={t('nav.openMenu')} className="nectar-mobile-toggle nectar-fixed-toggle" type="button" onClick={() => setMobileOpen((value) => !value)}>
 					<span />
 					<span />
 					<span />
@@ -446,25 +688,46 @@ export const MainHeader = () => {
 
 export const PurpleHeader = () => {
 	const { t } = useTranslation();
+	const [mobileOpen, setMobileOpen] = useState(false);
+	const closeMobileMenu = () => setMobileOpen(false);
 
 	return (
 		<>
 			<StyleBlock css={mainHeaderStyles} />
-			<header className="site-header">
+			<header className={`site-header${mobileOpen ? ' is-mobile-open' : ''}`}>
 				<div className="container nav-wrap">
-					<a className="brand" href="/">
+					<a className="brand" href="/" onClick={closeMobileMenu}>
 						<img src="/assets/nectar-logo-navbar.png" alt="Nectar immobilier" />
 					</a>
-					<nav className="main-nav" aria-label={t('nav.main')}>
-						<a href="/">{t('nav.home')}</a>
-						<a href="/#apropos">{t('nav.about')}</a>
-						<a href="/vente-appartement">{t('nav.sale')}</a>
-						<a href="/location-appartement">{t('nav.rent')}</a>
-						<a href="/purple-pearl">{t('nav.promotion')}</a>
-						<a href="/guide-tanger">{t('nav.guide')}</a>
-						<a href="/#contact">{t('nav.contact')}</a>
+					<nav id="purple-main-menu" className={`main-nav${mobileOpen ? ' is-open' : ''}`} aria-label={t('nav.main')}>
+						<a href="/" onClick={closeMobileMenu}>
+							{t('nav.home')}
+						</a>
+						<a href="/#apropos" onClick={closeMobileMenu}>
+							{t('nav.about')}
+						</a>
+						<a href="/vente-appartement" onClick={closeMobileMenu}>
+							{t('nav.sale')}
+						</a>
+						<a href="/location-appartement" onClick={closeMobileMenu}>
+							{t('nav.rent')}
+						</a>
+						<a href="/purple-pearl" onClick={closeMobileMenu}>
+							{t('nav.promotion')}
+						</a>
+						<a href="/guide-tanger" onClick={closeMobileMenu}>
+							{t('nav.guide')}
+						</a>
+						<a href="/#contact" onClick={closeMobileMenu}>
+							{t('nav.contact')}
+						</a>
 					</nav>
 					<LanguageSwitcher className="lang-switch" />
+					<button aria-controls="purple-main-menu" aria-expanded={mobileOpen} aria-label={t('nav.openMenu')} className="purple-mobile-toggle" type="button" onClick={() => setMobileOpen((value) => !value)}>
+						<span />
+						<span />
+						<span />
+					</button>
 				</div>
 			</header>
 		</>
