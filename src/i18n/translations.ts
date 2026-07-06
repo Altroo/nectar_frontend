@@ -358,8 +358,8 @@ export const translations = {
 		},
 		guide: {
 			heroKicker: 'Guide touristique',
-			heroTitle: 'À la découverte du patrimoine historique et culturel de Tanger',
-			heroCopy: 'Une sélection simple des monuments historiques et des musées à citer dans le guide Nectar immobilier, avec photos et descriptions courtes.',
+			heroTitle: 'Musées & monuments historiques de Tanger',
+			heroCopy: 'Découvrez les lieux emblématiques qui racontent l’histoire et l’identité culturelle de Tanger. Entre monuments historiques, musées, médina et patrimoine architectural, ce guide vous accompagne dans une découverte simple et inspirante de la ville.',
 			monumentsNav: 'Monuments historiques',
 			museumsNav: 'Musées',
 			itineraryNav: 'Idée de parcours',
@@ -689,8 +689,8 @@ export const translations = {
 		},
 		guide: {
 			heroKicker: 'دليل سياحي',
-			heroTitle: 'اكتشاف التراث التاريخي والثقافي لطنجة',
-			heroCopy: 'مختارات من أهم معالم طنجة ومتاحفها، بصور وتعريفات مختصرة تساعد الزوار والعملاء على اكتشاف المدينة.',
+			heroTitle: 'متاحف ومعالم تاريخية في طنجة',
+			heroCopy: 'اكتشف الأماكن البارزة التي تروي تاريخ طنجة وهويتها الثقافية. بين المعالم التاريخية والمتاحف والمدينة العتيقة والتراث المعماري، يرافقك هذا الدليل في اكتشاف بسيط وملهم للمدينة.',
 			monumentsNav: 'معالم تاريخية',
 			museumsNav: 'متاحف',
 			itineraryNav: 'فكرة مسار',
@@ -1020,8 +1020,8 @@ export const translations = {
 		},
 		guide: {
 			heroKicker: 'Tourist guide',
-			heroTitle: 'Discover Tangier’s historical and cultural heritage',
-			heroCopy: 'A curated introduction to Tangier’s main landmarks and museums, with photos and short descriptions for visitors and clients.',
+			heroTitle: 'Museums & historic monuments of Tangier',
+			heroCopy: 'Discover the emblematic places that tell the story and cultural identity of Tangier. From historic monuments and museums to the medina and architectural heritage, this guide offers a simple and inspiring way to explore the city.',
 			monumentsNav: 'Historical monuments',
 			museumsNav: 'Museums',
 			itineraryNav: 'Route idea',
@@ -1351,8 +1351,8 @@ export const translations = {
 		},
 		guide: {
 			heroKicker: 'Guía turística',
-			heroTitle: 'Descubrir el patrimonio histórico y cultural de Tánger',
-			heroCopy: 'Una introducción cuidada a los principales monumentos y museos de Tánger, con fotos y descripciones breves para visitantes y clientes.',
+			heroTitle: 'Museos y monumentos históricos de Tánger',
+			heroCopy: 'Descubra los lugares emblemáticos que cuentan la historia y la identidad cultural de Tánger. Entre monumentos históricos, museos, medina y patrimonio arquitectónico, esta guía le acompaña en una visita sencilla e inspiradora de la ciudad.',
 			monumentsNav: 'Monumentos históricos',
 			museumsNav: 'Museos',
 			itineraryNav: 'Idea de recorrido',
