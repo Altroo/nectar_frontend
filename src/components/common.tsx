@@ -30,8 +30,8 @@ export const LanguageSwitcher = ({ className = 'nectar-lang-switcher' }: { class
 	);
 };
 
-const FloatingWhatsAppButton = ({ contact }: { contact: SiteContact }) => (
-	<a aria-label="WhatsApp" className="nectar-floating-whatsapp" href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
+const FloatingWhatsAppButton = ({ contact, variant }: { contact: SiteContact; variant?: 'purple' }) => (
+	<a aria-label="WhatsApp" className={`nectar-floating-whatsapp${variant === 'purple' ? ' nectar-floating-whatsapp--purple' : ''}`} href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
 		<svg aria-hidden="true" viewBox="0 0 32 32">
 			<path d="M16.02 4.8c-6.18 0-11.2 4.94-11.2 11.04 0 2.1.6 4.08 1.66 5.76L4.8 27.2l5.84-1.52a11.35 11.35 0 0 0 5.38 1.36c6.18 0 11.2-4.94 11.2-11.04S22.2 4.8 16.02 4.8Zm0 20.3c-1.8 0-3.5-.5-4.98-1.42l-.36-.22-3.46.9.94-3.3-.24-.38a9.03 9.03 0 0 1-1.48-4.96c0-5.02 4.28-9.1 9.58-9.1 5.28 0 9.58 4.08 9.58 9.1 0 5.02-4.3 9.08-9.58 9.08Zm5.48-6.82c-.3-.14-1.76-.86-2.04-.96-.28-.1-.48-.14-.68.14-.2.3-.78.96-.96 1.16-.18.2-.36.22-.66.08-.3-.14-1.26-.46-2.4-1.48-.88-.78-1.48-1.74-1.66-2.04-.18-.3-.02-.46.14-.6.14-.14.3-.36.46-.54.16-.18.2-.3.3-.5.1-.2.06-.38-.02-.54-.08-.14-.68-1.62-.94-2.22-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.52.08-.8.38-.28.3-1.04 1.02-1.04 2.48 0 1.46 1.08 2.88 1.24 3.08.14.2 2.12 3.2 5.14 4.48.72.3 1.28.48 1.72.62.72.22 1.38.18 1.9.12.58-.08 1.76-.72 2-1.42.26-.7.26-1.3.18-1.42-.08-.12-.28-.2-.58-.34Z" />
 		</svg>
@@ -613,6 +613,17 @@ const linkedFooterStyles = `
 	  display:block!important;
 	  fill:currentColor!important;
 	}
+	.nectar-floating-whatsapp--purple{
+	  border-color:rgba(50,22,79,.30)!important;
+	  background:#fbf7ff!important;
+	  color:#32164f!important;
+	  box-shadow:0 20px 44px rgba(50,22,79,.26)!important;
+	}
+	.nectar-floating-whatsapp--purple svg{
+	  width:35px!important;
+	  height:35px!important;
+	  filter:drop-shadow(0 0 0 currentColor)!important;
+	}
 	html[dir="rtl"] .nectar-floating-whatsapp{
 	  right:auto!important;
 	  left:24px!important;
@@ -758,15 +769,45 @@ export const PurpleHeader = () => {
 						<a href="/#apropos" onClick={closeMobileMenu}>
 							{t('nav.about')}
 						</a>
-						<a href="/vente-appartement" onClick={closeMobileMenu}>
-							{t('nav.sale')}
-						</a>
-						<a href="/location-appartement" onClick={closeMobileMenu}>
-							{t('nav.rent')}
-						</a>
-						<a href="/purple-pearl" onClick={closeMobileMenu}>
-							{t('nav.promotion')}
-						</a>
+						<div className="nectar-dropdown">
+							<button aria-expanded="false" className="nectar-dropdown-btn" type="button">
+								{t('nav.sale')} <span>⌄</span>
+							</button>
+							<div className="nectar-dropdown-menu">
+								<a href="/vente-appartement" onClick={closeMobileMenu}>
+									{t('nav.apartment')}
+								</a>
+								<a href="/vente-local" onClick={closeMobileMenu}>
+									{t('nav.commercial')}
+								</a>
+							</div>
+						</div>
+						<div className="nectar-dropdown">
+							<button aria-expanded="false" className="nectar-dropdown-btn" type="button">
+								{t('nav.rent')} <span>⌄</span>
+							</button>
+							<div className="nectar-dropdown-menu">
+								<a href="/location-appartement" onClick={closeMobileMenu}>
+									{t('nav.apartment')}
+								</a>
+								<a href="/location-local" onClick={closeMobileMenu}>
+									{t('nav.commercial')}
+								</a>
+								<a href="/evenement" onClick={closeMobileMenu}>
+									{t('nav.event')}
+								</a>
+							</div>
+						</div>
+						<div className="nectar-dropdown nectar-promo-dropdown">
+							<button aria-expanded="false" className="nectar-dropdown-btn" type="button">
+								{t('nav.promotion')} <span>⌄</span>
+							</button>
+							<div className="nectar-dropdown-menu">
+								<a href="/purple-pearl" onClick={closeMobileMenu}>
+									Purple Pearl
+								</a>
+							</div>
+						</div>
 						<a href="/guide-tanger" onClick={closeMobileMenu}>
 							{t('nav.guide')}
 						</a>
@@ -920,7 +961,7 @@ export const PurplePearlFooter = ({ contact }: { contact: SiteContact }) => {
 					</div>
 				</div>
 			</footer>
-			<FloatingWhatsAppButton contact={contact} />
+			<FloatingWhatsAppButton contact={contact} variant="purple" />
 		</>
 	);
 };

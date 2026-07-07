@@ -71,6 +71,9 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 							<p className="pp-section-kicker">{t('purple.address')}</p>
 							<h2>{t('purple.addressPlace')}</h2>
 							<p>{t('purple.addressCopy')}</p>
+							<div className="pp-map-preview">
+								<iframe loading="lazy" referrerPolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Tanger%2C%20Maroc&output=embed" title={t('purple.map')} />
+							</div>
 							<a className="pp-map-btn" href="https://www.google.com/maps/search/Tanger+Maroc" target="_blank" rel="noopener">
 								{t('purple.map')} <span aria-hidden="true">↗</span>
 							</a>
