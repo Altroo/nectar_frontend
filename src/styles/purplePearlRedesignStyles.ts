@@ -343,37 +343,39 @@ export const purplePearlRedesignStyles = `
 }
 .pp-stats{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
+  grid-template-columns:repeat(2,minmax(0,260px));
+  justify-content:end;
+  gap:16px;
   align-self:start;
+  width:100%;
 }
 .pp-stat{
   min-width:0;
-  min-height:172px;
-  padding:24px 28px;
+  min-height:132px;
+  padding:20px 24px;
   border:1px solid var(--pp-border);
-  border-radius:22px;
+  border-radius:20px;
   background:linear-gradient(180deg,#fff,#fbf7ff);
 }
 .pp-stat > span{
   display:block;
-  margin-bottom:12px;
+  margin-bottom:10px;
   color:var(--pp-gold);
-  font-size:27px;
+  font-size:22px;
   line-height:1;
 }
 .pp-stat strong{
   display:block;
   color:var(--pp-plum);
-  font-size:26px;
+  font-size:24px;
   line-height:1.12;
   white-space:nowrap;
 }
 .pp-stat small{
   display:block;
-  margin-top:8px;
+  margin-top:6px;
   color:var(--pp-muted);
-  font-size:15px;
+  font-size:14px;
   font-weight:650;
 }
 
