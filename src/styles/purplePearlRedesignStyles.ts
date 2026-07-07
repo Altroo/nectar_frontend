@@ -390,12 +390,12 @@ export const purplePearlRedesignStyles = `
 .pp-about-card{
   padding:38px;
   display:grid;
-  grid-template-columns:1fr;
-  gap:22px;
-  align-items:start;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:34px;
+  align-items:center;
 }
 .pp-card-copy{
-  max-width:820px;
+  max-width:980px;
 }
 .pp-card-copy p:last-child{
   margin:0;
@@ -406,9 +406,9 @@ export const purplePearlRedesignStyles = `
 .pp-stats{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,172px));
-  justify-content:start;
+  justify-content:end;
   gap:12px;
-  align-self:start;
+  align-self:center;
   width:max-content;
   max-width:100%;
 }
