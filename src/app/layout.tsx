@@ -12,8 +12,9 @@ export const metadata: Metadata = {
 	title: 'Nectar immobilière',
 	description: 'Agence immobilière à Tanger spécialisée dans la vente, la location et la promotion immobilière.',
 	icons: {
-		icon: [{ url: '/favicon.svg?v=nectar', type: 'image/svg+xml' }],
-		shortcut: ['/favicon.svg?v=nectar'],
+		icon: [{ url: '/favicon.png?v=nectar-logo', type: 'image/png' }],
+		shortcut: ['/favicon.png?v=nectar-logo'],
+		apple: [{ url: '/apple-touch-icon.png?v=nectar-logo', sizes: '180x180', type: 'image/png' }],
 	},
 	robots: {
 		index: true,

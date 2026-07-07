@@ -220,8 +220,14 @@ export const purplePearlRedesignStyles = `
 .pp-hero{
   position:relative;
   overflow:hidden;
-  min-height:760px;
-  padding:118px 0 0;
+  width:100vw;
+  height:100vh;
+  min-height:100vh;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  padding:92px 0 0;
+  display:flex;
+  align-items:stretch;
   background:url('/assets/purple-pearl-hero-section.jpg') center center/cover no-repeat;
 }
 .pp-hero:before{
@@ -234,16 +240,20 @@ export const purplePearlRedesignStyles = `
   position:relative;
   z-index:2;
   display:grid;
-  width:min(1548px,calc(100% - 128px));
+  width:100%;
+  max-width:none;
+  height:100%;
+  margin:0;
+  padding:0 clamp(72px,7vw,128px);
   grid-template-columns:.42fr .58fr;
-  align-items:end;
+  align-items:center;
   gap:24px;
-  min-height:650px;
+  min-height:0;
 }
 .pp-hero-copy{
   min-width:0;
   align-self:center;
-  padding:42px 0 72px 54px;
+  padding:0 0 0 clamp(0px,1.4vw,24px);
 }
 .pp-eyebrow,
 .pp-section-kicker{
@@ -791,14 +801,21 @@ html[dir="rtl"] .pp-hero-text:before{
     font-size:14px!important;
   }
   .pp-hero{
-    min-height:auto;
-    padding:126px 0 64px;
+    width:100%;
+    height:auto;
+    min-height:100svh;
+    margin-left:0;
+    margin-right:0;
+    padding:112px 0 56px;
   }
   .pp-hero-grid{
-    width:calc(100% - 44px);
+    width:100%;
+    height:auto;
+    min-height:calc(100svh - 168px);
+    padding:0 22px;
   }
   .pp-hero-copy{
-    padding-left:0;
+    padding:0;
   }
   .pp-hero-title{
     font-size:72px;
@@ -939,7 +956,7 @@ html[dir="rtl"] .pp-hero-text:before{
     padding:112px 0 56px;
   }
   .pp-hero-grid{
-    min-height:0;
+    min-height:calc(100svh - 168px);
   }
   .pp-stats,
   .pp-form-card .visit-grid{
