@@ -19,31 +19,38 @@ export const purplePearlRedesignStyles = `
 
 .site-header{
   position:fixed!important;
-  top:24px!important;
+  top:0!important;
   left:0!important;
   right:0!important;
   z-index:1000!important;
-  background:transparent!important;
-  border-bottom:0!important;
-  backdrop-filter:none!important;
-  font-family:Arial,Helvetica,sans-serif!important;
-  pointer-events:none!important;
-}
-.site-header .nav-wrap{
-  width:min(1548px,calc(100% - 128px))!important;
-  min-height:104px!important;
-  margin:0 auto!important;
-  padding:0 34px 0 54px!important;
+  height:92px!important;
   display:flex!important;
   align-items:center!important;
   justify-content:space-between!important;
-  gap:34px!important;
-  border:1px solid rgba(50,22,79,.06)!important;
-  border-radius:14px!important;
+  gap:28px!important;
   background:#fff!important;
-  box-shadow:0 26px 80px rgba(50,22,79,.12)!important;
+  border-bottom:1px solid rgba(50,22,79,.10)!important;
   backdrop-filter:none!important;
-  pointer-events:auto!important;
+  box-shadow:0 14px 34px rgba(50,22,79,.08)!important;
+  box-sizing:border-box!important;
+  color:var(--pp-plum)!important;
+  font-family:Manrope,Arial,sans-serif!important;
+}
+.site-header .nav-wrap{
+  width:100%!important;
+  max-width:none!important;
+  min-height:92px!important;
+  margin:0 auto!important;
+  padding:0 46px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:28px!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  box-sizing:border-box!important;
 }
 .site-header .brand{
   display:flex!important;
@@ -53,7 +60,7 @@ export const purplePearlRedesignStyles = `
 .site-header .brand img{
   width:auto!important;
   height:auto!important;
-  max-height:42px!important;
+  max-height:50px!important;
   object-fit:contain!important;
   filter:brightness(0) saturate(100%) invert(13%) sepia(41%) saturate(2586%) hue-rotate(257deg) brightness(88%) contrast(96%)!important;
 }
@@ -61,16 +68,24 @@ export const purplePearlRedesignStyles = `
   display:flex!important;
   align-items:center!important;
   justify-content:center!important;
-  gap:40px!important;
-  flex-wrap:wrap!important;
+  gap:34px!important;
+  flex-wrap:nowrap!important;
   flex:1 1 auto!important;
   color:var(--pp-plum)!important;
-  font-weight:700!important;
+  font-weight:600!important;
+  height:39px!important;
 }
 .site-header .main-nav a{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  height:39px!important;
   color:var(--pp-plum)!important;
   opacity:1!important;
-  font-size:16px!important;
+  font-size:15px!important;
+  line-height:15px!important;
+  font-weight:600!important;
+  padding:12px 4px!important;
   text-decoration:none!important;
   white-space:nowrap!important;
 }
@@ -88,25 +103,25 @@ export const purplePearlRedesignStyles = `
   align-items:center!important;
   justify-content:center!important;
   gap:7px!important;
-  height:auto!important;
+  height:39px!important;
   margin:0!important;
-  padding:0!important;
+  padding:12px 4px!important;
   border:0!important;
   background:transparent!important;
   color:var(--pp-plum)!important;
   font:inherit!important;
-  font-size:16px!important;
-  font-weight:700!important;
-  line-height:1!important;
+  font-size:15px!important;
+  font-weight:600!important;
+  line-height:15px!important;
   cursor:pointer!important;
   white-space:nowrap!important;
 }
 .site-header .nectar-dropdown-btn span{
-  display:none!important;
+  display:inline!important;
 }
 .site-header .nectar-dropdown-menu{
   position:absolute!important;
-  top:calc(100% + 35px)!important;
+  top:calc(100% - 1px)!important;
   left:50%!important;
   min-width:230px!important;
   padding:10px!important;
@@ -147,31 +162,30 @@ export const purplePearlRedesignStyles = `
 .site-header .lang-switch{
   display:flex!important;
   align-items:center!important;
-  gap:24px!important;
+  gap:6px!important;
   flex:0 0 auto!important;
   position:relative!important;
-  padding:0!important;
-  border:0!important;
-  border-radius:0!important;
-  background:transparent!important;
-}
-.site-header .lang-switch:before{
-  content:""!important;
-  width:1px!important;
-  height:28px!important;
-  margin-right:18px!important;
-  background:rgba(50,22,79,.16)!important;
+  margin-left:14px!important;
+  padding:5px!important;
+  border:1px solid rgba(50,22,79,.16)!important;
+  border-radius:999px!important;
+  background:rgba(50,22,79,.06)!important;
 }
 .site-header .lang-switch button{
-  width:46px!important;
-  height:46px!important;
-  min-width:46px!important;
+  width:auto!important;
+  height:auto!important;
+  min-width:0!important;
+  min-height:0!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
   padding:0!important;
   border-radius:50%!important;
   color:var(--pp-plum)!important;
   background:transparent!important;
-  font-size:14px!important;
-  font-weight:800!important;
+  font:700 11px/1 Arial,sans-serif!important;
+  letter-spacing:.08em!important;
+  padding:8px 9px!important;
 }
 .site-header .lang-switch button.is-active,
 .site-header .lang-switch button.active{
@@ -206,8 +220,8 @@ export const purplePearlRedesignStyles = `
 .pp-hero{
   position:relative;
   overflow:hidden;
-  min-height:920px;
-  padding:152px 0 0;
+  min-height:760px;
+  padding:118px 0 0;
   background:
     radial-gradient(circle at 13% 18%,rgba(255,255,255,.88) 0,rgba(255,255,255,.60) 30%,rgba(255,255,255,0) 54%),
     linear-gradient(115deg,#fbf7ff 0%,#f2eaf9 43%,#efe7f5 100%);
@@ -241,12 +255,12 @@ export const purplePearlRedesignStyles = `
   grid-template-columns:.42fr .58fr;
   align-items:end;
   gap:24px;
-  min-height:768px;
+  min-height:650px;
 }
 .pp-hero-copy{
   min-width:0;
   align-self:center;
-  padding:56px 0 90px 54px;
+  padding:42px 0 72px 54px;
 }
 .pp-eyebrow,
 .pp-section-kicker{
@@ -260,11 +274,11 @@ export const purplePearlRedesignStyles = `
 .pp-eyebrow{
   display:flex;
   align-items:center;
-  gap:32px;
+  gap:24px;
   color:var(--pp-plum);
-  margin-bottom:36px;
-  font-size:18px;
-  letter-spacing:.34em;
+  margin-bottom:28px;
+  font-size:14px;
+  letter-spacing:.28em;
   line-height:1;
 }
 .pp-eyebrow:after{
@@ -275,23 +289,23 @@ export const purplePearlRedesignStyles = `
   background:var(--pp-gold);
 }
 .pp-hero-title{
-  margin:0 0 28px;
+  margin:0 0 22px;
   color:var(--pp-plum);
   font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(98px,8.4vw,152px);
-  line-height:.86;
+  font-size:clamp(62px,5.6vw,92px);
+  line-height:.9;
   font-weight:400;
   letter-spacing:0;
 }
 .pp-hero-text{
   position:relative;
-  max-width:360px;
-  margin:0 0 34px;
-  padding-top:34px;
+  max-width:310px;
+  margin:0 0 28px;
+  padding-top:26px;
   color:#3e314d;
-  font-size:clamp(23px,1.7vw,29px);
+  font-size:clamp(17px,1.08vw,20px);
   line-height:1.55;
-  letter-spacing:.13em;
+  letter-spacing:.10em;
 }
 .pp-hero-text:before{
   content:"";
@@ -312,11 +326,11 @@ export const purplePearlRedesignStyles = `
   align-items:center;
   justify-content:center;
   gap:12px;
-  min-height:60px;
-  min-width:255px;
-  padding:0 32px;
+  min-height:50px;
+  min-width:210px;
+  padding:0 26px;
   border-radius:999px;
-  font-size:13px;
+  font-size:11px;
   line-height:1;
   letter-spacing:.18em;
   text-transform:uppercase;
@@ -327,7 +341,7 @@ export const purplePearlRedesignStyles = `
   transform:translateY(-2px);
 }
 .pp-btn--primary{
-  min-width:292px;
+  min-width:245px;
   background:var(--pp-plum);
   color:#fff!important;
   box-shadow:0 12px 26px rgba(50,22,79,.16);
@@ -390,7 +404,7 @@ export const purplePearlRedesignStyles = `
 .pp-about-section{
   position:relative;
   z-index:2;
-  margin-top:-72px;
+  margin-top:54px;
 }
 .pp-card{
   background:rgba(255,255,255,.86);
@@ -793,8 +807,8 @@ html[dir="rtl"] .pp-hero-text:before{
 
 @media(max-width:1050px){
   .site-header .nav-wrap{
-    width:calc(100% - 44px)!important;
-    padding:0 24px!important;
+    width:100%!important;
+    padding:0 22px!important;
   }
   .site-header .main-nav{
     gap:16px!important;
@@ -835,10 +849,10 @@ html[dir="rtl"] .pp-hero-text:before{
 }
 @media(max-width:900px){
   .site-header{
-    top:14px!important;
+    top:0!important;
   }
   .site-header .nav-wrap{
-    width:calc(100% - 28px)!important;
+    width:100%!important;
     min-height:72px!important;
     padding:0 16px!important;
     align-items:center!important;
