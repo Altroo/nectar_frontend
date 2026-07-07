@@ -65,32 +65,23 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 						</div>
 					</div>
 				</section>
-				<section className="pp-section pp-section--compact" id="adresse">
-					<div className="pp-container">
+				<section className="pp-section pp-section--compact pp-location-section" id="adresse">
+					<div className="pp-container pp-location-grid">
 						<div className="pp-card pp-info-card">
 							<p className="pp-section-kicker">{t('purple.address')}</p>
-							<h2>{t('purple.address')}</h2>
+							<h2>{t('purple.addressPlace')}</h2>
 							<p>{t('purple.addressCopy')}</p>
-							<div className="pp-address-line">
-								<strong>{t('purple.city')}</strong>
-								<span>{t('purple.cityValue')}</span>
-							</div>
 							<a className="pp-map-btn" href="https://www.google.com/maps/search/Tanger+Maroc" target="_blank" rel="noopener">
-								{t('purple.map')}
+								{t('purple.map')} <span aria-hidden="true">↗</span>
 							</a>
 						</div>
-					</div>
-				</section>
-				<section className="pp-section pp-section--compact" id="proximite">
-					<div className="pp-container">
-						<div className="pp-proximity">
+						<div className="pp-card pp-proximity" id="proximite">
 							<p className="pp-section-kicker">{t('purple.proximity')}</p>
-							<h2>{t('purple.proximity')}</h2>
 							<div className="pp-proximity-grid">
-								<div className="pp-card pp-near-card">
+								<div className="pp-near-card">
 									<NearColumn title={t('purple.walk')} items={proximityWalk} />
 								</div>
-								<div className="pp-card pp-near-card">
+								<div className="pp-near-card">
 									<NearColumn title={t('purple.drive')} items={proximityDrive} />
 								</div>
 							</div>
