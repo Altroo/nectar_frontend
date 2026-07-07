@@ -386,7 +386,7 @@ export const translations = {
 		},
 		purple: {
 			heroLabel: 'Promotion immobilière',
-			heroCopy: 'Purple Pearl est une promotion immobilière d’appartements et de magasins à vendre à Tanger, pensée pour offrir des espaces modernes, lumineux et élégants. Le projet se distingue par une architecture soignée, des agencements fonctionnels et une identité visuelle harmonieuse, offrant un cadre de vie agréable pour les résidents ainsi que des espaces adaptés aux activités commerciales.',
+			heroCopy: 'Appartements modernes et magasins à vendre à Tanger.',
 			viewProject: 'Découvrir le projet',
 			viewPlans: 'Voir les plans',
 			description: 'Description',
@@ -717,7 +717,7 @@ export const translations = {
 		},
 		purple: {
 			heroLabel: 'مشروع عقاري',
-			heroCopy: 'Purple Pearl مشروع سكني وتجاري في طنجة يضم شققا ومحلات للبيع. صمم ليوفر فضاءات عصرية ومضيئة بتوزيع عملي، مع هوية معمارية متناسقة تمنح السكان راحة يومية وتوفر للتجار محلات مناسبة لأنشطتهم.',
+			heroCopy: 'شقق عصرية ومحلات للبيع في طنجة.',
 			viewProject: 'اكتشف المشروع',
 			viewPlans: 'الاطلاع على التصاميم',
 			description: 'الوصف',
@@ -1048,7 +1048,7 @@ export const translations = {
 		},
 		purple: {
 			heroLabel: 'Property development',
-			heroCopy: 'Purple Pearl is a residential and retail development in Tangier, offering apartments and shops for sale. Designed around bright, modern spaces and carefully planned layouts, it combines a refined architectural identity with everyday comfort for residents and practical units for commercial activity.',
+			heroCopy: 'Modern apartments and shops for sale in Tangier.',
 			viewProject: 'Discover the project',
 			viewPlans: 'Explore the plans',
 			description: 'Description',
@@ -1379,7 +1379,7 @@ export const translations = {
 		},
 		purple: {
 			heroLabel: 'Promoción inmobiliaria',
-			heroCopy: 'Purple Pearl es una promoción residencial y comercial en Tánger, con apartamentos y locales en venta. Pensada para ofrecer espacios modernos, luminosos y bien distribuidos, combina una arquitectura cuidada con comodidad para los residentes y unidades prácticas para actividades comerciales.',
+			heroCopy: 'Apartamentos modernos y locales en venta en Tánger.',
 			viewProject: 'Descubrir el proyecto',
 			viewPlans: 'Ver los planos',
 			description: 'Descripción',
