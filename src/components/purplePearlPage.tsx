@@ -38,9 +38,6 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 								</a>
 							</div>
 						</div>
-						<div className="pp-building-card" aria-label="Visuel 3D Purple Pearl">
-							<img src="/assets/purple-pearl-building-new.jpg" alt="Purple Pearl - visuel 3D du bâtiment" />
-						</div>
 					</div>
 				</section>
 				<section className="pp-section pp-about-section" id="voir-projet">

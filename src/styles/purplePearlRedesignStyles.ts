@@ -222,30 +222,13 @@ export const purplePearlRedesignStyles = `
   overflow:hidden;
   min-height:760px;
   padding:118px 0 0;
-  background:
-    radial-gradient(circle at 13% 18%,rgba(255,255,255,.88) 0,rgba(255,255,255,.60) 30%,rgba(255,255,255,0) 54%),
-    linear-gradient(115deg,#fbf7ff 0%,#f2eaf9 43%,#efe7f5 100%);
+  background:url('/assets/purple-pearl-hero-section.jpg') center center/cover no-repeat;
 }
 .pp-hero:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  background:linear-gradient(90deg,rgba(255,255,255,.72) 0%,rgba(255,255,255,.56) 34%,rgba(255,255,255,0) 58%);
+  display:none;
 }
 .pp-hero:after{
-  content:"";
-  position:absolute;
-  left:-70px;
-  bottom:-82px;
-  z-index:1;
-  width:280px;
-  height:210px;
-  border:1px solid rgba(255,255,255,.40);
-  border-radius:55% 45% 60% 40%;
-  opacity:.55;
-  transform:rotate(18deg);
+  display:none;
 }
 .pp-hero-grid{
   position:relative;
@@ -369,15 +352,7 @@ export const purplePearlRedesignStyles = `
   color:var(--pp-plum);
 }
 .pp-building-card{
-  position:relative;
-  align-self:end;
-  min-height:730px;
-  overflow:hidden;
-  margin-right:-76px;
-  border:0;
-  border-radius:0;
-  background:transparent;
-  box-shadow:none;
+  display:none;
 }
 .pp-building-card:before{
   content:"";
