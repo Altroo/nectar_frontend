@@ -351,31 +351,31 @@ export const purplePearlRedesignStyles = `
 }
 .pp-stat{
   min-width:0;
-  min-height:132px;
-  padding:20px 24px;
+  min-height:92px;
+  padding:14px 16px;
   border:1px solid var(--pp-border);
   border-radius:20px;
   background:linear-gradient(180deg,#fff,#fbf7ff);
 }
 .pp-stat > span{
   display:block;
-  margin-bottom:10px;
+  margin-bottom:7px;
   color:var(--pp-gold);
-  font-size:22px;
+  font-size:16px;
   line-height:1;
 }
 .pp-stat strong{
   display:block;
   color:var(--pp-plum);
-  font-size:24px;
+  font-size:18px;
   line-height:1.12;
   white-space:nowrap;
 }
 .pp-stat small{
   display:block;
-  margin-top:6px;
+  margin-top:5px;
   color:var(--pp-muted);
-  font-size:14px;
+  font-size:12px;
   font-weight:650;
 }
 
@@ -468,7 +468,7 @@ export const purplePearlRedesignStyles = `
 .near-col h3{
   margin:0 0 20px;
   color:var(--pp-plum);
-  font-size:20px;
+  font-size:18px;
   line-height:1.2;
   letter-spacing:.16em;
   text-transform:uppercase;
@@ -894,10 +894,10 @@ html[dir="rtl"] .pp-form-card .submit-btn{
     padding:24px;
   }
   .pp-stat{
-    padding:22px;
+    padding:14px 16px;
   }
   .pp-stat strong{
-    font-size:24px;
+    font-size:18px;
   }
   .pp-plans-card .floor-filter{
     grid-template-columns:1fr;
