@@ -5,194 +5,110 @@ import { PurpleHeader, PurplePearlFooter, StyleBlock } from '@/components/common
 import { PurplePlans } from '@/components/purplePlans';
 import { useTranslation } from '@/i18n/client';
 import { translations } from '@/i18n/translations';
+import { purplePearlRedesignStyles } from '@/styles/purplePearlRedesignStyles';
 import type { PurplePearlPlan, SiteContact } from '@/types/site';
-
-const proximityHoverResetStyles = `
-#proximite .near-col,
-#proximite .near-col:hover{
-	transform:none!important;
-	box-shadow:none!important;
-}
-#proximite .near-col{
-	transition:none!important;
-}
-	#voir-projet .overview-grid--two{
-		grid-template-columns:repeat(2,minmax(0,1fr))!important;
-		max-width:none!important;
-		width:100%!important;
-	}
-	#voir-projet .overview-grid--two .overview-item{
-		min-height:132px;
-		display:flex;
-		flex-direction:column;
-		justify-content:center;
-	}
-	#plans .floor-filter{
-		display:grid!important;
-		grid-template-columns:repeat(4,minmax(0,1fr))!important;
-		gap:14px!important;
-		align-items:stretch!important;
-	}
-	#plans .floor-btn{
-		width:100%!important;
-		min-height:58px!important;
-		display:flex!important;
-		align-items:center!important;
-		justify-content:center!important;
-		text-align:center!important;
-	}
-	@media(max-width:900px){
-		#plans .floor-filter{
-			grid-template-columns:repeat(2,minmax(0,1fr))!important;
-		}
-	}
-	@media(max-width:760px){
-		#voir-projet .overview-grid--two{
-			grid-template-columns:1fr!important;
-		}
-		#plans .floor-filter{
-			grid-template-columns:1fr!important;
-		}
-	}
-#proximite .near-card-grid{
-	display:grid;
-	grid-template-columns:repeat(2,minmax(0,1fr));
-	gap:28px;
-	align-items:stretch;
-}
-#proximite .near-card{
-	height:100%;
-}
-#visite .check-wrap{
-	display:flex!important;
-	flex-direction:row!important;
-	align-items:center!important;
-	justify-content:flex-start!important;
-	gap:12px!important;
-	line-height:1.35!important;
-}
-#visite .check-wrap input[type="checkbox"]{
-	width:18px!important;
-	height:18px!important;
-	min-width:18px!important;
-	margin:0!important;
-	padding:0!important;
-	flex:0 0 18px!important;
-	accent-color:var(--pp-mid);
-}
-#visite .check-wrap span{
-	display:inline!important;
-}
-@media(max-width:760px){
-	#proximite .near-card-grid{
-		grid-template-columns:1fr;
-		gap:18px;
-	}
-}
-`;
 
 export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; contact: SiteContact }) => {
 	const { language, t } = useTranslation();
 	const proximityWalk = translations[language].purple.proximityWalk.map(([label, value]) => [String(label), String(value)] as [string, string]);
 	const proximityDrive = translations[language].purple.proximityDrive.map(([label, value]) => [String(label), String(value)] as [string, string]);
+	const arrow = language === 'ar' ? '←' : '→';
 
 	return (
 		<>
-			<StyleBlock css={proximityHoverResetStyles} />
 			<PurpleHeader />
-			<main>
-				<section className="hero" aria-label="Hero Purple Pearl">
-					<div className="container">
-						<div className="hero-content">
-							<img className="hero-logo" src="/assets/purple-pearl-logo.png" alt="Logo Purple Pearl" />
-							<p className="eyebrow">{t('purple.heroLabel')}</p>
-							<h1>Purple Pearl</h1>
-							<p>{t('purple.heroCopy')}</p>
-							<div className="hero-actions">
-								<a className="hero-btn" href="#voir-projet">
-									{t('purple.viewProject')}
+			<StyleBlock css={purplePearlRedesignStyles} />
+			<main className="pp-redesign">
+				<section className="pp-hero" aria-label="Hero Purple Pearl">
+					<div className="pp-container pp-hero-grid">
+						<div className="pp-hero-copy">
+							<p className="pp-eyebrow">{t('purple.heroLabel')}</p>
+							<h1 className="pp-hero-title">
+								Purple
+								<br />
+								Pearl
+							</h1>
+							<p className="pp-hero-text">{t('purple.heroCopy')}</p>
+							<div className="pp-actions">
+								<a className="pp-btn pp-btn--primary" href="#voir-projet">
+									{t('purple.viewProject')} <span aria-hidden="true">{arrow}</span>
 								</a>
-								<a className="hero-btn secondary" href="#plans">
-									{t('purple.viewPlans')}
+								<a className="pp-btn pp-btn--secondary" href="#plans">
+									{t('purple.viewPlans')} <span aria-hidden="true">{arrow}</span>
 								</a>
 							</div>
 						</div>
+						<div className="pp-building-card" aria-label="Visuel 3D Purple Pearl">
+							<img src="/assets/purple-pearl-building-new.jpg" alt="Purple Pearl - visuel 3D du bâtiment" />
+						</div>
 					</div>
 				</section>
-				<section className="page-section" id="voir-projet">
-					<div className="container">
-						<div className="section-header">
-							<div className="section-number">01</div>
-							<h2>{t('purple.description')}</h2>
-						</div>
-						<div className="intro-card">
-							<p style={{ margin: 0, fontSize: 18, lineHeight: 1.9, color: 'var(--pp-muted)' }}>{t('purple.descriptionCopy')}</p>
-							<div className="overview-grid overview-grid--two">
-								<div className="overview-item stat-card">
-									<strong>59 à 125,96 m²</strong>
-									<span>{t('purple.surfaceLabel')}</span>
+				<section className="pp-section pp-about-section" id="voir-projet">
+					<div className="pp-container">
+						<div className="pp-card pp-about-card">
+							<div className="pp-card-copy">
+								<p className="pp-section-kicker">{t('purple.description')}</p>
+								<p>{t('purple.descriptionCopy')}</p>
+							</div>
+							<div className="pp-stats">
+								<div className="pp-stat">
+									<span aria-hidden="true">⌂</span>
+									<strong>{t('purple.surfaceValue')}</strong>
+									<small>{t('purple.surfaceLabel')}</small>
 								</div>
-								<div className="overview-item stat-card">
+								<div className="pp-stat">
+									<span aria-hidden="true">◷</span>
 									<strong>2026</strong>
-									<span>{t('purple.yearLabel')}</span>
+									<small>{t('purple.yearLabel')}</small>
 								</div>
 							</div>
 						</div>
 					</div>
 				</section>
-				<section className="page-section" id="adresse" style={{ paddingTop: 0 }}>
-					<div className="container">
-						<div className="section-header">
-							<div className="section-number">02</div>
+				<section className="pp-section pp-section--compact" id="adresse">
+					<div className="pp-container">
+						<div className="pp-card pp-info-card">
+							<p className="pp-section-kicker">{t('purple.address')}</p>
 							<h2>{t('purple.address')}</h2>
-						</div>
-						<div className="address-grid">
-							<div className="address-item">
-								<strong>{t('purple.address')}</strong>
-								<p>{t('purple.addressCopy')}</p>
-							</div>
-							<div className="address-item">
+							<p>{t('purple.addressCopy')}</p>
+							<div className="pp-address-line">
 								<strong>{t('purple.city')}</strong>
-								<p>Tanger</p>
+								<span>{t('purple.cityValue')}</span>
 							</div>
+							<a className="pp-map-btn" href="https://www.google.com/maps/search/Tanger+Maroc" target="_blank" rel="noopener">
+								{t('purple.map')}
+							</a>
 						</div>
-						<a className="map-btn" href="https://www.google.com/maps/search/Tanger+Maroc" target="_blank" rel="noopener">
-							{t('purple.map')}
-						</a>
 					</div>
 				</section>
-				<section className="page-section" id="proximite" style={{ paddingTop: 0 }}>
-					<div className="container">
-						<div className="section-header">
-							<div className="section-number">03</div>
+				<section className="pp-section pp-section--compact" id="proximite">
+					<div className="pp-container">
+						<div className="pp-proximity">
+							<p className="pp-section-kicker">{t('purple.proximity')}</p>
 							<h2>{t('purple.proximity')}</h2>
-						</div>
-						<div className="near-card-grid">
-							<div className="info-card near-card">
-								<NearColumn title={t('purple.walk')} items={proximityWalk} />
-							</div>
-							<div className="info-card near-card">
-								<NearColumn title={t('purple.drive')} items={proximityDrive} />
+							<div className="pp-proximity-grid">
+								<div className="pp-card pp-near-card">
+									<NearColumn title={t('purple.walk')} items={proximityWalk} />
+								</div>
+								<div className="pp-card pp-near-card">
+									<NearColumn title={t('purple.drive')} items={proximityDrive} />
+								</div>
 							</div>
 						</div>
 					</div>
 				</section>
-				<section className="page-section" id="plans" style={{ paddingTop: 0 }}>
-					<div className="container">
-						<div className="section-header">
-							<div className="section-number">04</div>
-							<h2>{t('purple.plans')}</h2>
+				<section className="pp-section pp-section--compact" id="plans">
+					<div className="pp-container">
+						<h2 className="pp-title-line">{t('purple.plans')}</h2>
+						<div className="pp-card pp-plans-card">
+							<PurplePlans plans={plans} />
 						</div>
-						<PurplePlans plans={plans} />
 					</div>
 				</section>
-				<section className="page-section" id="visite" style={{ paddingTop: 0 }}>
-					<div className="container">
-						<div className="section-header">
-							<div className="section-number">05</div>
-							<h2>{t('purple.visit')}</h2>
-						</div>
-						<div className="visit-card">
+				<section className="pp-section pp-section--compact" id="visite">
+					<div className="pp-container">
+						<h2 className="pp-title-line">{t('purple.visit')}</h2>
+						<div className="pp-card pp-form-card">
 							<PurplePearlVisitForm />
 						</div>
 					</div>
