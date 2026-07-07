@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, type ReactNode, useContext, useEffect, useSyncExternalStore } from 'react';
+import { usePathname } from 'next/navigation';
 import { defaultLanguage, isLanguageCode, languageCookieName, languageDirection, languages, localizedPageTitle, type LanguageCode, translate } from './translations';
 
 const languageStorageKey = languageCookieName;
@@ -42,22 +43,41 @@ const subscribeLanguage = (onStoreChange: () => void) => {
 
 const LanguageContext = createContext(defaultLanguage);
 
+const writeLanguageCookie = (language: LanguageCode) => {
+	document.cookie = `${languageCookieName}=${language}; Max-Age=${languageCookieMaxAge}; Path=/; SameSite=Lax`;
+};
+
 export const setLanguage = (language: LanguageCode) => {
 	window.localStorage.setItem(languageStorageKey, language);
-	document.cookie = `${languageCookieName}=${language}; Max-Age=${languageCookieMaxAge}; Path=/; SameSite=Lax`;
+	writeLanguageCookie(language);
 	window.dispatchEvent(new Event(languageChangeEvent));
 };
 
 export const I18nProvider = ({ children, initialLanguage = defaultLanguage }: { children: ReactNode; initialLanguage?: LanguageCode }) => {
 	const language = useSyncExternalStore(subscribeLanguage, readLanguage, () => initialLanguage);
+	const pathname = usePathname();
 
 	useEffect(() => {
+		const title = localizedPageTitle(language, pathname);
+
+		writeLanguageCookie(language);
 		document.documentElement.lang = language;
 		document.documentElement.dir = languageDirection(language);
 		document.body.dir = languageDirection(language);
 		document.body.classList.toggle('is-rtl', languageDirection(language) === 'rtl');
-		document.title = localizedPageTitle(language, window.location.pathname);
-	}, [language]);
+
+		const syncTitle = () => {
+			if (document.title !== title) {
+				document.title = title;
+			}
+		};
+
+		syncTitle();
+		const titleObserver = new MutationObserver(syncTitle);
+		titleObserver.observe(document.head, { childList: true, subtree: true, characterData: true });
+
+		return () => titleObserver.disconnect();
+	}, [language, pathname]);
 
 	return <LanguageContext.Provider value={language}>{children}</LanguageContext.Provider>;
 };
