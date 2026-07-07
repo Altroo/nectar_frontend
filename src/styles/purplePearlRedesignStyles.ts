@@ -58,7 +58,7 @@ export const purplePearlRedesignStyles = `
   flex:0 0 auto!important;
 }
 .site-header .brand img{
-  width:auto!important;
+  width:132px!important;
   height:auto!important;
   max-height:50px!important;
   object-fit:contain!important;
@@ -415,12 +415,12 @@ export const purplePearlRedesignStyles = `
 .pp-about-card{
   padding:38px;
   display:grid;
-  grid-template-columns:.9fr 1.1fr;
-  gap:34px;
-  align-items:stretch;
+  grid-template-columns:1fr;
+  gap:22px;
+  align-items:start;
 }
 .pp-card-copy{
-  max-width:520px;
+  max-width:820px;
 }
 .pp-card-copy p:last-child{
   margin:0;
@@ -430,39 +430,40 @@ export const purplePearlRedesignStyles = `
 }
 .pp-stats{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,260px));
-  justify-content:end;
-  gap:16px;
+  grid-template-columns:repeat(2,minmax(0,172px));
+  justify-content:start;
+  gap:12px;
   align-self:start;
-  width:100%;
+  width:max-content;
+  max-width:100%;
 }
 .pp-stat{
   min-width:0;
-  min-height:92px;
-  padding:14px 16px;
+  min-height:70px;
+  padding:11px 13px;
   border:1px solid var(--pp-border);
-  border-radius:20px;
-  background:linear-gradient(180deg,#fff,#fbf7ff);
+  border-radius:16px;
+  background:linear-gradient(180deg,#fff,#fcf8ff);
 }
 .pp-stat > span{
   display:block;
-  margin-bottom:7px;
+  margin-bottom:5px;
   color:var(--pp-gold);
-  font-size:16px;
+  font-size:13px;
   line-height:1;
 }
 .pp-stat strong{
   display:block;
   color:var(--pp-plum);
-  font-size:18px;
+  font-size:16px;
   line-height:1.12;
   white-space:nowrap;
 }
 .pp-stat small{
   display:block;
-  margin-top:5px;
+  margin-top:4px;
   color:var(--pp-muted);
-  font-size:12px;
+  font-size:11px;
   font-weight:650;
 }
 
@@ -484,7 +485,7 @@ export const purplePearlRedesignStyles = `
   max-width:none;
 }
 .pp-info-card .pp-section-kicker{
-  color:var(--pp-plum);
+  color:var(--pp-gold);
 }
 .pp-proximity .pp-section-kicker{
   color:var(--pp-gold);
@@ -1012,7 +1013,7 @@ html[dir="rtl"] .pp-hero-text:before{
     min-height:320px;
   }
   .pp-about-section{
-    margin-top:-40px;
+    margin-top:32px;
   }
   .pp-about-card,
   .pp-info-card,
@@ -1021,10 +1022,10 @@ html[dir="rtl"] .pp-hero-text:before{
     padding:24px;
   }
   .pp-stat{
-    padding:14px 16px;
+    padding:11px 13px;
   }
   .pp-stat strong{
-    font-size:18px;
+    font-size:16px;
   }
   .pp-plans-card .floor-filter{
     grid-template-columns:1fr;
