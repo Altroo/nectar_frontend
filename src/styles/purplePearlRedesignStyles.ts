@@ -15,6 +15,8 @@ export const purplePearlRedesignStyles = `
   --pp-mid:var(--pp-purple);
   --pp-light:#a98be0;
   --pp-line:var(--pp-border);
+  --pp-font-body:Arial,Helvetica,sans-serif;
+  --pp-font-display:Georgia,"Times New Roman",serif;
 }
 
 .site-header{
@@ -34,7 +36,7 @@ export const purplePearlRedesignStyles = `
   box-shadow:0 14px 34px rgba(50,22,79,.08)!important;
   box-sizing:border-box!important;
   color:var(--pp-plum)!important;
-  font-family:Manrope,Arial,sans-serif!important;
+  font-family:var(--pp-font-body)!important;
 }
 .site-header .nav-wrap{
   width:100%!important;
@@ -183,7 +185,10 @@ export const purplePearlRedesignStyles = `
   border-radius:50%!important;
   color:var(--pp-plum)!important;
   background:transparent!important;
-  font:700 11px/1 Arial,sans-serif!important;
+  font-family:var(--pp-font-body)!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  line-height:1!important;
   letter-spacing:.08em!important;
   padding:8px 9px!important;
 }
@@ -196,7 +201,7 @@ export const purplePearlRedesignStyles = `
 .pp-redesign{
   color:var(--pp-text);
   background:linear-gradient(180deg,#fbf8ff 0%,#fff 45%,#f6eefc 100%);
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:var(--pp-font-body);
   line-height:1.65;
   min-height:100vh;
   overflow:hidden;
@@ -284,7 +289,7 @@ export const purplePearlRedesignStyles = `
 .pp-hero-title{
   margin:0 0 22px;
   color:var(--pp-plum);
-  font-family:Georgia,"Times New Roman",serif;
+  font-family:var(--pp-font-display);
   font-size:clamp(62px,5.6vw,92px);
   line-height:.9;
   font-weight:400;

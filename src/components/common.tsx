@@ -630,10 +630,18 @@ const linkedFooterStyles = `
 	}
 	.nectar-linked-footer--purple{
 	  background:linear-gradient(135deg,#2f1747 0%,#4f2e79 52%,#7f61b7 100%)!important;
+	  font-family:Arial,Helvetica,sans-serif!important;
 	}
-.nectar-linked-footer--purple .nectar-linked-footer__brand span{
-  color:#efe5ff!important;
-}
+	.nectar-linked-footer--purple .nectar-linked-footer__brand strong{
+	  font-family:Georgia,'Times New Roman',serif!important;
+	  font-weight:400!important;
+	  letter-spacing:0!important;
+	  line-height:.9!important;
+	  text-transform:none!important;
+	}
+	.nectar-linked-footer--purple .nectar-linked-footer__brand span{
+	  color:#efe5ff!important;
+	}
 .nectar-linked-footer--purple .nectar-linked-footer__brand p,
 .nectar-linked-footer--purple .nectar-linked-footer__col a,
 .nectar-linked-footer--purple .nectar-linked-footer__col p,
