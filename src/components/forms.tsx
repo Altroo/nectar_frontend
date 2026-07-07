@@ -76,7 +76,7 @@ export const ContactForm = () => {
 	};
 
 	return (
-		<form action={`mailto:${contactEmail}`} className="contact-photo-form" data-recipient-email={contactEmail} onSubmit={submit}>
+		<form className="contact-photo-form" data-recipient-email={contactEmail} onSubmit={submit}>
 			<div className="field">
 				<label>{t('forms.contact.fullName')}</label>
 				<input name="full_name" placeholder={t('forms.contact.namePlaceholder')} type="text" required />
@@ -168,7 +168,7 @@ export const NewsletterForm = () => {
 	};
 
 	return (
-		<form action={`mailto:${newsletterEmail}`} className="nectar-floating-newsletter__form" data-recipient-email={newsletterEmail} onSubmit={submit}>
+		<form className="nectar-floating-newsletter__form" data-recipient-email={newsletterEmail} onSubmit={submit}>
 			<input className="nectar-floating-newsletter__input" name="email" placeholder={t('forms.newsletter.placeholder')} type="email" required />
 			<button className="nectar-floating-newsletter__submit" disabled={status === 'sending'} type="submit">
 				{t('forms.newsletter.submit')}
