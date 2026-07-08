@@ -233,7 +233,7 @@ export const purplePearlRedesignStyles = `
   padding:92px 0 0;
   display:flex;
   align-items:stretch;
-  background:url('/assets/purple-pearl-hero-section.jpg') center center/cover no-repeat;
+  background:url('/assets/purple-pearl-hero-section.png') center center/cover no-repeat;
 }
 .pp-hero:before{
   display:none;
