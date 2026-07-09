@@ -663,29 +663,12 @@ export const purplePearlRedesignStyles = `
   background:#fff;
 }
 .pp-plans-card .plan-version{
-  display:grid;
-  grid-template-rows:auto 1fr;
   border-color:var(--pp-border);
   border-radius:18px;
   background:#fcfaff;
 }
 .pp-plans-card .plan-version > span{
   color:var(--pp-plum);
-  background:#fff;
-}
-.pp-plans-card .plan-version-media{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  aspect-ratio:1 / 1;
-  background:#fff;
-  overflow:hidden;
-}
-.pp-plans-card .plan-version img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  object-position:center center;
   background:#fff;
 }
 

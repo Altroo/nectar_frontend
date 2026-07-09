@@ -7,8 +7,6 @@ export const purplePlanStyles = `
   background:#fff;
 }
 .plan-version{
-  display:grid;
-  grid-template-rows:auto 1fr;
   min-width:0;
   overflow:hidden;
   border:1px solid var(--pp-line);
@@ -28,20 +26,9 @@ export const purplePlanStyles = `
   border-bottom:1px solid var(--pp-line);
   background:#fff;
 }
-.plan-version-media{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  aspect-ratio:1 / 1;
-  min-height:0;
-  background:#fff;
-  overflow:hidden;
-}
 .plan-version img{
   width:100%;
-  height:100%;
-  object-fit:contain;
-  object-position:center center;
+  height:auto;
   background:#fff;
 }
 .plan-version--empty{
