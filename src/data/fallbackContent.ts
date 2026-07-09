@@ -99,6 +99,33 @@ const mandelsonN47Photos: PropertyPhoto[] = [
 	sort_order: index + 1,
 }));
 
+const erasmusCommercialPhotos: PropertyPhoto[] = [
+	['Pharmacie', '/assets/erasmus/erasmus-pharmacie-large.jpg', 'Local Erasmus Tower aménagé en pharmacie'],
+	['Salon de coiffure', '/assets/erasmus/erasmus-salon-coiffure-large.jpg', 'Local Erasmus Tower aménagé en salon de coiffure'],
+	['Opticien', '/assets/erasmus/erasmus-opticien-large.jpg', 'Local Erasmus Tower aménagé en opticien'],
+	['Chocolaterie', '/assets/erasmus/erasmus-chocolaterie-large.jpg', 'Local Erasmus Tower aménagé en chocolaterie'],
+	['Pâtisserie', '/assets/erasmus/erasmus-patisserie-large.jpg', 'Local Erasmus Tower aménagé en pâtisserie'],
+	['Mini market', '/assets/erasmus/erasmus-mini-market-large.jpg', 'Local Erasmus Tower aménagé en mini market'],
+].map(([title, image, altText], index) => ({
+	id: 1600 + index,
+	title,
+	alt_text: altText,
+	image,
+	sort_order: index + 1,
+}));
+
+const erasmusCommercialPhotoStarts = [0, 3, 1, 5, 2, 4, 3, 0, 5, 1, 4, 2, 0];
+
+const erasmusCommercialAlbumFor = (propertyIndex: number): PropertyPhoto[] =>
+	erasmusCommercialPhotos.map((_, offset) => {
+		const source = erasmusCommercialPhotos[(erasmusCommercialPhotoStarts[propertyIndex % erasmusCommercialPhotoStarts.length] + offset) % erasmusCommercialPhotos.length];
+		return {
+			...source,
+			id: 16000 + propertyIndex * 100 + offset,
+			sort_order: offset + 1,
+		};
+	});
+
 const rentalPhotoAlbums: Record<string, PropertyPhoto[]> = {
 	'Appartement Hilton N°05': hiltonN05Photos,
 	'Appartement Hilton N°11': hiltonN11Photos,
@@ -232,30 +259,34 @@ const rentCommercialUnits: Property[] = [
 	['Local B5 · ERASMUS TOWER', 'B', 262, 'RDC 136 m²', '126 m²', '199 m²'],
 	['Local B6 · ERASMUS TOWER', 'B', 277, 'RDC 152 m²', '125 m²', '215 m²'],
 	['Local B7 · ERASMUS TOWER', 'B', 401, 'RDC 168 m²', '233 m²', '285 m²'],
-].map(([title, type, surface, rdc, mezzanine, sold], index) => ({
-	id: 200 + index,
-	transaction: 'rent',
-	property_type: 'commercial',
-	title: String(title),
-	tag: 'Malabata · Local commercial à louer',
-	residence: 'Erasmus Tower',
-	district: 'Malabata',
-	address: 'RTE MALABATA RESD ERASMUS',
-	description: 'RTE MALABATA RESD ERASMUS. Local visible et modulable, adapté showroom, commerce premium, cabinet ou activité de service.',
-	floor: '',
-	unit_number: String(title).split(' · ')[0].replace('Local ', ''),
-	bedrooms: null,
-	surface_total: Number(surface),
-	surface_sold: String(sold),
-	mezzanine: String(mezzanine),
-	project_label: String(rdc),
-	price: '',
-	price_note: String(type),
-	cta_label: 'Demander la disponibilité →',
-	image: '',
-	photos: [],
-	sort_order: 200 + index,
-}));
+].map(([title, type, surface, rdc, mezzanine, sold], index) => {
+	const photos = erasmusCommercialAlbumFor(index);
+
+	return {
+		id: 200 + index,
+		transaction: 'rent',
+		property_type: 'commercial',
+		title: String(title),
+		tag: 'Malabata · Local commercial à louer',
+		residence: 'Erasmus Tower',
+		district: 'Malabata',
+		address: 'RTE MALABATA RESD ERASMUS',
+		description: 'RTE MALABATA RESD ERASMUS. Local visible et modulable, adapté showroom, commerce premium, cabinet ou activité de service.',
+		floor: '',
+		unit_number: String(title).split(' · ')[0].replace('Local ', ''),
+		bedrooms: null,
+		surface_total: Number(surface),
+		surface_sold: String(sold),
+		mezzanine: String(mezzanine),
+		project_label: String(rdc),
+		price: '',
+		price_note: String(type),
+		cta_label: 'Demander la disponibilité →',
+		image: photos[0]?.image ?? '',
+		photos,
+		sort_order: 200 + index,
+	} satisfies Property;
+});
 
 export const fallbackGuidePlaces: GuidePlace[] = [
 	['monuments', 'La Kasbah de Tanger', 'Ancien quartier fortifié en hauteur, connu pour ses ruelles, ses portes anciennes et ses vues sur la médina et le détroit.', '/guide-photos/monuments/la-kasbah-de-tanger.jpg'],
