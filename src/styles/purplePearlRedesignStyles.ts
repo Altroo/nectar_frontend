@@ -661,6 +661,7 @@ export const purplePearlRedesignStyles = `
 }
 .pp-plans-card .plan-version-grid{
   background:#fff;
+  align-items:start;
 }
 .pp-plans-card .plan-version{
   border-color:var(--pp-border);

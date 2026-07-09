@@ -5,6 +5,7 @@ export const purplePlanStyles = `
   gap:18px;
   padding:18px;
   background:#fff;
+  align-items:start;
 }
 .plan-version{
   min-width:0;
