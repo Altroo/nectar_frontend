@@ -680,14 +680,14 @@ export const purplePearlRedesignStyles = `
   justify-content:center;
 }
 .pp-video-card{
-  width:min(100%,420px);
+  width:min(100%,960px);
   padding:10px;
   overflow:hidden;
 }
 .pp-video-card iframe{
   display:block;
   width:100%;
-  aspect-ratio:9/16;
+  aspect-ratio:16/9;
   border:0;
   border-radius:20px;
   background:var(--pp-plum);
