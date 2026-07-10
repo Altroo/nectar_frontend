@@ -713,16 +713,6 @@ export const purplePearlRedesignStyles = `
   font-size:clamp(26px,2.6vw,40px);
   line-height:1.2;
 }
-.pp-video-site a{
-  display:block;
-  width:max-content;
-  max-width:100%;
-  margin-top:10px;
-  color:var(--pp-plum);
-  font-weight:800;
-  overflow-wrap:anywhere;
-}
-
 .pp-form-card{
   padding:32px;
 }

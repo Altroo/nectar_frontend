@@ -407,7 +407,6 @@ export const translations = {
 			video: 'Vidéo du projet',
 			videoIntro: 'Découvrez Purple Pearl, une nouvelle promotion immobilière située à Al Aouama, Tanger.',
 			videoDescription: 'Le projet propose des appartements modernes et lumineux ainsi que des magasins à vendre, avec des espaces fonctionnels pensés pour le confort du quotidien. Grâce à son architecture contemporaine et à son emplacement stratégique à proximité des principales commodités, Purple Pearl représente une belle opportunité pour habiter ou investir à Tanger.',
-			videoDiscover: 'Découvrez le projet, les plans et les surfaces disponibles sur notre site :',
 			videoContact: 'Pour plus d’informations ou pour planifier une visite, contactez Nectar Immobilier.',
 			visit: 'Planifier une visite',
 			proximityWalk: [
@@ -743,7 +742,6 @@ export const translations = {
 			video: 'فيديو المشروع',
 			videoIntro: 'اكتشف Purple Pearl، مشروعًا عقاريًا جديدًا يقع في العوامة، طنجة.',
 			videoDescription: 'يقدم المشروع شققًا عصرية ومضيئة، بالإضافة إلى محلات تجارية للبيع، مع مساحات عملية مصممة لراحة الحياة اليومية. وبفضل هندسته المعمارية المعاصرة وموقعه الاستراتيجي بالقرب من أهم المرافق، يمثل Purple Pearl فرصة مميزة للسكن أو الاستثمار في طنجة.',
-			videoDiscover: 'اكتشف المشروع والتصاميم والمساحات المتوفرة على موقعنا:',
 			videoContact: 'للمزيد من المعلومات أو لحجز زيارة، تواصل مع Nectar Immobilier.',
 			visit: 'حجز زيارة',
 			proximityWalk: [
@@ -1079,7 +1077,6 @@ export const translations = {
 			video: 'Project video',
 			videoIntro: 'Discover Purple Pearl, a new property development located in Al Aouama, Tangier.',
 			videoDescription: 'The project offers modern, bright apartments as well as shops for sale, with functional spaces designed for everyday comfort. With its contemporary architecture and strategic location close to key amenities, Purple Pearl is an excellent opportunity to live or invest in Tangier.',
-			videoDiscover: 'Discover the project, plans and available surface areas on our website:',
 			videoContact: 'For more information or to schedule a visit, contact Nectar Immobilier.',
 			visit: 'Schedule a visit',
 			proximityWalk: [
@@ -1415,7 +1412,6 @@ export const translations = {
 			video: 'Vídeo del proyecto',
 			videoIntro: 'Descubra Purple Pearl, una nueva promoción inmobiliaria situada en Al Aouama, Tánger.',
 			videoDescription: 'El proyecto ofrece apartamentos modernos y luminosos, además de locales en venta, con espacios funcionales pensados para el confort diario. Gracias a su arquitectura contemporánea y a su ubicación estratégica cerca de los principales servicios, Purple Pearl representa una excelente oportunidad para vivir o invertir en Tánger.',
-			videoDiscover: 'Descubra el proyecto, los planos y las superficies disponibles en nuestro sitio web:',
 			videoContact: 'Para más información o para planificar una visita, contacte con Nectar Immobilier.',
 			visit: 'Planificar una visita',
 			proximityWalk: [

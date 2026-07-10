@@ -115,10 +115,6 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 							<div className="pp-card pp-video-copy">
 								<p className="pp-video-lead">{t('purple.videoIntro')}</p>
 								<p>{t('purple.videoDescription')}</p>
-								<p className="pp-video-site">
-									{t('purple.videoDiscover')}
-									<a href="/purple-pearl">https://nectar.ma/purple-pearl</a>
-								</p>
 								<p>{t('purple.videoContact')}</p>
 							</div>
 						</div>
