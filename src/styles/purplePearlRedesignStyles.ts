@@ -672,6 +672,26 @@ export const purplePearlRedesignStyles = `
   color:var(--pp-plum);
   background:#fff;
 }
+.pp-video-section{
+  scroll-margin-top:110px;
+}
+.pp-video-wrap{
+  display:flex;
+  justify-content:center;
+}
+.pp-video-card{
+  width:min(100%,420px);
+  padding:10px;
+  overflow:hidden;
+}
+.pp-video-card iframe{
+  display:block;
+  width:100%;
+  aspect-ratio:9/16;
+  border:0;
+  border-radius:20px;
+  background:var(--pp-plum);
+}
 
 .pp-form-card{
   padding:32px;

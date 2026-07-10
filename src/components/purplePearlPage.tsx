@@ -99,6 +99,22 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 						</div>
 					</div>
 				</section>
+				<section className="pp-section pp-section--compact pp-video-section" id="video">
+					<div className="pp-container">
+						<h2 className="pp-title-line">{t('purple.video')}</h2>
+						<div className="pp-video-wrap">
+							<div className="pp-card pp-video-card">
+								<iframe
+									src="https://www.youtube-nocookie.com/embed/DBuh899e7PY"
+									title={t('purple.video')}
+									loading="lazy"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									allowFullScreen
+								/>
+							</div>
+						</div>
+					</div>
+				</section>
 				<section className="pp-section pp-section--compact" id="visite">
 					<div className="pp-container">
 						<h2 className="pp-title-line">{t('purple.visit')}</h2>

@@ -404,6 +404,7 @@ export const translations = {
 			walk: 'À pied',
 			drive: 'En voiture',
 			plans: 'Plans',
+			video: 'Vidéo du projet',
 			visit: 'Planifier une visite',
 			proximityWalk: [
 				['Commerces de proximité', '2–5 min'],
@@ -735,6 +736,7 @@ export const translations = {
 			walk: 'على الأقدام',
 			drive: 'بالسيارة',
 			plans: 'التصاميم',
+			video: 'فيديو المشروع',
 			visit: 'حجز زيارة',
 			proximityWalk: [
 				['محلات قريبة', '2–5 دقائق'],
@@ -1066,6 +1068,7 @@ export const translations = {
 			walk: 'On foot',
 			drive: 'By car',
 			plans: 'Plans',
+			video: 'Project video',
 			visit: 'Schedule a visit',
 			proximityWalk: [
 				['Local shops', '2–5 min'],
@@ -1397,6 +1400,7 @@ export const translations = {
 			walk: 'A pie',
 			drive: 'En coche',
 			plans: 'Planos',
+			video: 'Vídeo del proyecto',
 			visit: 'Planificar una visita',
 			proximityWalk: [
 				['Comercios de proximidad', '2–5 min'],
