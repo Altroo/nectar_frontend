@@ -102,7 +102,7 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 				<section className="pp-section pp-section--compact pp-video-section" id="video">
 					<div className="pp-container">
 						<h2 className="pp-title-line">{t('purple.video')}</h2>
-						<div className="pp-video-wrap">
+						<div className="pp-video-grid">
 							<div className="pp-card pp-video-card">
 								<iframe
 									src="https://www.youtube-nocookie.com/embed/DBuh899e7PY"
@@ -111,6 +111,15 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 									allowFullScreen
 								/>
+							</div>
+							<div className="pp-card pp-video-copy">
+								<p className="pp-video-lead">{t('purple.videoIntro')}</p>
+								<p>{t('purple.videoDescription')}</p>
+								<p className="pp-video-site">
+									{t('purple.videoDiscover')}
+									<a href="/purple-pearl">https://nectar.ma/purple-pearl</a>
+								</p>
+								<p>{t('purple.videoContact')}</p>
 							</div>
 						</div>
 					</div>

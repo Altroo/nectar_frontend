@@ -675,22 +675,52 @@ export const purplePearlRedesignStyles = `
 .pp-video-section{
   scroll-margin-top:110px;
 }
-.pp-video-wrap{
-  display:flex;
-  justify-content:center;
+.pp-video-grid{
+  display:grid;
+  grid-template-columns:minmax(300px,380px) minmax(0,1fr);
+  gap:28px;
+  align-items:stretch;
 }
 .pp-video-card{
-  width:min(100%,960px);
+  width:100%;
   padding:10px;
   overflow:hidden;
 }
 .pp-video-card iframe{
   display:block;
   width:100%;
-  aspect-ratio:16/9;
+  aspect-ratio:9/16;
   border:0;
   border-radius:20px;
   background:var(--pp-plum);
+}
+.pp-video-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:22px;
+  padding:clamp(34px,5vw,64px);
+}
+.pp-video-copy p{
+  margin:0;
+  color:var(--pp-muted);
+  font-size:16px;
+  line-height:1.8;
+}
+.pp-video-copy .pp-video-lead{
+  color:var(--pp-plum);
+  font-family:var(--pp-font-display);
+  font-size:clamp(26px,2.6vw,40px);
+  line-height:1.2;
+}
+.pp-video-site a{
+  display:block;
+  width:max-content;
+  max-width:100%;
+  margin-top:10px;
+  color:var(--pp-plum);
+  font-weight:800;
+  overflow-wrap:anywhere;
 }
 
 .pp-form-card{
@@ -990,6 +1020,13 @@ html[dir="rtl"] .pp-hero-text:before{
   }
   .pp-plans-card .floor-filter{
     grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .pp-video-grid{
+    grid-template-columns:1fr;
+  }
+  .pp-video-card{
+    width:min(100%,420px);
+    justify-self:center;
   }
 }
 @media(max-width:640px){
