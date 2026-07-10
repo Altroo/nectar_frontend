@@ -28,9 +28,32 @@ export const purplePlanStyles = `
   background:#fff;
 }
 .plan-version img{
+  display:block;
   width:100%;
   height:auto;
   background:#fff;
+}
+.plan-version-media{
+  min-width:0;
+  background:#f0e4f0;
+}
+.floor-plan-panel[data-plan-panel="plan-sous-sol"] .plan-version-media,
+.floor-plan-panel[data-plan-panel="plan-rdc-bas-magasins"] .plan-version-media{
+  position:relative;
+  display:grid;
+  place-items:start center;
+  aspect-ratio:574/690;
+  overflow:hidden;
+}
+.floor-plan-panel[data-plan-panel="plan-sous-sol"] .plan-version-media img,
+.floor-plan-panel[data-plan-panel="plan-rdc-bas-magasins"] .plan-version-media img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center top;
+  background:transparent;
 }
 .plan-version--empty{
   display:grid;

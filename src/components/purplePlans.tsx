@@ -50,6 +50,12 @@ export const PurplePlans = ({ plans }: { plans: PurplePearlPlan[] }) => {
 const PlanVersion = ({ title, image, alt, emptyLabel }: { title: string; image: string; alt: string; emptyLabel: string }) => (
 	<div className={`plan-version${image ? '' : ' plan-version--empty'}`}>
 		<span>{title}</span>
-		{image ? <img src={image} alt={alt} loading="lazy" decoding="async" /> : <p>{emptyLabel}</p>}
+		{image ? (
+			<div className="plan-version-media">
+				<img src={image} alt={alt} loading="lazy" decoding="async" />
+			</div>
+		) : (
+			<p>{emptyLabel}</p>
+		)}
 	</div>
 );
