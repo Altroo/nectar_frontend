@@ -263,7 +263,7 @@ header.nectar-fixed-navbar.sunset-nav.is-mobile-open .nectar-mobile-toggle span:
     max-height:44px!important;
   }
 }
-@media(max-width:760px){
+@media(max-width:1080px){
   header.nectar-fixed-navbar.sunset-nav{
     height:74px!important;
     min-height:74px!important;
