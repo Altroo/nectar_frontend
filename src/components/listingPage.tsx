@@ -20,7 +20,7 @@ type ListingPageProps = {
 
 const surfaceLabel = (surface: number | null) => (surface ? `${surface.toLocaleString('fr-FR')} m²` : '');
 const priceNumber = (price: string) => Number(price.replace(/[^\d]/g, '') || 0);
-const rentalApartmentFavoriteStorageKey = 'nectar-location-appartement-favorites';
+const apartmentFavoriteStorageKey = (transaction: Transaction) => `nectar-${transaction === 'sale' ? 'vente' : 'location'}-appartement-favorites`;
 
 type GalleryImageVariant = 'large' | 'card' | 'thumb';
 
@@ -58,38 +58,40 @@ export const ListingPage = ({
 	const [favoriteIds, setFavoriteIds] = useState<Set<number>>(new Set());
 	const { language, t } = useTranslation();
 	const pageKey = `listing.pages.${transaction}.${propertyType}`;
+	const favoriteStorageKey = apartmentFavoriteStorageKey(transaction);
 
 	useEffect(() => {
-		if (transaction !== 'rent' || propertyType !== 'apartment') {
+		if (propertyType !== 'apartment') {
 			return;
 		}
 
+		favoritesLoadedRef.current = false;
 		const timer = window.setTimeout(() => {
 			try {
-				const stored = JSON.parse(window.sessionStorage.getItem(rentalApartmentFavoriteStorageKey) ?? '[]');
+				const stored = JSON.parse(window.sessionStorage.getItem(favoriteStorageKey) ?? '[]');
 				if (Array.isArray(stored)) {
 					setFavoriteIds(new Set(stored.filter((id): id is number => typeof id === 'number')));
 				}
 			} catch {
-				window.sessionStorage.removeItem(rentalApartmentFavoriteStorageKey);
+				window.sessionStorage.removeItem(favoriteStorageKey);
 			}
 			favoritesLoadedRef.current = true;
 		}, 0);
 
 		return () => window.clearTimeout(timer);
-	}, [propertyType, transaction]);
+	}, [favoriteStorageKey, propertyType]);
 
 	useEffect(() => {
-		if (transaction !== 'rent' || propertyType !== 'apartment' || !favoritesLoadedRef.current) {
+		if (propertyType !== 'apartment' || !favoritesLoadedRef.current) {
 			return;
 		}
 
 		try {
-			window.sessionStorage.setItem(rentalApartmentFavoriteStorageKey, JSON.stringify(Array.from(favoriteIds)));
+			window.sessionStorage.setItem(favoriteStorageKey, JSON.stringify(Array.from(favoriteIds)));
 		} catch {
 			// Favorites remain usable until the page is closed if storage is unavailable.
 		}
-	}, [favoriteIds, propertyType, transaction]);
+	}, [favoriteIds, favoriteStorageKey, propertyType]);
 
 	const toggleFavorite = (propertyId: number) => {
 		const next = new Set(favoriteIds);
@@ -222,6 +224,7 @@ const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Pr
 	const isCommercial = property.property_type === 'commercial';
 	const isRentalApartment = property.transaction === 'rent' && property.property_type === 'apartment';
 	const isSaleApartment = property.transaction === 'sale' && property.property_type === 'apartment';
+	const isApartmentListing = isRentalApartment || isSaleApartment;
 	const albumPhotos = [...(property.photos ?? [])].filter((photo) => photo.image).sort((a, b) => a.sort_order - b.sort_order);
 	const primaryImage = property.image || albumPhotos[0]?.image || '';
 	const cardImage = primaryImage ? galleryImageVariant(primaryImage, 'card') : '';
@@ -247,12 +250,12 @@ const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Pr
 
 	return (
 		<article className={`card${isCommercial ? ' local' : ''}`}>
-			<div className={`card-img${isRentalApartment ? ' rental-card-image' : ''}`} style={cardImage ? { backgroundImage: `linear-gradient(135deg,rgba(73,52,37,.24),rgba(73,52,37,.04)),url('${cardImage}')` } : undefined}>
-				{isRentalApartment ? (
+			<div className={`card-img${isApartmentListing ? ' apartment-card-image' : ''}`} style={cardImage ? { backgroundImage: `linear-gradient(135deg,rgba(73,52,37,.24),rgba(73,52,37,.04)),url('${cardImage}')` } : undefined}>
+				{isApartmentListing ? (
 					<>
-						<span className="rental-card-status">{t('listing.forRent')}</span>
+						<span className="apartment-card-status">{t(isSaleApartment ? 'listing.forSale' : 'listing.forRent')}</span>
 						<button
-							className={`rental-card-favorite${isFavorite ? ' is-favorite' : ''}`}
+							className={`apartment-card-favorite${isFavorite ? ' is-favorite' : ''}`}
 							type="button"
 							aria-label={`${isFavorite ? t('listing.removeFavorite') : t('listing.addFavorite')} · ${property.title}`}
 							aria-pressed={isFavorite}
