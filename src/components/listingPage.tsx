@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from '@/i18n/client';
 import { localizeProperty } from '@/i18n/translations';
 import type { Property, PropertyType, SiteContact, Transaction } from '@/types/site';
@@ -20,6 +20,7 @@ type ListingPageProps = {
 
 const surfaceLabel = (surface: number | null) => (surface ? `${surface.toLocaleString('fr-FR')} m²` : '');
 const priceNumber = (price: string) => Number(price.replace(/[^\d]/g, '') || 0);
+const rentalApartmentFavoriteStorageKey = 'nectar-location-appartement-favorites';
 
 type GalleryImageVariant = 'large' | 'card' | 'thumb';
 
@@ -53,8 +54,52 @@ export const ListingPage = ({
 	const [rooms, setRooms] = useState('');
 	const [minSurface, setMinSurface] = useState('');
 	const [maxBudget, setMaxBudget] = useState('');
+	const favoritesLoadedRef = useRef(false);
+	const [favoriteIds, setFavoriteIds] = useState<Set<number>>(new Set());
 	const { language, t } = useTranslation();
 	const pageKey = `listing.pages.${transaction}.${propertyType}`;
+
+	useEffect(() => {
+		if (transaction !== 'rent' || propertyType !== 'apartment') {
+			return;
+		}
+
+		const timer = window.setTimeout(() => {
+			try {
+				const stored = JSON.parse(window.sessionStorage.getItem(rentalApartmentFavoriteStorageKey) ?? '[]');
+				if (Array.isArray(stored)) {
+					setFavoriteIds(new Set(stored.filter((id): id is number => typeof id === 'number')));
+				}
+			} catch {
+				window.sessionStorage.removeItem(rentalApartmentFavoriteStorageKey);
+			}
+			favoritesLoadedRef.current = true;
+		}, 0);
+
+		return () => window.clearTimeout(timer);
+	}, [propertyType, transaction]);
+
+	useEffect(() => {
+		if (transaction !== 'rent' || propertyType !== 'apartment' || !favoritesLoadedRef.current) {
+			return;
+		}
+
+		try {
+			window.sessionStorage.setItem(rentalApartmentFavoriteStorageKey, JSON.stringify(Array.from(favoriteIds)));
+		} catch {
+			// Favorites remain usable until the page is closed if storage is unavailable.
+		}
+	}, [favoriteIds, propertyType, transaction]);
+
+	const toggleFavorite = (propertyId: number) => {
+		const next = new Set(favoriteIds);
+		if (next.has(propertyId)) {
+			next.delete(propertyId);
+		} else {
+			next.add(propertyId);
+		}
+		setFavoriteIds(next);
+	};
 
 	const rows = useMemo(
 		() =>
@@ -157,7 +202,12 @@ export const ListingPage = ({
 				) : null}
 				<div className="grid" id="cards">
 					{visibleRows.map((property) => (
-						<PropertyCard key={property.id} property={property} />
+						<PropertyCard
+							key={property.id}
+							property={property}
+							isFavorite={favoriteIds.has(property.id)}
+							onToggleFavorite={toggleFavorite}
+						/>
 					))}
 				</div>
 				{visibleRows.length === 0 ? <div className="no-results">{t('listing.noResults')}</div> : null}
@@ -167,7 +217,7 @@ export const ListingPage = ({
 	);
 };
 
-const PropertyCard = ({ property }: { property: Property }) => {
+const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Property; isFavorite: boolean; onToggleFavorite: (propertyId: number) => void }) => {
 	const { t } = useTranslation();
 	const isCommercial = property.property_type === 'commercial';
 	const isRentalApartment = property.transaction === 'rent' && property.property_type === 'apartment';
@@ -197,7 +247,22 @@ const PropertyCard = ({ property }: { property: Property }) => {
 
 	return (
 		<article className={`card${isCommercial ? ' local' : ''}`}>
-			<div className="card-img" style={cardImage ? { backgroundImage: `linear-gradient(135deg,rgba(73,52,37,.24),rgba(73,52,37,.04)),url('${cardImage}')` } : undefined} />
+			<div className={`card-img${isRentalApartment ? ' rental-card-image' : ''}`} style={cardImage ? { backgroundImage: `linear-gradient(135deg,rgba(73,52,37,.24),rgba(73,52,37,.04)),url('${cardImage}')` } : undefined}>
+				{isRentalApartment ? (
+					<>
+						<span className="rental-card-status">{t('listing.forRent')}</span>
+						<button
+							className={`rental-card-favorite${isFavorite ? ' is-favorite' : ''}`}
+							type="button"
+							aria-label={`${isFavorite ? t('listing.removeFavorite') : t('listing.addFavorite')} · ${property.title}`}
+							aria-pressed={isFavorite}
+							onClick={() => onToggleFavorite(property.id)}
+						>
+							<HeartIcon filled={isFavorite} />
+						</button>
+					</>
+				) : null}
+			</div>
 			<div className="card-body">
 				<span className="tag">{displayTag}</span>
 				<h3>{property.title}</h3>
@@ -285,4 +350,10 @@ const Meta = ({ label, value }: { label: string; value: string }) => (
 		<small>{label}</small>
 		<strong>{value}</strong>
 	</div>
+);
+
+const HeartIcon = ({ filled }: { filled: boolean }) => (
+	<svg aria-hidden="true" viewBox="0 0 24 24">
+		<path fill={filled ? 'currentColor' : 'none'} d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.8l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.4 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z" />
+	</svg>
 );

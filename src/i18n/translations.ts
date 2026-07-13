@@ -319,6 +319,9 @@ export const translations = {
 			budgetMax: 'Budget max',
 			minSurface: 'Surface minimum',
 			filter: 'Filtrer',
+			forRent: 'À louer',
+			addFavorite: 'Ajouter aux favoris',
+			removeFavorite: 'Retirer des favoris',
 			apartmentsShown: 'appartements affichés',
 			noResults: 'Aucun bien ne correspond aux filtres sélectionnés.',
 			meta: {
@@ -653,6 +656,9 @@ export const translations = {
 			budgetMax: 'الميزانية القصوى',
 			minSurface: 'المساحة الدنيا',
 			filter: 'تصفية',
+			forRent: 'للكراء',
+			addFavorite: 'إضافة إلى المفضلة',
+			removeFavorite: 'إزالة من المفضلة',
 			apartmentsShown: 'شقق معروضة',
 			noResults: 'لا يوجد عقار يطابق الفلاتر المختارة.',
 			meta: {
@@ -987,6 +993,9 @@ export const translations = {
 			budgetMax: 'Max budget',
 			minSurface: 'Minimum surface',
 			filter: 'Filter',
+			forRent: 'For rent',
+			addFavorite: 'Add to favorites',
+			removeFavorite: 'Remove from favorites',
 			apartmentsShown: 'apartments shown',
 			noResults: 'No property matches the selected filters.',
 			meta: {
@@ -1321,6 +1330,9 @@ export const translations = {
 			budgetMax: 'Presupuesto máximo',
 			minSurface: 'Superficie mínima',
 			filter: 'Filtrar',
+			forRent: 'En alquiler',
+			addFavorite: 'Añadir a favoritos',
+			removeFavorite: 'Quitar de favoritos',
 			apartmentsShown: 'apartamentos mostrados',
 			noResults: 'Ningún bien corresponde a los filtros seleccionados.',
 			meta: {

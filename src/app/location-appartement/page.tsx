@@ -2,6 +2,7 @@ import { ListingPage } from '@/components/listingPage';
 import { StyleBlock } from '@/components/common';
 import { generateLocalizedMetadata } from '@/i18n/metadata';
 import { listingStyles } from '@/styles/pageStyles';
+import { rentalApartmentStyles } from '@/styles/rentalApartmentStyles';
 import { fetchSiteContent } from '@/utils/api';
 
 export const generateMetadata = () => generateLocalizedMetadata('/location-appartement');
@@ -11,6 +12,7 @@ const Page = async () => {
 	return (
 		<>
 			<StyleBlock css={listingStyles} />
+			<StyleBlock css={rentalApartmentStyles} />
 			<ListingPage
 				transaction="rent"
 					propertyType="apartment"
