@@ -23,7 +23,7 @@ export const commercialRentalStyles = `
   color:#fff;
   background:
     linear-gradient(90deg,rgba(38,25,17,.88) 0%,rgba(48,32,22,.68) 42%,rgba(48,32,22,.16) 78%),
-    url('/assets/erasmus/erasmus-chocolaterie-large.jpg') center 60%/cover no-repeat;
+    url('/assets/erasmus/erasmus-locaux-cover.png') center 60%/cover no-repeat;
 }
 .cr-hero__content{position:relative;z-index:1}
 .cr-hero__breadcrumb{margin:0 0 22px;color:rgba(255,255,255,.75);font-size:12px;letter-spacing:.04em}
