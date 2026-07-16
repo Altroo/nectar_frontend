@@ -91,10 +91,10 @@ const copies: Record<LanguageCode, PageCopy> = {
 		activitiesTitle: 'Imaginez votre activité ici',
 		activitiesDescription: 'Des espaces adaptés à tous vos projets commerciaux.',
 		activities: [
-			{ title: 'Pharmacie', description: 'Visibilité, accessibilité et proximité client.' },
-			{ title: 'Pâtisserie', description: 'Un cadre chaleureux pour sublimer vos créations.' },
-			{ title: 'Showroom', description: 'Mettez en valeur vos produits dans un espace élégant.' },
-			{ title: 'Mini-market', description: 'Des surfaces fonctionnelles pour votre activité.' },
+			{ title: 'Pâtisserie', description: 'Un écrin chaleureux pour présenter pâtisseries, chocolats et créations gourmandes.' },
+			{ title: 'Opticien', description: 'Une boutique lumineuse pour valoriser montures, conseils et services optiques.' },
+			{ title: 'Mini-market', description: 'Un espace fonctionnel pensé pour les produits frais et les achats du quotidien.' },
+			{ title: 'Boutique', description: 'Une vitrine élégante pour présenter vos collections et accueillir vos clients.' },
 		],
 		gallery: 'Galerie photo',
 		closeGallery: 'Fermer la galerie',
@@ -140,10 +140,10 @@ const copies: Record<LanguageCode, PageCopy> = {
 		activitiesTitle: 'Imagine your business here',
 		activitiesDescription: 'Spaces suited to every commercial project.',
 		activities: [
-			{ title: 'Pharmacy', description: 'Visibility, accessibility and customer proximity.' },
-			{ title: 'Bakery', description: 'A warm setting that showcases your creations.' },
-			{ title: 'Showroom', description: 'Showcase your products in an elegant space.' },
-			{ title: 'Mini-market', description: 'Functional surfaces for your business.' },
+			{ title: 'Pastry shop', description: 'A warm setting to showcase pastries, chocolates and gourmet creations.' },
+			{ title: 'Optician', description: 'A bright store designed to showcase eyewear, expert advice and optical services.' },
+			{ title: 'Mini-market', description: 'A functional space designed for fresh produce and everyday shopping.' },
+			{ title: 'Boutique', description: 'An elegant storefront to present your collections and welcome customers.' },
 		],
 		gallery: 'Photo gallery',
 		closeGallery: 'Close gallery',
@@ -189,10 +189,10 @@ const copies: Record<LanguageCode, PageCopy> = {
 		activitiesTitle: 'Imagine su actividad aquí',
 		activitiesDescription: 'Espacios adaptados a todos sus proyectos comerciales.',
 		activities: [
-			{ title: 'Farmacia', description: 'Visibilidad, accesibilidad y proximidad al cliente.' },
-			{ title: 'Pastelería', description: 'Un entorno cálido para realzar sus creaciones.' },
-			{ title: 'Showroom', description: 'Muestre sus productos en un espacio elegante.' },
-			{ title: 'Mini-market', description: 'Superficies funcionales para su actividad.' },
+			{ title: 'Pastelería', description: 'Un entorno cálido para presentar pasteles, chocolates y creaciones gourmet.' },
+			{ title: 'Óptica', description: 'Una tienda luminosa para destacar monturas, asesoramiento y servicios ópticos.' },
+			{ title: 'Mini-market', description: 'Un espacio funcional pensado para productos frescos y compras diarias.' },
+			{ title: 'Boutique', description: 'Un escaparate elegante para presentar sus colecciones y recibir a sus clientes.' },
 		],
 		gallery: 'Galería de fotos',
 		closeGallery: 'Cerrar la galería',
@@ -238,10 +238,10 @@ const copies: Record<LanguageCode, PageCopy> = {
 		activitiesTitle: 'تخيل نشاطك هنا',
 		activitiesDescription: 'فضاءات مناسبة لجميع مشاريعكم التجارية.',
 		activities: [
-			{ title: 'صيدلية', description: 'وضوح وسهولة ولوج وقرب من الزبناء.' },
-			{ title: 'حلويات', description: 'إطار دافئ لإبراز إبداعاتكم.' },
-			{ title: 'قاعة عرض', description: 'اعرض منتجاتك في فضاء أنيق.' },
-			{ title: 'متجر مصغر', description: 'مساحات عملية لنشاطكم.' },
+			{ title: 'حلويات', description: 'فضاء دافئ لعرض الحلويات والشوكولاتة والإبداعات الشهية.' },
+			{ title: 'محل بصريات', description: 'متجر مشرق لعرض النظارات وتقديم الاستشارة والخدمات البصرية.' },
+			{ title: 'متجر مصغر', description: 'فضاء عملي مصمم للمنتجات الطازجة والمشتريات اليومية.' },
+			{ title: 'بوتيك', description: 'واجهة أنيقة لعرض تشكيلاتكم واستقبال زبنائكم.' },
 		],
 		gallery: 'معرض الصور',
 		closeGallery: 'إغلاق المعرض',
@@ -252,15 +252,20 @@ const copies: Record<LanguageCode, PageCopy> = {
 };
 
 const activityImages = [
-	'/assets/erasmus/erasmus-pharmacie-card.jpg',
-	'/assets/erasmus/erasmus-patisserie-card.jpg',
-	'/assets/erasmus/erasmus-opticien-card.jpg',
-	'/assets/erasmus/erasmus-mini-market-card.jpg',
+	'/assets/erasmus/erasmus-activity-patisserie.jpg',
+	'/assets/erasmus/erasmus-activity-opticien.jpg',
+	'/assets/erasmus/erasmus-activity-mini-market.jpg',
+	'/assets/erasmus/erasmus-activity-boutique.jpg',
 ];
 
 const favoriteStorageKey = 'nectar-location-local-favorites';
 
-const unitType = (property: Property) => property.title.match(/\bLocal\s+([AB])\d*/i)?.[1]?.toUpperCase() ?? '';
+const unitCode = (property: Property) => property.title.match(/\b([AB]\d+)\b/i)?.[1]?.toUpperCase() ?? '';
+const unitType = (property: Property) => unitCode(property).charAt(0);
+const unitCardImage = (property: Property) => {
+	const code = unitCode(property);
+	return code ? `/assets/erasmus/units/${code}.jpg` : property.image.replace(/-(large|card|thumb)\.jpg$/, '-card.jpg') || '/assets/erasmus/erasmus-tower-building.jpg';
+};
 const unitName = (title: string) => title.split('·')[0].trim();
 const surfaceLabel = (surface: number | null) => (surface ? `${surface.toLocaleString('fr-FR')} m²` : '—');
 const detailLabel = (value: string, prefix?: string) => value.replace(prefix ? new RegExp(`^${prefix}\\s*`, 'i') : /^$/, '') || '—';
@@ -400,7 +405,7 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 
 				<section className="cr-intro">
 					<div className="cr-container cr-intro__grid">
-						<img className="cr-intro__image" src="/assets/erasmus/erasmus-chocolaterie-large.jpg" alt="Erasmus Tower à Tanger" width="1800" height="1440" />
+						<img className="cr-intro__image" src="/assets/erasmus/erasmus-location-exception.jpg" alt="Erasmus Tower à Tanger" width="2200" height="1466" />
 						<div className="cr-intro__content">
 							<p className="cr-eyebrow">{copy.introEyebrow}</p>
 							<h2>{copy.introTitle}</h2>
@@ -489,7 +494,7 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 									{visibleRows.map((property, index) => {
 										const isFavorite = favoriteIds.has(property.id);
 										const name = unitName(property.title);
-										const cardImage = property.image.replace(/-(large|card|thumb)\.jpg$/, '-card.jpg') || '/assets/erasmus/erasmus-tower-building.jpg';
+										const cardImage = unitCardImage(property);
 										const whatsappHref = `https://wa.me/${contact.whatsapp_number}?text=${encodeURIComponent(`${copy.whatsappMessage} ${name} · Erasmus Tower.`)}`;
 										return (
 											<article className="cr-property-card" key={property.id}>
@@ -499,8 +504,8 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 														src={cardImage}
 														alt={`${name} · Erasmus Tower`}
 														loading={index < 3 ? 'eager' : 'lazy'}
-														width="900"
-														height="720"
+														width="960"
+														height="1200"
 													/>
 													<span className="cr-property-card__status">{copy.forRent}</span>
 													<button
@@ -551,7 +556,7 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 							<div className="cr-activity-grid">
 								{copy.activities.map((activity, index) => (
 									<article className="cr-activity-card" key={activity.title}>
-										<img src={activityImages[index]} alt="" width="900" height="540" loading="lazy" />
+										<img src={activityImages[index]} alt="" width="1000" height="1000" loading="lazy" />
 										<div>
 											<span className="cr-activity-card__icon">
 												<ActivityIcon index={index} />
@@ -680,15 +685,35 @@ const FeatureIcon = ({ index }: { index: number }) => {
 };
 
 const ActivityIcon = ({ index }: { index: number }) => {
-	const paths = [
-		'M8 21V9l4-4 4 4v12M5 21h14M9 12h6M12 9v6M10 12h4',
-		'M5 20h14M7 20v-7a5 5 0 0 1 10 0v7M9 10c1-2 5-2 6 0M8 15h8',
-		'M4 7h16M7 7l1-3h8l1 3M8 7v10M16 7v10M5 20h14',
-		'M4 5h2l2 10h9l2-7H7M10 19a1 1 0 1 0 0 .1M17 19a1 1 0 1 0 0 .1',
-	];
+	if (index === 0) {
+		return (
+			<svg aria-hidden="true" viewBox="0 0 24 24">
+				<path d="M5 20h14M7 20v-7a5 5 0 0 1 10 0v7M9 10c1-2 5-2 6 0M8 15h8" />
+			</svg>
+		);
+	}
+
+	if (index === 1) {
+		return (
+			<svg aria-hidden="true" viewBox="0 0 24 24">
+				<circle cx="7" cy="13" r="4" />
+				<circle cx="17" cy="13" r="4" />
+				<path d="M11 13h2M3 13 2 9M21 13l1-4" />
+			</svg>
+		);
+	}
+
+	if (index === 2) {
+		return (
+			<svg aria-hidden="true" viewBox="0 0 24 24">
+				<path d="M4 5h2l2 10h9l2-7H7M10 19a1 1 0 1 0 0 .1M17 19a1 1 0 1 0 0 .1" />
+			</svg>
+		);
+	}
+
 	return (
 		<svg aria-hidden="true" viewBox="0 0 24 24">
-			<path d={paths[index]} />
+			<path d="M12 7a2 2 0 1 0-2-2M10 7 3 13l2 3h14l2-3-9-6" />
 		</svg>
 	);
 };
