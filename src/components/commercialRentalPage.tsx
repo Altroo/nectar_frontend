@@ -400,7 +400,7 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 
 				<section className="cr-intro">
 					<div className="cr-container cr-intro__grid">
-						<img className="cr-intro__image" src="/assets/erasmus/erasmus-tower-building.jpg" alt="Erasmus Tower à Tanger" width="1122" height="1402" />
+						<img className="cr-intro__image" src="/assets/erasmus/erasmus-chocolaterie-large.jpg" alt="Erasmus Tower à Tanger" width="1800" height="1440" />
 						<div className="cr-intro__content">
 							<p className="cr-eyebrow">{copy.introEyebrow}</p>
 							<h2>{copy.introTitle}</h2>
