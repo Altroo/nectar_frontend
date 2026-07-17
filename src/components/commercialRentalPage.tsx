@@ -368,10 +368,20 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 	};
 
 	const openGallery = (property: Property) => {
-		const photos = [...(property.photos ?? [])].filter((photo) => photo.image).sort((a, b) => a.sort_order - b.sort_order);
-		if (photos.length) {
-			setGallery({ title: unitName(property.title), photos, index: 0 });
-		}
+		const name = unitName(property.title);
+		setGallery({
+			title: name,
+			photos: [
+				{
+					id: property.id,
+					title: name,
+					alt_text: `${name} · Erasmus Tower`,
+					image: unitCardImage(property),
+					sort_order: 1,
+				},
+			],
+			index: 0,
+		});
 	};
 
 	const stepGallery = (direction: -1 | 1) => {

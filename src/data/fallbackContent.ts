@@ -99,32 +99,22 @@ const mandelsonN47Photos: PropertyPhoto[] = [
 	sort_order: index + 1,
 }));
 
-const erasmusCommercialPhotos: PropertyPhoto[] = [
-	['Pharmacie', '/assets/erasmus/erasmus-pharmacie-large.jpg', 'Local Erasmus Tower aménagé en pharmacie'],
-	['Salon de coiffure', '/assets/erasmus/erasmus-salon-coiffure-large.jpg', 'Local Erasmus Tower aménagé en salon de coiffure'],
-	['Opticien', '/assets/erasmus/erasmus-opticien-large.jpg', 'Local Erasmus Tower aménagé en opticien'],
-	['Chocolaterie', '/assets/erasmus/erasmus-chocolaterie-large.jpg', 'Local Erasmus Tower aménagé en chocolaterie'],
-	['Pâtisserie', '/assets/erasmus/erasmus-patisserie-large.jpg', 'Local Erasmus Tower aménagé en pâtisserie'],
-	['Mini market', '/assets/erasmus/erasmus-mini-market-large.jpg', 'Local Erasmus Tower aménagé en mini market'],
-].map(([title, image, altText], index) => ({
-	id: 1600 + index,
-	title,
-	alt_text: altText,
-	image,
-	sort_order: index + 1,
-}));
+const erasmusCommercialAlbumFor = (propertyTitle: string, propertyIndex: number): PropertyPhoto[] => {
+	const unitCode = propertyTitle.match(/\b([AB]\d+)\b/i)?.[1]?.toUpperCase();
+	if (!unitCode) {
+		return [];
+	}
 
-const erasmusCommercialPhotoStarts = [0, 3, 1, 5, 2, 4, 3, 0, 5, 1, 4, 2, 0];
-
-const erasmusCommercialAlbumFor = (propertyIndex: number): PropertyPhoto[] =>
-	erasmusCommercialPhotos.map((_, offset) => {
-		const source = erasmusCommercialPhotos[(erasmusCommercialPhotoStarts[propertyIndex % erasmusCommercialPhotoStarts.length] + offset) % erasmusCommercialPhotos.length];
-		return {
-			...source,
-			id: 16000 + propertyIndex * 100 + offset,
-			sort_order: offset + 1,
-		};
-	});
+	return [
+		{
+			id: 16000 + propertyIndex,
+			title: `Local ${unitCode}`,
+			alt_text: `Local ${unitCode} · Erasmus Tower`,
+			image: `/assets/erasmus/units/${unitCode}.jpg`,
+			sort_order: 1,
+		},
+	];
+};
 
 const rentalPhotoAlbums: Record<string, PropertyPhoto[]> = {
 	'Appartement Hilton N°05': hiltonN05Photos,
@@ -260,7 +250,7 @@ const rentCommercialUnits: Property[] = [
 	['Local B6 · ERASMUS TOWER', 'B', 277, 'RDC 152 m²', '125 m²', '215 m²'],
 	['Local B7 · ERASMUS TOWER', 'B', 401, 'RDC 168 m²', '233 m²', '285 m²'],
 ].map(([title, type, surface, rdc, mezzanine, sold], index) => {
-	const photos = erasmusCommercialAlbumFor(index);
+	const photos = erasmusCommercialAlbumFor(String(title), index);
 
 	return {
 		id: 200 + index,
