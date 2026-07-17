@@ -556,7 +556,7 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 							<div className="cr-activity-grid">
 								{copy.activities.map((activity, index) => (
 									<article className="cr-activity-card" key={activity.title}>
-										<img src={activityImages[index]} alt="" width="1000" height="1000" loading="lazy" />
+										<img className={index === 3 ? 'cr-activity-card__image--top' : undefined} src={activityImages[index]} alt="" width="1000" height="1000" loading="lazy" />
 										<div>
 											<span className="cr-activity-card__icon">
 												<ActivityIcon index={index} />

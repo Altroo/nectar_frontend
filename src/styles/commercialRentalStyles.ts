@@ -70,7 +70,7 @@ export const commercialRentalStyles = `
 .cr-carousel::-webkit-scrollbar{display:none}
 .cr-property-card{flex:0 0 calc((100% - 32px)/3);min-width:0;overflow:hidden;scroll-snap-align:start;background:var(--cr-card);border:1px solid var(--cr-border);border-radius:8px;box-shadow:0 5px 18px rgba(73,53,39,.035)}
 .cr-property-card__image-wrap{position:relative;height:224px;overflow:hidden;background:#d8cec3}
-.cr-property-card__image{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.002);transition:transform .45s ease}
+.cr-property-card__image{display:block;width:100%;height:100%;object-fit:cover;object-position:center 18%;transform:scale(1.002);transition:transform .45s ease}
 .cr-property-card:hover .cr-property-card__image{transform:scale(1.035)}
 .cr-property-card__status{position:absolute;top:15px;left:15px;padding:9px 16px;border-radius:999px;background:rgba(139,91,53,.94);color:#fff;font-size:11px;font-weight:600}
 .cr-favorite{position:absolute;top:13px;right:13px;width:42px;height:42px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:rgba(35,27,23,.36);color:#fff;cursor:pointer;backdrop-filter:blur(5px)}
@@ -100,6 +100,7 @@ export const commercialRentalStyles = `
 .cr-activity-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .cr-activity-card{overflow:hidden;border:1px solid var(--cr-border);border-radius:7px;background:#fffdfa}
 .cr-activity-card>img{display:block;width:100%;height:132px;object-fit:cover}
+.cr-activity-card>img.cr-activity-card__image--top{object-position:center 8%}
 .cr-activity-card>div{display:flex;align-items:center;gap:12px;min-height:95px;padding:13px 14px}
 .cr-activity-card__icon{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border:1px solid var(--cr-border);border-radius:50%;background:#fff;color:#9a704f}
 .cr-activity-card__icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
