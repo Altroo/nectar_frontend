@@ -249,7 +249,7 @@ const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Pr
 	const ctaLabel = property.transaction === 'sale' ? t('listing.requestPrice') : property.transaction === 'rent' ? t('listing.requestAvailability') : t('listing.request');
 
 	return (
-		<article className={`card${isCommercial ? ' local' : ''}`}>
+		<article className={`card${isCommercial ? ' local' : ''}${isSaleApartment ? ' sale-apartment' : ''}`}>
 			<div className={`card-img${isApartmentListing ? ' apartment-card-image' : ''}`} style={cardImage ? { backgroundImage: `linear-gradient(135deg,rgba(73,52,37,.24),rgba(73,52,37,.04)),url('${cardImage}')` } : undefined}>
 				{isApartmentListing ? (
 					<>
