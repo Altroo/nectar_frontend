@@ -105,7 +105,7 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 						<div className="pp-video-grid">
 							<div className="pp-card pp-video-card">
 								<iframe
-									src="https://www.youtube-nocookie.com/embed/DBuh899e7PY"
+									src="https://www.youtube-nocookie.com/embed/l-_eXEqcSIo"
 									title={t('purple.video')}
 									loading="lazy"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
