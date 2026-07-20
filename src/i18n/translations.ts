@@ -1537,6 +1537,7 @@ const localizePhotoText = (language: LanguageCode, value: string) => {
 		[/Cuisine/g, textMap(language, { ar: 'المطبخ', en: 'Kitchen', es: 'Cocina' }, 'Cuisine')],
 		[/Toilette/g, textMap(language, { ar: 'حمام', en: 'Bathroom', es: 'Baño' }, 'Toilette')],
 		[/Placard/g, textMap(language, { ar: 'خزانة', en: 'Wardrobe', es: 'Armario' }, 'Placard')],
+		[/Vue/g, textMap(language, { ar: 'إطلالة', en: 'View', es: 'Vista' }, 'Vue')],
 		[/Deuxième/g, textMap(language, { ar: 'الثاني', en: 'Second', es: 'Segundo' }, 'Deuxième')],
 		[/de l'appartement/g, textMap(language, { ar: 'لشقة', en: 'of the apartment', es: 'del apartamento' }, "de l'appartement")],
 		[/étage/g, textMap(language, { ar: 'الطابق', en: 'floor', es: 'planta' }, 'étage')],
@@ -1594,6 +1595,12 @@ const localizePropertyTag = (language: LanguageCode, property: Property) => {
 };
 
 const propertyDescriptionOverrides: Record<string, Partial<Record<LanguageCode, string>>> = {
+	'HILTON · N°03': {
+		fr: 'À vendre, superbe appartement situé au 10ᵉ étage de la résidence Hilton, l’une des adresses les plus prestigieuses de Tanger. Offrant une vue panoramique exceptionnelle sur la Méditerranée, ce bien bénéficie d’un environnement sécurisé et d’un cadre élégant. Il constitue une excellente opportunité pour y vivre ou réaliser un investissement immobilier de qualité.',
+		ar: 'للبيع، شقة رائعة تقع في الطابق العاشر من إقامة Hilton، إحدى أرقى العناوين في طنجة. تتمتع بإطلالة بانورامية استثنائية على البحر الأبيض المتوسط، ضمن بيئة آمنة وإطار أنيق. وتشكل فرصة ممتازة للسكن أو لإنجاز استثمار عقاري عالي الجودة.',
+		en: 'For sale, a superb apartment on the 10th floor of the Hilton residence, one of Tangier’s most prestigious addresses. With an exceptional panoramic view of the Mediterranean, the property offers a secure environment and elegant setting. It is an excellent opportunity for a home or a high-quality real estate investment.',
+		es: 'En venta, magnífico apartamento situado en la 10.ª planta de la residencia Hilton, una de las direcciones más prestigiosas de Tánger. Con una excepcional vista panorámica al Mediterráneo, la propiedad disfruta de un entorno seguro y un marco elegante. Es una excelente oportunidad para vivir o realizar una inversión inmobiliaria de calidad.',
+	},
 	'Appartement Hilton N°05': {
 		fr: "Profitez d’un séjour élégant dans cet appartement situé au sein de l’hôtel Hilton à Tanger. Avec sa vue imprenable sur la Méditerranée, son cadre sécurisé et son ambiance calme et luxueuse, il offre l’endroit idéal pour se détendre et vivre pleinement vos vacances.",
 		ar: 'استمتع بإقامة أنيقة في هذه الشقة الواقعة داخل فندق Hilton في طنجة. بإطلالتها الجميلة على البحر الأبيض المتوسط، وإطارها الآمن وأجوائها الهادئة والراقية، توفر مكانا مثاليا للاسترخاء والاستمتاع بعطلتك.',

@@ -18,6 +18,23 @@ const cityCenterPhotos: PropertyPhoto[] = [
 	sort_order: index + 1,
 }));
 
+const hiltonN03Photos: PropertyPhoto[] = [
+	['Salon', '/assets/hilton-n03/hilton-n03-salon-large.jpg', "Salon de l'appartement Hilton N°03"],
+	['Meuble TV', '/assets/hilton-n03/hilton-n03-meuble-tv-large.jpg', "Meuble TV de l'appartement Hilton N°03"],
+	['Chambre', '/assets/hilton-n03/hilton-n03-chambre-large.jpg', "Chambre de l'appartement Hilton N°03"],
+	['Placard', '/assets/hilton-n03/hilton-n03-placard-large.jpg', "Placard de l'appartement Hilton N°03"],
+	['Coffre-fort', '/assets/hilton-n03/hilton-n03-coffre-fort-large.jpg', "Coffre-fort de l'appartement Hilton N°03"],
+	['Cuisine', '/assets/hilton-n03/hilton-n03-cuisine-large.jpg', "Cuisine de l'appartement Hilton N°03"],
+	['Toilette', '/assets/hilton-n03/hilton-n03-toilette-large.jpg', "Toilette de l'appartement Hilton N°03"],
+	['Vue', '/assets/hilton-n03/hilton-n03-vue-large.jpg', "Vue sur la Méditerranée depuis l'appartement Hilton N°03"],
+].map(([title, image, altText], index) => ({
+	id: 1050 + index,
+	title,
+	alt_text: altText,
+	image,
+	sort_order: index + 1,
+}));
+
 const hiltonN05Photos: PropertyPhoto[] = [
 	['Salon', '/assets/hilton-n05/hilton-n05-salon-large.jpg', "Salon de l'appartement Hilton N°05"],
 	['Chambre 1', '/assets/hilton-n05/hilton-n05-chambre-1-large.jpg', "Chambre 1 de l'appartement Hilton N°05"],
@@ -125,6 +142,7 @@ const rentalPhotoAlbums: Record<string, PropertyPhoto[]> = {
 };
 
 const salePhotoAlbums: Record<string, PropertyPhoto[]> = {
+	'HILTON · N°03': hiltonN03Photos,
 	'HILTON · N°11': hiltonN11Photos,
 	'HILTON · N°13': hiltonN13Photos,
 	'MANDELSON BLOC A · N°47': mandelsonN47Photos,
@@ -153,6 +171,8 @@ const rentalDescriptions: Record<string, string> = {
 };
 
 const saleDescriptions: Record<string, string> = {
+	'HILTON · N°03':
+		'À vendre, superbe appartement situé au 10ᵉ étage de la résidence Hilton, l’une des adresses les plus prestigieuses de Tanger. Offrant une vue panoramique exceptionnelle sur la Méditerranée, ce bien bénéficie d’un environnement sécurisé et d’un cadre élégant. Il constitue une excellente opportunité pour y vivre ou réaliser un investissement immobilier de qualité.',
 	'HILTON · N°11':
 		"Découvrez cet appartement d’exception situé au sein de l’hôtel Hilton à Tanger. Offrant une vue imprenable sur la Méditerranée, un cadre sécurisé et une ambiance calme et luxueuse, ce bien représente une opportunité idéale pour un investissement de qualité ou une résidence élégante au cœur de la ville.",
 	'HILTON · N°13':
@@ -160,6 +180,7 @@ const saleDescriptions: Record<string, string> = {
 };
 
 const saleApartments: Property[] = [
+	['HILTON · N°03', 'HILTON', 'Centre-ville', 'ETAGE 10', 'N°03', 1, 53, '53 m²'],
 	['HILTON · N°11', 'HILTON', 'Centre-ville', 'ETAGE 10', 'N°11', 1, 55, '55 m²'],
 	['HILTON · N°13', 'HILTON', 'Centre-ville', 'ETAGE 10', 'N°13', 2, 74, '74 m²'],
 	['MANDELSON BLOC A · N°47', 'MANDELSON BLOC A', 'Iberia', 'ETAGE 06', 'N°47', 3, 102, '102 m²'],
