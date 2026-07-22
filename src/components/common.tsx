@@ -10,6 +10,7 @@ export const StyleBlock = ({ css }: { css: string }) => <style dangerouslySetInn
 export const socialLinks = {
 	nectarInstagram: 'https://www.instagram.com/nectar.immobiliere/',
 	nectarTikTok: 'https://www.tiktok.com/@nectar.immobiliere?lang=fr',
+	nectarYoutube: 'https://www.youtube.com/@Nectar.Immobili%C3%A8re',
 	purplePearlInstagram: 'https://www.instagram.com/purplepearl.tanger/',
 	purplePearlTikTok: 'https://www.tiktok.com/@purplepearl.tanger?lang=fr',
 };
@@ -575,6 +576,20 @@ const linkedFooterStyles = `
   text-transform:uppercase!important;
   color:#F5F1E8!important;
 }
+.nectar-linked-footer__socials a.nectar-linked-footer__youtube{
+  width:38px!important;
+  height:38px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:0!important;
+}
+.nectar-linked-footer__youtube svg{
+  width:19px!important;
+  height:19px!important;
+  display:block!important;
+  fill:currentColor!important;
+}
 	.nectar-linked-footer__bottom{
 	  border-top:1px solid rgba(245,241,232,.14)!important;
 	  margin-top:44px!important;
@@ -884,6 +899,11 @@ export const LinkedFooter = ({ contact }: { contact: SiteContact }) => {
 								</a>
 								<a aria-label="TikTok Nectar immobilière" href={socialLinks.nectarTikTok} rel="noopener" target="_blank">
 									TikTok
+								</a>
+								<a aria-label="YouTube Nectar immobilière" className="nectar-linked-footer__youtube" href={socialLinks.nectarYoutube} rel="noopener" target="_blank">
+									<svg aria-hidden="true" viewBox="0 0 24 24">
+										<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12l-6.2 3.6Z" />
+									</svg>
 								</a>
 								<a href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
 									WhatsApp

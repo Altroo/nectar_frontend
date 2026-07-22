@@ -213,6 +213,31 @@ export const ListingPage = ({
 					))}
 				</div>
 				{visibleRows.length === 0 ? <div className="no-results">{t('listing.noResults')}</div> : null}
+				{transaction === 'rent' && propertyType === 'apartment' ? (
+					<section aria-labelledby="apartment-rental-video-title" className="apartment-rental-video">
+						<div className="apartment-rental-video__copy">
+							<span>{t('listing.video.kicker')}</span>
+							<h2 id="apartment-rental-video-title">{t('listing.video.title')}</h2>
+							<p>{t('listing.video.description')}</p>
+							<a href="https://www.youtube.com/watch?v=3QHSGxBbp0U" rel="noopener" target="_blank">
+								{t('listing.video.watch')}
+								<svg aria-hidden="true" viewBox="0 0 24 24">
+									<path d="m10 8 6 4-6 4V8Z" />
+								</svg>
+							</a>
+						</div>
+						<div className="apartment-rental-video__frame">
+							<iframe
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								allowFullScreen
+								loading="lazy"
+								referrerPolicy="strict-origin-when-cross-origin"
+								src="https://www.youtube-nocookie.com/embed/3QHSGxBbp0U?rel=0"
+								title={t('listing.video.title')}
+							/>
+						</div>
+					</section>
+				) : null}
 			</main>
 			<LinkedFooter contact={contact} />
 		</>
