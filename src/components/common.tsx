@@ -39,6 +39,33 @@ const FloatingWhatsAppButton = ({ contact, variant }: { contact: SiteContact; va
 	</a>
 );
 
+const InstagramIcon = () => (
+	<svg aria-hidden="true" viewBox="0 0 24 24">
+		<rect fill="none" height="18" rx="5" stroke="currentColor" strokeWidth="1.8" width="18" x="3" y="3" />
+		<circle cx="12" cy="12" fill="none" r="4.2" stroke="currentColor" strokeWidth="1.8" />
+		<circle cx="17.4" cy="6.7" fill="currentColor" r="1.1" />
+	</svg>
+);
+
+const TikTokIcon = () => (
+	<svg aria-hidden="true" viewBox="0 0 24 24">
+		<path d="M14.5 4v10.1a4.4 4.4 0 1 1-3.8-4.36" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+		<path d="M14.5 4c.55 2.9 2.2 4.45 5 4.8" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+	</svg>
+);
+
+const YouTubeIcon = () => (
+	<svg aria-hidden="true" viewBox="0 0 24 24">
+		<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12l-6.2 3.6Z" fill="currentColor" />
+	</svg>
+);
+
+const WhatsAppIcon = () => (
+	<svg aria-hidden="true" viewBox="0 0 32 32">
+		<path d="M16.02 4.8c-6.18 0-11.2 4.94-11.2 11.04 0 2.1.6 4.08 1.66 5.76L4.8 27.2l5.84-1.52a11.35 11.35 0 0 0 5.38 1.36c6.18 0 11.2-4.94 11.2-11.04S22.2 4.8 16.02 4.8Zm0 20.3c-1.8 0-3.5-.5-4.98-1.42l-.36-.22-3.46.9.94-3.3-.24-.38a9.03 9.03 0 0 1-1.48-4.96c0-5.02 4.28-9.1 9.58-9.1 5.28 0 9.58 4.08 9.58 9.1 0 5.02-4.3 9.08-9.58 9.08Zm5.48-6.82c-.3-.14-1.76-.86-2.04-.96-.28-.1-.48-.14-.68.14-.2.3-.78.96-.96 1.16-.18.2-.36.22-.66.08-.3-.14-1.26-.46-2.4-1.48-.88-.78-1.48-1.74-1.66-2.04-.18-.3-.02-.46.14-.6.14-.14.3-.36.46-.54.16-.18.2-.3.3-.5.1-.2.06-.38-.02-.54-.08-.14-.68-1.62-.94-2.22-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.52.08-.8.38-.28.3-1.04 1.02-1.04 2.48 0 1.46 1.08 2.88 1.24 3.08.14.2 2.12 3.2 5.14 4.48.72.3 1.28.48 1.72.62.72.22 1.38.18 1.9.12.58-.08 1.76-.72 2-1.42.26-.7.26-1.3.18-1.42-.08-.12-.28-.2-.58-.34Z" fill="currentColor" />
+	</svg>
+);
+
 const mainHeaderStyles = `
 header.nectar-fixed-navbar.sunset-nav{
   position:fixed!important;
@@ -564,31 +591,27 @@ const linkedFooterStyles = `
 .nectar-linked-footer__socials{
   display:flex!important;
   flex-wrap:wrap!important;
-  gap:10px!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:12px!important;
   margin-top:6px!important;
+  width:100%!important;
 }
 .nectar-linked-footer__socials a{
-  border:1px solid rgba(245,241,232,.22)!important;
-  border-radius:999px!important;
-  padding:9px 12px!important;
-  font-size:11px!important;
-  letter-spacing:.12em!important;
-  text-transform:uppercase!important;
-  color:#F5F1E8!important;
-}
-.nectar-linked-footer__socials a.nectar-linked-footer__youtube{
-  width:38px!important;
-  height:38px!important;
+  width:42px!important;
+  height:42px!important;
   display:inline-flex!important;
   align-items:center!important;
   justify-content:center!important;
+  border:1px solid rgba(245,241,232,.22)!important;
+  border-radius:999px!important;
   padding:0!important;
+  color:#F5F1E8!important;
 }
-.nectar-linked-footer__youtube svg{
-  width:19px!important;
-  height:19px!important;
+.nectar-linked-footer__socials svg{
+  width:20px!important;
+  height:20px!important;
   display:block!important;
-  fill:currentColor!important;
 }
 	.nectar-linked-footer__bottom{
 	  border-top:1px solid rgba(245,241,232,.14)!important;
@@ -895,18 +918,16 @@ export const LinkedFooter = ({ contact }: { contact: SiteContact }) => {
 							</a>
 							<div className="nectar-linked-footer__socials">
 								<a aria-label="Instagram Nectar immobilière" href={socialLinks.nectarInstagram} rel="noopener" target="_blank">
-									Instagram
+									<InstagramIcon />
 								</a>
 								<a aria-label="TikTok Nectar immobilière" href={socialLinks.nectarTikTok} rel="noopener" target="_blank">
-									TikTok
+									<TikTokIcon />
 								</a>
-								<a aria-label="YouTube Nectar immobilière" className="nectar-linked-footer__youtube" href={socialLinks.nectarYoutube} rel="noopener" target="_blank">
-									<svg aria-hidden="true" viewBox="0 0 24 24">
-										<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12l-6.2 3.6Z" />
-									</svg>
+								<a aria-label="YouTube Nectar immobilière" href={socialLinks.nectarYoutube} rel="noopener" target="_blank">
+									<YouTubeIcon />
 								</a>
-								<a href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
-									WhatsApp
+								<a aria-label="WhatsApp Nectar immobilière" href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
+									<WhatsAppIcon />
 								</a>
 							</div>
 						</div>
@@ -970,13 +991,13 @@ export const PurplePearlFooter = ({ contact }: { contact: SiteContact }) => {
 							</a>
 							<div className="nectar-linked-footer__socials">
 								<a aria-label="Instagram Purple Pearl" href={socialLinks.purplePearlInstagram} rel="noopener" target="_blank">
-									Instagram
+									<InstagramIcon />
 								</a>
 								<a aria-label="TikTok Purple Pearl" href={socialLinks.purplePearlTikTok} rel="noopener" target="_blank">
-									TikTok
+									<TikTokIcon />
 								</a>
-								<a href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
-									WhatsApp
+								<a aria-label="WhatsApp Purple Pearl" href={`https://wa.me/${contact.whatsapp_number}`} rel="noopener" target="_blank">
+									<WhatsAppIcon />
 								</a>
 							</div>
 						</div>
