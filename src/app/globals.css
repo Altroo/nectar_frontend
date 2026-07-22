@@ -77,7 +77,7 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	padding: clamp(34px, 5vw, 68px);
-	background: linear-gradient(145deg, #2f2017, #493425);
+	background: rgba(47, 32, 23, 0.88);
 	color: #f5f1e8;
 }
 
@@ -130,7 +130,7 @@ body {
 .apartment-rental-video__frame {
 	min-width: 0;
 	padding: 50px;
-	background: #2f2017;
+	background: rgba(47, 32, 23, 0.88);
 }
 
 .apartment-rental-video__frame iframe {
