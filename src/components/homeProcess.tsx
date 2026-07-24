@@ -53,10 +53,9 @@ export const HomeProcessSection = () => {
 		}
 
 		const distance = (firstStep?.getBoundingClientRect().width ?? steps.clientWidth * 0.84) + 16;
-		const readingDirection = document.documentElement.dir === 'rtl' ? -1 : 1;
 		steps.scrollBy({
 			behavior: 'smooth',
-			left: (direction === 'next' ? 1 : -1) * distance * readingDirection,
+			left: (direction === 'next' ? 1 : -1) * distance,
 		});
 	};
 

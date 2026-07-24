@@ -62,10 +62,15 @@ export const commercialRentalStyles = `
 .cr-filter-button svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round}
 .cr-section-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:15px}
 .cr-section-heading h2,.cr-activities h2{margin:0;font:400 clamp(28px,3vw,38px)/1.1 Georgia,'Times New Roman',serif;letter-spacing:-.025em;color:#332820}
-.cr-carousel-controls{display:flex;gap:8px}
-.cr-carousel-controls button,.cr-gallery__footer>div:last-child button{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--cr-border);border-radius:50%;background:#fffdfa;color:var(--cr-brown);cursor:pointer;transition:background .2s,color .2s}
-.cr-carousel-controls button:hover,.cr-gallery__footer>div:last-child button:hover{background:var(--cr-brown);color:#fff}
-.cr-carousel-controls svg,.cr-gallery__footer svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cr-carousel-shell{position:relative}
+.cr-carousel-arrow{position:absolute;z-index:4;top:50%;width:50px;height:50px;display:grid;place-items:center;padding:0;border:1px solid var(--cr-border);border-radius:50%;background:rgba(255,253,250,.96);color:var(--cr-brown);box-shadow:0 12px 30px rgba(47,32,23,.18);cursor:pointer;transform:translateY(-50%);transition:background .2s,color .2s,box-shadow .2s}
+.cr-carousel-arrow--left{left:-18px}
+.cr-carousel-arrow--right{right:-18px}
+.cr-carousel-arrow:hover{background:var(--cr-brown);color:#fff;box-shadow:0 14px 34px rgba(47,32,23,.24)}
+.cr-carousel-arrow svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cr-gallery__footer>div:last-child button{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--cr-border);border-radius:50%;background:#fffdfa;color:var(--cr-brown);cursor:pointer;transition:background .2s,color .2s}
+.cr-gallery__footer>div:last-child button:hover{background:var(--cr-brown);color:#fff}
+.cr-gallery__footer svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .cr-carousel{display:flex;gap:16px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-behavior:smooth;scroll-snap-type:x mandatory;scrollbar-width:none;padding:1px 1px 8px}
 .cr-carousel::-webkit-scrollbar{display:none}
 .cr-property-card{flex:0 0 calc((100% - 32px)/3);min-width:0;overflow:hidden;scroll-snap-align:start;background:var(--cr-card);border:1px solid var(--cr-border);border-radius:8px;box-shadow:0 5px 18px rgba(73,53,39,.035)}
@@ -85,7 +90,7 @@ export const commercialRentalStyles = `
 .cr-property-card__meta>div:first-child{padding-left:0}
 .cr-property-card__meta>div:last-child{padding-right:0;border-right:0}
 .cr-property-card__meta small{display:block;min-height:26px;margin-bottom:4px;color:#81766e;font-size:10px;line-height:1.3}
-.cr-property-card__meta strong{display:block;color:#3b312b;font-size:15px;line-height:1.2;white-space:nowrap}
+.cr-property-card__meta strong{display:block;overflow:hidden;color:#3b312b;font-size:15px;line-height:1.2;white-space:nowrap;text-align:center;text-overflow:ellipsis;unicode-bidi:isolate}
 .cr-property-card__actions{display:grid;grid-template-columns:.88fr 1.45fr;gap:9px;margin-top:14px}
 .cr-details-button,.cr-whatsapp-button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:4px;font:600 10px/1.15 Manrope,Arial,sans-serif;text-align:center;text-decoration:none}
 .cr-details-button{padding:0 13px;border:1px solid var(--cr-brown);background:var(--cr-brown);color:#fff;cursor:pointer}
@@ -143,6 +148,8 @@ html[dir='rtl'] .cr-filter select{background-position:left 4px center;padding-le
   .cr-features{grid-template-columns:1fr}.cr-feature{min-height:auto}
   .cr-filters{grid-template-columns:1fr;padding:13px}.cr-filter-button{grid-column:auto;min-height:50px}
   .cr-section-heading{align-items:flex-end}.cr-section-heading h2{font-size:29px}
+  .cr-carousel-arrow{width:44px;height:44px}
+  .cr-carousel-arrow--left{left:-7px}.cr-carousel-arrow--right{right:-7px}
   .cr-property-card{flex-basis:88%}.cr-property-card__image-wrap{height:210px}
   .cr-property-card__actions{grid-template-columns:1fr}.cr-details-button,.cr-whatsapp-button{min-height:46px}
   .cr-activity-grid{grid-template-columns:1fr}.cr-activity-card>img{height:160px}

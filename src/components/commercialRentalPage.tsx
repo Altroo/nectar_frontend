@@ -268,7 +268,7 @@ const unitCardImage = (property: Property) => {
 };
 const unitName = (title: string) => title.split('·')[0].trim();
 const surfaceLabel = (surface: number | null) => (surface ? `${surface.toLocaleString('fr-FR')} m²` : '—');
-const detailLabel = (value: string, prefix?: string) => value.replace(prefix ? new RegExp(`^${prefix}\\s*`, 'i') : /^$/, '') || '—';
+const measurementLabel = (value: string) => value.match(/\d+(?:[.,]\d+)?\s*m²/i)?.[0] ?? '—';
 
 export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPageProps) => {
 	const { language } = useTranslation();
@@ -490,18 +490,14 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 						<section className="cr-listing" aria-labelledby="cr-listing-title">
 							<div className="cr-section-heading">
 								<h2 id="cr-listing-title">{copy.available}</h2>
-								<div className="cr-carousel-controls">
-									<button type="button" aria-label={copy.previousUnits} onClick={() => scrollCarousel(-1)}>
-										<ChevronIcon direction="left" />
-									</button>
-									<button type="button" aria-label={copy.nextUnits} onClick={() => scrollCarousel(1)}>
-										<ChevronIcon direction="right" />
-									</button>
-								</div>
 							</div>
 							{visibleRows.length ? (
-								<div className="cr-carousel" ref={carouselRef}>
-									{visibleRows.map((property, index) => {
+								<div className="cr-carousel-shell">
+									<button className="cr-carousel-arrow cr-carousel-arrow--left" type="button" aria-label={copy.previousUnits} onClick={() => scrollCarousel(-1)}>
+										<ChevronIcon direction="left" />
+									</button>
+									<div className="cr-carousel" ref={carouselRef}>
+										{visibleRows.map((property, index) => {
 										const isFavorite = favoriteIds.has(property.id);
 										const name = unitName(property.title);
 										const cardImage = unitCardImage(property);
@@ -537,8 +533,8 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 													</p>
 													<div className="cr-property-card__meta">
 														<PropertyMeta label={copy.totalSurface} value={surfaceLabel(property.surface_total)} />
-														<PropertyMeta label={copy.rdc} value={detailLabel(property.project_label, 'RDC')} />
-														<PropertyMeta label={copy.mezzanine} value={property.mezzanine || '—'} />
+														<PropertyMeta label={copy.rdc} value={measurementLabel(property.project_label)} />
+														<PropertyMeta label={copy.mezzanine} value={measurementLabel(property.mezzanine)} />
 													</div>
 													<div className="cr-property-card__actions">
 														<button className="cr-details-button" type="button" onClick={() => openGallery(property)}>
@@ -551,7 +547,11 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 												</div>
 											</article>
 										);
-									})}
+										})}
+									</div>
+									<button className="cr-carousel-arrow cr-carousel-arrow--right" type="button" aria-label={copy.nextUnits} onClick={() => scrollCarousel(1)}>
+										<ChevronIcon direction="right" />
+									</button>
 								</div>
 							) : (
 								<p className="cr-no-results">{copy.noResults}</p>
@@ -620,7 +620,7 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 const PropertyMeta = ({ label, value }: { label: string; value: string }) => (
 	<div>
 		<small>{label}</small>
-		<strong>{value}</strong>
+		<strong dir="ltr">{value}</strong>
 	</div>
 );
 
