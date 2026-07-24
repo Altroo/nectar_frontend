@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useTranslation } from '@/i18n/client';
 
 type ProcessPanelKey = 'vente' | 'location';
@@ -15,6 +15,10 @@ const processOrder: ProcessPanelKey[] = ['vente', 'location'];
 
 export const HomeProcessSection = () => {
 	const [activePanel, setActivePanel] = useState<ProcessPanelKey>('vente');
+	const processStepRefs = useRef<Record<ProcessPanelKey, HTMLDivElement | null>>({
+		vente: null,
+		location: null,
+	});
 	const { t } = useTranslation();
 	const processPanels: Record<ProcessPanelKey, { label: string; tabLabel: string; copy: string; ariaLabel: string; steps: ProcessStepItem[] }> = {
 		vente: {
@@ -39,6 +43,21 @@ export const HomeProcessSection = () => {
 				copy: t(`process.location.steps.${index}.1`),
 			})),
 		},
+	};
+	const scrollProcessSteps = (key: ProcessPanelKey, direction: 'previous' | 'next') => {
+		const steps = processStepRefs.current[key];
+		const firstStep = steps?.querySelector<HTMLElement>('.process-step');
+
+		if (!steps) {
+			return;
+		}
+
+		const distance = (firstStep?.getBoundingClientRect().width ?? steps.clientWidth * 0.84) + 16;
+		const readingDirection = document.documentElement.dir === 'rtl' ? -1 : 1;
+		steps.scrollBy({
+			behavior: 'smooth',
+			left: (direction === 'next' ? 1 : -1) * distance * readingDirection,
+		});
 	};
 
 	return (
@@ -85,7 +104,25 @@ export const HomeProcessSection = () => {
 								<span>{panel.label}</span>
 								<p>{panel.copy}</p>
 							</div>
-							<div aria-label={panel.ariaLabel} className="process-steps">
+							<div aria-label={panel.ariaLabel} className="process-mobile-controls">
+								<button aria-label={t('listing.previous')} type="button" onClick={() => scrollProcessSteps(key, 'previous')}>
+									<svg aria-hidden="true" viewBox="0 0 24 24">
+										<path d="m15 18-6-6 6-6" />
+									</svg>
+								</button>
+								<button aria-label={t('listing.next')} type="button" onClick={() => scrollProcessSteps(key, 'next')}>
+									<svg aria-hidden="true" viewBox="0 0 24 24">
+										<path d="m9 18 6-6-6-6" />
+									</svg>
+								</button>
+							</div>
+							<div
+								aria-label={panel.ariaLabel}
+								className="process-steps"
+								ref={(element) => {
+									processStepRefs.current[key] = element;
+								}}
+							>
 								{panel.steps.map((step) => (
 									<ProcessStep key={`${key}-${step.number}`} step={step} />
 								))}

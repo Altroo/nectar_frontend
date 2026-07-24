@@ -1,6 +1,6 @@
 'use client';
 
-import { type FormEvent, useState, useSyncExternalStore } from 'react';
+import { type FormEvent, useState } from 'react';
 import { useTranslation } from '@/i18n/client';
 import { postWebsiteForm } from '@/utils/api';
 
@@ -26,26 +26,6 @@ const normalizeDateValue = (value: string) => {
 
 	return trimmed;
 };
-
-const newsletterDismissedCookie = 'nectar_newsletter_dismissed';
-const newsletterDismissedMaxAge = 60 * 60 * 24 * 30;
-const newsletterDismissedEvent = 'nectar-newsletter-dismissed';
-
-const hasDismissedNewsletter = () => document.cookie.split('; ').some((cookie) => cookie.startsWith(`${newsletterDismissedCookie}=`));
-
-const rememberNewsletterDismissal = () => {
-	document.cookie = `${newsletterDismissedCookie}=1; Max-Age=${newsletterDismissedMaxAge}; Path=/; SameSite=Lax`;
-	window.dispatchEvent(new Event(newsletterDismissedEvent));
-};
-
-const subscribeToNewsletterDismissal = (onStoreChange: () => void) => {
-	window.addEventListener(newsletterDismissedEvent, onStoreChange);
-	return () => window.removeEventListener(newsletterDismissedEvent, onStoreChange);
-};
-
-const getNewsletterVisibilitySnapshot = () => !hasDismissedNewsletter();
-
-const getServerNewsletterVisibilitySnapshot = () => false;
 
 export const ContactForm = () => {
 	const [status, setStatus] = useState<Status>('idle');
@@ -179,7 +159,7 @@ export const NewsletterForm = () => {
 };
 
 export const FloatingNewsletter = () => {
-	const isVisible = useSyncExternalStore(subscribeToNewsletterDismissal, getNewsletterVisibilitySnapshot, getServerNewsletterVisibilitySnapshot);
+	const [isVisible, setIsVisible] = useState(true);
 	const { t } = useTranslation();
 
 	if (!isVisible) {
@@ -189,7 +169,7 @@ export const FloatingNewsletter = () => {
 	return (
 		<div aria-live="polite" className="nectar-floating-newsletter is-visible" id="floating-newsletter">
 			<div className="nectar-floating-newsletter__inner">
-				<button aria-label={t('forms.newsletter.close')} className="nectar-floating-newsletter__close" type="button" onClick={rememberNewsletterDismissal}>
+				<button aria-label={t('forms.newsletter.close')} className="nectar-floating-newsletter__close" type="button" onClick={() => setIsVisible(false)}>
 					×
 				</button>
 				<span className="nectar-floating-newsletter__eyebrow">{t('forms.newsletter.eyebrow')}</span>
