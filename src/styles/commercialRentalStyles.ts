@@ -63,11 +63,11 @@ export const commercialRentalStyles = `
 .cr-section-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:15px}
 .cr-section-heading h2,.cr-activities h2{margin:0;font:400 clamp(28px,3vw,38px)/1.1 Georgia,'Times New Roman',serif;letter-spacing:-.025em;color:#332820}
 .cr-carousel-shell{position:relative}
-.cr-carousel-arrow{position:absolute;z-index:4;top:50%;width:50px;height:50px;display:grid;place-items:center;padding:0;border:1px solid var(--cr-border);border-radius:50%;background:rgba(255,253,250,.96);color:var(--cr-brown);box-shadow:0 12px 30px rgba(47,32,23,.18);cursor:pointer;transform:translateY(-50%);transition:background .2s,color .2s,box-shadow .2s}
+.cr-carousel-arrow{position:absolute;z-index:4;top:50%;width:64px;height:64px;display:grid;place-items:center;padding:0;border:1px solid var(--cr-border);border-radius:50%;background:rgba(255,253,250,.96);color:var(--cr-brown);box-shadow:0 12px 30px rgba(47,32,23,.18);cursor:pointer;transform:translateY(-50%);transition:background .2s,color .2s,box-shadow .2s}
 .cr-carousel-arrow--left{left:-18px}
 .cr-carousel-arrow--right{right:-18px}
 .cr-carousel-arrow:hover{background:var(--cr-brown);color:#fff;box-shadow:0 14px 34px rgba(47,32,23,.24)}
-.cr-carousel-arrow svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cr-carousel-arrow svg{width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .cr-gallery__footer>div:last-child button{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--cr-border);border-radius:50%;background:#fffdfa;color:var(--cr-brown);cursor:pointer;transition:background .2s,color .2s}
 .cr-gallery__footer>div:last-child button:hover{background:var(--cr-brown);color:#fff}
 .cr-gallery__footer svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -148,7 +148,7 @@ html[dir='rtl'] .cr-filter select{background-position:left 4px center;padding-le
   .cr-features{grid-template-columns:1fr}.cr-feature{min-height:auto}
   .cr-filters{grid-template-columns:1fr;padding:13px}.cr-filter-button{grid-column:auto;min-height:50px}
   .cr-section-heading{align-items:flex-end}.cr-section-heading h2{font-size:29px}
-  .cr-carousel-arrow{width:44px;height:44px}
+  .cr-carousel-arrow{width:56px;height:56px}
   .cr-carousel-arrow--left{left:-7px}.cr-carousel-arrow--right{right:-7px}
   .cr-property-card{flex-basis:88%}.cr-property-card__image-wrap{height:210px}
   .cr-property-card__actions{grid-template-columns:1fr}.cr-details-button,.cr-whatsapp-button{min-height:46px}
