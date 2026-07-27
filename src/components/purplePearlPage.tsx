@@ -1,6 +1,6 @@
 'use client';
 
-import { PurplePearlNewsletterForm, PurplePearlVisitForm } from '@/components/forms';
+import { FloatingNewsletter, PurplePearlVisitForm } from '@/components/forms';
 import { PurpleHeader, PurplePearlFooter, StyleBlock } from '@/components/common';
 import { PurplePlans } from '@/components/purplePlans';
 import { useTranslation } from '@/i18n/client';
@@ -119,21 +119,6 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 						</div>
 					</div>
 				</section>
-				<section className="pp-section pp-newsletter-section" id="newsletter">
-					<div className="pp-container">
-						<div className="pp-newsletter">
-							<div className="pp-newsletter__copy">
-								<p className="pp-section-kicker">{t('purple.newsletterKicker')}</p>
-								<h2>{t('purple.newsletterTitle')}</h2>
-								<p>{t('purple.newsletterCopy')}</p>
-							</div>
-							<div className="pp-newsletter__action">
-								<PurplePearlNewsletterForm />
-								<p className="pp-newsletter__privacy">{t('purple.newsletterPrivacy')}</p>
-							</div>
-						</div>
-					</div>
-				</section>
 				<section className="pp-section pp-section--compact" id="visite">
 					<div className="pp-container">
 						<h2 className="pp-title-line">{t('purple.visit')}</h2>
@@ -144,6 +129,7 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 				</section>
 			</main>
 			<PurplePearlFooter contact={contact} />
+			<FloatingNewsletter variant="purple" />
 		</>
 	);
 };

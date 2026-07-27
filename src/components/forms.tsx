@@ -127,7 +127,7 @@ export const ContactForm = () => {
 	);
 };
 
-export const NewsletterForm = () => {
+export const NewsletterForm = ({ source = 'home-floating' }: { source?: string }) => {
 	const [status, setStatus] = useState<Status>('idle');
 	const { t } = useTranslation();
 
@@ -138,7 +138,7 @@ export const NewsletterForm = () => {
 		try {
 			await postWebsiteForm('newsletter', {
 				email: formValue(form, 'email'),
-				source: 'home-floating',
+				source,
 			});
 			form.reset();
 			setStatus('success');
@@ -158,51 +158,7 @@ export const NewsletterForm = () => {
 	);
 };
 
-export const PurplePearlNewsletterForm = () => {
-	const [status, setStatus] = useState<Status>('idle');
-	const { t } = useTranslation();
-
-	const submit = async (event: FormEvent<HTMLFormElement>) => {
-		event.preventDefault();
-		const form = event.currentTarget;
-		setStatus('sending');
-		try {
-			await postWebsiteForm('newsletter', {
-				email: formValue(form, 'email'),
-				source: 'purple-pearl',
-			});
-			form.reset();
-			setStatus('success');
-		} catch {
-			setStatus('error');
-		}
-	};
-
-	return (
-		<form className="pp-newsletter__form" data-recipient-email={newsletterEmail} onSubmit={submit}>
-			<label className="pp-newsletter__label" htmlFor="purple-pearl-newsletter-email">
-				{t('forms.newsletter.placeholder')}
-			</label>
-			<div className="pp-newsletter__field">
-				<input
-					aria-label={t('forms.newsletter.placeholder')}
-					className="pp-newsletter__input"
-					id="purple-pearl-newsletter-email"
-					name="email"
-					placeholder={t('forms.newsletter.placeholder')}
-					type="email"
-					required
-				/>
-				<button className="pp-newsletter__submit" disabled={status === 'sending'} type="submit">
-					{t('forms.newsletter.submit')}
-				</button>
-			</div>
-			{status !== 'idle' ? <p className={status === 'error' ? 'form-status is-error' : 'form-status'}>{t(`forms.status.${status}`)}</p> : null}
-		</form>
-	);
-};
-
-export const FloatingNewsletter = () => {
+export const FloatingNewsletter = ({ variant = 'default' }: { variant?: 'default' | 'purple' }) => {
 	const [isVisible, setIsVisible] = useState(true);
 	const { t } = useTranslation();
 
@@ -211,7 +167,11 @@ export const FloatingNewsletter = () => {
 	}
 
 	return (
-		<div aria-live="polite" className="nectar-floating-newsletter is-visible" id="floating-newsletter">
+		<div
+			aria-live="polite"
+			className={`nectar-floating-newsletter is-visible${variant === 'purple' ? ' nectar-floating-newsletter--purple' : ''}`}
+			id="floating-newsletter"
+		>
 			<div className="nectar-floating-newsletter__inner">
 				<button aria-label={t('forms.newsletter.close')} className="nectar-floating-newsletter__close" type="button" onClick={() => setIsVisible(false)}>
 					×
@@ -219,7 +179,7 @@ export const FloatingNewsletter = () => {
 				<span className="nectar-floating-newsletter__eyebrow">{t('forms.newsletter.eyebrow')}</span>
 				<h3 className="nectar-floating-newsletter__title">{t('forms.newsletter.title')}</h3>
 				<p className="nectar-floating-newsletter__text">{t('forms.newsletter.copy')}</p>
-				<NewsletterForm />
+				<NewsletterForm source={variant === 'purple' ? 'purple-pearl' : 'home-floating'} />
 				<p className="nectar-floating-newsletter__privacy">
 					<span>{t('forms.newsletter.privacy')}</span>
 				</p>
