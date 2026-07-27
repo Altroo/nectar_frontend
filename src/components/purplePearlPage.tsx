@@ -119,14 +119,6 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 						</div>
 					</div>
 				</section>
-				<section className="pp-section pp-section--compact" id="visite">
-					<div className="pp-container">
-						<h2 className="pp-title-line">{t('purple.visit')}</h2>
-						<div className="pp-card pp-form-card">
-							<PurplePearlVisitForm />
-						</div>
-					</div>
-				</section>
 				<section className="pp-section pp-newsletter-section" id="newsletter">
 					<div className="pp-container">
 						<div className="pp-newsletter">
@@ -139,6 +131,14 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 								<PurplePearlNewsletterForm />
 								<p className="pp-newsletter__privacy">{t('purple.newsletterPrivacy')}</p>
 							</div>
+						</div>
+					</div>
+				</section>
+				<section className="pp-section pp-section--compact" id="visite">
+					<div className="pp-container">
+						<h2 className="pp-title-line">{t('purple.visit')}</h2>
+						<div className="pp-card pp-form-card">
+							<PurplePearlVisitForm />
 						</div>
 					</div>
 				</section>
