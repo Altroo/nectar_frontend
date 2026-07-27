@@ -158,6 +158,50 @@ export const NewsletterForm = () => {
 	);
 };
 
+export const PurplePearlNewsletterForm = () => {
+	const [status, setStatus] = useState<Status>('idle');
+	const { t } = useTranslation();
+
+	const submit = async (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		const form = event.currentTarget;
+		setStatus('sending');
+		try {
+			await postWebsiteForm('newsletter', {
+				email: formValue(form, 'email'),
+				source: 'purple-pearl',
+			});
+			form.reset();
+			setStatus('success');
+		} catch {
+			setStatus('error');
+		}
+	};
+
+	return (
+		<form className="pp-newsletter__form" data-recipient-email={newsletterEmail} onSubmit={submit}>
+			<label className="pp-newsletter__label" htmlFor="purple-pearl-newsletter-email">
+				{t('forms.newsletter.placeholder')}
+			</label>
+			<div className="pp-newsletter__field">
+				<input
+					aria-label={t('forms.newsletter.placeholder')}
+					className="pp-newsletter__input"
+					id="purple-pearl-newsletter-email"
+					name="email"
+					placeholder={t('forms.newsletter.placeholder')}
+					type="email"
+					required
+				/>
+				<button className="pp-newsletter__submit" disabled={status === 'sending'} type="submit">
+					{t('forms.newsletter.submit')}
+				</button>
+			</div>
+			{status !== 'idle' ? <p className={status === 'error' ? 'form-status is-error' : 'form-status'}>{t(`forms.status.${status}`)}</p> : null}
+		</form>
+	);
+};
+
 export const FloatingNewsletter = () => {
 	const [isVisible, setIsVisible] = useState(true);
 	const { t } = useTranslation();

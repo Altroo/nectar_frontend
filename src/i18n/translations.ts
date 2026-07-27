@@ -418,6 +418,10 @@ export const translations = {
 			videoIntro: 'Découvrez Purple Pearl, une nouvelle promotion immobilière située à Al Aouama, Tanger.',
 			videoDescription: 'Le projet propose des appartements modernes et lumineux ainsi que des magasins à vendre, avec des espaces fonctionnels pensés pour le confort du quotidien. Grâce à son architecture contemporaine et à son emplacement stratégique à proximité des principales commodités, Purple Pearl représente une belle opportunité pour habiter ou investir à Tanger.',
 			visit: 'Planifier une visite',
+			newsletterKicker: 'Newsletter Purple Pearl',
+			newsletterTitle: 'Suivez l’actualité du projet',
+			newsletterCopy: 'Recevez en avant-première les disponibilités, l’avancement du projet et les informations importantes de Purple Pearl.',
+			newsletterPrivacy: 'Votre adresse e-mail reste confidentielle.',
 			proximityWalk: [
 				['Commerces de proximité', '2–5 min'],
 				['Cafés & Restaurants', '3–5 min'],
@@ -762,6 +766,10 @@ export const translations = {
 			videoIntro: 'اكتشف Purple Pearl، مشروعًا عقاريًا جديدًا يقع في العوامة، طنجة.',
 			videoDescription: 'يقدم المشروع شققًا عصرية ومضيئة، بالإضافة إلى محلات تجارية للبيع، مع مساحات عملية مصممة لراحة الحياة اليومية. وبفضل هندسته المعمارية المعاصرة وموقعه الاستراتيجي بالقرب من أهم المرافق، يمثل Purple Pearl فرصة مميزة للسكن أو الاستثمار في طنجة.',
 			visit: 'حجز زيارة',
+			newsletterKicker: 'النشرة الإخبارية لـ Purple Pearl',
+			newsletterTitle: 'تابع آخر مستجدات المشروع',
+			newsletterCopy: 'توصل قبل الجميع بآخر الوحدات المتاحة وتقدم الأشغال وأهم أخبار مشروع Purple Pearl.',
+			newsletterPrivacy: 'يبقى بريدكم الإلكتروني سريًا.',
 			proximityWalk: [
 				['محلات قريبة', '2–5 دقائق'],
 				['مقاهي ومطاعم', '3–5 دقائق'],
@@ -1106,6 +1114,10 @@ export const translations = {
 			videoIntro: 'Discover Purple Pearl, a new property development located in Al Aouama, Tangier.',
 			videoDescription: 'The project offers modern, bright apartments as well as shops for sale, with functional spaces designed for everyday comfort. With its contemporary architecture and strategic location close to key amenities, Purple Pearl is an excellent opportunity to live or invest in Tangier.',
 			visit: 'Schedule a visit',
+			newsletterKicker: 'Purple Pearl newsletter',
+			newsletterTitle: 'Follow the project’s latest news',
+			newsletterCopy: 'Be the first to receive availability updates, construction progress and important Purple Pearl news.',
+			newsletterPrivacy: 'Your email address remains confidential.',
 			proximityWalk: [
 				['Local shops', '2–5 min'],
 				['Cafés & restaurants', '3–5 min'],
@@ -1450,6 +1462,10 @@ export const translations = {
 			videoIntro: 'Descubra Purple Pearl, una nueva promoción inmobiliaria situada en Al Aouama, Tánger.',
 			videoDescription: 'El proyecto ofrece apartamentos modernos y luminosos, además de locales en venta, con espacios funcionales pensados para el confort diario. Gracias a su arquitectura contemporánea y a su ubicación estratégica cerca de los principales servicios, Purple Pearl representa una excelente oportunidad para vivir o invertir en Tánger.',
 			visit: 'Planificar una visita',
+			newsletterKicker: 'Newsletter Purple Pearl',
+			newsletterTitle: 'Siga las novedades del proyecto',
+			newsletterCopy: 'Reciba en primicia las disponibilidades, el avance de las obras y las noticias importantes de Purple Pearl.',
+			newsletterPrivacy: 'Su correo electrónico permanecerá confidencial.',
 			proximityWalk: [
 				['Comercios de proximidad', '2–5 min'],
 				['Cafés y restaurantes', '3–5 min'],

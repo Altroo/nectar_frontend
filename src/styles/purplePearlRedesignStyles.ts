@@ -802,6 +802,151 @@ export const purplePearlRedesignStyles = `
   color:#9f3131;
 }
 
+.pp-newsletter-section{
+  padding-top:30px;
+  padding-bottom:76px;
+}
+.pp-newsletter{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(360px,.82fr);
+  align-items:center;
+  gap:clamp(42px,6vw,82px);
+  padding:clamp(42px,5.4vw,72px);
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:var(--pp-radius);
+  background:
+    radial-gradient(circle at 92% 8%,rgba(255,255,255,.18),transparent 30%),
+    linear-gradient(135deg,#2b103f 0%,#583184 58%,#8761bd 115%);
+  box-shadow:0 28px 80px rgba(49,22,79,.24);
+  color:#fff;
+}
+.pp-newsletter:before,
+.pp-newsletter:after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;
+  pointer-events:none;
+}
+.pp-newsletter:before{
+  top:-160px;
+  right:-120px;
+  width:360px;
+  height:360px;
+}
+.pp-newsletter:after{
+  bottom:-190px;
+  left:32%;
+  width:280px;
+  height:280px;
+}
+.pp-newsletter__copy{
+  min-width:0;
+}
+.pp-newsletter__copy .pp-section-kicker{
+  margin-bottom:18px;
+  color:#ead6ad;
+}
+.pp-newsletter__copy h2{
+  max-width:620px;
+  margin:0 0 18px;
+  color:#fff;
+  font-family:var(--pp-font-display);
+  font-size:clamp(38px,4.2vw,58px);
+  font-weight:400;
+  line-height:1.04;
+}
+.pp-newsletter__copy > p:last-child{
+  max-width:590px;
+  margin:0;
+  color:rgba(255,255,255,.78);
+  font-size:16px;
+  line-height:1.75;
+}
+.pp-newsletter__action{
+  min-width:0;
+}
+.pp-newsletter__form{
+  width:100%;
+}
+.pp-newsletter__label{
+  display:block;
+  margin:0 0 10px;
+  color:rgba(255,255,255,.72);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.pp-newsletter__field{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:10px;
+  padding:8px;
+  border:1px solid rgba(255,255,255,.26);
+  border-radius:999px;
+  background:rgba(255,255,255,.10);
+  backdrop-filter:blur(10px);
+}
+.pp-newsletter__input{
+  width:100%;
+  min-width:0;
+  min-height:54px;
+  padding:0 20px;
+  border:0;
+  background:transparent;
+  color:#fff;
+  font:inherit;
+  font-size:14px;
+  outline:none;
+}
+.pp-newsletter__input::placeholder{
+  color:rgba(255,255,255,.66);
+  letter-spacing:.08em;
+}
+.pp-newsletter__submit{
+  min-width:150px;
+  min-height:54px;
+  padding:0 24px;
+  border:0;
+  border-radius:999px;
+  background:#fff;
+  color:var(--pp-plum);
+  font:inherit;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:transform .22s ease,box-shadow .22s ease,opacity .22s ease;
+}
+.pp-newsletter__submit:hover:not(:disabled){
+  transform:translateY(-1px);
+  box-shadow:0 10px 24px rgba(30,11,47,.22);
+}
+.pp-newsletter__submit:disabled{
+  cursor:wait;
+  opacity:.68;
+}
+.pp-newsletter__form .form-status{
+  margin:12px 8px 0;
+  color:#fff;
+  font-size:13px;
+}
+.pp-newsletter__form .form-status.is-error{
+  color:#ffe0df;
+}
+.pp-newsletter__privacy{
+  margin:12px 8px 0;
+  color:rgba(255,255,255,.62);
+  font-size:12px;
+  line-height:1.5;
+}
+
 .nectar-linked-footer--purple{
   width:100%!important;
   max-width:none!important;
@@ -820,7 +965,8 @@ html[dir="rtl"] .pp-card-copy,
 html[dir="rtl"] .pp-info-card,
 html[dir="rtl"] .pp-proximity,
 html[dir="rtl"] .pp-near-card,
-html[dir="rtl"] .pp-form-card{
+html[dir="rtl"] .pp-form-card,
+html[dir="rtl"] .pp-newsletter{
   text-align:right!important;
 }
 html[dir="rtl"] .pp-eyebrow:after,
@@ -1014,6 +1160,10 @@ html[dir="rtl"] .pp-hero-text:before{
   .pp-video-grid{
     grid-template-columns:1fr;
   }
+  .pp-newsletter{
+    grid-template-columns:1fr;
+    gap:34px;
+  }
   .pp-video-card{
     width:min(100%,420px);
     justify-self:center;
@@ -1065,6 +1215,30 @@ html[dir="rtl"] .pp-hero-text:before{
   .pp-proximity,
   .pp-form-card{
     padding:24px;
+  }
+  .pp-newsletter-section{
+    padding-top:24px;
+    padding-bottom:48px;
+  }
+  .pp-newsletter{
+    gap:28px;
+    padding:32px 24px;
+    border-radius:22px;
+  }
+  .pp-newsletter__copy h2{
+    font-size:38px;
+  }
+  .pp-newsletter__field{
+    grid-template-columns:1fr;
+    padding:8px;
+    border-radius:20px;
+  }
+  .pp-newsletter__input{
+    min-height:52px;
+  }
+  .pp-newsletter__submit{
+    width:100%;
+    min-width:0;
   }
   .pp-stat{
     padding:11px 13px;
