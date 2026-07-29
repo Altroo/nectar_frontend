@@ -1,11 +1,10 @@
 'use client';
 
 import { FloatingNewsletter, PurplePearlVisitForm } from '@/components/forms';
-import { PurpleHeader, PurplePearlFooter, StyleBlock } from '@/components/common';
+import { PurpleHeader, PurplePearlFooter } from '@/components/common';
 import { PurplePlans } from '@/components/purplePlans';
 import { useTranslation } from '@/i18n/client';
 import { translations } from '@/i18n/translations';
-import { purplePearlRedesignStyles } from '@/styles/purplePearlRedesignStyles';
 import type { PurplePearlPlan, SiteContact } from '@/types/site';
 
 const purplePearlMapUrl = 'https://www.google.com/maps?q=35.7320958,-5.8016657&entry=gps';
@@ -20,7 +19,6 @@ export const PurplePearlPage = ({ plans, contact }: { plans: PurplePearlPlan[]; 
 	return (
 		<>
 			<PurpleHeader />
-			<StyleBlock css={purplePearlRedesignStyles} />
 			<main className="pp-redesign">
 				<section className="pp-hero" aria-label="Hero Purple Pearl">
 					<div className="pp-container pp-hero-grid">

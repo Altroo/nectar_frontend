@@ -1,55 +1,10 @@
 'use client';
 
-import { LinkedFooter, MainHeader, StyleBlock } from '@/components/common';
+import { LinkedFooter, MainHeader } from '@/components/common';
 import { useTranslation } from '@/i18n/client';
 import { localizeGuidePlace } from '@/i18n/translations';
 import type { GuidePlace, SiteContact } from '@/types/site';
 
-const guideFeatureStyles = `
-.guide-feature{
-	margin-bottom:34px;
-	background:#fff;
-	border:1px solid rgba(73,52,37,.12);
-	box-shadow:0 20px 54px rgba(47,32,23,.08);
-	overflow:hidden;
-}
-.guide-feature__photo{
-	min-height:430px;
-	background-size:cover;
-	background-position:center;
-	background-color:#2F2118;
-}
-.guide-feature__content{
-	padding:28px 32px 32px;
-}
-.guide-feature__content h3{
-	margin:0 0 12px;
-	font-family:Georgia,serif;
-	font-size:34px;
-	line-height:1;
-	font-weight:400;
-	letter-spacing:-.035em;
-	color:#493425;
-}
-.guide-feature__content p{
-	margin:0;
-	max-width:820px;
-	color:#8D7660;
-	line-height:1.65;
-	font-size:16px;
-}
-@media(max-width:650px){
-	.guide-feature__photo{
-		min-height:280px;
-	}
-	.guide-feature__content{
-		padding:24px;
-	}
-	.guide-feature__content h3{
-		font-size:30px;
-	}
-}
-`;
 
 export const GuidePage = ({ places, contact }: { places: GuidePlace[]; contact: SiteContact }) => {
 	const { language, t } = useTranslation();
@@ -63,7 +18,6 @@ export const GuidePage = ({ places, contact }: { places: GuidePlace[]; contact: 
 		.map((place) => localizeGuidePlace(language, place));
 	return (
 		<>
-			<StyleBlock css={guideFeatureStyles} />
 			<MainHeader />
 			<section className="hero">
 				<span>{t('guide.heroKicker')}</span>

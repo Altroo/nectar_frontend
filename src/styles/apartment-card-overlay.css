@@ -1,4 +1,3 @@
-export const apartmentCardOverlayStyles = `
 .apartment-card-image{position:relative}
 .apartment-card-status{
   position:absolute;
@@ -46,4 +45,3 @@ html[dir='rtl'] .apartment-card-favorite{right:auto;left:14px}
   html[dir='rtl'] .apartment-card-status{left:auto;right:13px}
   html[dir='rtl'] .apartment-card-favorite{right:auto;left:11px}
 }
-`;
