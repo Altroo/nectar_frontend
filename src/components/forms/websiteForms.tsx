@@ -1,8 +1,8 @@
 'use client';
 
 import { type FormEvent, useState } from 'react';
-import { useTranslation } from '@/i18n/client';
-import { postWebsiteForm } from '@/utils/api';
+import { useTranslation } from '@/contexts/languageContext';
+import { postWebsiteForm } from '@/utils/websiteApi';
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
 

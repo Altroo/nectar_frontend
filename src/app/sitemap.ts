@@ -1,11 +1,10 @@
 import type { MetadataRoute } from 'next';
-import { fetchSiteContent } from '@/utils/api';
+import { fetchSiteContent } from '@/utils/websiteApi';
+import { getSiteRoot } from '@/utils/routes';
 
 export const dynamic = 'force-dynamic';
 
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nectar.ma').replace(/\/$/, '');
-
-const toUrl = (path: string) => `${siteUrl}${path}`;
+const toUrl = (path: string) => `${getSiteRoot()}${path}`;
 
 const baseRoutes = [
 	{ path: '/', changeFrequency: 'weekly' as const, priority: 1 },

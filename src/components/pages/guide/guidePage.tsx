@@ -1,9 +1,9 @@
 'use client';
 
-import { LinkedFooter, MainHeader } from '@/components/common';
-import { useTranslation } from '@/i18n/client';
-import { localizeGuidePlace } from '@/i18n/translations';
-import type { GuidePlace, SiteContact } from '@/types/site';
+import { LinkedFooter, MainHeader } from '@/components/layouts/siteLayout';
+import { useTranslation } from '@/contexts/languageContext';
+import { localizeGuidePlace } from '@/translations';
+import type { GuidePlace, SiteContact } from '@/types/siteTypes';
 
 
 export const GuidePage = ({ places, contact }: { places: GuidePlace[]; contact: SiteContact }) => {

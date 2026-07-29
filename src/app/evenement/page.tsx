@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { EventPage } from '@/components/eventPage';
-import { generateLocalizedMetadata } from '@/i18n/metadata';
-import { fetchSiteContent } from '@/utils/api';
+import { EventPage } from '@/components/pages/events/eventPage';
+import { generateLocalizedMetadata } from '@/utils/serverTranslations';
+import { fetchSiteContent } from '@/utils/websiteApi';
 import '@/styles/event.css';
 import '@/styles/common.css';
 

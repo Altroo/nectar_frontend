@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { PurplePearlPage } from '@/components/purplePearlPage';
-import { generateLocalizedMetadata } from '@/i18n/metadata';
-import { fetchSiteContent } from '@/utils/api';
+import { PurplePearlPage } from '@/components/pages/purplePearl/purplePearlPage';
+import { generateLocalizedMetadata } from '@/utils/serverTranslations';
+import { fetchSiteContent } from '@/utils/websiteApi';
 import '@/styles/common.css';
 import '@/styles/purple-pearl.css';
 

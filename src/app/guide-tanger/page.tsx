@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { GuidePage } from '@/components/guidePage';
-import { generateLocalizedMetadata } from '@/i18n/metadata';
-import { fetchSiteContent } from '@/utils/api';
+import { GuidePage } from '@/components/pages/guide/guidePage';
+import { generateLocalizedMetadata } from '@/utils/serverTranslations';
+import { fetchSiteContent } from '@/utils/websiteApi';
 import '@/styles/guide.css';
 import '@/styles/common.css';
 

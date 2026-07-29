@@ -1,9 +1,9 @@
 'use client';
 
-import { LinkedFooter, MainHeader } from '@/components/common';
-import { useTranslation } from '@/i18n/client';
-import { localizeEventIdea } from '@/i18n/translations';
-import type { EventIdea, SiteContact } from '@/types/site';
+import { LinkedFooter, MainHeader } from '@/components/layouts/siteLayout';
+import { useTranslation } from '@/contexts/languageContext';
+import { localizeEventIdea } from '@/translations';
+import type { EventIdea, SiteContact } from '@/types/siteTypes';
 
 export const EventPage = ({ ideas, contact }: { ideas: EventIdea[]; contact: SiteContact }) => {
 	const { language, t } = useTranslation();

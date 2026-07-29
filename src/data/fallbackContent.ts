@@ -1,4 +1,4 @@
-import type { EventIdea, GuidePlace, Property, PropertyPhoto, PurplePearlPlan, SiteContent, Testimonial } from '@/types/site';
+import type { EventIdea, GuidePlace, Property, PropertyPhoto, PurplePearlPlan, SiteContent, Testimonial } from '@/types/siteTypes';
 
 const cityCenterPhotos: PropertyPhoto[] = [
 	['Salon', '/assets/city-center/city-center-salon-large.jpg', "Salon de l'appartement City Center"],

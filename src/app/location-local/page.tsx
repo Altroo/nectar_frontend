@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { CommercialRentalPage } from '@/components/commercialRentalPage';
-import { generateLocalizedMetadata } from '@/i18n/metadata';
-import { fetchSiteContent } from '@/utils/api';
+import { CommercialRentalPage } from '@/components/pages/listings/commercialRentalPage';
+import { generateLocalizedMetadata } from '@/utils/serverTranslations';
+import { fetchSiteContent } from '@/utils/websiteApi';
 import '@/styles/commercial-rental.css';
 import '@/styles/common.css';
 

@@ -1,14 +1,13 @@
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import type { ReactNode } from 'react';
-import { I18nProvider } from '@/i18n/client';
-import { defaultLanguage, isLanguageCode, languageCookieName, languageDirection } from '@/i18n/translations';
+import { I18nProvider } from '@/contexts/languageContext';
+import { defaultLanguage, isLanguageCode, languageCookieName, languageDirection } from '@/translations';
+import { getSiteRoot } from '@/utils/routes';
 import './globals.css';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nectar.ma';
-
 export const metadata: Metadata = {
-	metadataBase: new URL(siteUrl),
+	metadataBase: new URL(getSiteRoot()),
 	title: 'Nectar immobilière',
 	description: 'Agence immobilière à Tanger spécialisée dans la vente, la location et la promotion immobilière.',
 	icons: {

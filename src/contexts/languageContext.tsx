@@ -2,7 +2,7 @@
 
 import { createContext, type ReactNode, useContext, useEffect, useSyncExternalStore } from 'react';
 import { usePathname } from 'next/navigation';
-import { defaultLanguage, isLanguageCode, languageCookieName, languageDirection, languages, localizedPageTitle, type LanguageCode, translate } from './translations';
+import { defaultLanguage, isLanguageCode, languageCookieName, languageDirection, languages, localizedPageTitle, type LanguageCode, translate } from '@/translations';
 
 const languageStorageKey = languageCookieName;
 const languageChangeEvent = 'nectar-language-change';

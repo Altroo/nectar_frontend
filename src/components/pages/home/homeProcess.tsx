@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { useTranslation } from '@/i18n/client';
+import { useTranslation } from '@/contexts/languageContext';
 
 type ProcessPanelKey = 'vente' | 'location';
 

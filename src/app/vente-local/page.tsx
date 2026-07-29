@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { ListingPage } from '@/components/listingPage';
-import { generateLocalizedMetadata } from '@/i18n/metadata';
-import { fetchSiteContent } from '@/utils/api';
+import { ListingPage } from '@/components/pages/listings/listingPage';
+import { generateLocalizedMetadata } from '@/utils/serverTranslations';
+import { fetchSiteContent } from '@/utils/websiteApi';
 import '@/styles/listing.css';
 import '@/styles/common.css';
 

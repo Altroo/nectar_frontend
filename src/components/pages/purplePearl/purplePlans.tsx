@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslation } from '@/i18n/client';
-import { localizePurplePlan } from '@/i18n/translations';
-import type { PurplePearlPlan } from '@/types/site';
+import { useTranslation } from '@/contexts/languageContext';
+import { localizePurplePlan } from '@/translations';
+import type { PurplePearlPlan } from '@/types/siteTypes';
 
 const hiddenPlanKeys = new Set(['plan-rdc-haut-app-mezzanine', 'plans-etages-1-2-3-4', 'plan-1er-retrait', 'plan-2eme-retrait']);
 

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
-import { defaultLanguage, isLanguageCode, languageCookieName, localizedPageTitle } from './translations';
+import { defaultLanguage, isLanguageCode, languageCookieName, localizedPageTitle } from '@/translations';
 
 export const generateLocalizedMetadata = async (pathname: string): Promise<Metadata> => {
 	const cookieStore = await cookies();

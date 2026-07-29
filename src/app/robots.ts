@@ -1,14 +1,13 @@
 import type { MetadataRoute } from 'next';
-
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nectar.ma').replace(/\/$/, '');
+import { getSiteRoot } from '@/utils/routes';
 
 const robots = (): MetadataRoute.Robots => ({
 	rules: {
 		userAgent: '*',
 		allow: '/',
 	},
-	sitemap: `${siteUrl}/sitemap.xml`,
-	host: siteUrl,
+	sitemap: `${getSiteRoot()}/sitemap.xml`,
+	host: getSiteRoot(),
 });
 
 export default robots;

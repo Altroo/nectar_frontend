@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import type { SiteContact } from '@/types/site';
-import { useTranslation, setLanguage } from '@/i18n/client';
-import { localizeContact, type LanguageCode } from '@/i18n/translations';
+import { setLanguage, useTranslation } from '@/contexts/languageContext';
+import { localizeContact, type LanguageCode } from '@/translations';
+import type { SiteContact } from '@/types/siteTypes';
 
 export const socialLinks = {
 	nectarInstagram: 'https://www.instagram.com/nectar.immobiliere/',

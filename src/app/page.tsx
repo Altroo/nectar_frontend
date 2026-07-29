@@ -1,5 +1,5 @@
-import { HomePage } from '@/components/homePage';
-import { fetchSiteContent } from '@/utils/api';
+import { HomePage } from '@/components/pages/home/homePage';
+import { fetchSiteContent } from '@/utils/websiteApi';
 import '@/styles/home.css';
 import '@/styles/common.css';
 

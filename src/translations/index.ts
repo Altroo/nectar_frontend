@@ -1,4 +1,4 @@
-import type { EventIdea, GuidePlace, Property, PropertyPhoto, PurplePearlPlan, SiteContact, Testimonial } from '@/types/site';
+import type { EventIdea, GuidePlace, Property, PropertyPhoto, PurplePearlPlan, SiteContact, Testimonial } from '@/types/siteTypes';
 
 export type LanguageCode = 'fr' | 'ar' | 'en' | 'es';
 

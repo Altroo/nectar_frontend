@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useTranslation } from '@/i18n/client';
-import { localizeProperty } from '@/i18n/translations';
-import type { Property, PropertyType, SiteContact, Transaction } from '@/types/site';
-import { LinkedFooter, MainHeader } from './common';
+import { LinkedFooter, MainHeader } from '@/components/layouts/siteLayout';
+import { useTranslation } from '@/contexts/languageContext';
+import { localizeProperty } from '@/translations';
+import type { Property, PropertyType, SiteContact, Transaction } from '@/types/siteTypes';
 
 type ListingPageProps = {
 	transaction: Transaction;

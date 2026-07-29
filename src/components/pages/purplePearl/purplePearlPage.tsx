@@ -1,11 +1,11 @@
 'use client';
 
-import { FloatingNewsletter, PurplePearlVisitForm } from '@/components/forms';
-import { PurpleHeader, PurplePearlFooter } from '@/components/common';
-import { PurplePlans } from '@/components/purplePlans';
-import { useTranslation } from '@/i18n/client';
-import { translations } from '@/i18n/translations';
-import type { PurplePearlPlan, SiteContact } from '@/types/site';
+import { FloatingNewsletter, PurplePearlVisitForm } from '@/components/forms/websiteForms';
+import { PurpleHeader, PurplePearlFooter } from '@/components/layouts/siteLayout';
+import { PurplePlans } from '@/components/pages/purplePearl/purplePlans';
+import { useTranslation } from '@/contexts/languageContext';
+import { translations } from '@/translations';
+import type { PurplePearlPlan, SiteContact } from '@/types/siteTypes';
 
 const purplePearlMapUrl = 'https://www.google.com/maps?q=35.7320958,-5.8016657&entry=gps';
 const purplePearlMapEmbedUrl = 'https://www.google.com/maps?q=35.7320958,-5.8016657&output=embed';

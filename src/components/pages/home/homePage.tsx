@@ -1,12 +1,12 @@
 'use client';
 
 import type { CSSProperties } from 'react';
-import { ContactForm, FloatingNewsletter } from '@/components/forms';
-import { LinkedFooter, MainHeader } from '@/components/common';
-import { HomeProcessSection } from '@/components/homeProcess';
-import { useTranslation } from '@/i18n/client';
-import { localizeContact, localizeGuidePlace, localizeTestimonial } from '@/i18n/translations';
-import type { GuidePlace, SiteContent, Testimonial } from '@/types/site';
+import { ContactForm, FloatingNewsletter } from '@/components/forms/websiteForms';
+import { LinkedFooter, MainHeader } from '@/components/layouts/siteLayout';
+import { HomeProcessSection } from '@/components/pages/home/homeProcess';
+import { useTranslation } from '@/contexts/languageContext';
+import { localizeContact, localizeGuidePlace, localizeTestimonial } from '@/translations';
+import type { GuidePlace, SiteContent, Testimonial } from '@/types/siteTypes';
 
 
 const contactEmail = 'contact@nectar.ma';
