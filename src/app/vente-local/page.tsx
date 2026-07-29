@@ -1,10 +1,11 @@
+import type { Metadata } from 'next';
 import { ListingPage } from '@/components/listingPage';
 import { generateLocalizedMetadata } from '@/i18n/metadata';
 import { fetchSiteContent } from '@/utils/api';
 import '@/styles/listing.css';
 import '@/styles/common.css';
 
-export const generateMetadata = () => generateLocalizedMetadata('/vente-local');
+export const generateMetadata = (): Promise<Metadata> => generateLocalizedMetadata('/vente-local');
 
 const Page = async () => {
 	const content = await fetchSiteContent();
