@@ -1185,6 +1185,10 @@ html[dir="rtl"] .pp-hero-text:before{
     transform:translateY(0)!important;
     visibility:visible!important;
   }
+  .site-header .main-nav a,
+  .site-header .main-nav .nectar-dropdown-btn{
+    box-sizing:border-box!important;
+  }
   .site-header .main-nav a{
     width:100%!important;
     height:auto!important;
