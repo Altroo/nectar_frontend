@@ -1237,7 +1237,6 @@ html[dir="rtl"] .pp-hero-text:before{
     visibility:visible!important;
   }
   .site-header .main-nav .nectar-dropdown-menu a{
-    min-height:0!important;
     padding:12px 4px!important;
     border-bottom:1px solid rgba(255,255,255,.08)!important;
     background:transparent!important;
@@ -1275,6 +1274,9 @@ html[dir="rtl"] .pp-hero-text:before{
   }
   .site-header .lang-switch:before{
     display:none!important;
+  }
+  .site-header .lang-switch button{
+    color:#fff!important;
   }
   .site-header .lang-switch button.is-active,
   .site-header .lang-switch button.active{
