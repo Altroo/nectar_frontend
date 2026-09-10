@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { LanguageSwitcher, LinkedFooter, MainHeader } from '@/components/layouts/siteLayout';
+import { LanguageSwitcher, LinkedFooter, MainHeader, PurpleHeader } from '@/components/layouts/siteLayout';
 import { I18nProvider } from '@/contexts/languageContext';
 import { fallbackContent } from '@/data/fallbackContent';
 import { languageCookieName } from '@/translations';
@@ -48,6 +48,23 @@ describe('site layout', () => {
 		);
 		const toggle = screen.getByRole('button', { name: 'Ouvrir le menu' });
 
+		await user.click(toggle);
+		expect(toggle).toHaveAttribute('aria-expanded', 'true');
+		await user.click(screen.getByRole('link', { name: 'Accueil' }));
+		expect(toggle).toHaveAttribute('aria-expanded', 'false');
+	});
+
+	it('opens the Purple Pearl mobile navigation with its language switcher inside the menu', async () => {
+		const user = userEvent.setup();
+		render(
+			<I18nProvider initialLanguage="fr">
+				<PurpleHeader />
+			</I18nProvider>,
+		);
+		const toggle = screen.getByRole('button', { name: 'Ouvrir le menu' });
+		const menu = screen.getByRole('navigation', { name: 'Navigation principale' });
+
+		expect(menu).toContainElement(screen.getByRole('button', { name: 'FR' }));
 		await user.click(toggle);
 		expect(toggle).toHaveAttribute('aria-expanded', 'true');
 		await user.click(screen.getByRole('link', { name: 'Accueil' }));

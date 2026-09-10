@@ -202,8 +202,8 @@ export const PurpleHeader = () => {
 						<a href="/#contact" onClick={closeMobileMenu}>
 							{t('nav.contact')}
 						</a>
+						<LanguageSwitcher className="lang-switch" />
 					</nav>
-					<LanguageSwitcher className="lang-switch" />
 					<button aria-controls="purple-main-menu" aria-expanded={mobileOpen} aria-label={t('nav.openMenu')} className="purple-mobile-toggle" type="button" onClick={() => setMobileOpen((value) => !value)}>
 						<span />
 						<span />
