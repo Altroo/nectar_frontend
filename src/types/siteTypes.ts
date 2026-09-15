@@ -12,6 +12,7 @@ export type Property = {
 	id: number;
 	transaction: Transaction;
 	property_type: PropertyType;
+	is_sold: boolean;
 	title: string;
 	tag: string;
 	residence: string;

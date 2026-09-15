@@ -13,6 +13,7 @@
   line-height:1;
   box-shadow:0 5px 16px rgba(55,36,23,.14);
 }
+.apartment-card-status.is-sold{background:rgba(116,39,33,.97)}
 .apartment-card-favorite{
   position:absolute;
   top:14px;

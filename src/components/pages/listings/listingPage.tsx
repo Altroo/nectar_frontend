@@ -270,7 +270,7 @@ const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Pr
 		}
 		setActivePhotoIndex((activePhotoIndex + 1) % activePhotoCount);
 	};
-	const displayTag = isSaleApartment ? t('listing.tags.apartmentForSale') : isCommercial && property.transaction === 'rent' ? t('listing.tags.commercialForRent') : isCommercial && property.transaction === 'sale' ? t('listing.tags.commercialForSale') : property.tag;
+	const displayTag = property.is_sold && isSaleApartment ? t('listing.tags.apartmentSold') : isSaleApartment ? t('listing.tags.apartmentForSale') : isCommercial && property.transaction === 'rent' ? t('listing.tags.commercialForRent') : isCommercial && property.transaction === 'sale' ? t('listing.tags.commercialForSale') : property.tag;
 	const ctaLabel = property.transaction === 'sale' ? t('listing.requestPrice') : property.transaction === 'rent' ? t('listing.requestAvailability') : t('listing.request');
 
 	return (
@@ -278,7 +278,7 @@ const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Pr
 			<div className={`card-img${isApartmentListing ? ' apartment-card-image' : ''}`} style={cardImage ? { backgroundImage: `linear-gradient(135deg,rgba(73,52,37,.24),rgba(73,52,37,.04)),url('${cardImage}')` } : undefined}>
 				{isApartmentListing ? (
 					<>
-						<span className="apartment-card-status">{t(isSaleApartment ? 'listing.forSale' : 'listing.forRent')}</span>
+						<span className={`apartment-card-status${property.is_sold ? ' is-sold' : ''}`}>{t(property.is_sold ? 'listing.sold' : isSaleApartment ? 'listing.forSale' : 'listing.forRent')}</span>
 						<button
 							className={`apartment-card-favorite${isFavorite ? ' is-favorite' : ''}`}
 							type="button"

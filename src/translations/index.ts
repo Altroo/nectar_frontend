@@ -327,6 +327,7 @@ export const translations = {
 			filter: 'Filtrer',
 			forRent: 'À louer',
 			forSale: 'À vendre',
+			sold: 'Vendu',
 			addFavorite: 'Ajouter aux favoris',
 			removeFavorite: 'Retirer des favoris',
 			apartmentsShown: 'appartements affichés',
@@ -345,6 +346,7 @@ export const translations = {
 			},
 			tags: {
 				apartmentForSale: 'Appartement à vendre',
+				apartmentSold: 'Appartement vendu',
 				commercialForSale: 'Local commercial à vendre',
 				commercialForRent: 'Local commercial à louer',
 			},
@@ -671,6 +673,7 @@ export const translations = {
 			filter: 'تصفية',
 			forRent: 'للكراء',
 			forSale: 'للبيع',
+			sold: 'تم البيع',
 			addFavorite: 'إضافة إلى المفضلة',
 			removeFavorite: 'إزالة من المفضلة',
 			apartmentsShown: 'شقق معروضة',
@@ -689,6 +692,7 @@ export const translations = {
 			},
 			tags: {
 				apartmentForSale: 'شقة للبيع',
+				apartmentSold: 'شقة مباعة',
 				commercialForSale: 'محل تجاري للبيع',
 				commercialForRent: 'محل تجاري للكراء',
 			},
@@ -1015,6 +1019,7 @@ export const translations = {
 			filter: 'Filter',
 			forRent: 'For rent',
 			forSale: 'For sale',
+			sold: 'Sold',
 			addFavorite: 'Add to favorites',
 			removeFavorite: 'Remove from favorites',
 			apartmentsShown: 'apartments shown',
@@ -1033,6 +1038,7 @@ export const translations = {
 			},
 			tags: {
 				apartmentForSale: 'Apartment for sale',
+				apartmentSold: 'Sold apartment',
 				commercialForSale: 'Retail unit for sale',
 				commercialForRent: 'Retail unit for rent',
 			},
@@ -1359,6 +1365,7 @@ export const translations = {
 			filter: 'Filtrar',
 			forRent: 'En alquiler',
 			forSale: 'En venta',
+			sold: 'Vendido',
 			addFavorite: 'Añadir a favoritos',
 			removeFavorite: 'Quitar de favoritos',
 			apartmentsShown: 'apartamentos mostrados',
@@ -1377,6 +1384,7 @@ export const translations = {
 			},
 			tags: {
 				apartmentForSale: 'Apartamento en venta',
+				apartmentSold: 'Apartamento vendido',
 				commercialForSale: 'Local comercial en venta',
 				commercialForRent: 'Local comercial en alquiler',
 			},

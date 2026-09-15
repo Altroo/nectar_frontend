@@ -64,4 +64,27 @@ describe('ListingPage', () => {
 		fireEvent.click(screen.getByRole('button', { name: 'listing.openAlbum' }));
 		expect(screen.getByRole('dialog')).toBeInTheDocument();
 	});
+
+	it('keeps sold apartments visible with clear sold labels', () => {
+		const soldProperty = saleProperties.find((property) => property.is_sold);
+		expect(soldProperty).toBeDefined();
+
+		render(
+			<ListingPage
+				transaction="sale"
+				propertyType="apartment"
+				title="Sale"
+				kicker="Sale kicker"
+				description="Sale description"
+				sectionTitle="Properties"
+				sectionDescription="Available properties"
+				properties={[soldProperty!]}
+				contact={fallbackContent.contact}
+			/>,
+		);
+
+		expect(screen.getByText(soldProperty!.title)).toBeInTheDocument();
+		expect(screen.getByText('listing.sold')).toBeInTheDocument();
+		expect(screen.getByText('listing.tags.apartmentSold')).toBeInTheDocument();
+	});
 });
