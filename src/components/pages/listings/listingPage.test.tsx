@@ -66,9 +66,10 @@ describe('ListingPage', () => {
 		expect(screen.getByRole('dialog')).toBeInTheDocument();
 	});
 
-	it('keeps sold apartment thumbnails visible without album access', () => {
-		const soldProperty = saleProperties.find((property) => property.is_sold);
+	it.each(['HILTON · N°11', 'HILTON · N°13', 'MANDELSON BLOC A · N°47'])('keeps %s thumbnails visible without album access', (title) => {
+		const soldProperty = saleProperties.find((property) => property.title === title);
 		expect(soldProperty).toBeDefined();
+		expect(soldProperty?.is_sold).toBe(true);
 
 		render(
 			<ListingPage

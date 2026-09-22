@@ -199,7 +199,7 @@ const saleApartments: Property[] = [
 		id: index + 1,
 		transaction: 'sale',
 		property_type: 'apartment',
-		is_sold: ['HILTON · N°11', 'MANDELSON BLOC A · N°47'].includes(String(title)),
+		is_sold: ['HILTON · N°11', 'HILTON · N°13', 'MANDELSON BLOC A · N°47'].includes(String(title)),
 		title: String(title),
 		tag: `${district} · Appartement à vendre`,
 		residence: String(residence),
