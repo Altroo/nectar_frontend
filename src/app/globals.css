@@ -219,6 +219,11 @@ html[dir='rtl'] .apartment-rental-video__copy a {
 	width: 100%;
 }
 
+.property-album.is-sold .property-album__open,
+.property-album.is-sold .property-album__thumb {
+	cursor: default;
+}
+
 .property-album-modal {
 	display: grid;
 	inset: 0;

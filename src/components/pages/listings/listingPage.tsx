@@ -250,7 +250,7 @@ const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Pr
 	const isRentalApartment = property.transaction === 'rent' && property.property_type === 'apartment';
 	const isSaleApartment = property.transaction === 'sale' && property.property_type === 'apartment';
 	const isApartmentListing = isRentalApartment || isSaleApartment;
-	const albumPhotos = property.is_sold ? [] : [...(property.photos ?? [])].filter((photo) => photo.image).sort((a, b) => a.sort_order - b.sort_order);
+	const albumPhotos = [...(property.photos ?? [])].filter((photo) => photo.image).sort((a, b) => a.sort_order - b.sort_order);
 	const primaryImage = property.image || albumPhotos[0]?.image || '';
 	const cardImage = primaryImage ? galleryImageVariant(primaryImage, 'card') : '';
 	const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
@@ -322,19 +322,34 @@ const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Pr
 					)}
 				</div>
 				{activePhotoCount ? (
-					<div className="property-album" aria-label={`${t('listing.album')} ${property.title}`}>
-						<button className="property-album__open" type="button" onClick={() => showPhoto(0)} aria-label={t('listing.openAlbum', '', { title: property.title })}>
-							{t('listing.album')}{' '}
-							<span>
-								{activePhotoCount} {activePhotoCount > 1 ? t('listing.photos') : t('listing.photo')}
-							</span>
-						</button>
+					<div className={`property-album${property.is_sold ? ' is-sold' : ''}`} aria-label={`${t('listing.album')} ${property.title}`}>
+						{property.is_sold ? (
+							<div className="property-album__open">
+								{t('listing.album')}{' '}
+								<span>
+									{activePhotoCount} {activePhotoCount > 1 ? t('listing.photos') : t('listing.photo')}
+								</span>
+							</div>
+						) : (
+							<button className="property-album__open" type="button" onClick={() => showPhoto(0)} aria-label={t('listing.openAlbum', '', { title: property.title })}>
+								{t('listing.album')}{' '}
+								<span>
+									{activePhotoCount} {activePhotoCount > 1 ? t('listing.photos') : t('listing.photo')}
+								</span>
+							</button>
+						)}
 						<div className="property-album__thumbs">
-							{albumPhotos.slice(0, 4).map((photo, index) => (
-								<button className="property-album__thumb" type="button" key={photo.id} onClick={() => showPhoto(index)} aria-label={t('listing.viewPhoto', '', { title: photo.title })}>
+							{albumPhotos.slice(0, 4).map((photo, index) =>
+								property.is_sold ? (
+									<span className="property-album__thumb" key={photo.id}>
+										<img src={galleryImageVariant(photo.image, 'thumb')} alt={photo.alt_text || photo.title} loading="lazy" decoding="async" width="180" height="180" />
+									</span>
+								) : (
+									<button className="property-album__thumb" type="button" key={photo.id} onClick={() => showPhoto(index)} aria-label={t('listing.viewPhoto', '', { title: photo.title })}>
 									<img src={galleryImageVariant(photo.image, 'thumb')} alt={photo.alt_text || photo.title} loading="lazy" decoding="async" width="180" height="180" />
-								</button>
-							))}
+									</button>
+								),
+							)}
 						</div>
 					</div>
 				) : null}
@@ -342,7 +357,7 @@ const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Pr
 					{ctaLabel}
 				</a>
 			</div>
-			{activePhoto ? (
+			{!property.is_sold && activePhoto ? (
 				<div className="property-album-modal" role="dialog" aria-modal="true" aria-label={`${t('listing.album')} ${property.title}`}>
 					<button className="property-album-modal__backdrop" type="button" aria-label={t('listing.closeAlbum')} onClick={() => setActivePhotoIndex(null)} />
 					<div className="property-album-modal__window">

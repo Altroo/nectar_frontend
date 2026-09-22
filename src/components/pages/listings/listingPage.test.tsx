@@ -66,7 +66,7 @@ describe('ListingPage', () => {
 		expect(screen.getByRole('dialog')).toBeInTheDocument();
 	});
 
-	it('keeps sold apartments visible with clear sold labels and no album access', () => {
+	it('keeps sold apartment thumbnails visible without album access', () => {
 		const soldProperty = saleProperties.find((property) => property.is_sold);
 		expect(soldProperty).toBeDefined();
 
@@ -87,7 +87,9 @@ describe('ListingPage', () => {
 		expect(screen.getByText(soldProperty!.title)).toBeInTheDocument();
 		expect(screen.getByText('listing.sold')).toBeInTheDocument();
 		expect(screen.getByText('listing.tags.apartmentSold')).toBeInTheDocument();
+		expect(screen.getByRole('img', { name: soldProperty!.photos[0].alt_text })).toBeInTheDocument();
 		expect(screen.queryByRole('button', { name: 'listing.openAlbum' })).not.toBeInTheDocument();
+		expect(screen.queryByRole('button', { name: 'listing.viewPhoto' })).not.toBeInTheDocument();
 		expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 	});
 
@@ -112,6 +114,8 @@ describe('ListingPage', () => {
 		expect(screen.getByText(soldRental!.title)).toBeInTheDocument();
 		expect(screen.getByText('listing.sold')).toBeInTheDocument();
 		expect(screen.getByText('listing.tags.apartmentSold')).toBeInTheDocument();
+		expect(screen.getByRole('img', { name: soldRental!.photos[0].alt_text })).toBeInTheDocument();
 		expect(screen.queryByRole('button', { name: 'listing.openAlbum' })).not.toBeInTheDocument();
+		expect(screen.queryByRole('button', { name: 'listing.viewPhoto' })).not.toBeInTheDocument();
 	});
 });
