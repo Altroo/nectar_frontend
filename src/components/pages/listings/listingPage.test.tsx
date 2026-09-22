@@ -94,8 +94,8 @@ describe('ListingPage', () => {
 		expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 	});
 
-	it('marks the 10th-floor Hilton No. 11 rental as sold without album access', () => {
-		const soldRental = rentalProperties.find((property) => property.title === 'Appartement Hilton N°11');
+	it.each(['Appartement Hilton N°11', 'Appartement Hilton N°13'])('marks %s as sold without album access', (title) => {
+		const soldRental = rentalProperties.find((property) => property.title === title);
 		expect(soldRental?.is_sold).toBe(true);
 
 		render(

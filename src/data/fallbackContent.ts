@@ -235,7 +235,7 @@ const rentApartments: Property[] = [
 		id: 100 + index,
 		transaction: 'rent',
 		property_type: 'apartment',
-		is_sold: String(title) === 'Appartement Hilton N°11',
+		is_sold: ['Appartement Hilton N°11', 'Appartement Hilton N°13'].includes(String(title)),
 		title: String(title),
 		tag: `${residence} · ${floor} · ${unitNumber}`,
 		residence: String(residence),
