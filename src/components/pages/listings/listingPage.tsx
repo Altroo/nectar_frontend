@@ -250,7 +250,7 @@ const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Pr
 	const isRentalApartment = property.transaction === 'rent' && property.property_type === 'apartment';
 	const isSaleApartment = property.transaction === 'sale' && property.property_type === 'apartment';
 	const isApartmentListing = isRentalApartment || isSaleApartment;
-	const albumPhotos = [...(property.photos ?? [])].filter((photo) => photo.image).sort((a, b) => a.sort_order - b.sort_order);
+	const albumPhotos = property.is_sold ? [] : [...(property.photos ?? [])].filter((photo) => photo.image).sort((a, b) => a.sort_order - b.sort_order);
 	const primaryImage = property.image || albumPhotos[0]?.image || '';
 	const cardImage = primaryImage ? galleryImageVariant(primaryImage, 'card') : '';
 	const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
@@ -270,7 +270,7 @@ const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Pr
 		}
 		setActivePhotoIndex((activePhotoIndex + 1) % activePhotoCount);
 	};
-	const displayTag = property.is_sold && isSaleApartment ? t('listing.tags.apartmentSold') : isSaleApartment ? t('listing.tags.apartmentForSale') : isCommercial && property.transaction === 'rent' ? t('listing.tags.commercialForRent') : isCommercial && property.transaction === 'sale' ? t('listing.tags.commercialForSale') : property.tag;
+	const displayTag = property.is_sold && isApartmentListing ? t('listing.tags.apartmentSold') : isSaleApartment ? t('listing.tags.apartmentForSale') : isCommercial && property.transaction === 'rent' ? t('listing.tags.commercialForRent') : isCommercial && property.transaction === 'sale' ? t('listing.tags.commercialForSale') : property.tag;
 	const ctaLabel = property.transaction === 'sale' ? t('listing.requestPrice') : property.transaction === 'rent' ? t('listing.requestAvailability') : t('listing.request');
 
 	return (

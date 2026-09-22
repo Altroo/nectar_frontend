@@ -16,6 +16,7 @@ jest.mock('@/contexts/languageContext', () => ({
 
 describe('ListingPage', () => {
 	const saleProperties = fallbackContent.properties.filter((property) => property.transaction === 'sale' && property.property_type === 'apartment');
+	const rentalProperties = fallbackContent.properties.filter((property) => property.transaction === 'rent' && property.property_type === 'apartment');
 
 	beforeEach(() => {
 		window.sessionStorage.clear();
@@ -65,7 +66,7 @@ describe('ListingPage', () => {
 		expect(screen.getByRole('dialog')).toBeInTheDocument();
 	});
 
-	it('keeps sold apartments visible with clear sold labels', () => {
+	it('keeps sold apartments visible with clear sold labels and no album access', () => {
 		const soldProperty = saleProperties.find((property) => property.is_sold);
 		expect(soldProperty).toBeDefined();
 
@@ -86,5 +87,31 @@ describe('ListingPage', () => {
 		expect(screen.getByText(soldProperty!.title)).toBeInTheDocument();
 		expect(screen.getByText('listing.sold')).toBeInTheDocument();
 		expect(screen.getByText('listing.tags.apartmentSold')).toBeInTheDocument();
+		expect(screen.queryByRole('button', { name: 'listing.openAlbum' })).not.toBeInTheDocument();
+		expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+	});
+
+	it('marks the 10th-floor Hilton No. 11 rental as sold without album access', () => {
+		const soldRental = rentalProperties.find((property) => property.title === 'Appartement Hilton N°11');
+		expect(soldRental?.is_sold).toBe(true);
+
+		render(
+			<ListingPage
+				transaction="rent"
+				propertyType="apartment"
+				title="Rent"
+				kicker="Rent kicker"
+				description="Rent description"
+				sectionTitle="Properties"
+				sectionDescription="Available properties"
+				properties={[soldRental!]}
+				contact={fallbackContent.contact}
+			/>,
+		);
+
+		expect(screen.getByText(soldRental!.title)).toBeInTheDocument();
+		expect(screen.getByText('listing.sold')).toBeInTheDocument();
+		expect(screen.getByText('listing.tags.apartmentSold')).toBeInTheDocument();
+		expect(screen.queryByRole('button', { name: 'listing.openAlbum' })).not.toBeInTheDocument();
 	});
 });
