@@ -2,16 +2,8 @@
 
 import { useRef, useState } from 'react';
 import { useTranslation } from '@/contexts/languageContext';
-
-type ProcessPanelKey = 'vente' | 'location';
-
-type ProcessStepItem = {
-	number: string;
-	title: string;
-	copy: string;
-};
-
-const processOrder: ProcessPanelKey[] = ['vente', 'location'];
+import { processOrder } from '@/data/rawData';
+import type { ProcessPanelKey, ProcessStepItem } from '@/types/siteTypes';
 
 export const HomeProcessSection = () => {
 	const [activePanel, setActivePanel] = useState<ProcessPanelKey>('vente');

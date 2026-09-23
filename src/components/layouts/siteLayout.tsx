@@ -2,18 +2,9 @@
 
 import { useState } from 'react';
 import { setLanguage, useTranslation } from '@/contexts/languageContext';
+import { contactEmail, socialLinks } from '@/data/rawData';
 import { localizeContact, type LanguageCode } from '@/translations';
 import type { SiteContact } from '@/types/siteTypes';
-
-export const socialLinks = {
-	nectarInstagram: 'https://www.instagram.com/nectar.immobiliere/',
-	nectarTikTok: 'https://www.tiktok.com/@nectar.immobiliere?lang=fr',
-	nectarYoutube: 'https://www.youtube.com/@Nectar.Immobili%C3%A8re',
-	purplePearlInstagram: 'https://www.instagram.com/purplepearl.tanger/',
-	purplePearlTikTok: 'https://www.tiktok.com/@purplepearl.tanger?lang=fr',
-};
-
-const contactEmail = 'contact@nectar.ma';
 
 export const LanguageSwitcher = ({ className = 'nectar-lang-switcher' }: { className?: string }) => {
 	const { language, languages, t } = useTranslation();

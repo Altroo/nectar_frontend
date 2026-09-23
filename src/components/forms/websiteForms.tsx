@@ -3,11 +3,10 @@
 import { type FormEvent, useState } from 'react';
 import { useTranslation } from '@/contexts/languageContext';
 import { postWebsiteForm } from '@/utils/websiteApi';
+import { contactEmail, newsletterEmail } from '@/data/rawData';
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
-const contactEmail = 'contact@nectar.ma';
-const newsletterEmail = 'info@nectar.ma';
 const formValue = (form: HTMLFormElement, name: string) => String(new FormData(form).get(name) || '');
 const dateInputPattern = '[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}';
 

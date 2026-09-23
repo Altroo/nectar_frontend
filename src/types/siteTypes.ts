@@ -97,3 +97,71 @@ export type SiteContent = {
 	purplePearlPlans: PurplePearlPlan[];
 	testimonials: Testimonial[];
 };
+
+export type ListingPageProps = {
+	transaction: Transaction;
+	propertyType: PropertyType;
+	title: string;
+	kicker: string;
+	description: string;
+	sectionTitle: string;
+	sectionDescription: string;
+	properties: Property[];
+	contact: SiteContact;
+};
+
+export type GalleryImageVariant = 'large' | 'card' | 'thumb';
+
+export type CommercialRentalPageProps = {
+	properties: Property[];
+	contact: SiteContact;
+};
+
+export type CommercialRentalPageCopy = {
+	breadcrumb: string;
+	heroTitle: string;
+	heroDescription: string;
+	discover: string;
+	advisor: string;
+	introEyebrow: string;
+	introTitle: string;
+	introDescription: string;
+	features: Array<{ title: string; description: string }>;
+	search: string;
+	searchPlaceholder: string;
+	type: string;
+	allTypes: string;
+	residence: string;
+	allResidences: string;
+	minimumSurface: string;
+	allSurfaces: string;
+	filter: string;
+	available: string;
+	previousUnits: string;
+	nextUnits: string;
+	forRent: string;
+	addFavorite: string;
+	removeFavorite: string;
+	totalSurface: string;
+	rdc: string;
+	mezzanine: string;
+	viewDetails: string;
+	requestAvailability: string;
+	noResults: string;
+	activitiesTitle: string;
+	activitiesDescription: string;
+	activities: Array<{ title: string; description: string }>;
+	gallery: string;
+	closeGallery: string;
+	previousPhoto: string;
+	nextPhoto: string;
+	whatsappMessage: string;
+};
+
+export type ProcessPanelKey = 'vente' | 'location';
+
+export type ProcessStepItem = {
+	number: string;
+	title: string;
+	copy: string;
+};

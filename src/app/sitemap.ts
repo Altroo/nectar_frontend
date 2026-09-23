@@ -1,21 +1,11 @@
 import type { MetadataRoute } from 'next';
+import { baseRoutes } from '@/data/rawData';
 import { fetchSiteContent } from '@/utils/websiteApi';
 import { getSiteRoot } from '@/utils/routes';
 
 export const dynamic = 'force-dynamic';
 
 const toUrl = (path: string) => `${getSiteRoot()}${path}`;
-
-const baseRoutes = [
-	{ path: '/', changeFrequency: 'weekly' as const, priority: 1 },
-	{ path: '/vente-appartement', changeFrequency: 'weekly' as const, priority: 0.9 },
-	{ path: '/vente-local', changeFrequency: 'weekly' as const, priority: 0.85 },
-	{ path: '/location-appartement', changeFrequency: 'weekly' as const, priority: 0.85 },
-	{ path: '/location-local', changeFrequency: 'weekly' as const, priority: 0.8 },
-	{ path: '/purple-pearl', changeFrequency: 'weekly' as const, priority: 0.8 },
-	{ path: '/guide-tanger', changeFrequency: 'monthly' as const, priority: 0.7 },
-	{ path: '/evenement', changeFrequency: 'monthly' as const, priority: 0.65 },
-];
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
 	const content = await fetchSiteContent();

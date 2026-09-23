@@ -7,9 +7,8 @@ import { HomeProcessSection } from '@/components/pages/home/homeProcess';
 import { useTranslation } from '@/contexts/languageContext';
 import { localizeContact, localizeGuidePlace, localizeTestimonial } from '@/translations';
 import type { GuidePlace, SiteContent, Testimonial } from '@/types/siteTypes';
+import { contactEmail } from '@/data/rawData';
 
-
-const contactEmail = 'contact@nectar.ma';
 
 export const HomePage = ({ content }: { content: SiteContent }) => {
 	const { language, t } = useTranslation();

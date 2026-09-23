@@ -1,28 +1,15 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { LinkedFooter, MainHeader } from '@/components/layouts/siteLayout';
 import { useTranslation } from '@/contexts/languageContext';
 import { localizeProperty } from '@/translations';
-import type { Property, PropertyType, SiteContact, Transaction } from '@/types/siteTypes';
-
-type ListingPageProps = {
-	transaction: Transaction;
-	propertyType: PropertyType;
-	title: string;
-	kicker: string;
-	description: string;
-	sectionTitle: string;
-	sectionDescription: string;
-	properties: Property[];
-	contact: SiteContact;
-};
+import type { GalleryImageVariant, ListingPageProps, Property, Transaction } from '@/types/siteTypes';
+import { readFavoriteIds, writeFavoriteIds } from '@/utils/favorites';
 
 const surfaceLabel = (surface: number | null) => (surface ? `${surface.toLocaleString('fr-FR')} m²` : '');
 const priceNumber = (price: string) => Number(price.replace(/[^\d]/g, '') || 0);
 const apartmentFavoriteStorageKey = (transaction: Transaction) => `nectar-${transaction === 'sale' ? 'vente' : 'location'}-appartement-favorites`;
-
-type GalleryImageVariant = 'large' | 'card' | 'thumb';
 
 const albumAssetPattern = /^\/assets\/(?:city-center|erasmus|hilton-n03|hilton-n05|hilton-n11|hilton-n11-12th|hilton-n13|mandelson-n47)\//;
 
@@ -67,14 +54,7 @@ export const ListingPage = ({
 
 		favoritesLoadedRef.current = false;
 		const timer = window.setTimeout(() => {
-			try {
-				const stored = JSON.parse(window.sessionStorage.getItem(favoriteStorageKey) ?? '[]');
-				if (Array.isArray(stored)) {
-					setFavoriteIds(new Set(stored.filter((id): id is number => typeof id === 'number')));
-				}
-			} catch {
-				window.sessionStorage.removeItem(favoriteStorageKey);
-			}
+			setFavoriteIds(readFavoriteIds(favoriteStorageKey));
 			favoritesLoadedRef.current = true;
 		}, 0);
 
@@ -86,11 +66,7 @@ export const ListingPage = ({
 			return;
 		}
 
-		try {
-			window.sessionStorage.setItem(favoriteStorageKey, JSON.stringify(Array.from(favoriteIds)));
-		} catch {
-			// Favorites remain usable until the page is closed if storage is unavailable.
-		}
+		writeFavoriteIds(favoriteStorageKey, favoriteIds);
 	}, [favoriteIds, favoriteStorageKey, propertyType]);
 
 	const toggleFavorite = (propertyId: number) => {
@@ -103,14 +79,10 @@ export const ListingPage = ({
 		setFavoriteIds(next);
 	};
 
-	const rows = useMemo(
-		() =>
-			properties
+	const rows = properties
 				.filter((property) => property.transaction === transaction && property.property_type === propertyType)
 				.sort((a, b) => a.sort_order - b.sort_order)
-				.map((property) => localizeProperty(language, property)),
-		[language, properties, propertyType, transaction],
-	);
+				.map((property) => localizeProperty(language, property));
 
 	const residences = Array.from(new Set(rows.map((property) => property.residence).filter(Boolean)));
 	const roomChoices = Array.from(new Set(rows.map((property) => property.bedrooms).filter((value): value is number => Boolean(value)))).sort((a, b) => a - b);
