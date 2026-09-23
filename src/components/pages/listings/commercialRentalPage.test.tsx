@@ -40,4 +40,17 @@ describe('CommercialRentalPage', () => {
 		fireEvent.click(screen.getAllByRole('button', { name: 'Fermer la galerie' })[0]);
 		expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 	});
+
+	it.each(['Local A4 · ERASMUS TOWER', 'Local A5 · ERASMUS TOWER', 'Local B6 · ERASMUS TOWER'])('marks %s as rented and disables its gallery', (title) => {
+		const rentedProperty = commercialProperties.find((property) => property.title === title);
+		expect(rentedProperty?.is_rented).toBe(true);
+
+		render(<CommercialRentalPage properties={[rentedProperty!]} contact={fallbackContent.contact} />);
+
+		expect(screen.getByText('Loué')).toBeInTheDocument();
+		expect(screen.getByRole('img', { name: `${title.split(' · ')[0]} · Erasmus Tower` }).closest('article')).toHaveClass('is-rented');
+		expect(screen.getByText('Voir les détails')).toHaveAttribute('aria-disabled', 'true');
+		expect(screen.queryByRole('button', { name: /Voir les détails/i })).not.toBeInTheDocument();
+		expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+	});
 });

@@ -103,6 +103,9 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 	};
 
 	const openGallery = (property: Property) => {
+		if (property.is_rented) {
+			return;
+		}
 		const name = unitName(property.title);
 		setGallery({
 			title: name,
@@ -238,7 +241,7 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 										const cardImage = unitCardImage(property);
 										const whatsappHref = `https://wa.me/${contact.whatsapp_number}?text=${encodeURIComponent(`${copy.whatsappMessage} ${name} · Erasmus Tower.`)}`;
 										return (
-											<article className="cr-property-card" key={property.id}>
+											<article className={`cr-property-card${property.is_rented ? ' is-rented' : ''}`} key={property.id}>
 												<div className="cr-property-card__image-wrap">
 													<img
 														className="cr-property-card__image"
@@ -248,7 +251,7 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 														width="960"
 														height="1200"
 													/>
-													<span className="cr-property-card__status">{copy.forRent}</span>
+													<span className={`cr-property-card__status${property.is_rented ? ' is-rented' : ''}`}>{property.is_rented ? copy.rented : copy.forRent}</span>
 													<button
 														className={`cr-favorite${isFavorite ? ' is-favorite' : ''}`}
 														type="button"
@@ -272,9 +275,15 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 														<PropertyMeta label={copy.mezzanine} value={measurementLabel(property.mezzanine)} />
 													</div>
 													<div className="cr-property-card__actions">
-														<button className="cr-details-button" type="button" onClick={() => openGallery(property)}>
-															{copy.viewDetails} <ArrowIcon />
-														</button>
+														{property.is_rented ? (
+															<span className="cr-details-button is-disabled" aria-disabled="true">
+																{copy.viewDetails} <ArrowIcon />
+															</span>
+														) : (
+															<button className="cr-details-button" type="button" onClick={() => openGallery(property)}>
+																{copy.viewDetails} <ArrowIcon />
+															</button>
+														)}
 														<a className="cr-whatsapp-button" href={whatsappHref} target="_blank" rel="noopener">
 															<WhatsAppIcon /> {copy.requestAvailability}
 														</a>

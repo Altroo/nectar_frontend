@@ -13,6 +13,7 @@ export type Property = {
 	transaction: Transaction;
 	property_type: PropertyType;
 	is_sold: boolean;
+	is_rented: boolean;
 	title: string;
 	tag: string;
 	residence: string;
@@ -140,6 +141,7 @@ export type CommercialRentalPageCopy = {
 	previousUnits: string;
 	nextUnits: string;
 	forRent: string;
+	rented: string;
 	addFavorite: string;
 	removeFavorite: string;
 	totalSurface: string;
