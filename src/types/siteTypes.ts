@@ -13,6 +13,7 @@ export type Property = {
 	transaction: Transaction;
 	property_type: PropertyType;
 	is_sold: boolean;
+	is_rented: boolean;
 	title: string;
 	tag: string;
 	residence: string;
