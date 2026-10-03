@@ -269,6 +269,9 @@ const rentalDescriptions: Record<string, string> = {
 };
 
 const saleDescriptions: Record<string, string> = {
+	'MARINA BLOC B · N°302': "Offrez-vous une adresse privilégiée à Tanger Marina Bay. Spacieux et baigné de lumière, cet appartement bénéficie d’une superbe vue sur la Méditerranée. Une belle occasion de concrétiser votre projet immobilier, pour y vivre, investir ou séjourner à Tanger.",
+	'MARINA BLOC B · N°303': "À Tanger Marina Bay, cet appartement séduit par ses beaux volumes, sa luminosité et sa magnifique vue sur la Méditerranée. Un cadre idéal pour s’installer à Tanger ou profiter d’une résidence secondaire face à la mer.",
+	'MARINA BLOC B · N°306': "Découvrez cet appartement spacieux et lumineux situé à Tanger Marina Bay. Sa vue exceptionnelle sur la Méditerranée et son emplacement privilégié en font une belle opportunité pour une résidence principale, un investissement ou un pied-à-terre à Tanger.",
 	'HILTON · 137 m²': "Découvrez cet appartement d’exception situé à Hilton Résidence à Tanger. Offrant une vue imprenable sur la Méditerranée, un cadre sécurisé et une ambiance calme et luxueuse, ce bien représente une opportunité idéale pour un investissement de qualité ou une résidence élégante au cœur de la ville. Le parking est inclus dans le prix de vente.",
 	'HILTON · N°03':
 		'À vendre, superbe appartement situé au 10ᵉ étage de la résidence Hilton, l’une des adresses les plus prestigieuses de Tanger. Offrant une vue panoramique exceptionnelle sur la Méditerranée, ce bien bénéficie d’un environnement sécurisé et d’un cadre élégant. Il constitue une excellente opportunité pour y vivre ou réaliser un investissement immobilier de qualité.',

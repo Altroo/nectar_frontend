@@ -1627,6 +1627,24 @@ const localizePropertyTag = (language: LanguageCode, property: Property) => {
 };
 
 const propertyDescriptionOverrides: Record<string, Partial<Record<LanguageCode, string>>> = {
+	'MARINA BLOC B · N°302': {
+		fr: "Offrez-vous une adresse privilégiée à Tanger Marina Bay. Spacieux et baigné de lumière, cet appartement bénéficie d’une superbe vue sur la Méditerranée. Une belle occasion de concrétiser votre projet immobilier, pour y vivre, investir ou séjourner à Tanger.",
+		en: "Enjoy a prime address at Tangier Marina Bay. Spacious and filled with light, this apartment offers a superb view of the Mediterranean. A wonderful opportunity to bring your property plans to life, whether to live, invest or stay in Tangier.",
+		ar: "اختر عنواناً مميزاً في طنجة مارينا باي. تتميز هذه الشقة بمساحتها الواسعة وإضاءتها الطبيعية، وتتمتع بإطلالة رائعة على البحر الأبيض المتوسط. فرصة جميلة لتحقيق مشروعك العقاري، سواء للسكن أو الاستثمار أو الإقامة في طنجة.",
+		es: "Disfrute de una dirección privilegiada en Tánger Marina Bay. Amplio y lleno de luz, este apartamento ofrece unas magníficas vistas al Mediterráneo. Una excelente oportunidad para hacer realidad su proyecto inmobiliario, ya sea para vivir, invertir o alojarse en Tánger.",
+	},
+	'MARINA BLOC B · N°303': {
+		fr: "À Tanger Marina Bay, cet appartement séduit par ses beaux volumes, sa luminosité et sa magnifique vue sur la Méditerranée. Un cadre idéal pour s’installer à Tanger ou profiter d’une résidence secondaire face à la mer.",
+		en: "At Tangier Marina Bay, this apartment charms with its generous spaces, natural light and magnificent view of the Mediterranean. An ideal setting to settle in Tangier or enjoy a second home overlooking the sea.",
+		ar: "في طنجة مارينا باي، تأسر هذه الشقة الأنظار بمساحاتها الرحبة وإضاءتها الطبيعية وإطلالتها الرائعة على البحر الأبيض المتوسط. بيئة مثالية للاستقرار في طنجة أو للاستمتاع بمسكن ثانٍ أمام البحر.",
+		es: "En Tánger Marina Bay, este apartamento cautiva por sus amplios espacios, su luminosidad y sus magníficas vistas al Mediterráneo. Un entorno ideal para instalarse en Tánger o disfrutar de una segunda residencia frente al mar.",
+	},
+	'MARINA BLOC B · N°306': {
+		fr: "Découvrez cet appartement spacieux et lumineux situé à Tanger Marina Bay. Sa vue exceptionnelle sur la Méditerranée et son emplacement privilégié en font une belle opportunité pour une résidence principale, un investissement ou un pied-à-terre à Tanger.",
+		en: "Discover this spacious, bright apartment at Tangier Marina Bay. Its exceptional view of the Mediterranean and prime location make it a wonderful opportunity for a main residence, an investment or a second home in Tangier.",
+		ar: "اكتشف هذه الشقة الواسعة والمضيئة في طنجة مارينا باي. إطلالتها الاستثنائية على البحر الأبيض المتوسط وموقعها المميز يجعلان منها فرصة جميلة للسكن الرئيسي أو الاستثمار أو لامتلاك مسكن للإقامة أثناء زياراتك إلى طنجة.",
+		es: "Descubra este apartamento amplio y luminoso en Tánger Marina Bay. Sus excepcionales vistas al Mediterráneo y su ubicación privilegiada lo convierten en una excelente oportunidad como residencia principal, inversión o vivienda para sus estancias en Tánger.",
+	},
 	'HILTON · 137 m²': {
 		fr: "Découvrez cet appartement d’exception situé à Hilton Résidence à Tanger. Offrant une vue imprenable sur la Méditerranée, un cadre sécurisé et une ambiance calme et luxueuse, ce bien représente une opportunité idéale pour un investissement de qualité ou une résidence élégante au cœur de la ville. Le parking est inclus dans le prix de vente.",
 		en: "Discover this exceptional apartment at Hilton Residence in Tangier. With breathtaking Mediterranean views, a secure setting and a calm, luxurious atmosphere, this property offers an ideal opportunity for a quality investment or an elegant home in the heart of the city. Parking is included in the sale price.",
