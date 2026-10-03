@@ -11,6 +11,13 @@ const surfaceLabel = (surface: number | null) => (surface ? `${surface.toLocaleS
 const priceNumber = (price: string) => Number(price.replace(/[^\d]/g, '') || 0);
 const apartmentFavoriteStorageKey = (transaction: Transaction) => `nectar-${transaction === 'sale' ? 'vente' : 'location'}-appartement-favorites`;
 
+const saleApartmentGroup = (property: Property) => {
+	if (property.is_sold) return 3;
+	if (property.residence.toUpperCase().startsWith('MARINA')) return 0;
+	if (property.residence.toUpperCase() === 'HILTON') return 1;
+	return 2;
+};
+
 const albumAssetPattern = /^\/assets\/(?:city-center|erasmus|hilton-n03|hilton-n05|hilton-n11|hilton-n11-12th|hilton-n13|mandelson-n47|marina-n302|marina-n303|marina-n306|hilton-137m2)\//;
 
 const galleryImageVariant = (image: string, variant: GalleryImageVariant) => {
@@ -81,7 +88,10 @@ export const ListingPage = ({
 
 	const rows = properties
 				.filter((property) => property.transaction === transaction && property.property_type === propertyType)
-				.sort((a, b) => a.sort_order - b.sort_order)
+				.sort((a, b) => {
+					const groupOrder = transaction === 'sale' && propertyType === 'apartment' ? saleApartmentGroup(a) - saleApartmentGroup(b) : 0;
+					return groupOrder || a.sort_order - b.sort_order;
+				})
 				.map((property) => localizeProperty(language, property));
 
 	const residences = Array.from(new Set(rows.map((property) => property.residence).filter(Boolean)));
@@ -246,7 +256,7 @@ const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Pr
 	const ctaLabel = property.transaction === 'sale' ? t('listing.requestPrice') : property.transaction === 'rent' ? t('listing.requestAvailability') : t('listing.request');
 
 	return (
-		<article className={`card${isCommercial ? ' local' : ''}${isSaleApartment ? ' sale-apartment' : ''}`}>
+		<article className={`card${isCommercial ? ' local' : ''}${isSaleApartment ? ' sale-apartment' : ''}${isSaleApartment && property.is_sold ? ' is-sold' : ''}`}>
 			<div className={`card-img${isApartmentListing ? ' apartment-card-image' : ''}`} style={cardImage ? { backgroundImage: `linear-gradient(135deg,rgba(73,52,37,.24),rgba(73,52,37,.04)),url('${cardImage}')` } : undefined}>
 				{isApartmentListing ? (
 					<>

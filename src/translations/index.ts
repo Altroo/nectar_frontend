@@ -1611,7 +1611,7 @@ const localizePropertyTitle = (language: LanguageCode, property: Property) => {
 		return textMap(language, { ar: 'شقة City Center Ra1 رقم B', en: 'City Center Ra1 Apartment No. B', es: 'Apartamento City Center Ra1 N.º B' }, value);
 	}
 
-	return localizeNumberMarker(language, value);
+	return language === 'fr' ? value : localizeNumberMarker(language, value);
 };
 
 const localizePropertyTag = (language: LanguageCode, property: Property) => {
@@ -1645,7 +1645,7 @@ const propertyDescriptionOverrides: Record<string, Partial<Record<LanguageCode, 
 		ar: "اكتشف هذه الشقة الواسعة والمضيئة في طنجة مارينا باي. إطلالتها الاستثنائية على البحر الأبيض المتوسط وموقعها المميز يجعلان منها فرصة جميلة للسكن الرئيسي أو الاستثمار أو لامتلاك مسكن للإقامة أثناء زياراتك إلى طنجة.",
 		es: "Descubra este apartamento amplio y luminoso en Tánger Marina Bay. Sus excepcionales vistas al Mediterráneo y su ubicación privilegiada lo convierten en una excelente oportunidad como residencia principal, inversión o vivienda para sus estancias en Tánger.",
 	},
-	'HILTON · 137 m²': {
+	'HILTON N° 1': {
 		fr: "Découvrez cet appartement d’exception situé à Hilton Résidence à Tanger. Offrant une vue imprenable sur la Méditerranée, un cadre sécurisé et une ambiance calme et luxueuse, ce bien représente une opportunité idéale pour un investissement de qualité ou une résidence élégante au cœur de la ville. Le parking est inclus dans le prix de vente.",
 		en: "Discover this exceptional apartment at Hilton Residence in Tangier. With breathtaking Mediterranean views, a secure setting and a calm, luxurious atmosphere, this property offers an ideal opportunity for a quality investment or an elegant home in the heart of the city. Parking is included in the sale price.",
 		ar: "اكتشف هذه الشقة الاستثنائية في إقامة Hilton بطنجة. تتمتع بإطلالة خلابة على البحر الأبيض المتوسط، وبيئة آمنة وأجواء هادئة وفاخرة، مما يجعلها فرصة مثالية لاستثمار عالي الجودة أو لإقامة أنيقة في قلب المدينة. موقف السيارات مشمول في سعر البيع.",

@@ -195,13 +195,13 @@ const marinaN306Photos: PropertyPhoto[] = [
 }));
 
 const hilton137m2Photos: PropertyPhoto[] = [
-	["Salon", "/assets/hilton-137m2/hilton-137m2-01-large.jpg", "Salon de l'appartement Hilton de 137 m²"],
-	["Séjour", "/assets/hilton-137m2/hilton-137m2-02-large.jpg", "Séjour de l'appartement Hilton de 137 m²"],
-	["Cuisine", "/assets/hilton-137m2/hilton-137m2-03-large.jpg", "Cuisine de l'appartement Hilton de 137 m²"],
-	["Chambre 1", "/assets/hilton-137m2/hilton-137m2-04-large.jpg", "Chambre 1 de l'appartement Hilton de 137 m²"],
-	["Chambre 2", "/assets/hilton-137m2/hilton-137m2-05-large.jpg", "Chambre 2 de l'appartement Hilton de 137 m²"],
-	["Chambre 3", "/assets/hilton-137m2/hilton-137m2-06-large.jpg", "Chambre 3 de l'appartement Hilton de 137 m²"],
-	["Toilette", "/assets/hilton-137m2/hilton-137m2-07-large.jpg", "Toilette de l'appartement Hilton de 137 m²"],
+	["Salon", "/assets/hilton-137m2/hilton-137m2-01-large.jpg", "Salon de l'appartement Hilton N° 1"],
+	["Séjour", "/assets/hilton-137m2/hilton-137m2-02-large.jpg", "Séjour de l'appartement Hilton N° 1"],
+	["Cuisine", "/assets/hilton-137m2/hilton-137m2-03-large.jpg", "Cuisine de l'appartement Hilton N° 1"],
+	["Chambre 1", "/assets/hilton-137m2/hilton-137m2-04-large.jpg", "Chambre 1 de l'appartement Hilton N° 1"],
+	["Chambre 2", "/assets/hilton-137m2/hilton-137m2-05-large.jpg", "Chambre 2 de l'appartement Hilton N° 1"],
+	["Chambre 3", "/assets/hilton-137m2/hilton-137m2-06-large.jpg", "Chambre 3 de l'appartement Hilton N° 1"],
+	["Toilette", "/assets/hilton-137m2/hilton-137m2-07-large.jpg", "Toilette de l'appartement Hilton N° 1"],
 ].map(([title, image, altText], index) => ({
 	id: 13700 + index,
 	title,
@@ -239,7 +239,7 @@ const salePhotoAlbums: Record<string, PropertyPhoto[]> = {
 	'HILTON · N°03': hiltonN03Photos,
 	'HILTON · N°11': hiltonN11Photos,
 	'HILTON · N°13': hiltonN13Photos,
-	'HILTON · 137 m²': hilton137m2Photos,
+	'HILTON N° 1': hilton137m2Photos,
 	'MANDELSON BLOC A · N°47': mandelsonN47Photos,
 	'MARINA BLOC B · N°302': marinaN302Photos,
 	'MARINA BLOC B · N°303': marinaN303Photos,
@@ -272,7 +272,7 @@ const saleDescriptions: Record<string, string> = {
 	'MARINA BLOC B · N°302': "Offrez-vous une adresse privilégiée à Tanger Marina Bay. Spacieux et baigné de lumière, cet appartement bénéficie d’une superbe vue sur la Méditerranée. Une belle occasion de concrétiser votre projet immobilier, pour y vivre, investir ou séjourner à Tanger.",
 	'MARINA BLOC B · N°303': "À Tanger Marina Bay, cet appartement séduit par ses beaux volumes, sa luminosité et sa magnifique vue sur la Méditerranée. Un cadre idéal pour s’installer à Tanger ou profiter d’une résidence secondaire face à la mer.",
 	'MARINA BLOC B · N°306': "Découvrez cet appartement spacieux et lumineux situé à Tanger Marina Bay. Sa vue exceptionnelle sur la Méditerranée et son emplacement privilégié en font une belle opportunité pour une résidence principale, un investissement ou un pied-à-terre à Tanger.",
-	'HILTON · 137 m²': "Découvrez cet appartement d’exception situé à Hilton Résidence à Tanger. Offrant une vue imprenable sur la Méditerranée, un cadre sécurisé et une ambiance calme et luxueuse, ce bien représente une opportunité idéale pour un investissement de qualité ou une résidence élégante au cœur de la ville. Le parking est inclus dans le prix de vente.",
+	'HILTON N° 1': "Découvrez cet appartement d’exception situé à Hilton Résidence à Tanger. Offrant une vue imprenable sur la Méditerranée, un cadre sécurisé et une ambiance calme et luxueuse, ce bien représente une opportunité idéale pour un investissement de qualité ou une résidence élégante au cœur de la ville. Le parking est inclus dans le prix de vente.",
 	'HILTON · N°03':
 		'À vendre, superbe appartement situé au 10ᵉ étage de la résidence Hilton, l’une des adresses les plus prestigieuses de Tanger. Offrant une vue panoramique exceptionnelle sur la Méditerranée, ce bien bénéficie d’un environnement sécurisé et d’un cadre élégant. Il constitue une excellente opportunité pour y vivre ou réaliser un investissement immobilier de qualité.',
 	'HILTON · N°11':
@@ -280,6 +280,8 @@ const saleDescriptions: Record<string, string> = {
 	'HILTON · N°13':
 		"À vendre, superbe appartement situé dans l’une des adresses les plus prestigieuses de Tanger, au sein de l’hôtel Hilton. Avec sa vue panoramique sur la Méditerranée, son environnement sécurisé et son cadre raffiné, ce bien allie confort, élégance et fort potentiel d’investissement.",
 };
+
+const saleApartmentOrder = ["MARINA BLOC B · N°302", "MARINA BLOC B · N°303", "MARINA BLOC B · N°306", "HILTON · N°03", "HILTON N° 1", "HILTON · N°11", "HILTON · N°13", "MANDELSON BLOC A · N°47"];
 
 const saleApartments: Property[] = [
 	['HILTON · N°03', 'HILTON', 'Centre-ville', 'ETAGE 10', 'N°03', 1, 53, '53 m²'],
@@ -289,7 +291,7 @@ const saleApartments: Property[] = [
 	['MARINA BLOC B · N°302', 'MARINA BLOC B', 'Marina', 'ETAGE 03', 'N°302', 1, 84, '84 m²'],
 	['MARINA BLOC B · N°303', 'MARINA BLOC B', 'Marina', 'ETAGE 03', 'N°303', 1, 89, '89 m²'],
 	['MARINA BLOC B · N°306', 'MARINA BLOC B', 'Marina', 'ETAGE 03', 'N°306', 3, 341, '261 m² vendu'],
-	['HILTON · 137 m²', 'HILTON', 'Centre-ville', 'ETAGE 09', '', 3, 137, '137 m²'],
+	['HILTON N° 1', 'HILTON', 'Centre-ville', 'ETAGE 09', 'N° 1', 3, 131, '131 m²'],
 ].map(([title, residence, district, floor, unitNumber, bedrooms, surface, sold], index) => {
 	const address =
 		residence === 'HILTON'
@@ -322,7 +324,7 @@ const saleApartments: Property[] = [
 		cta_label: 'Demander le prix →',
 		image: photos[0]?.image ?? '',
 		photos,
-		sort_order: index + 1,
+		sort_order: saleApartmentOrder.indexOf(String(title)) + 1,
 	} satisfies Property;
 });
 

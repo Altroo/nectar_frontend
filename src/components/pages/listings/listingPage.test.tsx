@@ -44,6 +44,49 @@ describe('ListingPage', () => {
 		expect(screen.getByText('listing.noResults')).toBeInTheDocument();
 	});
 
+	it('shows Marina first, available Hilton next and sold apartments last despite older sort priorities', () => {
+		const properties = saleProperties.map((property) => ({
+			...property,
+			sort_order: property.sort_order - (property.is_sold ? 100 : property.residence === 'HILTON' ? 50 : 0),
+		}));
+		render(
+			<ListingPage
+				transaction="sale"
+				propertyType="apartment"
+				title="Sale"
+				kicker="Sale kicker"
+				description="Sale description"
+				sectionTitle="Properties"
+				sectionDescription="Available properties"
+				properties={properties.reverse()}
+				contact={fallbackContent.contact}
+			/>,
+		);
+
+		const cards = screen.getAllByRole('article');
+		expect(cards.map((card) => card.querySelector('h3')?.textContent)).toEqual([
+			'MARINA BLOC B · N°302',
+			'MARINA BLOC B · N°303',
+			'MARINA BLOC B · N°306',
+			'HILTON · N°03',
+			'HILTON N° 1',
+			'HILTON · N°11',
+			'HILTON · N°13',
+			'MANDELSON BLOC A · N°47',
+		]);
+		for (const card of cards.slice(0, 5)) expect(card).not.toHaveClass('is-sold');
+		for (const card of cards.slice(5)) expect(card).toHaveClass('is-sold');
+
+		fireEvent.change(screen.getByPlaceholderText('listing.searchApartmentPlaceholder'), {
+			target: { value: 'Marina' },
+		});
+		expect(screen.getAllByRole('article').map((card) => card.querySelector('h3')?.textContent)).toEqual([
+			'MARINA BLOC B · N°302',
+			'MARINA BLOC B · N°303',
+			'MARINA BLOC B · N°306',
+		]);
+	});
+
 	it('toggles favorites and opens a property album', () => {
 		render(
 			<ListingPage
