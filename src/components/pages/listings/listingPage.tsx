@@ -11,7 +11,7 @@ const surfaceLabel = (surface: number | null) => (surface ? `${surface.toLocaleS
 const priceNumber = (price: string) => Number(price.replace(/[^\d]/g, '') || 0);
 const apartmentFavoriteStorageKey = (transaction: Transaction) => `nectar-${transaction === 'sale' ? 'vente' : 'location'}-appartement-favorites`;
 
-const albumAssetPattern = /^\/assets\/(?:city-center|erasmus|hilton-n03|hilton-n05|hilton-n11|hilton-n11-12th|hilton-n13|mandelson-n47)\//;
+const albumAssetPattern = /^\/assets\/(?:city-center|erasmus|hilton-n03|hilton-n05|hilton-n11|hilton-n11-12th|hilton-n13|mandelson-n47|marina-n302|marina-n303|marina-n306)\//;
 
 const galleryImageVariant = (image: string, variant: GalleryImageVariant) => {
 	if (!albumAssetPattern.test(image)) {
