@@ -194,6 +194,22 @@ const marinaN306Photos: PropertyPhoto[] = [
 	sort_order: index + 1,
 }));
 
+const hilton137m2Photos: PropertyPhoto[] = [
+	["Salon", "/assets/hilton-137m2/hilton-137m2-01-large.jpg", "Salon de l'appartement Hilton de 137 m²"],
+	["Séjour", "/assets/hilton-137m2/hilton-137m2-02-large.jpg", "Séjour de l'appartement Hilton de 137 m²"],
+	["Cuisine", "/assets/hilton-137m2/hilton-137m2-03-large.jpg", "Cuisine de l'appartement Hilton de 137 m²"],
+	["Chambre 1", "/assets/hilton-137m2/hilton-137m2-04-large.jpg", "Chambre 1 de l'appartement Hilton de 137 m²"],
+	["Chambre 2", "/assets/hilton-137m2/hilton-137m2-05-large.jpg", "Chambre 2 de l'appartement Hilton de 137 m²"],
+	["Chambre 3", "/assets/hilton-137m2/hilton-137m2-06-large.jpg", "Chambre 3 de l'appartement Hilton de 137 m²"],
+	["Toilette", "/assets/hilton-137m2/hilton-137m2-07-large.jpg", "Toilette de l'appartement Hilton de 137 m²"],
+].map(([title, image, altText], index) => ({
+	id: 13700 + index,
+	title,
+	alt_text: altText,
+	image,
+	sort_order: index + 1,
+}));
+
 const erasmusCommercialAlbumFor = (propertyTitle: string, propertyIndex: number): PropertyPhoto[] => {
 	const unitCode = propertyTitle.match(/\b([AB]\d+)\b/i)?.[1]?.toUpperCase();
 	if (!unitCode) {
@@ -223,6 +239,7 @@ const salePhotoAlbums: Record<string, PropertyPhoto[]> = {
 	'HILTON · N°03': hiltonN03Photos,
 	'HILTON · N°11': hiltonN11Photos,
 	'HILTON · N°13': hiltonN13Photos,
+	'HILTON · 137 m²': hilton137m2Photos,
 	'MANDELSON BLOC A · N°47': mandelsonN47Photos,
 	'MARINA BLOC B · N°302': marinaN302Photos,
 	'MARINA BLOC B · N°303': marinaN303Photos,
@@ -252,6 +269,7 @@ const rentalDescriptions: Record<string, string> = {
 };
 
 const saleDescriptions: Record<string, string> = {
+	'HILTON · 137 m²': "Découvrez cet appartement d’exception situé à Hilton Résidence à Tanger. Offrant une vue imprenable sur la Méditerranée, un cadre sécurisé et une ambiance calme et luxueuse, ce bien représente une opportunité idéale pour un investissement de qualité ou une résidence élégante au cœur de la ville. Le parking est inclus dans le prix de vente.",
 	'HILTON · N°03':
 		'À vendre, superbe appartement situé au 10ᵉ étage de la résidence Hilton, l’une des adresses les plus prestigieuses de Tanger. Offrant une vue panoramique exceptionnelle sur la Méditerranée, ce bien bénéficie d’un environnement sécurisé et d’un cadre élégant. Il constitue une excellente opportunité pour y vivre ou réaliser un investissement immobilier de qualité.',
 	'HILTON · N°11':
@@ -268,6 +286,7 @@ const saleApartments: Property[] = [
 	['MARINA BLOC B · N°302', 'MARINA BLOC B', 'Marina', 'ETAGE 03', 'N°302', 1, 84, '84 m²'],
 	['MARINA BLOC B · N°303', 'MARINA BLOC B', 'Marina', 'ETAGE 03', 'N°303', 1, 89, '89 m²'],
 	['MARINA BLOC B · N°306', 'MARINA BLOC B', 'Marina', 'ETAGE 03', 'N°306', 3, 341, '261 m² vendu'],
+	['HILTON · 137 m²', 'HILTON', 'Centre-ville', 'ETAGE 09', '', 3, 137, '137 m²'],
 ].map(([title, residence, district, floor, unitNumber, bedrooms, surface, sold], index) => {
 	const address =
 		residence === 'HILTON'

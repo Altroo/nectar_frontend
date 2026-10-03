@@ -1627,6 +1627,12 @@ const localizePropertyTag = (language: LanguageCode, property: Property) => {
 };
 
 const propertyDescriptionOverrides: Record<string, Partial<Record<LanguageCode, string>>> = {
+	'HILTON · 137 m²': {
+		fr: "Découvrez cet appartement d’exception situé à Hilton Résidence à Tanger. Offrant une vue imprenable sur la Méditerranée, un cadre sécurisé et une ambiance calme et luxueuse, ce bien représente une opportunité idéale pour un investissement de qualité ou une résidence élégante au cœur de la ville. Le parking est inclus dans le prix de vente.",
+		en: "Discover this exceptional apartment at Hilton Residence in Tangier. With breathtaking Mediterranean views, a secure setting and a calm, luxurious atmosphere, this property offers an ideal opportunity for a quality investment or an elegant home in the heart of the city. Parking is included in the sale price.",
+		ar: "اكتشف هذه الشقة الاستثنائية في إقامة Hilton بطنجة. تتمتع بإطلالة خلابة على البحر الأبيض المتوسط، وبيئة آمنة وأجواء هادئة وفاخرة، مما يجعلها فرصة مثالية لاستثمار عالي الجودة أو لإقامة أنيقة في قلب المدينة. موقف السيارات مشمول في سعر البيع.",
+		es: "Descubra este apartamento excepcional en Hilton Residencia, en Tánger. Con impresionantes vistas al Mediterráneo, un entorno seguro y un ambiente tranquilo y lujoso, esta propiedad representa una oportunidad ideal para una inversión de calidad o una residencia elegante en el corazón de la ciudad. El aparcamiento está incluido en el precio de venta.",
+	},
 	'HILTON · N°03': {
 		fr: 'À vendre, superbe appartement situé au 10ᵉ étage de la résidence Hilton, l’une des adresses les plus prestigieuses de Tanger. Offrant une vue panoramique exceptionnelle sur la Méditerranée, ce bien bénéficie d’un environnement sécurisé et d’un cadre élégant. Il constitue une excellente opportunité pour y vivre ou réaliser un investissement immobilier de qualité.',
 		ar: 'للبيع، شقة رائعة تقع في الطابق العاشر من إقامة Hilton، إحدى أرقى العناوين في طنجة. تتمتع بإطلالة بانورامية استثنائية على البحر الأبيض المتوسط، ضمن بيئة آمنة وإطار أنيق. وتشكل فرصة ممتازة للسكن أو لإنجاز استثمار عقاري عالي الجودة.',
