@@ -26,6 +26,8 @@ export type Property = {
 	surface_total: number | null;
 	surface_sold: string;
 	mezzanine: string;
+	surface_category?: 'small' | 'medium' | 'large' | '';
+	rental_category?: 'A' | 'B' | '';
 	project_label: string;
 	price: string;
 	price_note: string;
@@ -147,6 +149,10 @@ export type CommercialRentalPageCopy = {
 	totalSurface: string;
 	rdc: string;
 	mezzanine: string;
+	weightedSurface: string;
+	surfaceCategory: string;
+	surfaceCategories: Record<'small' | 'medium' | 'large', string>;
+	block: string;
 	viewDetails: string;
 	requestAvailability: string;
 	noResults: string;

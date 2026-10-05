@@ -32,6 +32,26 @@ describe('CommercialRentalPage', () => {
 		expect(screen.getByText('Aucun local ne correspond aux filtres sélectionnés.')).toBeInTheDocument();
 	});
 
+	it('filters by rental category independently of the building block', () => {
+		render(<CommercialRentalPage properties={commercialProperties} contact={fallbackContent.contact} />);
+		fireEvent.change(screen.getByLabelText('Catégorie locative'), { target: { value: 'A' } });
+		expect(screen.getAllByRole('article').filter((card) => card.classList.contains('cr-property-card')).map((card) => card.querySelector('h3')?.textContent)).toEqual([
+			'Local A1', 'Local A2', 'Local A3', 'Local A4', 'Local B1', 'Local B2', 'Local B3',
+		]);
+		fireEvent.change(screen.getByLabelText('Surface minimum'), { target: { value: '400' } });
+		expect(screen.getAllByRole('article').filter((card) => card.classList.contains('cr-property-card')).map((card) => card.querySelector('h3')?.textContent)).toEqual(['Local B3']);
+	});
+
+	it('shows the revised measurements and supplied size classification', () => {
+		const property = commercialProperties.find((property) => property.unit_number === 'B7')!;
+		render(<CommercialRentalPage properties={[property]} contact={fallbackContent.contact} />);
+		expect(screen.getByText('351 m²')).toBeInTheDocument();
+		expect(screen.getByText('163 m²')).toBeInTheDocument();
+		expect(screen.getByText('188 m²')).toBeInTheDocument();
+		expect(screen.getByText('257 m²')).toBeInTheDocument();
+		expect(screen.getByText('Grande')).toBeInTheDocument();
+	});
+
 	it('opens and closes the property gallery', () => {
 		render(<CommercialRentalPage properties={[commercialProperties[0]]} contact={fallbackContent.contact} />);
 

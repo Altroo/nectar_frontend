@@ -11,7 +11,7 @@ import { readFavoriteIds, writeFavoriteIds } from '@/utils/favorites';
 const favoriteStorageKey = 'nectar-location-local-favorites';
 
 const unitCode = (property: Property) => property.title.match(/\b([AB]\d+)\b/i)?.[1]?.toUpperCase() ?? '';
-const unitType = (property: Property) => unitCode(property).charAt(0);
+const unitType = (property: Property) => property.rental_category ?? '';
 const unitCardImage = (property: Property) => {
 	const code = unitCode(property);
 	return code ? `/assets/erasmus/units/${code}.jpg` : property.image.replace(/-(large|card|thumb)\.jpg$/, '-card.jpg') || '/assets/erasmus/erasmus-tower-building.jpg';
@@ -268,11 +268,16 @@ export const CommercialRentalPage = ({ properties, contact }: CommercialRentalPa
 														<strong>{property.residence}</strong>
 														<span>·</span>
 														{property.district}
+														<span>·</span>
+														{copy.block} {unitCode(property).charAt(0)}
 													</p>
 													<div className="cr-property-card__meta">
 														<PropertyMeta label={copy.totalSurface} value={surfaceLabel(property.surface_total)} />
 														<PropertyMeta label={copy.rdc} value={measurementLabel(property.project_label)} />
 														<PropertyMeta label={copy.mezzanine} value={measurementLabel(property.mezzanine)} />
+														<PropertyMeta label={copy.weightedSurface} value={measurementLabel(property.surface_sold)} />
+														<PropertyMeta label={copy.surfaceCategory} value={property.surface_category ? copy.surfaceCategories[property.surface_category] : '—'} />
+														<PropertyMeta label={copy.type} value={property.rental_category || '—'} />
 													</div>
 													<div className="cr-property-card__actions">
 														{property.is_rented ? (

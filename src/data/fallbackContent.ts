@@ -366,20 +366,20 @@ const rentApartments: Property[] = [
 });
 
 const rentCommercialUnits: Property[] = [
-	['Local A1 · ERASMUS TOWER', 'A', 235, 'RDC 141 m²', '94 m²', '188 m²'],
-	['Local A2 · ERASMUS TOWER', 'A', 239, 'RDC 81 m²', '158 m²', '160 m²'],
-	['Local A3 · ERASMUS TOWER', 'A', 314, 'RDC 148 m²', '166 m²', '231 m²'],
-	['Local A4 · ERASMUS TOWER', 'A', 292, 'RDC 181 m²', '111 m²', '237 m²'],
-	['Local A5 · ERASMUS TOWER', 'A', 292, 'RDC 183 m²', '109 m²', '238 m²'],
-	['Local A6 · ERASMUS TOWER', 'A', 213, 'RDC 126 m²', '87 m²', '170 m²'],
-	['Local B1 · ERASMUS TOWER', 'B', 211, 'RDC 108 m²', '103 m²', '160 m²'],
-	['Local B2 · ERASMUS TOWER', 'B', 270, 'RDC 168 m²', '102 m²', '219 m²'],
-	['Local B3 · ERASMUS TOWER', 'B', 505, 'RDC 314 m²', '191 m²', '410 m²'],
-	['Local B4 · ERASMUS TOWER', 'B', 388, 'RDC 194 m²', '194 m²', '291 m²'],
-	['Local B5 · ERASMUS TOWER', 'B', 262, 'RDC 136 m²', '126 m²', '199 m²'],
-	['Local B6 · ERASMUS TOWER', 'B', 277, 'RDC 152 m²', '125 m²', '215 m²'],
-	['Local B7 · ERASMUS TOWER', 'B', 401, 'RDC 168 m²', '233 m²', '285 m²'],
-].map(([title, type, surface, rdc, mezzanine, sold], index) => {
+	['Local A1 · ERASMUS TOWER', 'A', 235, 'RDC 136 m²', '99 m²', '185,5 m²', 'small', 'A'],
+	['Local A2 · ERASMUS TOWER', 'A', 210, 'RDC 122 m²', '88 m²', '166 m²', 'small', 'A'],
+	['Local A3 · ERASMUS TOWER', 'A', 287, 'RDC 178 m²', '109 m²', '232,5 m²', 'medium', 'A'],
+	['Local A4 · ERASMUS TOWER', 'A', 282, 'RDC 175 m²', '107 m²', '228,5 m²', 'medium', 'A'],
+	['Local A5 · ERASMUS TOWER', 'A', 305, 'RDC 143 m²', '162 m²', '224 m²', 'medium', 'B'],
+	['Local A6 · ERASMUS TOWER', 'A', 227, 'RDC 76 m²', '151 m²', '151,5 m²', 'small', 'B'],
+	['Local B1 · ERASMUS TOWER', 'B', 203, 'RDC 105 m²', '98 m²', '154 m²', 'small', 'A'],
+	['Local B2 · ERASMUS TOWER', 'B', 267, 'RDC 161 m²', '106 m²', '214 m²', 'medium', 'A'],
+	['Local B3 · ERASMUS TOWER', 'B', 498, 'RDC 309 m²', '189 m²', '403,5 m²', 'large', 'A'],
+	['Local B4 · ERASMUS TOWER', 'B', 379, 'RDC 190 m²', '189 m²', '284,5 m²', 'large', 'B'],
+	['Local B5 · ERASMUS TOWER', 'B', 244, 'RDC 131 m²', '113 m²', '187,5 m²', 'small', 'B'],
+	['Local B6 · ERASMUS TOWER', 'B', 270, 'RDC 147 m²', '123 m²', '208,5 m²', 'medium', 'B'],
+	['Local B7 · ERASMUS TOWER', 'B', 351, 'RDC 163 m²', '188 m²', '257 m²', 'large', 'B'],
+].map(([title, type, surface, rdc, mezzanine, sold, surfaceCategory, rentalCategory], index) => {
 	const photos = erasmusCommercialAlbumFor(String(title), index);
 
 	return {
@@ -400,6 +400,8 @@ const rentCommercialUnits: Property[] = [
 		surface_total: Number(surface),
 		surface_sold: String(sold),
 		mezzanine: String(mezzanine),
+		surface_category: String(surfaceCategory) as Property['surface_category'],
+		rental_category: String(rentalCategory) as Property['rental_category'],
 		project_label: String(rdc),
 		price: '',
 		price_note: String(type),
