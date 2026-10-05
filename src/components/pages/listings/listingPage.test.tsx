@@ -137,6 +137,43 @@ describe('ListingPage', () => {
 		expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 	});
 
+	it('shows available rentals first and sold rentals last, including after filtering', () => {
+		render(
+			<ListingPage
+				transaction="rent"
+				propertyType="apartment"
+				title="Rent"
+				kicker="Rent kicker"
+				description="Rent description"
+				sectionTitle="Properties"
+				sectionDescription="Available properties"
+				properties={[...rentalProperties].reverse()}
+				contact={fallbackContent.contact}
+			/>,
+		);
+
+		const cards = screen.getAllByRole('article');
+		expect(cards.map((card) => card.querySelector('h3')?.textContent)).toEqual([
+			'Appartement Hilton N°05',
+			'Appartement Hilton N°11 - Etage 12',
+			'Appartement City Center Ra1 N°B',
+			'Appartement Hilton N°11',
+			'Appartement Hilton N°13',
+		]);
+		for (const card of cards.slice(0, 3)) expect(card).not.toHaveClass('is-sold');
+		for (const card of cards.slice(3)) expect(card).toHaveClass('is-sold');
+
+		fireEvent.change(screen.getByPlaceholderText('listing.searchApartmentPlaceholder'), {
+			target: { value: 'Hilton' },
+		});
+		expect(screen.getAllByRole('article').map((card) => card.querySelector('h3')?.textContent)).toEqual([
+			'Appartement Hilton N°05',
+			'Appartement Hilton N°11 - Etage 12',
+			'Appartement Hilton N°11',
+			'Appartement Hilton N°13',
+		]);
+	});
+
 	it.each(['Appartement Hilton N°11', 'Appartement Hilton N°13'])('marks %s as sold without album access', (title) => {
 		const soldRental = rentalProperties.find((property) => property.title === title);
 		expect(soldRental?.is_sold).toBe(true);
@@ -155,7 +192,7 @@ describe('ListingPage', () => {
 			/>,
 		);
 
-		expect(screen.getByText(soldRental!.title)).toBeInTheDocument();
+		expect(screen.getByText(soldRental!.title).closest('article')).toHaveClass('is-sold');
 		expect(screen.getByText('listing.sold')).toBeInTheDocument();
 		expect(screen.getByText('listing.tags.apartmentSold')).toBeInTheDocument();
 		expect(screen.getByRole('img', { name: soldRental!.photos[0].alt_text })).toBeInTheDocument();

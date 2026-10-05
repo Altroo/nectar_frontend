@@ -90,7 +90,8 @@ export const ListingPage = ({
 				.filter((property) => property.transaction === transaction && property.property_type === propertyType)
 				.sort((a, b) => {
 					const groupOrder = transaction === 'sale' && propertyType === 'apartment' ? saleApartmentGroup(a) - saleApartmentGroup(b) : 0;
-					return groupOrder || a.sort_order - b.sort_order;
+					const soldOrder = propertyType === 'apartment' ? Number(a.is_sold) - Number(b.is_sold) : 0;
+					return soldOrder || groupOrder || a.sort_order - b.sort_order;
 				})
 				.map((property) => localizeProperty(language, property));
 
@@ -256,7 +257,7 @@ const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Pr
 	const ctaLabel = property.transaction === 'sale' ? t('listing.requestPrice') : property.transaction === 'rent' ? t('listing.requestAvailability') : t('listing.request');
 
 	return (
-		<article className={`card${isCommercial ? ' local' : ''}${isSaleApartment ? ' sale-apartment' : ''}${isSaleApartment && property.is_sold ? ' is-sold' : ''}`}>
+		<article className={`card${isCommercial ? ' local' : ''}${isSaleApartment ? ' sale-apartment' : ''}${isApartmentListing && property.is_sold ? ' is-sold' : ''}`}>
 			<div className={`card-img${isApartmentListing ? ' apartment-card-image' : ''}`} style={cardImage ? { backgroundImage: `linear-gradient(135deg,rgba(73,52,37,.24),rgba(73,52,37,.04)),url('${cardImage}')` } : undefined}>
 				{isApartmentListing ? (
 					<>
