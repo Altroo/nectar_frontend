@@ -279,7 +279,7 @@ const PropertyCard = ({ property, isFavorite, onToggleFavorite }: { property: Pr
 				<h3>{property.title}</h3>
 				<p>{property.description}</p>
 				{property.price ? <span className="price">{property.price}</span> : null}
-				{property.price_note && isRentalApartment ? <p>{t('listing.priceNoteMonth')}</p> : null}
+				{property.price_note && isRentalApartment ? <p>{property.price_note}</p> : null}
 				<div className="meta">
 					{isRentalApartment ? (
 						<>

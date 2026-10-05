@@ -356,6 +356,7 @@ export const translations = {
 				commercial: 'RTE MALABATA RESD ERASMUS. Local visible et modulable, adapté showroom, commerce premium, cabinet ou activité de service.',
 			},
 				priceNoteMonth: 'Prix indiqué pour juillet.',
+				priceNoteOctober2026: 'Prix indiqué pour octobre 2026.',
 			requestPrice: 'Demander le prix →',
 			requestAvailability: 'Demander la disponibilité →',
 			request: 'Faire une demande →',
@@ -702,6 +703,7 @@ export const translations = {
 				commercial: 'RTE MALABATA RESD ERASMUS. محل واضح وقابل للتكييف، مناسب لعرض المنتجات أو التجارة أو مكتب أو نشاط خدماتي.',
 			},
 				priceNoteMonth: 'السعر المشار إليه خاص بشهر يوليوز.',
+				priceNoteOctober2026: 'السعر المشار إليه خاص بشهر أكتوبر 2026.',
 			requestPrice: 'طلب السعر →',
 			requestAvailability: 'طلب التوفر →',
 			request: 'إرسال طلب →',
@@ -1048,6 +1050,7 @@ export const translations = {
 				commercial: 'RTE MALABATA RESD ERASMUS. A visible, adaptable unit suitable for retail, showroom, office or service activity.',
 			},
 				priceNoteMonth: 'Price indicated for July.',
+				priceNoteOctober2026: 'Price indicated for October 2026.',
 			requestPrice: 'Request price →',
 			requestAvailability: 'Request availability →',
 			request: 'Send a request →',
@@ -1394,6 +1397,7 @@ export const translations = {
 				commercial: 'RTE MALABATA RESD ERASMUS. Local visible y adaptable, adecuado para tienda, showroom, oficina o actividad de servicios.',
 			},
 				priceNoteMonth: 'Precio indicado para julio.',
+				priceNoteOctober2026: 'Precio indicado para octubre de 2026.',
 			requestPrice: 'Solicitar precio →',
 			requestAvailability: 'Solicitar disponibilidad →',
 			request: 'Enviar solicitud →',
@@ -1729,7 +1733,11 @@ export const localizeProperty = (language: LanguageCode, property: Property): Pr
 		unit_number: localizeNumberMarker(language, property.unit_number),
 		project_label: localizeFloorValue(language, property.project_label),
 		surface_sold: localizeFloorValue(language, property.surface_sold),
-		price_note: property.price_note.startsWith('Prix indiqué pour ') ? translate(language, 'listing.priceNoteMonth') : property.price_note,
+		price_note: property.price_note === 'Prix indiqué pour octobre 2026.'
+			? translate(language, 'listing.priceNoteOctober2026')
+			: property.price_note === 'Prix indiqué pour juillet.'
+				? translate(language, 'listing.priceNoteMonth')
+				: property.price_note,
 		cta_label: property.transaction === 'sale' ? translate(language, 'listing.requestPrice') : translate(language, 'listing.requestAvailability'),
 		photos: property.photos.map((photo) => localizePhoto(language, photo)),
 	};
