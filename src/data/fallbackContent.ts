@@ -332,7 +332,7 @@ const rentApartments: Property[] = [
 	['Appartement Hilton N°05', 'Hilton', 'Etage 09', 'N°05', 2, '1 300 DH'],
 	['Appartement Hilton N°11', 'Hilton', 'Etage 10', 'N°11', 1, '1,100 MAD'],
 	['Appartement Hilton N°13', 'Hilton', 'Etage 10', 'N°13', 2, '1,400 MAD'],
-	['Appartement Hilton N°11 - Etage 12', 'Hilton', 'Etage 12', 'N°11', 1, '1,100 MAD'],
+	['Appartement Hilton N°11 - Etage 12', 'Hilton', 'Etage 12', 'N°11', 1, '900 DH'],
 	['Appartement City Center Ra1 N°B', 'City Center Ra1', 'Etage 05', 'N°B', 4, '1,500 MAD'],
 ].map(([title, residence, floor, unitNumber, bedrooms, price], index) => {
 	const address = residence === 'Hilton' ? 'Place du Maghreb Arabe, Tanger' : 'City Center Ra1, Tanger';
@@ -357,7 +357,7 @@ const rentApartments: Property[] = [
 		mezzanine: '',
 		project_label: '',
 		price: String(price),
-		price_note: ['Appartement Hilton N°05'].includes(String(title)) ? 'Prix indiqué pour octobre 2026.' : 'Prix indiqué pour juillet.',
+		price_note: ['Appartement Hilton N°05', 'Appartement Hilton N°11 - Etage 12'].includes(String(title)) ? 'Prix indiqué pour octobre 2026.' : 'Prix indiqué pour juillet.',
 		cta_label: 'Demander la disponibilité →',
 		image: photos[0]?.image ?? '',
 		photos,
