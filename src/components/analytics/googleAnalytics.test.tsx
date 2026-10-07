@@ -1,5 +1,5 @@
 import { StrictMode, type ReactNode } from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import GoogleAnalytics from './googleAnalytics';
 
 let mockPathname = '/';
@@ -46,7 +46,7 @@ describe('GoogleAnalytics', () => {
 		expect(screen.getByTestId('google-analytics')).toHaveTextContent("gtag('config', 'G-TEST12345', { send_page_view: false });");
 	});
 
-	it('sends the initial page view once initialization finishes, even when gtag was initially unavailable', () => {
+	it('sends the initial page view once initialization finishes, even when gtag was initially unavailable', async () => {
 		mockPathname = '/vente-appartement';
 		mockSearchParams = new URLSearchParams('source=newsletter');
 		document.title = 'Appartements à vendre';
@@ -57,7 +57,7 @@ describe('GoogleAnalytics', () => {
 		expect(gtag).not.toHaveBeenCalled();
 		fireEvent.click(screen.getByTestId('google-analytics'));
 
-		expect(gtag).toHaveBeenCalledTimes(1);
+		await waitFor(() => expect(gtag).toHaveBeenCalledTimes(1));
 		expect(gtag).toHaveBeenCalledWith('event', 'page_view', {
 			send_to: 'G-TEST12345',
 			page_path: '/vente-appartement?source=newsletter',
@@ -66,30 +66,51 @@ describe('GoogleAnalytics', () => {
 		});
 	});
 
-	it('tracks route and query changes and return visits without duplicate views on rerenders', () => {
+	it('tracks route and query changes and return visits without duplicate views on rerenders', async () => {
 		const gtag = jest.fn();
 		window.gtag = gtag;
-		const view = (
+		const view = () => (
 			<StrictMode>
 				<GoogleAnalytics measurementId="G-TEST12345" />
 			</StrictMode>
 		);
-		const { rerender } = render(view);
+		const { rerender } = render(view());
 		fireEvent.click(screen.getByTestId('google-analytics'));
-		expect(gtag).toHaveBeenCalledTimes(1);
+		await waitFor(() => expect(gtag).toHaveBeenCalledTimes(1));
 
 		mockSearchParams = new URLSearchParams();
-		rerender(<StrictMode><GoogleAnalytics measurementId="G-TEST12345" /></StrictMode>);
+		rerender(view());
 		expect(gtag).toHaveBeenCalledTimes(1);
 
 		mockPathname = '/contact';
-		rerender(<StrictMode><GoogleAnalytics measurementId="G-TEST12345" /></StrictMode>);
+		rerender(view());
+		await waitFor(() => expect(gtag).toHaveBeenCalledTimes(2));
 		mockSearchParams = new URLSearchParams('source=footer');
-		rerender(<StrictMode><GoogleAnalytics measurementId="G-TEST12345" /></StrictMode>);
+		rerender(view());
+		await waitFor(() => expect(gtag).toHaveBeenCalledTimes(3));
 		mockPathname = '/';
 		mockSearchParams = new URLSearchParams();
-		rerender(<StrictMode><GoogleAnalytics measurementId="G-TEST12345" /></StrictMode>);
+		rerender(view());
+		await waitFor(() => expect(gtag).toHaveBeenCalledTimes(4));
 
 		expect(gtag.mock.calls.map((call) => call[2].page_path)).toEqual(['/', '/contact', '/contact?source=footer', '/']);
+	});
+
+	it('uses the updated document title after navigation effects finish', async () => {
+		const gtag = jest.fn();
+		window.gtag = gtag;
+		const { rerender } = render(<GoogleAnalytics measurementId="G-TEST12345" />);
+		fireEvent.click(screen.getByTestId('google-analytics'));
+		await waitFor(() => expect(gtag).toHaveBeenCalledTimes(1));
+
+		mockPathname = '/location-appartement';
+		rerender(<GoogleAnalytics measurementId="G-TEST12345" />);
+		document.title = 'Appartements à louer à Tanger - Nectar immobilière';
+
+		await waitFor(() => expect(gtag).toHaveBeenLastCalledWith('event', 'page_view', expect.objectContaining({
+			page_path: '/location-appartement',
+			page_title: document.title,
+		})));
+		expect(gtag).toHaveBeenCalledTimes(2);
 	});
 });

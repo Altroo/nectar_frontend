@@ -30,13 +30,19 @@ const GoogleAnalyticsPageView = ({ measurementId, ready }: { measurementId: stri
 		const pageKey = `${measurementId}:${pagePath}`;
 		if (lastTrackedPageRef.current === pageKey) return;
 
-		lastTrackedPageRef.current = pageKey;
-		window.gtag('event', 'page_view', {
-			send_to: measurementId,
-			page_path: pagePath,
-			page_location: window.location.href,
-			page_title: document.title,
+		// Let the page and language provider finish updating the document title.
+		const frame = window.requestAnimationFrame(() => {
+			if (!window.gtag) return;
+			lastTrackedPageRef.current = pageKey;
+			window.gtag('event', 'page_view', {
+				send_to: measurementId,
+				page_path: pagePath,
+				page_location: window.location.href,
+				page_title: document.title,
+			});
 		});
+
+		return () => window.cancelAnimationFrame(frame);
 	}, [measurementId, pathname, ready, searchParams]);
 
 	return null;
