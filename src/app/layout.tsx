@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import type { ReactNode } from 'react';
+import GoogleAnalytics from '@/components/analytics/googleAnalytics';
 import { I18nProvider } from '@/contexts/languageContext';
 import { defaultLanguage, isLanguageCode, languageCookieName, languageDirection } from '@/translations';
 import { getSiteRoot } from '@/utils/routes';
@@ -29,6 +30,7 @@ const RootLayout = async ({ children }: Readonly<{ children: ReactNode }>) => {
 	return (
 		<html lang={language} dir={languageDirection(language)}>
 			<body dir={languageDirection(language)}>
+				<GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
 				<I18nProvider initialLanguage={language}>{children}</I18nProvider>
 			</body>
 		</html>
