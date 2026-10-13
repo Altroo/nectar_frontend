@@ -52,8 +52,12 @@ describe('CommercialRentalPage', () => {
 		expect(screen.getByText('Grande')).toBeInTheDocument();
 	});
 
-	it('opens and closes the property gallery', () => {
-		render(<CommercialRentalPage properties={[commercialProperties[0]]} contact={fallbackContent.contact} />);
+	it.each(['A1', 'A5', 'B6'])('shows %s as available and opens its gallery', (unitNumber) => {
+		const property = commercialProperties.find((property) => property.unit_number === unitNumber)!;
+		render(<CommercialRentalPage properties={[property]} contact={fallbackContent.contact} />);
+
+		expect(screen.getByText('À louer')).toBeInTheDocument();
+		expect(screen.getByRole('img', { name: `Local ${unitNumber} · Erasmus Tower` }).closest('article')).not.toHaveClass('is-rented');
 
 		fireEvent.click(screen.getByRole('button', { name: /Voir les détails/i }));
 		expect(screen.getByRole('dialog')).toBeInTheDocument();
@@ -61,7 +65,7 @@ describe('CommercialRentalPage', () => {
 		expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 	});
 
-	it.each(['Local A4 · ERASMUS TOWER', 'Local A5 · ERASMUS TOWER', 'Local B6 · ERASMUS TOWER'])('marks %s as rented and disables its gallery', (title) => {
+	it.each(['Local A3 · ERASMUS TOWER', 'Local A4 · ERASMUS TOWER', 'Local B2 · ERASMUS TOWER'])('marks %s as rented and disables its gallery', (title) => {
 		const rentedProperty = commercialProperties.find((property) => property.title === title);
 		expect(rentedProperty?.is_rented).toBe(true);
 

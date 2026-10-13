@@ -387,7 +387,7 @@ const rentCommercialUnits: Property[] = [
 		transaction: 'rent',
 		property_type: 'commercial',
 		is_sold: false,
-		is_rented: ['Local A4 · ERASMUS TOWER', 'Local A5 · ERASMUS TOWER', 'Local B6 · ERASMUS TOWER'].includes(String(title)),
+		is_rented: ['Local A3 · ERASMUS TOWER', 'Local A4 · ERASMUS TOWER', 'Local B2 · ERASMUS TOWER'].includes(String(title)),
 		title: String(title),
 		tag: 'Malabata · Local commercial à louer',
 		residence: 'Erasmus Tower',
