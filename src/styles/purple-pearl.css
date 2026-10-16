@@ -1178,6 +1178,9 @@ html[dir="rtl"] .pp-hero-text:before{
     visibility:hidden!important;
     transition:opacity .22s ease, transform .22s ease, visibility .22s ease!important;
   }
+  .site-header .main-nav:not(.is-open){
+    display:none!important;
+  }
   .site-header .main-nav.is-open{
     display:flex!important;
     opacity:1!important;
