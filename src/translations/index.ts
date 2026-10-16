@@ -342,7 +342,7 @@ export const translations = {
 				rdc: 'RDC',
 				mezzanine: 'Mezzanine',
 				totalSurface: 'Surface totale',
-				soldSurface: 'Surface vendue',
+				soldSurface: 'Surface',
 			},
 			tags: {
 				apartmentForSale: 'Appartement à vendre',
@@ -689,7 +689,7 @@ export const translations = {
 				rdc: 'الطابق الأرضي',
 				mezzanine: 'ميزانين',
 				totalSurface: 'المساحة الكلية',
-				soldSurface: 'المساحة المباعة',
+				soldSurface: 'المساحة',
 			},
 			tags: {
 				apartmentForSale: 'شقة للبيع',
@@ -1036,7 +1036,7 @@ export const translations = {
 				rdc: 'Ground floor',
 				mezzanine: 'Mezzanine',
 				totalSurface: 'Total surface',
-				soldSurface: 'Sold surface',
+				soldSurface: 'Surface area',
 			},
 			tags: {
 				apartmentForSale: 'Apartment for sale',
@@ -1383,7 +1383,7 @@ export const translations = {
 				rdc: 'Planta baja',
 				mezzanine: 'Entrepiso',
 				totalSurface: 'Superficie total',
-				soldSurface: 'Superficie vendida',
+				soldSurface: 'Superficie',
 			},
 			tags: {
 				apartmentForSale: 'Apartamento en venta',

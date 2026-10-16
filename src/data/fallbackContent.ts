@@ -290,7 +290,7 @@ const saleApartments: Property[] = [
 	['MANDELSON BLOC A · N°47', 'MANDELSON BLOC A', 'Iberia', 'ETAGE 06', 'N°47', 3, 102, '102 m²'],
 	['MARINA BLOC B · N°302', 'MARINA BLOC B', 'Marina', 'ETAGE 03', 'N°302', 1, 84, '84 m²'],
 	['MARINA BLOC B · N°303', 'MARINA BLOC B', 'Marina', 'ETAGE 03', 'N°303', 1, 89, '89 m²'],
-	['MARINA BLOC B · N°306', 'MARINA BLOC B', 'Marina', 'ETAGE 03', 'N°306', 3, 341, '261 m² vendu'],
+	['MARINA BLOC B · N°306', 'MARINA BLOC B', 'Marina', 'ETAGE 03', 'N°306', 3, 341, '261 m²'],
 	['HILTON N° 1', 'HILTON', 'Centre-ville', 'ETAGE 09', 'N° 1', 3, 131, '131 m²'],
 ].map(([title, residence, district, floor, unitNumber, bedrooms, surface, sold], index) => {
 	const address =
